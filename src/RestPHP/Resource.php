@@ -16,6 +16,7 @@
  * Redistributions in binary form must reproduce the above copyright notice,
  * this list of conditions and the following disclaimer in the documentation
  * and/or other materials provided with the distribution.
+ *
  * Neither the name of the RestPHP Framework nor the names of its contributors
  * may be used to endorse or promote products derived from this software
  * without specific prior written permission.
@@ -32,9 +33,13 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  *
- * @copyright  2011 RestPHP Group
+ * @category   RestPHP
  * @package    RestPHP
+ * @subpackage Resource
  * @namespace  RestPHP
+ * @author     Joshua Johnston <johnston.joshua@gmail.com>
+ * @copyright  2011 RestPHP Group, Joshua Johnston
+ * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
 namespace RestPHP;
@@ -42,13 +47,16 @@ namespace RestPHP;
 /**
  * RestPHP Base Resource class
  *
- * @author     jjohnston
- * @namespace  RestPHP
+ * @category   RestPHP
  * @package    RestPHP
+ * @subpackage Resource
+ * @namespace  RestPHP
+ * @author     Joshua Johnston <johnston.joshua@gmail.com>
+ * @copyright  2011 RestPHP Group, Joshua Johnston
+ * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 abstract class Resource
 {
-
     /**
      * Request Instance
      *
@@ -70,7 +78,6 @@ abstract class Resource
      */
     public function __construct(Request $request, Response $response)
     {
-
     }
 
     public function options()
@@ -102,4 +109,5 @@ abstract class Resource
     {
 
     }
+
 }

@@ -2,7 +2,7 @@
 /**
  * RestPHP Framework
  *
- * PHP Version 5.3
+ * PHP Version 5.3, PHPUnit 3.4
  *
  * Copyright (c) 2011, RestPHP Framework
  * All rights reserved.
@@ -16,6 +16,7 @@
  * Redistributions in binary form must reproduce the above copyright notice,
  * this list of conditions and the following disclaimer in the documentation
  * and/or other materials provided with the distribution.
+ *
  * Neither the name of the RestPHP Framework nor the names of its contributors
  * may be used to endorse or promote products derived from this software
  * without specific prior written permission.
@@ -32,10 +33,13 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  *
- * @copyright  2011 RestPHP Framework
+ * @category   RestPHP
  * @package    RestPHP
- * @namespace  RestPHP
- * @subpackage
+ * @subpackage Test
+ * @namespace  RestPHP\Test
+ * @author     Joshua Johnston <johnston.joshua@gmail.com>
+ * @copyright  2011 RestPHP Group, Joshua Johnston
+ * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
 namespace RestPHP\Test;
@@ -46,15 +50,18 @@ namespace RestPHP\Test;
 require 'RestPHP/Response.php';
 
 /**
- * ResponseTest
+ * Test for \RestPHP\Response
  *
- * @author     "Joshua Johnston" <johnston.joshua@gmail.com>
- * @namespace  RestPHP
+ * @category   RestPHP
  * @package    RestPHP
+ * @subpackage Test
+ * @namespace  RestPHP\Test
+ * @author     Joshua Johnston <johnston.joshua@gmail.com>
+ * @copyright  2011 RestPHP Group, Joshua Johnston
+ * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 class ResponseTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * \RestPHP\Response
      *
@@ -71,12 +78,23 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Default all HTTP verbs to 501 Not Implemented
+     */
+    public function testDefaultStatusIs501NotImplemented()
+    {
+        $this->assertEquals(501, $this->response->getStatus());
+    }
+
+    /**
      * Tests that the Status header for FCGI is generated properly
      */
     public function testFcgiStatusGeneratedProperly()
     {
         $response = $this->response;
         $response->setIsFgci(true);
+        $this->assertEquals('Status: 501 Not Implemented', $response->makeStatus());
+
+        $response->setStatus(200);
         $this->assertEquals('Status: 200 OK', $response->makeStatus());
     }
 
@@ -87,6 +105,9 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
     {
         $response = $this->response;
         $response->setIsHttp(true);
+        $this->assertEquals('HTTP/1.1 501 Not Implemented', $response->makeStatus());
+
+        $response->setStatus(200);
         $this->assertEquals('HTTP/1.1 200 OK', $response->makeStatus());
     }
 
@@ -124,4 +145,5 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
 }
