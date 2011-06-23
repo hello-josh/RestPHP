@@ -37,9 +37,6 @@
  * @namespace  RestPHP
  */
 
-/**
- * @namespace RestPHP
- */
 namespace RestPHP;
 
 /**
@@ -48,59 +45,58 @@ namespace RestPHP;
  * @author     jjohnston
  * @namespace  RestPHP
  * @package    RestPHP
- * @version    $Id:$
  */
 class Request
 {
-	/**
-	 * Raw body of the HTTP request
-	 *
-	 * @var string
-	 */
-	protected $body;
 
-	/**
-	 * HTTP Headers of the request
-	 *
-	 * @var array
-	 */
-	protected $headers = array();
+    /**
+     * Raw body of the HTTP request
+     *
+     * @var string
+     */
+    protected $body;
+    /**
+     * HTTP Headers of the request
+     *
+     * @var array
+     */
+    protected $headers = array();
 
-	/**
-	 * Gets the specified HTTP header
-	 *
-	 * @param string $header HTTP Header requested
-	 * @return string|null
-	 */
-	public function getHeader($header)
-	{
-		$header = 'HTTP_' . strtoupper(str_replace('-', '_', $header));
+    /**
+     * Gets the specified HTTP header
+     *
+     * @param string $header HTTP Header requested
+     * @return string|null
+     */
+    public function getHeader($header)
+    {
+        $header = 'HTTP_' . strtoupper(str_replace('-', '_', $header));
 
-		if (array_key_exists($header, $_SERVER)) {
-			return $_SERVER[$header];
-		}
+        if (array_key_exists($header, $_SERVER)) {
+            return $_SERVER[$header];
+        }
 
-		return null;
-	}
+        return null;
+    }
 
-	/**
-	 * Gets the raw body of the HTTP request
-	 *
-	 * @return string|false Raw body, or false if not present
-	 */
-	public function getBody()
-	{
-		if ($this->body === null) {
+    /**
+     * Gets the raw body of the HTTP request
+     *
+     * @return string|false Raw body, or false if not present
+     */
+    public function getBody()
+    {
+        if ($this->body === null) {
 
-			$this->body = false;
+            $this->body = false;
 
-			$body = file_get_contents('php://input');
+            $body = file_get_contents('php://input');
 
-			if (strlen($body)) {
-				$this->body = $body;
-			}
-		}
+            if (strlen($body)) {
+                $this->body = $body;
+            }
+        }
 
-		return $this->body;
-	}
+        return $this->body;
+    }
 }

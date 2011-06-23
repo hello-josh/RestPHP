@@ -51,78 +51,77 @@ require 'RestPHP/Response.php';
  * @author     "Joshua Johnston" <johnston.joshua@gmail.com>
  * @namespace  RestPHP
  * @package    RestPHP
- * @version    $Id:$
  */
 class ResponseTest extends \PHPUnit_Framework_TestCase
 {
 
-	/**
-	 * \RestPHP\Response
-	 *
-	 * @var \RestPHP\Response
-	 */
-	protected $response;
+    /**
+     * \RestPHP\Response
+     *
+     * @var \RestPHP\Response
+     */
+    protected $response;
 
-	/**
-	 * Creates \RestPHP\Response instance
-	 */
-	protected function setUp()
-	{
-		$this->response = new \RestPHP\Response();
-	}
+    /**
+     * Creates \RestPHP\Response instance
+     */
+    protected function setUp()
+    {
+        $this->response = new \RestPHP\Response();
+    }
 
-	/**
-	 * Tests that the Status header for FCGI is generated properly
-	 */
-	public function testFcgiStatusGeneratedProperly()
-	{
-		$response = $this->response;
-		$response->setIsFgci(true);
-		$this->assertEquals('Status: 200 OK', $response->makeStatus());
-	}
+    /**
+     * Tests that the Status header for FCGI is generated properly
+     */
+    public function testFcgiStatusGeneratedProperly()
+    {
+        $response = $this->response;
+        $response->setIsFgci(true);
+        $this->assertEquals('Status: 200 OK', $response->makeStatus());
+    }
 
-	/**
-	 * Tests that the Status header for HTTP is generated properly
-	 */
-	public function testHttpStatusGeneratedProperly()
-	{
-		$response = $this->response;
-		$response->setIsHttp(true);
-		$this->assertEquals('HTTP/1.1 200 OK', $response->makeStatus());
-	}
+    /**
+     * Tests that the Status header for HTTP is generated properly
+     */
+    public function testHttpStatusGeneratedProperly()
+    {
+        $response = $this->response;
+        $response->setIsHttp(true);
+        $this->assertEquals('HTTP/1.1 200 OK', $response->makeStatus());
+    }
 
-	/**
-	 * Provides for testContentType
-	 *
-	 * @return array
-	 */
-	public static function providerContentType()
-	{
-		return array(
-			array(
-				array('Content-Type', 'text/html'),
-				'Content-Type: text/html'
-			),
-			array(
-				array('Content-Type', 'application/json'),
-				'Content-Type: application/json'
-			),
-			array(
-				array('Content-Type', 'text/html', 'charset=utf-8'),
-				'Content-Type: text/html; charset=utf-8'
-			)
-		);
-	}
+    /**
+     * Provides for testContentType
+     *
+     * @return array
+     */
+    public static function providerContentType()
+    {
+        return array(
+            array(
+                array('Content-Type', 'text/html'),
+                'Content-Type: text/html'
+            ),
+            array(
+                array('Content-Type', 'application/json'),
+                'Content-Type: application/json'
+            ),
+            array(
+                array('Content-Type', 'text/html', 'charset=utf-8'),
+                'Content-Type: text/html; charset=utf-8'
+            )
+        );
+    }
 
-	/**
-	 * @dataProvider providerContentType
-	 */
-	public function testContentType($header, $expected)
-	{
-		$response = $this->response;
+    /**
+     * @dataProvider providerContentType
+     */
+    public function testContentType($header, $expected)
+    {
+        $response = $this->response;
 
-		$actual = $response->makeHeader($header);
+        $actual = $response->makeHeader($header);
 
-		$this->assertEquals($expected, $actual);
-	}
+        $this->assertEquals($expected, $actual);
+    }
 }

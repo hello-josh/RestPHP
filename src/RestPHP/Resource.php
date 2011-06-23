@@ -37,9 +37,6 @@
  * @namespace  RestPHP
  */
 
-/**
- * @namespace RestPHP
- */
 namespace RestPHP;
 
 /**
@@ -48,62 +45,61 @@ namespace RestPHP;
  * @author     jjohnston
  * @namespace  RestPHP
  * @package    RestPHP
- * @version    $Id:$
  */
 abstract class Resource
 {
-	/**
-	 * Request Instance
-	 *
-	 * @var \RestPHP\Request
-	 */
-	protected $request;
 
-	/**
-	 * Response Instance
-	 *
-	 * @var \RestPHP\Response
-	 */
-	protected $response;
+    /**
+     * Request Instance
+     *
+     * @var \RestPHP\Request
+     */
+    protected $request;
+    /**
+     * Response Instance
+     *
+     * @var \RestPHP\Response
+     */
+    protected $response;
 
-	/**
-	 * Creates a new instance
-	 *
-	 * @param Request $request
-	 * @param Response $response
-	 */
-	public function __construct(Request $request, Response $response)
-	{
+    /**
+     * Creates a new instance
+     *
+     * @param Request $request
+     * @param Response $response
+     */
+    public function __construct(Request $request, Response $response)
+    {
 
-	}
+    }
 
-	public function options()
-	{
+    public function options()
+    {
 
-	}
+    }
 
-	public function get()
-	{
+    public function get()
+    {
 
-	}
+    }
 
-	public function head()
-	{
+    public function head()
+    {
 
-	}
+    }
 
-	public function post()
-	{
+    public function post()
+    {
 
-	}
+    }
 
-	public function put()
-	{
+    public function put()
+    {
 
-	}
+    }
 
-	public function trace()
-	{
+    public function trace()
+    {
 
-	}
+    }
 }
