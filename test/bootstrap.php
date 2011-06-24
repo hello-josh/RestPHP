@@ -38,7 +38,7 @@
  * @subpackage Test
  * @namespace  RestPHP\Test
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
- * @copyright  2011 RestPHP Group, Joshua Johnston
+ * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 

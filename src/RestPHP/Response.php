@@ -36,12 +36,14 @@
  * @category   RestPHP
  * @package    RestPHP
  * @subpackage Response
- * @namespace  RestPHP
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
- * @copyright  2011 RestPHP Group, Joshua Johnston
+ * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
+/**
+ * @namespace
+ */
 namespace RestPHP;
 
 /**
@@ -50,9 +52,8 @@ namespace RestPHP;
  * @category   RestPHP
  * @package    RestPHP
  * @subpackage Response
- * @namespace  RestPHP
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
- * @copyright  2011 RestPHP Group, Joshua Johnston
+ * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 class Response
