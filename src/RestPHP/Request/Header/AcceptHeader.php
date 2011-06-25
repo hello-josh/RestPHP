@@ -40,10 +40,10 @@
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
+
 /**
  * @namespace
  */
-
 namespace RestPHP\Request\Header;
 
 /**
@@ -73,7 +73,7 @@ class AcceptHeader implements RequestHeader
     /**
      * Parses the HTTP Accept header
      *
-     * Code provided by Wez Furlong
+     * Code inspired by Wez Furlong
      * @link http://shiflett.org/blog/2011/may/the-accept-header
      * @link http://shiflett.org/blog/2011/may/the-accept-header#comment-7
      *
@@ -87,57 +87,88 @@ class AcceptHeader implements RequestHeader
 
         foreach (preg_split('/\s*,\s*/', $header) as $i => $term) {
 
-            $o = new \stdclass;
+            $mime = array();
 
-            $o->pos = $i;
+            $mime['pos'] = $i;
 
-            if (preg_match(",^(\S+)(?:;[^q]\S*=\S+)*\s*;\s*q=([0-9\.]+),i",
-                           $term, $M)) {
+            if (preg_match(",^(\S+)(;.+),i", $term, $M)) {
 
-                $o->type = $M[1];
-                $o->q = (double) $M[2];
+                $mime['type'] = $M[1];
+                // parse_str is magic like a query string
+                parse_str(str_replace(';', '&', $M[2]), $p);
+                foreach ($p as $k => $v) {
+                    $mime[$k] = $v;
+                    if ($k != 'q') {
+                        // put any extensions back
+                        $mime['type'] .= ";$k=$v";
+                    }
+                }
+
+                if (!isset($mime['q'])) {
+                    $mime['q'] = 1;
+                }
+
             }
             else {
 
-                $o->type = $term;
-                $o->q = 1;
+                $mime['type'] = $term;
+                $mime['q'] = 1;
             }
 
-            $accept[] = $o;
+            $mime['q'] = (double) $mime['q'];
+
+            $accept[] = $mime;
         }
 
         // weighted sort
         usort($accept, function ($a, $b) {
 
-            // first tier: highest q factor wins
-            $diff = $b->q - $a->q;
-
-            if ($diff > 0) {
-
-                $diff = 1;
-            }
-            elseif ($diff < 0) {
-
-                $diff = -1;
-            }
-            else {
-
-                // TODO:
-                // Media ranges can be overridden by more specific media ranges
-                // or specific media types. If more than one media range
-                // applies to a given type, the most specific reference has
-                // precedence.
-                //
-                // tie-breaker: first listed item wins
-                $diff = $a->pos - $b->pos;
+            // normal sort by quality
+            if ($b['q'] != $a['q']) {
+                // returning float breaks usort somehow?
+                if ($b['q'] > $a['q']) {
+                    return 1;
+                }
+                else {
+                    return -1;
+                }
             }
 
-            return $diff;
+            // matching quality goes by most specific then finally
+            // by order
+
+            // Media ranges can be overridden by more specific media ranges
+            // or specific media types. If more than one media range
+            // applies to a given type, the most specific reference has
+            // precedence.
+            list($a['t'], $a['s']) = explode('/', $a['type']);
+            list($b['t'], $b['s']) = explode('/', $b['type']);
+
+            // not the same type, order by position
+            if ($a['t'] != $b['t']) {
+                return $a['pos'] - $b['pos'];
+
+            }
+            
+            // wildcards are lower priority
+            if ($a['s'] == '*') {
+                return 1;
+            }
+
+            if ($b['s'] == '*') {
+                return -1;
+            }
+
+            if (count($b) == count($a)) {
+                return $a['pos'] - $b['pos'];
+            }
+
+            return count($b) - count($a);
         });
 
         foreach ($accept as $a) {
 
-            $this->mimeTypes[strtolower($a->type)] = $a->type;
+            $this->mimeTypes[strtolower($a['type'])] = $a['type'];
         }
     }
 
