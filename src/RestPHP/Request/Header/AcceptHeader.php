@@ -40,10 +40,10 @@
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP\Request\Header;
 
 /**
@@ -91,7 +91,8 @@ class AcceptHeader implements RequestHeader
 
             $o->pos = $i;
 
-            if (preg_match(",^(\S+)\s*;\s*(?:q|level)=([0-9\.]+),i", $term, $M)) {
+            if (preg_match(",^(\S+)(?:;[^q]\S*=\S+)*\s*;\s*q=([0-9\.]+),i",
+                           $term, $M)) {
 
                 $o->type = $M[1];
                 $o->q = (double) $M[2];
@@ -115,12 +116,18 @@ class AcceptHeader implements RequestHeader
 
                 $diff = 1;
             }
-            else if ($diff < 0) {
+            elseif ($diff < 0) {
 
                 $diff = -1;
             }
             else {
 
+                // TODO:
+                // Media ranges can be overridden by more specific media ranges
+                // or specific media types. If more than one media range
+                // applies to a given type, the most specific reference has
+                // precedence.
+                //
                 // tie-breaker: first listed item wins
                 $diff = $a->pos - $b->pos;
             }
@@ -160,6 +167,8 @@ class AcceptHeader implements RequestHeader
      *
      * If the agent has a wildcard in accept * /* this will return true
      *
+     * @todo Handle wildcard mimes like audio/*
+     *
      * @param string $mimeType the mime type to check
      *
      * @return boolean
@@ -174,4 +183,5 @@ class AcceptHeader implements RequestHeader
 
         return false;
     }
+
 }

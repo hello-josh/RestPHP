@@ -47,11 +47,6 @@
 namespace RestPHP\Test;
 
 /**
- * RestPHP\Response
- */
-require 'RestPHP/Response.php';
-
-/**
  * Test for \RestPHP\Response
  *
  * @category   RestPHP

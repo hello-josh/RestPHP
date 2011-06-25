@@ -36,14 +36,35 @@
  * @category   RestPHP
  * @package    RestPHP
  * @subpackage Test
- * @namespace  RestPHP\Test
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
+/**
+ * @namespace
+ */
 namespace RestPHP\Test;
 
-// barebones file for now
+// barebones file for now and an inline autoloader
 set_include_path(__DIR__ . '/../src/'
-	. PATH_SEPARATOR . get_include_path());
+        . PATH_SEPARATOR . get_include_path());
+
+/**
+ * @link http://groups.google.com/group/php-standards/web/psr-0-final-proposal?pli=1
+ */
+spl_autoload_register(function($className) {
+    $className = ltrim($className, '\\');
+    $fileName = '';
+    $namespace = '';
+
+    if ($lastNsPos = strripos($className, '\\')) {
+        $namespace = substr($className, 0, $lastNsPos);
+        $className = substr($className, $lastNsPos + 1);
+        $fileName = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
+    }
+
+    $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
+
+    require $fileName;
+});
