@@ -152,11 +152,6 @@ class AcceptCharsetHeaderTest extends \PHPUnit_Framework_TestCase
     public function testgetPreferredCharset()
     {
         $this->markTestIncomplete('implement me');
-        $this->acceptCharsetHeader->parse('audio/*; q=0.2, audio/basic');
-
-        $preferredType = $this->acceptCharsetHeader->getPreferredCharset();
-
-        $this->assertEquals('audio/basic', $preferredType);
     }
 
     /**
@@ -165,35 +160,5 @@ class AcceptCharsetHeaderTest extends \PHPUnit_Framework_TestCase
     public function testIsAccepted()
     {
         $this->markTestIncomplete('implement me');
-        $this->acceptCharsetHeader->parse('audio/*; q=0.2, audio/basic');
-
-        $this->assertTrue(
-            $this->acceptCharsetHeader->isAccepted('audio/basic'),
-            'Exact match failed'
-        );
-
-        $this->assertTrue(
-            $this->acceptCharsetHeader->isAccepted('audio/mpeg'),
-            'Wildcard audio did not match'
-        );
-
-        $this->assertFalse(
-            $this->acceptCharsetHeader->isAccepted('video/mpeg'),
-            'Wrong type matched'
-        );
-
-        // If no Accept-Charset header is present, the default is that any
-        // character set is acceptable.
-        $this->acceptCharsetHeader->parse();
-
-        $this->assertTrue(
-            $this->acceptCharsetHeader->isAccepted('utf-8'),
-            'Did not accept random charset'
-        );
-
-        $this->assertTrue(
-            $this->acceptCharsetHeader->isAccepted('Big-5'),
-            'Did not accept random charset'
-        );
     }
 }
