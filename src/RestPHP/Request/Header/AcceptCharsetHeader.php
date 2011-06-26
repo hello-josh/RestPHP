@@ -142,15 +142,20 @@ class AcceptCharsetHeader implements RequestHeader
 
         foreach ($accept as $a) {
 
-            $this->charsets[strtolower($a->type)] = $a->type;
+            $a->type = strtolower($a->type);
+            $this->charsets[$a->type] = $a->type;
         }
 
         // see note on ISO-8859-1 and * in class comment
+        // insert iso-8859-1 as the last item before q<1
         if (!isset($this->charsets['iso-8859-1']) &&
                 !isset($this->charsets['*'])) {
 
             // implied ISO-8859-1;q=1
-            array_unshift($this->charsets, array('iso-8859-1' => 'ISO-8859-1'));
+            $this->charsets = array_merge(
+                array('iso-8859-1' => 'iso-8859-1'),
+                $this->charsets
+            );
         }
     }
 

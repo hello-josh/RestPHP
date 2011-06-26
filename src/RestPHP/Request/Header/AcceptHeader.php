@@ -85,14 +85,13 @@ class AcceptHeader implements RequestHeader
 
         $accept = array();
 
-        foreach (preg_split('/\s*,\s*/', $header) as $i => $term) {
+        foreach (preg_split('/\,\s*/', $header) as $i => $term) {
 
             $mime = array();
 
             $mime['pos'] = $i;
 
             if (preg_match(",^(\S+)(;.+),i", $term, $M)) {
-
                 $mime['type'] = $M[1];
                 // parse_str is magic like a query string
                 parse_str(str_replace(';', '&', $M[2]), $p);
@@ -149,7 +148,7 @@ class AcceptHeader implements RequestHeader
                 return $a['pos'] - $b['pos'];
 
             }
-            
+
             // wildcards are lower priority
             if ($a['s'] == '*') {
                 return 1;
@@ -159,6 +158,16 @@ class AcceptHeader implements RequestHeader
                 return -1;
             }
 
+            // remove extension to see if subtype is the same
+            list($a['st']) = explode(';', $a['s']);
+            list($b['st']) = explode(';', $b['s']);
+
+            // same type, different subtype
+            if ($a['t'] == $b['t'] && $a['st'] != $b['st']) {
+                return $a['pos'] - $b['pos'];
+            }
+
+            // more specific extension?
             if (count($b) == count($a)) {
                 return $a['pos'] - $b['pos'];
             }
@@ -206,9 +215,22 @@ class AcceptHeader implements RequestHeader
      */
     public function isAccepted($mimeType)
     {
-        if (isset($this->mimeTypes[strtolower($mimeType)]) ||
-                isset($this->mimeTypes['*/*'])) {
+        $mimeType = strtolower($mimeType);
+        
+        // straight match
+        if (isset($this->mimeTypes[$mimeType])) {
+            return true;
+        }
 
+        // match against major type wildcard
+        list($type, $subType) = explode('/', $mimeType);
+
+        if (isset($this->mimeTypes["$type/*"])) {
+            return true;
+        }
+
+        // match against generic wildcard
+        if (isset($this->mimeTypes['*/*'])) {
             return true;
         }
 

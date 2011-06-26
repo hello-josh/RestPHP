@@ -44,10 +44,10 @@
 /**
  * @namespace
  */
-namespace RestPHP\Test;
+namespace RestPHP\Test\Resource;
 
 /**
- * Test for \RestPHP\Request
+ * Test for \RestPHP\Resource\Resource
  *
  * @category   RestPHP
  * @package    RestPHP
@@ -56,12 +56,10 @@ namespace RestPHP\Test;
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-class RequestTest extends \PHPUnit_Framework_TestCase
+class ResourceTest extends \PHPUnit_Framework_TestCase
 {
-
-    public function testYes()
+    public function testNotImplemented()
     {
-        $this->assertTrue(true);
+        $this->markTestIncomplete('No tests implemented');
     }
-
 }

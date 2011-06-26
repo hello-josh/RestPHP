@@ -104,6 +104,9 @@
         </exec>
     </target>
 
-    <target name="build" depends="clean,parallelTasks,phpunit,phpcb"/>
+    <target name="test">
+        <antcall target="phpunit" />
+    </target>
+    <target name="build" depends="clean,parallelTasks,phpunit,phpcb" />
 
 </project>

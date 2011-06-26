@@ -44,7 +44,7 @@
 /**
  * @namespace
  */
-namespace RestPHP;
+namespace RestPHP\Response;
 
 /**
  * Response

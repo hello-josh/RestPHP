@@ -44,10 +44,10 @@
 /**
  * @namespace
  */
-namespace RestPHP\Test;
+namespace RestPHP\Test\Response;
 
 /**
- * Test for \RestPHP\Response
+ * Test for \RestPHP\Response\Response
  *
  * @category   RestPHP
  * @package    RestPHP
@@ -59,18 +59,18 @@ namespace RestPHP\Test;
 class ResponseTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * \RestPHP\Response
+     * \RestPHP\Response\Response
      *
-     * @var \RestPHP\Response
+     * @var \RestPHP\Response\Response
      */
     protected $response;
 
     /**
-     * Creates \RestPHP\Response instance
+     * Creates \RestPHP\Response\Response instance
      */
     protected function setUp()
     {
-        $this->response = new \RestPHP\Response();
+        $this->response = new \RestPHP\Response\Response();
     }
 
     /**

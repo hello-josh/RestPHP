@@ -44,10 +44,11 @@
 /**
  * @namespace
  */
-namespace RestPHP\Test;
+namespace RestPHP\Test\Request\Header;
 
 /**
- * AcceptHeaderTest
+ * AcceptHeaderTest - Tests the Accept header behaves as documented in RFC 2616
+ * Section 14
  *
  * @category   RestPHP
  * @package    RestPHP
@@ -55,6 +56,7 @@ namespace RestPHP\Test;
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
+ * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Sec 14
  */
 class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
 {
@@ -79,14 +81,16 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
 
         $acceptTypes = $this->acceptHeader->getTypes();
 
-        $this->assertEquals(array('text/html'), array_values($acceptTypes));
+        $this->assertEquals(array('text/html'),
+                array_values($acceptTypes));
 
         // mime with a quality flag
         $this->acceptHeader->parse('text/html; q=0.2');
 
         $acceptTypes = $this->acceptHeader->getTypes();
 
-        $this->assertEquals(array('text/html'), array_values($acceptTypes));
+        $this->assertEquals(array('text/html'),
+                array_values($acceptTypes));
 
         // mine with an extension parameter named level
         // with a value of 1
@@ -94,7 +98,8 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
 
         $acceptTypes = $this->acceptHeader->getTypes();
 
-        $this->assertEquals(array('text/html;level=1'), array_values($acceptTypes));
+        $this->assertEquals(array('text/html;level=1'),
+                array_values($acceptTypes));
 
         // mime with an extension parameter of josh with a value
         // of hello and a quality of 0.1
@@ -102,7 +107,8 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
 
         $acceptTypes = $this->acceptHeader->getTypes();
 
-        $this->assertEquals(array('text/html;josh="hello"'), array_values($acceptTypes));
+        $this->assertEquals(array('text/html;josh="hello"'),
+                array_values($acceptTypes));
 
         // mime with an extension parameter of josh with a value
         // of hello and a quality of 0.1 but space separated
@@ -110,7 +116,8 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
 
         $acceptTypes = $this->acceptHeader->getTypes();
 
-        $this->assertEquals(array('text/html;josh="hello"'), array_values($acceptTypes));
+        $this->assertEquals(array('text/html;josh="hello"'),
+                array_values($acceptTypes));
     }
 
     /**
@@ -118,6 +125,19 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testParseMultipleTypes()
     {
+        $this->acceptHeader->parse('text/html, text/xml;level=1, text/*');
+
+        $acceptTypes = $this->acceptHeader->getTypes();
+
+        $this->assertEquals(
+            array(
+                'text/html',
+                'text/xml;level=1',
+                'text/*'
+            ),
+            array_values($acceptTypes)
+        );
+
         $this->acceptHeader->parse('audio/*; q=0.2, audio/basic');
 
         $acceptTypes = $this->acceptHeader->getTypes();
@@ -156,6 +176,81 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
                 '*/*'
             ),
             array_values($acceptTypes)
+        );
+
+        $this->acceptHeader->parse('text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8,application/json');
+
+        $acceptTypes = $this->acceptHeader->getTypes();
+
+        $this->assertEquals(
+            array(
+                'text/html',
+                'application/xhtml+xml',
+                'application/json',
+                'application/xml',
+                '*/*'
+
+            ),
+            array_values($acceptTypes)
+        );
+    }
+
+    /**
+     * Tests that the preferred type is always first
+     */
+    public function testGetPreferredType()
+    {
+        $this->acceptHeader->parse('audio/*; q=0.2, audio/basic');
+
+        $preferredType = $this->acceptHeader->getPreferredType();
+
+        $this->assertEquals('audio/basic', $preferredType);
+
+        $this->acceptHeader->parse('text/plain; q=0.5, text/html, text/x-dvi; q=0.8, text/x-c');
+
+        $preferredType = $this->acceptHeader->getPreferredType();
+
+        $this->assertEquals('text/html', $preferredType);
+
+        $this->acceptHeader->parse('text/*, text/html, text/html;level=1, */*');
+
+        $preferredType = $this->acceptHeader->getPreferredType();
+
+        $this->assertEquals('text/html;level=1', $preferredType);
+    }
+
+    /**
+     * Tests that mime types are found or not
+     */
+    public function testIsAccepted()
+    {
+        $this->acceptHeader->parse('audio/*; q=0.2, audio/basic');
+
+        $this->assertTrue(
+            $this->acceptHeader->isAccepted('audio/basic'),
+            'Exact match failed'
+        );
+
+        $this->assertTrue(
+            $this->acceptHeader->isAccepted('audio/mpeg'),
+            'Wildcard audio did not match'
+        );
+
+        $this->assertFalse(
+            $this->acceptHeader->isAccepted('video/mpeg'),
+            'Wrong type matched'
+        );
+
+        $this->acceptHeader->parse('text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8,application/json');
+
+        $this->assertTrue(
+            $this->acceptHeader->isAccepted('application/xhtml+xml'),
+            'Did not accept application/xhtml+xml'
+        );
+
+        $this->assertTrue(
+            $this->acceptHeader->isAccepted('application/json'),
+            'Did not accept application/json'
         );
     }
 }

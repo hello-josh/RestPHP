@@ -2,7 +2,7 @@
 /**
  * RestPHP Framework
  *
- * PHP Version 5.3, PHPUnit 3.4
+ * PHP Version 5.3
  *
  * Copyright (c) 2011, RestPHP Framework
  * All rights reserved.
@@ -35,7 +35,7 @@
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Test
+ * @subpackage Resource
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
@@ -44,23 +44,71 @@
 /**
  * @namespace
  */
-namespace RestPHP\Test;
+namespace RestPHP\Resource;
 
 /**
- * Test for \RestPHP\Resource
+ * RestPHP Base Resource class
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Test
+ * @subpackage Resource
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-class ResourceTest extends \PHPUnit_Framework_TestCase
+abstract class Resource
 {
+    /**
+     * Request Instance
+     *
+     * @var \RestPHP\Request
+     */
+    protected $request;
+    /**
+     * Response Instance
+     *
+     * @var \RestPHP\Response
+     */
+    protected $response;
 
-    public function testYes()
+    /**
+     * Creates a new instance
+     *
+     * @param Request $request
+     * @param Response $response
+     */
+    public function __construct(Request $request, Response $response)
     {
-        $this->assertTrue(true);
     }
+
+    public function options()
+    {
+
+    }
+
+    public function get()
+    {
+
+    }
+
+    public function head()
+    {
+
+    }
+
+    public function post()
+    {
+
+    }
+
+    public function put()
+    {
+
+    }
+
+    public function trace()
+    {
+
+    }
+
 }

@@ -2,7 +2,7 @@
 /**
  * RestPHP Framework
  *
- * PHP Version 5.3
+ * PHP Version 5.3, PHPUnit 3.4
  *
  * Copyright (c) 2011, RestPHP Framework
  * All rights reserved.
@@ -35,7 +35,7 @@
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Resource
+ * @subpackage Test
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
@@ -44,71 +44,22 @@
 /**
  * @namespace
  */
-namespace RestPHP;
+namespace RestPHP\Test\Request;
 
 /**
- * RestPHP Base Resource class
+ * Test for \RestPHP\Request\Request
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Resource
+ * @subpackage Test
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-abstract class Resource
+class RequestTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * Request Instance
-     *
-     * @var \RestPHP\Request
-     */
-    protected $request;
-    /**
-     * Response Instance
-     *
-     * @var \RestPHP\Response
-     */
-    protected $response;
-
-    /**
-     * Creates a new instance
-     *
-     * @param Request $request
-     * @param Response $response
-     */
-    public function __construct(Request $request, Response $response)
+    public function testNotImplemented()
     {
+        $this->markTestIncomplete('No tests implemented');
     }
-
-    public function options()
-    {
-
-    }
-
-    public function get()
-    {
-
-    }
-
-    public function head()
-    {
-
-    }
-
-    public function post()
-    {
-
-    }
-
-    public function put()
-    {
-
-    }
-
-    public function trace()
-    {
-
-    }
-
 }
