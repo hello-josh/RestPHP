@@ -44,7 +44,7 @@
 /**
  * @namespace
  */
-namespace RestPHP\Test\Resource;
+namespace RestPHP\Resource;
 
 /**
  * Test for \RestPHP\Resource\Resource

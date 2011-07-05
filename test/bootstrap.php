@@ -41,13 +41,8 @@
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
-/**
- * @namespace
- */
-namespace RestPHP\Test;
-
 // barebones file for now and an inline autoloader
-set_include_path(__DIR__ . '/../src/'
+set_include_path(realpath(__DIR__ . '/../src/')
         . PATH_SEPARATOR . get_include_path());
 
 /**

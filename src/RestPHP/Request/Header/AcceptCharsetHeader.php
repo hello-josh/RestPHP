@@ -97,6 +97,8 @@ class AcceptCharsetHeader implements RequestHeader
 
         $accept = array();
 
+        $hasISO88591 = false;
+
         foreach (preg_split('/\s*,\s*/', $header) as $i => $term) {
 
             $o = new \stdclass;
@@ -114,7 +116,25 @@ class AcceptCharsetHeader implements RequestHeader
                 $o->q = 1;
             }
 
+            if (strtolower($o->type) == 'iso-8859-1' || $o->type == '*') {
+                $hasISO88591 = true;
+            }
+
             $accept[] = $o;
+        }
+
+        // see note on ISO-8859-1 and * in class comment
+        // insert iso-8859-1 as the last item before q<1
+        if (!$hasISO88591) {
+            $o = new \stdclass;
+            $o->type = 'iso-8859-1';
+            $o->q = 1;
+            $o->pos = count($accept);
+            $accept[] = $o;
+        }
+
+        if ($header == '') {
+            var_dump($accept);
         }
 
         // weighted sort
@@ -143,19 +163,7 @@ class AcceptCharsetHeader implements RequestHeader
         foreach ($accept as $a) {
 
             $a->type = strtolower($a->type);
-            $this->charsets[$a->type] = $a->type;
-        }
-
-        // see note on ISO-8859-1 and * in class comment
-        // insert iso-8859-1 as the last item before q<1
-        if (!isset($this->charsets['iso-8859-1']) &&
-                !isset($this->charsets['*'])) {
-
-            // implied ISO-8859-1;q=1
-            $this->charsets = array_merge(
-                array('iso-8859-1' => 'iso-8859-1'),
-                $this->charsets
-            );
+            $this->charsets[$a->type] = $a;
         }
     }
 
@@ -166,7 +174,7 @@ class AcceptCharsetHeader implements RequestHeader
      */
     public function getCharsets()
     {
-        return $this->charsets;
+        return array_keys($this->charsets);
     }
 
     /**
@@ -177,7 +185,7 @@ class AcceptCharsetHeader implements RequestHeader
      */
     public function getPreferredCharset()
     {
-        return $this->charsets[key($this->charsets)];
+        return $this->charsets[key($this->charsets)]->type;
     }
 
     /**
@@ -196,12 +204,12 @@ class AcceptCharsetHeader implements RequestHeader
             return true;
         }
 
-        if (isset($this->charsets[strtolower($charset)]) ||
-                isset($this->charsets['*'])) {
+        // set and q>0 is ok, but q=0 means do not use
+        if (isset($this->charsets[strtolower($charset)])) {
 
-            return true;
+            return ($this->charsets[strtolower($charset)]->q > 0);
         }
 
-        return false;
+        return (isset($this->charsets['*']));
     }
 }

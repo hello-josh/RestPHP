@@ -44,7 +44,7 @@
 /**
  * @namespace
  */
-namespace RestPHP\Test\Request\Header;
+namespace RestPHP\Request\Header;
 
 /**
  * AcceptHeaderTest - Tests the Accept header behaves as documented in RFC 2616

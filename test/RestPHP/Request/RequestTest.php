@@ -44,7 +44,7 @@
 /**
  * @namespace
  */
-namespace RestPHP\Test\Request;
+namespace RestPHP\Request;
 
 /**
  * Test for \RestPHP\Request\Request
