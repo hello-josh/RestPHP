@@ -47,7 +47,7 @@
 namespace RestPHP\Request\Header;
 
 /**
- * AcceptCharsetHeaderTest - Tests the Accept-Charset header behaves as documented in RFC 2616
+ * AcceptCharsetTest - Tests the Accept-Charset header behaves as documented in RFC 2616
  * Section 14
  *
  * @category   RestPHP
@@ -58,17 +58,17 @@ namespace RestPHP\Request\Header;
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Sec 14
  */
-class AcceptCharsetHeaderTest extends \PHPUnit_Framework_TestCase
+class AcceptCharsetTest extends \PHPUnit_Framework_TestCase
 {
     /**
      *
-     * @var \RestPHP\Request\Header\AcceptCharsetHeader
+     * @var \RestPHP\Request\Header\AcceptCharset
      */
-    protected $acceptCharsetHeader;
+    protected $acceptCharset;
 
     public function setUp()
     {
-        $this->acceptCharsetHeader = new \RestPHP\Request\Header\AcceptCharsetHeader();
+        $this->acceptCharset = new \RestPHP\Request\Header\AcceptCharset();
     }
 
     /**
@@ -77,17 +77,17 @@ class AcceptCharsetHeaderTest extends \PHPUnit_Framework_TestCase
     public function testParseSingleType()
     {
         // basic
-        $this->acceptCharsetHeader->parse('ISO-8859-1');
+        $this->acceptCharset->parse('ISO-8859-1');
 
-        $charsets = $this->acceptCharsetHeader->getCharsets();
+        $charsets = $this->acceptCharset->getCharsets();
 
         $this->assertEquals(array('iso-8859-1'),
                 array_values($charsets));
 
         // with a quality flag
-        $this->acceptCharsetHeader->parse('ISO-8859-1; q=0.2');
+        $this->acceptCharset->parse('ISO-8859-1; q=0.2');
 
-        $charsets = $this->acceptCharsetHeader->getCharsets();
+        $charsets = $this->acceptCharset->getCharsets();
 
         $this->assertEquals(array('iso-8859-1'),
                 array_values($charsets));
@@ -98,9 +98,9 @@ class AcceptCharsetHeaderTest extends \PHPUnit_Framework_TestCase
         // in an Accept-Charset field, then all character sets not explicitly
         // mentioned get a quality value of 0, except for ISO-8859-1, which gets
         // a quality value of 1 if not explicitly mentioned.
-        $this->acceptCharsetHeader->parse('UTF-8');
+        $this->acceptCharset->parse('UTF-8');
 
-        $charsets = $this->acceptCharsetHeader->getCharsets();
+        $charsets = $this->acceptCharset->getCharsets();
 
         $this->assertEquals(array('utf-8', 'iso-8859-1'),
                 array_values($charsets));
@@ -118,9 +118,9 @@ class AcceptCharsetHeaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testParseMultipleTypes()
     {
-        $this->acceptCharsetHeader->parse('iso-8859-5, unicode-1-1;q=0.8');
+        $this->acceptCharset->parse('iso-8859-5, unicode-1-1;q=0.8');
 
-        $charsets = $this->acceptCharsetHeader->getCharsets();
+        $charsets = $this->acceptCharset->getCharsets();
 
         // no * so implies iso-8859-1
         $this->assertEquals(
@@ -132,9 +132,9 @@ class AcceptCharsetHeaderTest extends \PHPUnit_Framework_TestCase
             $charsets
         );
 
-        $this->acceptCharsetHeader->parse('UTF-8,*');
+        $this->acceptCharset->parse('UTF-8,*');
 
-        $charsets = $this->acceptCharsetHeader->getCharsets();
+        $charsets = $this->acceptCharset->getCharsets();
 
         // has a * so no iso-8859-1
         $this->assertEquals(
@@ -151,16 +151,16 @@ class AcceptCharsetHeaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetPreferredCharset()
     {
-        $this->acceptCharsetHeader->parse('iso-8859-5, unicode-1-1;q=0.8');
+        $this->acceptCharset->parse('iso-8859-5, unicode-1-1;q=0.8');
 
-        $preferred = $this->acceptCharsetHeader->getPreferredCharset();
+        $preferred = $this->acceptCharset->getPreferredCharset();
 
         $this->assertEquals('iso-8859-5', $preferred);
 
         // kinda odd that none are q=1 but just in case . ...
-        $this->acceptCharsetHeader->parse('unicode-1-1;q=0.8');
+        $this->acceptCharset->parse('unicode-1-1;q=0.8');
 
-        $preferred = $this->acceptCharsetHeader->getPreferredCharset();
+        $preferred = $this->acceptCharset->getPreferredCharset();
 
         $this->assertEquals('iso-8859-1', $preferred);
     }
@@ -170,24 +170,24 @@ class AcceptCharsetHeaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsAccepted()
     {
-        $this->acceptCharsetHeader->parse('*');
+        $this->acceptCharset->parse('*');
 
         $this->assertTrue(
-                $this->acceptCharsetHeader->isAccepted('utf-8'),
+                $this->acceptCharset->isAccepted('utf-8'),
                 'Did not accept UTF-8 when given a wildcard *');
 
-        $this->acceptCharsetHeader->parse('iso-8859-5, unicode-1-1;q=0.8');
+        $this->acceptCharset->parse('iso-8859-5, unicode-1-1;q=0.8');
 
         $this->assertTrue(
-                $this->acceptCharsetHeader->isAccepted('unicode-1-1'),
+                $this->acceptCharset->isAccepted('unicode-1-1'),
                 'Did not accept unicode-1-1 when given as an accepted type');
 
         $this->assertTrue(
-                $this->acceptCharsetHeader->isAccepted('iso-8859-5'),
+                $this->acceptCharset->isAccepted('iso-8859-5'),
                 'Did not accept iso-8859-5 when given as an accepted type');
 
         $this->assertTrue(
-                $this->acceptCharsetHeader->isAccepted('iso-8859-1'),
+                $this->acceptCharset->isAccepted('iso-8859-1'),
                 'Did not accept iso-8859-1 when not explicitly forbidden');
     }
 }

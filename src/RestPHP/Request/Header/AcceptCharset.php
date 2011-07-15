@@ -74,7 +74,7 @@ namespace RestPHP\Request\Header;
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-class AcceptCharsetHeader implements RequestHeader
+class AcceptCharset implements RequestHeader
 {
     /**
      * Sorted list of charsets the client will accept
@@ -86,7 +86,7 @@ class AcceptCharsetHeader implements RequestHeader
     /**
      * Parses the HTTP Accept-Charset header
      *
-     * @see \RestPHP\Request\Header\AcceptHeader::parse
+     * @see \RestPHP\Request\Header\Accept::parse
      * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
      *
      * @param string $header the value of the Accept-Charset header after the colon

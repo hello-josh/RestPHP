@@ -63,7 +63,7 @@ class Authorization implements RequestHeader
     /**
      * Parses the HTTP Authorization header
      *
-     * @see \RestPHP\Request\Header\AcceptHeader::parse
+     * @see \RestPHP\Request\Header\Accept::parse
      * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
      *
      * @param string $header the value of the Authorization header after the colon

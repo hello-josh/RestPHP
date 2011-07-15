@@ -61,7 +61,7 @@ namespace RestPHP\Request\Header;
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-class AcceptHeader implements RequestHeader
+class Accept implements RequestHeader
 {
     /**
      * Sorted list of mime-types the client will accept
@@ -216,7 +216,7 @@ class AcceptHeader implements RequestHeader
     public function isAccepted($mimeType)
     {
         $mimeType = strtolower($mimeType);
-        
+
         // straight match
         if (isset($this->mimeTypes[$mimeType])) {
             return true;

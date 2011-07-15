@@ -47,17 +47,21 @@
 namespace RestPHP\Request\Header;
 
 /**
- * HTTP Request header containing a list of all content-codings that are
- * acceptable similar to Accept header
+ * HTTP Request header containing a list of all languages the user-agent accepts
+ *
+ * The Accept-Language request-header field is similar to Accept, but restricts
+ * the set of natural languages that are preferred as a response to the request.
  *
  * An example header would be
  * <code>
- * Accept-Encoding: compress, gzip
- * Accept-Encoding:
- * Accept-Encoding: *
- * Accept-Encoding: compress;q=0.5, gzip;q=1.0
- * Accept-Encoding: gzip;q=1.0, identity; q=0.5, *;q=0
+ * Accept-Language: da, en-gb;q=0.8, en;q=0.7
  * </code>
+ * Which means: "I prefer Danish, but will accept British English and other
+ * types of English." A language-range matches a language-tag if it exactly
+ * equals the tag, or if it exactly equals a prefix of the tag such that the
+ * first tag character following the prefix is "-". The special range "*", if
+ * present in the Accept-Language field, matches every tag not matched by any
+ * other range present in the Accept-Language field.
  *
  * @category   RestPHP
  * @package    RestPHP
@@ -67,33 +71,26 @@ namespace RestPHP\Request\Header;
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-class AcceptEncodingHeader implements RequestHeader
+class AcceptLanguage implements RequestHeader
 {
     /**
-     * Sorted list of content-codings the client will accept
+     * Sorted list of languages the client will accept
      *
      * @var array
      */
-    protected $encoding = array();
+    protected $language = array();
 
     /**
-     * Parsed encodings along with their quality values
+     * Parses the HTTP Accept-Language header
      *
-     * @var array<stdClass>
-     */
-    protected $accept = array();
-
-    /**
-     * Parses the HTTP Accept-Encoding header
-     *
-     * @see \RestPHP\Request\Header\AcceptHeader::parse
+     * @see \RestPHP\Request\Header\Accept::parse
      * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
      *
-     * @param string $header the value of the Accept-Encoding header after the colon
+     * @param string $header the value of the Accept-Language header after the colon
      */
     public function parse($header)
     {
-        $this->encoding = array();
+        $this->language = array();
 
         $this->accept = array();
 
@@ -142,35 +139,35 @@ class AcceptEncodingHeader implements RequestHeader
 
         foreach ($this->accept as $a) {
 
-            $this->encoding[strtolower($a->type)] = $a->type;
+            $this->language[strtolower($a->type)] = $a->type;
         }
     }
 
     /**
-     * Gets all content-codings that this user agent accepts
+     * Gets all languages that this user agent accepts
      *
      * @return array
      */
-    public function getEncodings()
+    public function getLanguages()
     {
-        return $this->encoding;
+        return $this->language;
     }
 
     /**
-     * Gets the preferred content-codings of the user-agent. Usually the first item
-     * listed in the header unless all content-codings are weighted
+     * Gets the preferred langauges of the user-agent. Usually the first item
+     * listed in the header unless all languages are weighted
      *
      * @return string
      */
-    public function getPreferredEncoding()
+    public function getPreferredLanguage()
     {
-        if (count($this->encoding) == 0) {
-            return 'identity';
+        if (count($this->language) == 0) {
+            return '*';
         }
 
-        foreach ($this->encoding as $k => $enc) {
+        foreach ($this->language as $k => $lang) {
             if ($this->accept[$k]->q) {
-                return $enc;
+                return $lang;
             }
         }
 
@@ -178,35 +175,34 @@ class AcceptEncodingHeader implements RequestHeader
     }
 
     /**
-     * Does the User-Agent accept this content-codings?
+     * Does the User-Agent accept this language?
      *
-     * The "identity" content-coding is always acceptable, unless
-     * specifically refused because the Accept-Encoding field includes
-     * "identity;q=0", or because the field includes "*;q=0" and does
-     * not explicitly include the "identity" content-coding. If the
-     * Accept-Encoding field-value is empty, then only the "identity"
-     * encoding is acceptable.
-     *
-     * @param string $encoding the content-codings to check
+     * @param string $language the language to check
      *
      * @return boolean
      */
-    public function isAccepted($encoding)
+    public function isAccepted($language)
     {
-        if (count($this->encoding) == 0 && $encoding == 'identity') {
-            return true;
-        }
-
-        $k = strtolower($encoding);
+        $k = strtolower($language);
 
         // set and a non-zero quality
-        if (isset($this->encoding[$k])) {
+        if (isset($this->language[$k])) {
             return (bool) $this->accept[$k]->q;
         }
 
         // or wildcard and a non-zero quality
-        if (isset($this->encoding['*'])) {
+        if (isset($this->language['*'])) {
             return (bool) $this->accept['*']->q;
+        }
+
+        // handle the acceptance of language without range
+        if (strpos('-', $k)) {
+
+            list($type, $subType) = explode('-', $k, 2);
+
+            if (isset($this->language[$type])) {
+                return (bool) $this->accept[$type]->q;
+            }
         }
 
         return false;

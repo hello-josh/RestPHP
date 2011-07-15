@@ -47,7 +47,7 @@
 namespace RestPHP\Request\Header;
 
 /**
- * AcceptHeaderTest - Tests the Accept header behaves as documented in RFC 2616
+ * AcceptTest - Tests the Accept header behaves as documented in RFC 2616
  * Section 14
  *
  * @category   RestPHP
@@ -58,17 +58,17 @@ namespace RestPHP\Request\Header;
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Sec 14
  */
-class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
+class AcceptTest extends \PHPUnit_Framework_TestCase
 {
     /**
      *
-     * @var \RestPHP\Request\Header\AcceptHeader
+     * @var \RestPHP\Request\Header\Accept
      */
-    protected $acceptHeader;
+    protected $accept;
 
     public function setUp()
     {
-        $this->acceptHeader = new \RestPHP\Request\Header\AcceptHeader();
+        $this->accept = new \RestPHP\Request\Header\Accept();
     }
 
     /**
@@ -77,44 +77,44 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
     public function testParseSingleType()
     {
         // basic mime
-        $this->acceptHeader->parse('text/html');
+        $this->accept->parse('text/html');
 
-        $acceptTypes = $this->acceptHeader->getTypes();
+        $acceptTypes = $this->accept->getTypes();
 
         $this->assertEquals(array('text/html'),
                 array_values($acceptTypes));
 
         // mime with a quality flag
-        $this->acceptHeader->parse('text/html; q=0.2');
+        $this->accept->parse('text/html; q=0.2');
 
-        $acceptTypes = $this->acceptHeader->getTypes();
+        $acceptTypes = $this->accept->getTypes();
 
         $this->assertEquals(array('text/html'),
                 array_values($acceptTypes));
 
         // mine with an extension parameter named level
         // with a value of 1
-        $this->acceptHeader->parse('text/html;level=1');
+        $this->accept->parse('text/html;level=1');
 
-        $acceptTypes = $this->acceptHeader->getTypes();
+        $acceptTypes = $this->accept->getTypes();
 
         $this->assertEquals(array('text/html;level=1'),
                 array_values($acceptTypes));
 
         // mime with an extension parameter of josh with a value
         // of hello and a quality of 0.1
-        $this->acceptHeader->parse('text/html;josh="hello";q=0.1');
+        $this->accept->parse('text/html;josh="hello";q=0.1');
 
-        $acceptTypes = $this->acceptHeader->getTypes();
+        $acceptTypes = $this->accept->getTypes();
 
         $this->assertEquals(array('text/html;josh="hello"'),
                 array_values($acceptTypes));
 
         // mime with an extension parameter of josh with a value
         // of hello and a quality of 0.1 but space separated
-        $this->acceptHeader->parse('text/html;josh="hello"; q=0.1');
+        $this->accept->parse('text/html;josh="hello"; q=0.1');
 
-        $acceptTypes = $this->acceptHeader->getTypes();
+        $acceptTypes = $this->accept->getTypes();
 
         $this->assertEquals(array('text/html;josh="hello"'),
                 array_values($acceptTypes));
@@ -125,9 +125,9 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testParseMultipleTypes()
     {
-        $this->acceptHeader->parse('text/html, text/xml;level=1, text/*');
+        $this->accept->parse('text/html, text/xml;level=1, text/*');
 
-        $acceptTypes = $this->acceptHeader->getTypes();
+        $acceptTypes = $this->accept->getTypes();
 
         $this->assertEquals(
             array(
@@ -138,9 +138,9 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
             array_values($acceptTypes)
         );
 
-        $this->acceptHeader->parse('audio/*; q=0.2, audio/basic');
+        $this->accept->parse('audio/*; q=0.2, audio/basic');
 
-        $acceptTypes = $this->acceptHeader->getTypes();
+        $acceptTypes = $this->accept->getTypes();
 
         $this->assertEquals(
             array(
@@ -150,9 +150,9 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
             array_values($acceptTypes)
         );
 
-        $this->acceptHeader->parse('text/plain; q=0.5, text/html, text/x-dvi; q=0.8, text/x-c');
+        $this->accept->parse('text/plain; q=0.5, text/html, text/x-dvi; q=0.8, text/x-c');
 
-        $acceptTypes = $this->acceptHeader->getTypes();
+        $acceptTypes = $this->accept->getTypes();
 
         $this->assertEquals(
             array(
@@ -164,9 +164,9 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
             array_values($acceptTypes)
         );
 
-        $this->acceptHeader->parse('text/*, text/html, text/html;level=1, */*');
+        $this->accept->parse('text/*, text/html, text/html;level=1, */*');
 
-        $acceptTypes = $this->acceptHeader->getTypes();
+        $acceptTypes = $this->accept->getTypes();
 
         $this->assertEquals(
             array(
@@ -178,9 +178,9 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
             array_values($acceptTypes)
         );
 
-        $this->acceptHeader->parse('text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8,application/json');
+        $this->accept->parse('text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8,application/json');
 
-        $acceptTypes = $this->acceptHeader->getTypes();
+        $acceptTypes = $this->accept->getTypes();
 
         $this->assertEquals(
             array(
@@ -200,21 +200,21 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetPreferredType()
     {
-        $this->acceptHeader->parse('audio/*; q=0.2, audio/basic');
+        $this->accept->parse('audio/*; q=0.2, audio/basic');
 
-        $preferredType = $this->acceptHeader->getPreferredType();
+        $preferredType = $this->accept->getPreferredType();
 
         $this->assertEquals('audio/basic', $preferredType);
 
-        $this->acceptHeader->parse('text/plain; q=0.5, text/html, text/x-dvi; q=0.8, text/x-c');
+        $this->accept->parse('text/plain; q=0.5, text/html, text/x-dvi; q=0.8, text/x-c');
 
-        $preferredType = $this->acceptHeader->getPreferredType();
+        $preferredType = $this->accept->getPreferredType();
 
         $this->assertEquals('text/html', $preferredType);
 
-        $this->acceptHeader->parse('text/*, text/html, text/html;level=1, */*');
+        $this->accept->parse('text/*, text/html, text/html;level=1, */*');
 
-        $preferredType = $this->acceptHeader->getPreferredType();
+        $preferredType = $this->accept->getPreferredType();
 
         $this->assertEquals('text/html;level=1', $preferredType);
     }
@@ -224,32 +224,32 @@ class AcceptHeaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsAccepted()
     {
-        $this->acceptHeader->parse('audio/*; q=0.2, audio/basic');
+        $this->accept->parse('audio/*; q=0.2, audio/basic');
 
         $this->assertTrue(
-            $this->acceptHeader->isAccepted('audio/basic'),
+            $this->accept->isAccepted('audio/basic'),
             'Exact match failed'
         );
 
         $this->assertTrue(
-            $this->acceptHeader->isAccepted('audio/mpeg'),
+            $this->accept->isAccepted('audio/mpeg'),
             'Wildcard audio did not match'
         );
 
         $this->assertFalse(
-            $this->acceptHeader->isAccepted('video/mpeg'),
+            $this->accept->isAccepted('video/mpeg'),
             'Wrong type matched'
         );
 
-        $this->acceptHeader->parse('text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8,application/json');
+        $this->accept->parse('text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8,application/json');
 
         $this->assertTrue(
-            $this->acceptHeader->isAccepted('application/xhtml+xml'),
+            $this->accept->isAccepted('application/xhtml+xml'),
             'Did not accept application/xhtml+xml'
         );
 
         $this->assertTrue(
-            $this->acceptHeader->isAccepted('application/json'),
+            $this->accept->isAccepted('application/json'),
             'Did not accept application/json'
         );
     }
