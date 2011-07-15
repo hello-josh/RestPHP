@@ -1,0 +1,3418 @@
+<?xml version="1.0"?>
+<project version="0.11.2" title="">
+  <file path="Response/Response.php" hash="390846f8239aea48bbbf9be743fdba7f">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Response"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="59" namespace="RestPHP\Response">
+      <name>Response</name>
+      <extends/>
+      <full_name>\RestPHP\Response\Response</full_name>
+      <docblock>
+        <description>Response</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Response" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+      </docblock>
+      <constant namespace="RestPHP\Response" line="82">
+        <name>FCGI_STATUS</name>
+        <value>Status: </value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="83">
+        <name>HTTP_STATUS</name>
+        <value>HTTP/1.1 </value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="85">
+        <name>HTTP_100</name>
+        <value>100 Continue</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="86">
+        <name>HTTP_101</name>
+        <value>101 Switching Protocols</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="87">
+        <name>HTTP_200</name>
+        <value>200 OK</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="88">
+        <name>HTTP_201</name>
+        <value>201 Created</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="89">
+        <name>HTTP_202</name>
+        <value>202 Accepted</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="90">
+        <name>HTTP_203</name>
+        <value>203 Non-Authoritative Information</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="91">
+        <name>HTTP_204</name>
+        <value>204 No Content</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="92">
+        <name>HTTP_205</name>
+        <value>205 Reset Content</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="93">
+        <name>HTTP_206</name>
+        <value>206 Partial Content</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="94">
+        <name>HTTP_300</name>
+        <value>300 Multiple Choices</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="95">
+        <name>HTTP_301</name>
+        <value>301 Moved Permanently</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="96">
+        <name>HTTP_302</name>
+        <value>302 Found</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="97">
+        <name>HTTP_303</name>
+        <value>303 See Other</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="98">
+        <name>HTTP_304</name>
+        <value>304 Not Modified</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="99">
+        <name>HTTP_305</name>
+        <value>305 Use Proxy</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="100">
+        <name>HTTP_306</name>
+        <value>306 (Unused)</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="101">
+        <name>HTTP_307</name>
+        <value>307 Temporary Redirect</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="102">
+        <name>HTTP_400</name>
+        <value>400 Bad Request</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="103">
+        <name>HTTP_401</name>
+        <value>401 Unauthorized</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="104">
+        <name>HTTP_402</name>
+        <value>402 Payment Required</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="105">
+        <name>HTTP_403</name>
+        <value>403 Forbidden</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="106">
+        <name>HTTP_404</name>
+        <value>404 Not Found</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="107">
+        <name>HTTP_405</name>
+        <value>405 Method Not Allowed</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="108">
+        <name>HTTP_406</name>
+        <value>406 Not Acceptable</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="109">
+        <name>HTTP_407</name>
+        <value>407 Proxy Authentication Required</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="110">
+        <name>HTTP_408</name>
+        <value>408 Request Timeout</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="111">
+        <name>HTTP_409</name>
+        <value>409 Conflict</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="112">
+        <name>HTTP_410</name>
+        <value>410 Gone</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="113">
+        <name>HTTP_411</name>
+        <value>411 Length Required</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="114">
+        <name>HTTP_412</name>
+        <value>412 Precondition Failed</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="115">
+        <name>HTTP_413</name>
+        <value>413 Request Entity Too Large</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="116">
+        <name>HTTP_414</name>
+        <value>414 Request-URI Too Long</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="117">
+        <name>HTTP_415</name>
+        <value>415 Unsupported Media Type</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="118">
+        <name>HTTP_416</name>
+        <value>416 Requested Range Not Satisfiable</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="119">
+        <name>HTTP_417</name>
+        <value>417 Expectation Failed</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="120">
+        <name>HTTP_500</name>
+        <value>500 Internal Server Error</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="121">
+        <name>HTTP_501</name>
+        <value>501 Not Implemented</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="122">
+        <name>HTTP_502</name>
+        <value>502 Bad Gateway</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="123">
+        <name>HTTP_503</name>
+        <value>503 Service Unavailable</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="124">
+        <name>HTTP_504</name>
+        <value>504 Gateway Timeout</value>
+      </constant>
+      <constant namespace="RestPHP\Response" line="125">
+        <name>HTTP_505</name>
+        <value>505 HTTP Version Not Supported</value>
+      </constant>
+      <property final="false" static="false" visibility="protected" line="66">
+        <name>$isFgci</name>
+        <default>false</default>
+        <docblock>
+          <description>Is this FCGI?</description>
+          <long-description>
+</long-description>
+          <tag name="var" description="" type="\boolean" line="61">
+            <type by_reference="false">\boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="74">
+        <name>$status</name>
+        <default>501</default>
+        <docblock>
+          <description>HTTP Status</description>
+          <long-description>&lt;p&gt;Default status is 501 Not Implemented&lt;/p&gt;
+</long-description>
+          <tag name="var" description="" type="\integer" line="67">
+            <type by_reference="false">\integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="80">
+        <name>$headers</name>
+        <default>array</default>
+        <docblock>
+          <description>Headers that need to be sent</description>
+          <long-description>
+</long-description>
+          <tag name="var" description="" type="\array" line="75">
+            <type by_reference="false">\array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" line="133">
+        <name>isFgci</name>
+        <docblock>
+          <description>Is this response handled via fcgi?</description>
+          <long-description>
+</long-description>
+          <tag name="see" description="\RestPHP\Response::isHttp()" line="127"/>
+          <tag name="return" description="" type="\boolean" line="127">
+            <type by_reference="false">\boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="143">
+        <name>setIsFgci</name>
+        <docblock>
+          <description>Sets if the response should be handled like fcgi</description>
+          <long-description>
+</long-description>
+          <tag name="param" description="" type="\boolean" variable="$isFgci" line="138">
+            <type by_reference="false">\boolean</type>
+          </tag>
+        </docblock>
+        <argument line="143">
+          <name>$isFgci</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="154">
+        <name>isHttp</name>
+        <docblock>
+          <description>Is this response handled via HTTP?</description>
+          <long-description>
+</long-description>
+          <tag name="see" description="\RestPHP\Response::isFcgi()" line="148"/>
+          <tag name="return" description="" type="\boolean" line="148">
+            <type by_reference="false">\boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="164">
+        <name>setIsHttp</name>
+        <docblock>
+          <description>Sets if the response should be handled like HTTP</description>
+          <long-description>
+</long-description>
+          <tag name="param" description="" type="\boolean" variable="$isHttp" line="159">
+            <type by_reference="false">\boolean</type>
+          </tag>
+        </docblock>
+        <argument line="164">
+          <name>$isHttp</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="174">
+        <name>getStatus</name>
+        <docblock>
+          <description>Gets the HTTP status code</description>
+          <long-description>
+</long-description>
+          <tag name="return" description="" type="\int" line="169">
+            <type by_reference="false">\int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="184">
+        <name>setStatus</name>
+        <docblock>
+          <description>Sets the HTTP status code</description>
+          <long-description>
+</long-description>
+          <tag name="param" description="" type="\int" variable="$status" line="179">
+            <type by_reference="false">\int</type>
+          </tag>
+        </docblock>
+        <argument line="184">
+          <name>$status</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="209">
+        <name>addHeader</name>
+        <docblock>
+          <description>Adds a response header to be sent</description>
+          <long-description>&lt;p&gt;Arguments 2-N are imploded with '; ' to allow easier
+setting of headers like:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;
+$response-&gt;addHeader('Content-Disposition',
+                          'attachment', 'filename=fname.ext');
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Which is output as:
+&lt;code&gt;
+Content-Disposition: attachment; filename=fname.ext
+&lt;/code&gt;&lt;/p&gt;
+</long-description>
+          <tag name="param" description="" type="\string" variable="$header" line="189">
+            <type by_reference="false">\string</type>
+          </tag>
+          <tag name="param" description="" type="\string" variable="$value" line="189">
+            <type by_reference="false">\string</type>
+          </tag>
+          <tag name="param" description="variadic arguments" type="\string" variable="$values" line="189">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="209">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="209">
+          <name>$value</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="209">
+          <name>$values</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="219">
+        <name>makeStatus</name>
+        <docblock>
+          <description>Formats the Status header for FGCI or HTTP</description>
+          <long-description>
+</long-description>
+          <tag name="return" description="" type="\string" line="214">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="233">
+        <name>makeHeader</name>
+        <docblock>
+          <description>Formats a header based off an array item</description>
+          <long-description>
+</long-description>
+          <tag name="param" description="" type="\array" variable="$header" line="227">
+            <type by_reference="false">\array</type>
+          </tag>
+          <tag name="return" description="" type="\string" line="227">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="233">
+          <name>$header</name>
+          <default/>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="241">
+        <name>sendHeaders</name>
+        <docblock>
+          <description>Creates and sends any needed headers</description>
+          <long-description>
+</long-description>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="Response/Header/ResponseHeader.php" hash="64fdfbeb0ab44b728b75efddf3176577">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Response"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <interface namespace="RestPHP\Response\Header" line="60">
+      <name>ResponseHeader</name>
+      <extends/>
+      <full_name>\RestPHP\Response\Header\ResponseHeader</full_name>
+      <docblock>
+        <description>ResponseHeader - Interface for all Response headers listed in rfc 2616 sec 14</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Response" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" line="67">
+        <name>set</name>
+        <docblock>
+          <description>Sets the valid pieces for the HTTP Header</description>
+          <long-description>
+</long-description>
+          <tag name="param" description="the HTTP header data" type="\string" variable="$header" line="62">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="67">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+  </file>
+  <file path="Resource/Resource.php" hash="30936a26e060def69fdc7f9f1bfb4b81">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Resource"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="true" line="59" namespace="RestPHP\Resource">
+      <name>Resource</name>
+      <extends/>
+      <full_name>\Resource</full_name>
+      <docblock>
+        <description>RestPHP Base Resource class</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Resource" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="66">
+        <name>$request</name>
+        <default/>
+        <docblock>
+          <description>Request Instance</description>
+          <long-description>
+</long-description>
+          <tag name="var" description="" type="\RestPHP\Request" line="61">
+            <type by_reference="false">\RestPHP\Request</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="72">
+        <name>$response</name>
+        <default/>
+        <docblock>
+          <description>Response Instance</description>
+          <long-description>
+</long-description>
+          <tag name="var" description="" type="\RestPHP\Response" line="67">
+            <type by_reference="false">\RestPHP\Response</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" line="80">
+        <name>__construct</name>
+        <docblock>
+          <description>Creates a new instance</description>
+          <long-description>
+</long-description>
+          <tag name="param" description="" type="\RestPHP\Resource\Request" variable="$request" line="74">
+            <type by_reference="false">\RestPHP\Resource\Request</type>
+          </tag>
+          <tag name="param" description="" type="\RestPHP\Resource\Response" variable="$response" line="74">
+            <type by_reference="false">\RestPHP\Resource\Response</type>
+          </tag>
+        </docblock>
+        <argument line="80">
+          <name>$request</name>
+          <default/>
+          <type>Request</type>
+        </argument>
+        <argument line="80">
+          <name>$response</name>
+          <default/>
+          <type>Response</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="84">
+        <name>options</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="89">
+        <name>get</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="94">
+        <name>head</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="99">
+        <name>post</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="104">
+        <name>put</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="109">
+        <name>trace</name>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Request.php" hash="c713991d6319c14b569aec5f88678788">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="59" namespace="RestPHP\Request">
+      <name>Request</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Request</full_name>
+      <docblock>
+        <description>Request</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="66">
+        <name>$body</name>
+        <default/>
+        <docblock>
+          <description>Raw body of the HTTP request</description>
+          <long-description>
+</long-description>
+          <tag name="var" description="" type="\string" line="61">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="74">
+        <name>$headers</name>
+        <default>array</default>
+        <docblock>
+          <description>HTTP Headers of the request</description>
+          <long-description>
+</long-description>
+          <tag name="todo" description="Figure out if I need to store an array of standard headers or not" line="68"/>
+          <tag name="var" description="" type="\array" line="68">
+            <type by_reference="false">\array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" line="114">
+        <name>getHeader</name>
+        <docblock>
+          <description>Gets the specified HTTP header</description>
+          <long-description>
+</long-description>
+          <tag name="param" description="HTTP Header requested" type="\string" variable="$header" line="107">
+            <type by_reference="false">\string</type>
+          </tag>
+          <tag name="return" description="" type="\string|\null" line="107">
+            <type by_reference="false">\string</type>
+            <type by_reference="false">\null</type>
+          </tag>
+        </docblock>
+        <argument line="114">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="130">
+        <name>getBody</name>
+        <docblock>
+          <description>Gets the raw body of the HTTP request</description>
+          <long-description>
+</long-description>
+          <tag name="return" description="Raw body, or false if not present" type="\string|\RestPHP\Request\false" line="125">
+            <type by_reference="false">\string</type>
+            <type by_reference="false">\RestPHP\Request\false</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/PragmaHeader.php" hash="cd5ba59753eff866b95b05d8ad57f10e">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Pragma</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Pragma</full_name>
+      <docblock>
+        <description>HTTP Pragma Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Pragma header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Pragma header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/RequestHeader.php" hash="5fe90de806484345c10c99f4c1c6f4fc">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <interface namespace="RestPHP\Request\Header" line="60">
+      <name>RequestHeader</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\RequestHeader</full_name>
+      <docblock>
+        <description>RequestHeader - Interface for all request headers listed in rfc 2616 sec 14</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" line="69">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the supplied header string into valid pieces for the HTTP Header</description>
+          <long-description>
+</long-description>
+          <tag name="param" description="the HTTP header data For the header &amp;lt;code&amp;gt;Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==&amp;lt;/code&amp;gt; Pass &amp;lt;code&amp;gt;Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==&amp;lt;/code&amp;gt;" type="\string" variable="$header" line="62">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="69">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+  </file>
+  <file path="Request/Header/ConnectionHeader.php" hash="46717479595cc9d691021ed7a2f823e9">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Connection</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Connection</full_name>
+      <docblock>
+        <description>HTTP Connection Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Connection header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Connection header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/AcceptEncodingHeader.php" hash="b460cb7f3fb7d2fae48e60657b0bb649">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="70" namespace="RestPHP\Request\Header">
+      <name>AcceptEncodingHeader</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\AcceptEncodingHeader</full_name>
+      <docblock>
+        <description>HTTP Request header containing a list of all content-codings that are
+acceptable similar to Accept header</description>
+        <long-description>&lt;p&gt;An example header would be
+&lt;code&gt;
+Accept-Encoding: compress, gzip
+Accept-Encoding:
+Accept-Encoding: *
+Accept-Encoding: compress;q=0.5, gzip;q=1.0
+Accept-Encoding: gzip;q=1.0, identity; q=0.5, *;q=0
+&lt;/code&gt;&lt;/p&gt;
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <property final="false" static="false" visibility="protected" line="77">
+        <name>$encoding</name>
+        <default>array</default>
+        <docblock>
+          <description>Sorted list of content-codings the client will accept</description>
+          <long-description>
+</long-description>
+          <tag name="var" description="" type="\array" line="72">
+            <type by_reference="false">\array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="79">
+        <name>$accept</name>
+        <default>array</default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" line="89">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Accept-Encoding header</description>
+          <long-description>
+</long-description>
+          <tag name="see" description="\RestPHP\Request\Header\AcceptHeader::parse" line="81"/>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="81"/>
+          <tag name="param" description="the value of the Accept-Encoding header after the colon" type="\string" variable="$header" line="81">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="89">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="149">
+        <name>getEncodings</name>
+        <docblock>
+          <description>Gets all content-codings that this user agent accepts</description>
+          <long-description>
+</long-description>
+          <tag name="return" description="" type="\array" line="144">
+            <type by_reference="false">\array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="160">
+        <name>getPreferredEncoding</name>
+        <docblock>
+          <description>Gets the preferred content-codings of the user-agent. Usually the first item
+listed in the header unless all content-codings are weighted</description>
+          <long-description>
+</long-description>
+          <tag name="return" description="" type="\string" line="154">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="189">
+        <name>isAccepted</name>
+        <docblock>
+          <description>Does the User-Agent accept this content-codings?</description>
+          <long-description>&lt;p&gt;The "identity" content-coding is always acceptable, unless
+specifically refused because the Accept-Encoding field includes
+"identity;q=0", or because the field includes "*;q=0" and does
+not explicitly include the "identity" content-coding. If the
+Accept-Encoding field-value is empty, then only the "identity"
+encoding is acceptable.&lt;/p&gt;
+</long-description>
+          <tag name="param" description="the content-codings to check" type="\string" variable="$encoding" line="175">
+            <type by_reference="false">\string</type>
+          </tag>
+          <tag name="return" description="" type="\boolean" line="175">
+            <type by_reference="false">\boolean</type>
+          </tag>
+        </docblock>
+        <argument line="189">
+          <name>$encoding</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/TeHeader.php" hash="058b2759899d11f68abc94ad88c3b735">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Te</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Te</full_name>
+      <docblock>
+        <description>HTTP TE Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP TE header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the TE header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/ViaHeader.php" hash="4b2030a500ccc1fb684c5f947e30d642">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Via</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Via</full_name>
+      <docblock>
+        <description>HTTP Via Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Via header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Via header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/ProxyAuthorizationHeader.php" hash="94818d6f4b28a2da6afe002c56ff0838">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>ProxyAuthorization</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\ProxyAuthorization</full_name>
+      <docblock>
+        <description>HTTP Proxy-Authorization Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Proxy-Authorization header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Proxy-Authorization header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/MaxForwardsHeader.php" hash="2537b7f17d1532fed434471a65ce5a3a">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>MaxForwards</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\MaxForwards</full_name>
+      <docblock>
+        <description>HTTP Max-Forwards Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Max-Forwards header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Max-Forwards header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/IfRangeHeader.php" hash="696da400162f72a1d1a33b0036c32e99">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>IfRange</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\IfRange</full_name>
+      <docblock>
+        <description>HTTP If-Range Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP If-Range header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the If-Range header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/FromHeader.php" hash="ea1fbb093a0b093568346ea09d672fb3">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>From</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\From</full_name>
+      <docblock>
+        <description>HTTP From Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP From header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the From header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/IfModifiedSinceHeader.php" hash="e7f170baa62a5d9a5de01883732db492">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>IfModifiedSince</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\IfModifiedSince</full_name>
+      <docblock>
+        <description>HTTP If-Modified-Since Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP If-Modified-Since header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the If-Modified-Since header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/ExpectHeader.php" hash="0c569bb8679e5f6e0d4728f24ff4d77b">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Expect</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Expect</full_name>
+      <docblock>
+        <description>HTTP Expect Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Expect header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Expect header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/IfMatchHeader.php" hash="176f2641e95f594dfa64ef67e95c306e">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>IfMatch</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\IfMatch</full_name>
+      <docblock>
+        <description>HTTP If-Match Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP If-Match header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the If-Match header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/ContentTypeHeader.php" hash="6857e8c5755a0124368d0ba8183be0c2">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>ContentType</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\ContentType</full_name>
+      <docblock>
+        <description>HTTP Content-Type Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Content-Type header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Content-Type header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/UserAgentHeader.php" hash="8f3fedf4e4da9125e6e7762f641f3990">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>UserAgent</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\UserAgent</full_name>
+      <docblock>
+        <description>HTTP User-Agent Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP User-Agent header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the User-Agent header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/IfNoneMatchHeader.php" hash="a630d58090c7df64340fce8b9c1a7997">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>IfNoneMatch</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\IfNoneMatch</full_name>
+      <docblock>
+        <description>HTTP If-None-Match Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP If-None-Match header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the If-None-Match header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/CacheControl.php" hash="88628a5c4fa7c68708559e92f9cf424e">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>CacheControl</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\CacheControl</full_name>
+      <docblock>
+        <description>HTTP Request header containing authorization details</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Cache-Control header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Cache-Control header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/WarningHeader.php" hash="18bb5b7f236388854c9552d0aa7ff69e">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Warning</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Warning</full_name>
+      <docblock>
+        <description>HTTP Warning Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Warning header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Warning header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/HostHeader.php" hash="26263436abed21fd48399f52ab65421b">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Host</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Host</full_name>
+      <docblock>
+        <description>HTTP Host Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Host header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Host header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/Authorization.php" hash="7933490648e55deca94c6073d4173b4e">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Authorization</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Authorization</full_name>
+      <docblock>
+        <description>HTTP Request header containing authorization details</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="71">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Authorization header</description>
+          <long-description>
+</long-description>
+          <tag name="see" description="\RestPHP\Request\Header\AcceptHeader::parse" line="63"/>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Authorization header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="71">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/ContentLengthHeader.php" hash="934163b73006e43b9a30bec792edffbe">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>ContentLength</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\ContentLength</full_name>
+      <docblock>
+        <description>HTTP Content-Length Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Content-Length header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Content-Length header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/AcceptCharsetHeader.php" hash="65703335fe2754f50ebb828f82d85959">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="77" namespace="RestPHP\Request\Header">
+      <name>AcceptCharsetHeader</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\AcceptCharsetHeader</full_name>
+      <docblock>
+        <description>HTTP Request header containing a list of all Character Sets that are
+acceptable similar to Accept header</description>
+        <long-description>&lt;p&gt;An example header would be
+&lt;code&gt;Accept-Charset: iso-8859-5, unicode-1-1;q=0.8&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The special value "&lt;em&gt;", if present in the Accept-Charset field, matches every
+character set (including ISO-8859-1) which is not mentioned elsewhere in the
+Accept-Charset field. If no "&lt;/em&gt;" is present in an Accept-Charset field, then
+all character sets not explicitly mentioned get a quality value of 0, except
+for ISO-8859-1, which gets a quality value of 1 if not explicitly mentioned.&lt;/p&gt;
+
+&lt;p&gt;If no Accept-Charset header is present, the default is that any character
+set is acceptable. If an Accept-Charset header is present, and if the server
+cannot send a response which is acceptable according to the Accept-Charset
+header, then the server SHOULD send an error response with the 406
+(not acceptable) status code, though the sending of an unacceptable response
+is also allowed.&lt;/p&gt;
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <property final="false" static="false" visibility="protected" line="84">
+        <name>$charsets</name>
+        <default>array</default>
+        <docblock>
+          <description>Sorted list of charsets the client will accept</description>
+          <long-description>
+</long-description>
+          <tag name="var" description="" type="\array" line="79">
+            <type by_reference="false">\array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" line="94">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Accept-Charset header</description>
+          <long-description>
+</long-description>
+          <tag name="see" description="\RestPHP\Request\Header\AcceptHeader::parse" line="86"/>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="86"/>
+          <tag name="param" description="the value of the Accept-Charset header after the colon" type="\string" variable="$header" line="86">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="94">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="175">
+        <name>getCharsets</name>
+        <docblock>
+          <description>Gets all charsets that this user agent accepts</description>
+          <long-description>
+</long-description>
+          <tag name="return" description="" type="\array" line="170">
+            <type by_reference="false">\array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="186">
+        <name>getPreferredCharset</name>
+        <docblock>
+          <description>Gets the preferred charset of the user-agent. Usually the first item
+listed in the header unless all charsets are weighted</description>
+          <long-description>
+</long-description>
+          <tag name="return" description="" type="\string" line="180">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="201">
+        <name>isAccepted</name>
+        <docblock>
+          <description>Does the User-Agent accept this charset?</description>
+          <long-description>&lt;p&gt;If the agent has a wildcard (*) or no Accept-Charset header this will
+return true per the RFC&lt;/p&gt;
+</long-description>
+          <tag name="param" description="the charset to check" type="\string" variable="$charset" line="191">
+            <type by_reference="false">\string</type>
+          </tag>
+          <tag name="return" description="" type="\boolean" line="191">
+            <type by_reference="false">\boolean</type>
+          </tag>
+        </docblock>
+        <argument line="201">
+          <name>$charset</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/IfUnmodifiedSinceHeader.php" hash="295933847a4f70a17a435392bf702cad">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>IfUnmodifiedSince</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\IfUnmodifiedSince</full_name>
+      <docblock>
+        <description>HTTP If-Unmodified-Since Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP If-Unmodified-Since header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the If-Unmodified-Since header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/RefererHeader.php" hash="293e7165cfc215f129fd4d78f4c091f0">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Referer</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Referer</full_name>
+      <docblock>
+        <description>HTTP Referer Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Referer header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Referer header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/AcceptEncodingLanguage.php" hash="29d1a27a0a13e2bd1364c17c2edd2952">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="74" namespace="RestPHP\Request\Header">
+      <name>AcceptEncodingLanguage</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\AcceptEncodingLanguage</full_name>
+      <docblock>
+        <description>HTTP Request header containing a list of all languages the user-agent accepts</description>
+        <long-description>&lt;p&gt;The Accept-Language request-header field is similar to Accept, but restricts
+the set of natural languages that are preferred as a response to the request.&lt;/p&gt;
+
+&lt;p&gt;An example header would be
+&lt;code&gt;
+Accept-Language: da, en-gb;q=0.8, en;q=0.7
+&lt;/code&gt;
+Which means: "I prefer Danish, but will accept British English and other
+types of English." A language-range matches a language-tag if it exactly
+equals the tag, or if it exactly equals a prefix of the tag such that the
+first tag character following the prefix is "-". The special range "*", if
+present in the Accept-Language field, matches every tag not matched by any
+other range present in the Accept-Language field.&lt;/p&gt;
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <property final="false" static="false" visibility="protected" line="81">
+        <name>$language</name>
+        <default>array</default>
+        <docblock>
+          <description>Sorted list of languages the client will accept</description>
+          <long-description>
+</long-description>
+          <tag name="var" description="" type="\array" line="76">
+            <type by_reference="false">\array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" line="91">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Accept-Language header</description>
+          <long-description>
+</long-description>
+          <tag name="see" description="\RestPHP\Request\Header\AcceptHeader::parse" line="83"/>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="83"/>
+          <tag name="param" description="the value of the Accept-Language header after the colon" type="\string" variable="$header" line="83">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="91">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="151">
+        <name>getEncodings</name>
+        <docblock>
+          <description>Gets all languages that this user agent accepts</description>
+          <long-description>
+</long-description>
+          <tag name="return" description="" type="\array" line="146">
+            <type by_reference="false">\array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="162">
+        <name>getPreferredLanguage</name>
+        <docblock>
+          <description>Gets the preferred langauges of the user-agent. Usually the first item
+listed in the header unless all languages are weighted</description>
+          <long-description>
+</long-description>
+          <tag name="return" description="" type="\string" line="156">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="184">
+        <name>isAccepted</name>
+        <docblock>
+          <description>Does the User-Agent accept this language?</description>
+          <long-description>
+</long-description>
+          <tag name="param" description="the language to check" type="\string" variable="$language" line="177">
+            <type by_reference="false">\string</type>
+          </tag>
+          <tag name="return" description="" type="\boolean" line="177">
+            <type by_reference="false">\boolean</type>
+          </tag>
+        </docblock>
+        <argument line="184">
+          <name>$language</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/AcceptHeader.php" hash="b90d15a6965dfb5c14ac998da5969521">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="64" namespace="RestPHP\Request\Header">
+      <name>AcceptHeader</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\AcceptHeader</full_name>
+      <docblock>
+        <description>HTTP Request header containing a list of all Content-Types that are
+acceptable</description>
+        <long-description>&lt;p&gt;An example header would be
+&lt;code&gt;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,* /*;q=0.8,application/json;q=0.0&lt;/code&gt;&lt;/p&gt;
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <property final="false" static="false" visibility="protected" line="71">
+        <name>$mimeTypes</name>
+        <default>array</default>
+        <docblock>
+          <description>Sorted list of mime-types the client will accept</description>
+          <long-description>
+</long-description>
+          <tag name="var" description="" type="\array" line="66">
+            <type by_reference="false">\array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" line="82">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Accept header</description>
+          <long-description>&lt;p&gt;Code inspired by Wez Furlong&lt;/p&gt;
+</long-description>
+          <tag name="link" description="http://shiflett.org/blog/2011/may/the-accept-header" link="http://shiflett.org/blog/2011/may/the-accept-header" line="73"/>
+          <tag name="link" description="http://shiflett.org/blog/2011/may/the-accept-header#comment-7" link="http://shiflett.org/blog/2011/may/the-accept-header#comment-7" line="73"/>
+          <tag name="param" description="the value of the Accept header after the colon" type="\string" variable="$header" line="73">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="82">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="189">
+        <name>getTypes</name>
+        <docblock>
+          <description>Gets all mime types that this user agent accepts</description>
+          <long-description>
+</long-description>
+          <tag name="return" description="" type="\array" line="184">
+            <type by_reference="false">\array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="200">
+        <name>getPreferredType</name>
+        <docblock>
+          <description>Gets the preferred mime type of the user-agent. Usually the first item
+listed in the header unless all mimes are weighted</description>
+          <long-description>
+</long-description>
+          <tag name="return" description="" type="\string" line="194">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="216">
+        <name>isAccepted</name>
+        <docblock>
+          <description>Does the User-Agent accept this mime type?</description>
+          <long-description>&lt;p&gt;If the agent has a wildcard in accept * /* this will return true&lt;/p&gt;
+</long-description>
+          <tag name="todo" description="Handle wildcard mimes like audio/*" line="205"/>
+          <tag name="param" description="the mime type to check" type="\string" variable="$mimeType" line="205">
+            <type by_reference="false">\string</type>
+          </tag>
+          <tag name="return" description="" type="\boolean" line="205">
+            <type by_reference="false">\boolean</type>
+          </tag>
+        </docblock>
+        <argument line="216">
+          <name>$mimeType</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/RangeHeader.php" hash="9bcbdfc534978cc2eb35c4301bb4a2ef">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Range</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Range</full_name>
+      <docblock>
+        <description>HTTP Range Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Range header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Range header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/DateHeader.php" hash="412d1fe7f0ba125f778d9ca587ef2cf8">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Date</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Date</full_name>
+      <docblock>
+        <description>HTTP Date Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Date header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Date header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/ContentMd5Header.php" hash="f718602343f7270806ed49ef02ef88f6">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>ContentMd5</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\ContentMd5</full_name>
+      <docblock>
+        <description>HTTP Content-MD5 Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Content-MD5 header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Content-MD5 header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/CookieHeader.php" hash="9af3f4415cfc57baea9ad63a398c7b54">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Cookie</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Cookie</full_name>
+      <docblock>
+        <description>HTTP Cookie Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Cookie header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Cookie header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Request/Header/UpgradeHeader.php" hash="0ab0494cc57964557db66c9621b2fe43">
+    <docblock>
+      <description>RestPHP Framework</description>
+      <long-description>&lt;p&gt;PHP Version 5.3&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, RestPHP Framework
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;p&gt;Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.&lt;/p&gt;
+
+&lt;p&gt;Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.&lt;/p&gt;
+
+&lt;p&gt;Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.&lt;/p&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;
+</long-description>
+      <tag name="category" description="RestPHP"/>
+      <tag name="package" description="RestPHP"/>
+      <tag name="subpackage" description="Request"/>
+      <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;"/>
+      <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework"/>
+      <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
+    </docblock>
+    <class final="false" abstract="false" line="61" namespace="RestPHP\Request\Header">
+      <name>Upgrade</name>
+      <extends/>
+      <full_name>\RestPHP\Request\Header\Upgrade</full_name>
+      <docblock>
+        <description>HTTP Upgrade Request header</description>
+        <long-description>
+</long-description>
+        <tag name="category" description="RestPHP" line="49"/>
+        <tag name="package" description="RestPHP" line="49"/>
+        <tag name="subpackage" description="Request" line="49"/>
+        <tag name="author" description="Joshua Johnston &amp;lt;johnston.joshua@gmail.com&amp;gt;" line="49"/>
+        <tag name="copyright" description="Copyright (c) 2011, RestPHP Framework" line="49"/>
+        <tag name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License" line="49"/>
+        <tag name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="49"/>
+      </docblock>
+      <implements>\RestPHP\Request\Header\RequestHeader</implements>
+      <method final="false" abstract="false" static="false" visibility="public" line="70">
+        <name>parse</name>
+        <docblock>
+          <description>Parses the HTTP Upgrade header</description>
+          <long-description>
+</long-description>
+          <tag name="link" description="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" line="63"/>
+          <tag name="param" description="the value of the Upgrade header after the colon" type="\string" variable="$header" line="63">
+            <type by_reference="false">\string</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$header</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <package name=""/>
+  <package name="RestPHP">
+    <subpackage>Response</subpackage>
+    <subpackage>Resource</subpackage>
+    <subpackage>Request</subpackage>
+  </package>
+  <namespace name="RestPHP">
+    <namespace name="Request">
+      <namespace name="Header"/>
+    </namespace>
+    <namespace name="Resource"/>
+    <namespace name="Response">
+      <namespace name="Header"/>
+    </namespace>
+  </namespace>
+  <marker>todo</marker>
+  <marker>fixme</marker>
+</project>

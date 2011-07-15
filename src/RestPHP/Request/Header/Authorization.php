@@ -35,7 +35,7 @@
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Resource
+ * @subpackage Request
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
@@ -44,93 +44,31 @@
 /**
  * @namespace
  */
-namespace RestPHP\Resource;
+namespace RestPHP\Request\Header;
 
 /**
- * RestPHP Base Resource class
+ * HTTP Request header containing authorization details
+ *
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Resource
+ * @subpackage Request
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
+ * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-abstract class Resource
+class Authorization implements RequestHeader
 {
     /**
-     * Request Instance
+     * Parses the HTTP Authorization header
      *
-     * @var \RestPHP\Request\Request
-     */
-    protected $request;
-
-    /**
-     * Response Instance
+     * @see \RestPHP\Request\Header\AcceptHeader::parse
+     * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
      *
-     * @var \RestPHP\Response\Response
+     * @param string $header the value of the Authorization header after the colon
      */
-    protected $response;
-
-    /**
-     * Creates the resource
-     *
-     * @param \RestPHP\Request\Request $request
-     * @param \RestPHP\Response\Response $response
-     */
-    public function __construct(\RestPHP\Request\Request $request,
-                                \RestPHP\Response\Response $response)
+    public function parse($header)
     {
-        $this->request = $request;
-        $this->response = $response;
     }
-
-    /**
-     * Called for OPTIONS requests
-     */
-    public function options()
-    {
-    
-    }
-
-    /**
-     * Called for GET requests
-     */
-    public function get()
-    {
-
-    }
-
-    /**
-     * Called for HEAD requests
-     */
-    public function head()
-    {
-
-    }
-
-    /**
-     * Called for POST requests
-     */
-    public function post()
-    {
-
-    }
-
-    /**
-     * Called for PUT requests
-     */
-    public function put()
-    {
-
-    }
-
-    /**
-     * Called for TRACE requests
-     */
-    public function trace()
-    {
-
-    }
-
 }

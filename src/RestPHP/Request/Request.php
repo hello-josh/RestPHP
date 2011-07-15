@@ -64,6 +64,7 @@ class Request
      * @var string
      */
     protected $body;
+
     /**
      * HTTP Headers of the request
      *
@@ -141,4 +142,5 @@ class Request
 
         return $this->body;
     }
+
 }

@@ -1,0 +1,1212 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>DocBlox Documentation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><div xmlns="" id="content">
+<script>
+      $(document).ready(function() {
+        $('dl.function-info, dl.constant-info, dl.property-info').prev().css('cursor', 'pointer');
+        $('dl.function-info, dl.constant-info, dl.property-info').prev().click(function() {
+          if ($(this).next().is(':hidden'))
+          {
+            $(this).children('img')[0].src = 'images/arrow_down.gif';
+          } else
+          {
+            $(this).children('img')[0].src = 'images/arrow_right.gif';
+          }
+          $(this).next().slideToggle();
+        });
+      $('dl.function-info, dl.constant-info, dl.property-info').hide();
+      $('dl.function-info img, dl.constant-info img, dl.property-info img').show();
+      });
+    </script><a name="top"></a><h1 class="file">Response/Response.php</h1>
+<div class="file_menu">
+<a href="#classes">Classes</a> </div>
+<dl class="file-info">
+<dt>author</dt>
+<dd>Joshua Johnston &lt;johnston.joshua@gmail.com&gt;</dd>
+<dt>category</dt>
+<dd>RestPHP</dd>
+<dt>copyright</dt>
+<dd>Copyright (c) 2011, RestPHP Framework</dd>
+<dt>license</dt>
+<dd>http://opensource.org/licenses/bsd-license.php New BSD License</dd>
+<dt>package</dt>
+<dd>RestPHP</dd>
+<dt>subpackage</dt>
+<dd>Response</dd>
+<dt>Classes</dt>
+<dd><a class="class" href="#%5CRestPHP%5CResponse%5CResponse">Response</a></dd>
+</dl>
+<h2>Description</h2>
+<p class="short-description">RestPHP Framework</p>
+<div class="long-description"><p>PHP Version 5.3</p>
+
+<p>Copyright (c) 2011, RestPHP Framework
+All rights reserved.</p>
+
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+
+<p>Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.</p>
+
+<p>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p>
+
+<p>Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.</p>
+
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.</p>
+</div>
+<a name="classes"></a><a id="\RestPHP\Response\Response"></a><h2 class="class">\RestPHP\Response\Response<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div class="class">
+<dl class="class-info">
+<dt>author</dt>
+<dd>Joshua Johnston &lt;johnston.joshua@gmail.com&gt;</dd>
+<dt>category</dt>
+<dd>RestPHP</dd>
+<dt>copyright</dt>
+<dd>Copyright (c) 2011, RestPHP Framework</dd>
+<dt>license</dt>
+<dd>http://opensource.org/licenses/bsd-license.php New BSD License</dd>
+<dt>package</dt>
+<dd>RestPHP</dd>
+<dt>subpackage</dt>
+<dd>Response</dd>
+<dt>Constants</dt>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::FCGI_STATUS">FCGI_STATUS</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_STATUS">HTTP_STATUS</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_100">HTTP_100</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_101">HTTP_101</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_200">HTTP_200</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_201">HTTP_201</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_202">HTTP_202</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_203">HTTP_203</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_204">HTTP_204</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_205">HTTP_205</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_206">HTTP_206</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_300">HTTP_300</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_301">HTTP_301</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_302">HTTP_302</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_303">HTTP_303</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_304">HTTP_304</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_305">HTTP_305</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_306">HTTP_306</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_307">HTTP_307</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_400">HTTP_400</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_401">HTTP_401</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_402">HTTP_402</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_403">HTTP_403</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_404">HTTP_404</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_405">HTTP_405</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_406">HTTP_406</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_407">HTTP_407</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_408">HTTP_408</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_409">HTTP_409</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_410">HTTP_410</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_411">HTTP_411</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_412">HTTP_412</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_413">HTTP_413</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_414">HTTP_414</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_415">HTTP_415</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_416">HTTP_416</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_417">HTTP_417</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_500">HTTP_500</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_501">HTTP_501</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_502">HTTP_502</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_503">HTTP_503</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_504">HTTP_504</a></dd>
+<dd><a class="constant" href="#%5CRestPHP%5CResponse%5CResponse::HTTP_505">HTTP_505</a></dd>
+<dt>Properties</dt>
+<dd><a class="property protected" href="#%5CRestPHP%5CResponse%5CResponse::%24isFgci">$isFgci</a></dd>
+<dd><a class="property protected" href="#%5CRestPHP%5CResponse%5CResponse::%24status">$status</a></dd>
+<dd><a class="property protected" href="#%5CRestPHP%5CResponse%5CResponse::%24headers">$headers</a></dd>
+<dt>Methods</dt>
+<dd><a class="method public" href="#%5CRestPHP%5CResponse%5CResponse::isFgci()">isFgci</a></dd>
+<dd><a class="method public" href="#%5CRestPHP%5CResponse%5CResponse::setIsFgci()">setIsFgci</a></dd>
+<dd><a class="method public" href="#%5CRestPHP%5CResponse%5CResponse::isHttp()">isHttp</a></dd>
+<dd><a class="method public" href="#%5CRestPHP%5CResponse%5CResponse::setIsHttp()">setIsHttp</a></dd>
+<dd><a class="method public" href="#%5CRestPHP%5CResponse%5CResponse::getStatus()">getStatus</a></dd>
+<dd><a class="method public" href="#%5CRestPHP%5CResponse%5CResponse::setStatus()">setStatus</a></dd>
+<dd><a class="method public" href="#%5CRestPHP%5CResponse%5CResponse::addHeader()">addHeader</a></dd>
+<dd><a class="method public" href="#%5CRestPHP%5CResponse%5CResponse::makeStatus()">makeStatus</a></dd>
+<dd><a class="method public" href="#%5CRestPHP%5CResponse%5CResponse::makeHeader()">makeHeader</a></dd>
+<dd><a class="method public" href="#%5CRestPHP%5CResponse%5CResponse::sendHeaders()">sendHeaders</a></dd>
+</dl>
+<h3>Description</h3>
+<p class="short-description">Response</p>
+<div class="long-description">
+</div>
+<h3>Constants</h3>
+<div>
+<a id="\RestPHP\Response\Response::FCGI_STATUS"></a><h4 class="constant">FCGI_STATUS<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">FCGI_STATUS</span> = 'Status: '
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>Status: </dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_STATUS"></a><h4 class="constant">HTTP_STATUS<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_STATUS</span> = 'HTTP/1.1 '
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>HTTP/1.1 </dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_100"></a><h4 class="constant">HTTP_100<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_100</span> = '100 Continue'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>100 Continue</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_101"></a><h4 class="constant">HTTP_101<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_101</span> = '101 Switching Protocols'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>101 Switching Protocols</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_200"></a><h4 class="constant">HTTP_200<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_200</span> = '200 OK'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>200 OK</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_201"></a><h4 class="constant">HTTP_201<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_201</span> = '201 Created'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>201 Created</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_202"></a><h4 class="constant">HTTP_202<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_202</span> = '202 Accepted'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>202 Accepted</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_203"></a><h4 class="constant">HTTP_203<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_203</span> = '203 Non-Authoritative Information'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>203 Non-Authoritative Information</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_204"></a><h4 class="constant">HTTP_204<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_204</span> = '204 No Content'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>204 No Content</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_205"></a><h4 class="constant">HTTP_205<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_205</span> = '205 Reset Content'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>205 Reset Content</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_206"></a><h4 class="constant">HTTP_206<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_206</span> = '206 Partial Content'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>206 Partial Content</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_300"></a><h4 class="constant">HTTP_300<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_300</span> = '300 Multiple Choices'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>300 Multiple Choices</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_301"></a><h4 class="constant">HTTP_301<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_301</span> = '301 Moved Permanently'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>301 Moved Permanently</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_302"></a><h4 class="constant">HTTP_302<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_302</span> = '302 Found'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>302 Found</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_303"></a><h4 class="constant">HTTP_303<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_303</span> = '303 See Other'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>303 See Other</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_304"></a><h4 class="constant">HTTP_304<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_304</span> = '304 Not Modified'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>304 Not Modified</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_305"></a><h4 class="constant">HTTP_305<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_305</span> = '305 Use Proxy'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>305 Use Proxy</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_306"></a><h4 class="constant">HTTP_306<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_306</span> = '306 (Unused)'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>306 (Unused)</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_307"></a><h4 class="constant">HTTP_307<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_307</span> = '307 Temporary Redirect'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>307 Temporary Redirect</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_400"></a><h4 class="constant">HTTP_400<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_400</span> = '400 Bad Request'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>400 Bad Request</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_401"></a><h4 class="constant">HTTP_401<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_401</span> = '401 Unauthorized'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>401 Unauthorized</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_402"></a><h4 class="constant">HTTP_402<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_402</span> = '402 Payment Required'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>402 Payment Required</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_403"></a><h4 class="constant">HTTP_403<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_403</span> = '403 Forbidden'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>403 Forbidden</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_404"></a><h4 class="constant">HTTP_404<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_404</span> = '404 Not Found'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>404 Not Found</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_405"></a><h4 class="constant">HTTP_405<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_405</span> = '405 Method Not Allowed'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>405 Method Not Allowed</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_406"></a><h4 class="constant">HTTP_406<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_406</span> = '406 Not Acceptable'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>406 Not Acceptable</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_407"></a><h4 class="constant">HTTP_407<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_407</span> = '407 Proxy Authentication Required'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>407 Proxy Authentication Required</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_408"></a><h4 class="constant">HTTP_408<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_408</span> = '408 Request Timeout'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>408 Request Timeout</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_409"></a><h4 class="constant">HTTP_409<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_409</span> = '409 Conflict'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>409 Conflict</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_410"></a><h4 class="constant">HTTP_410<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_410</span> = '410 Gone'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>410 Gone</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_411"></a><h4 class="constant">HTTP_411<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_411</span> = '411 Length Required'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>411 Length Required</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_412"></a><h4 class="constant">HTTP_412<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_412</span> = '412 Precondition Failed'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>412 Precondition Failed</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_413"></a><h4 class="constant">HTTP_413<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_413</span> = '413 Request Entity Too Large'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>413 Request Entity Too Large</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_414"></a><h4 class="constant">HTTP_414<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_414</span> = '414 Request-URI Too Long'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>414 Request-URI Too Long</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_415"></a><h4 class="constant">HTTP_415<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_415</span> = '415 Unsupported Media Type'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>415 Unsupported Media Type</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_416"></a><h4 class="constant">HTTP_416<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_416</span> = '416 Requested Range Not Satisfiable'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>416 Requested Range Not Satisfiable</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_417"></a><h4 class="constant">HTTP_417<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_417</span> = '417 Expectation Failed'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>417 Expectation Failed</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_500"></a><h4 class="constant">HTTP_500<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_500</span> = '500 Internal Server Error'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>500 Internal Server Error</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_501"></a><h4 class="constant">HTTP_501<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_501</span> = '501 Not Implemented'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>501 Not Implemented</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_502"></a><h4 class="constant">HTTP_502<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_502</span> = '502 Bad Gateway'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>502 Bad Gateway</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_503"></a><h4 class="constant">HTTP_503<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_503</span> = '503 Service Unavailable'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>503 Service Unavailable</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_504"></a><h4 class="constant">HTTP_504<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_504</span> = '504 Gateway Timeout'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>504 Gateway Timeout</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::HTTP_505"></a><h4 class="constant">HTTP_505<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="constant">
+<code> <span class="highlight">HTTP_505</span> = '505 HTTP Version Not Supported'
+      </code><div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="constant-info">
+<dt>value</dt>
+<dd>505 HTTP Version Not Supported</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<h3>Properties</h3>
+<div>
+<a id="\RestPHP\Response\Response::$headers"></a><h4 class="property protected">$headers<div class="to-top"><a href="#%5CRestPHP%5CResponse%5CResponse">jump to class</a></div>
+</h4>
+<div class="property">
+<code>\array <span class="highlight">$headers</span> = 'array'</code><p class="short-description">Headers that need to be sent</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="property-info">
+<dt></dt>
+<dd>\array<br><em></em>
+</dd>
+<dt>visibility</dt>
+<dd>protected</dd>
+<dt>default</dt>
+<dd>array</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::$isFgci"></a><h4 class="property protected">$isFgci<div class="to-top"><a href="#%5CRestPHP%5CResponse%5CResponse">jump to class</a></div>
+</h4>
+<div class="property">
+<code>\boolean <span class="highlight">$isFgci</span> = 'false'</code><p class="short-description">Is this FCGI?</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="property-info">
+<dt></dt>
+<dd>\boolean<br><em></em>
+</dd>
+<dt>visibility</dt>
+<dd>protected</dd>
+<dt>default</dt>
+<dd>false</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::$status"></a><h4 class="property protected">$status<div class="to-top"><a href="#%5CRestPHP%5CResponse%5CResponse">jump to class</a></div>
+</h4>
+<div class="property">
+<code>\integer <span class="highlight">$status</span> = '501'</code><p class="short-description">HTTP Status</p>
+<div class="long-description"><p>Default status is 501 Not Implemented</p>
+</div>
+<div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="property-info">
+<dt></dt>
+<dd>\integer<br><em></em>
+</dd>
+<dt>visibility</dt>
+<dd>protected</dd>
+<dt>default</dt>
+<dd>501</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\RestPHP\Response\Response::addHeader()"></a><h4 class="method public">addHeader<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">addHeader</span><span class="nb-faded-text">(
+          \string $header, \string $value, \string $values
+              =
+              null
+          )
+        </span>
+        :
+        </code><p class="short-description">Adds a response header to be sent</p>
+<div class="long-description"><p>Arguments 2-N are imploded with '; ' to allow easier
+setting of headers like:</p>
+
+<p><code>
+$response->addHeader('Content-Disposition',
+                          'attachment', 'filename=fname.ext');
+</code></p>
+
+<p>Which is output as:
+<code>
+Content-Disposition: attachment; filename=fname.ext
+</code></p>
+</div>
+<div class="api-section">
+<h5 class="arguments">Arguments</h5>
+<dl class="argument-info">
+<dt>$header</dt>
+<dd>\string<br><em></em>
+</dd>
+<dt>$value</dt>
+<dd>\string<br><em></em>
+</dd>
+<dt>$values</dt>
+<dd>\string<br><em>variadic arguments</em>
+</dd>
+</dl>
+<div class="clear"></div>
+</div>
+<div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::getStatus()"></a><h4 class="method public">getStatus<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">getStatus</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        \int</code><p class="short-description">Gets the HTTP status code</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h5 class="output">Output</h5>
+<dl class="return-info">
+<dt>\int</dt>
+<dd><em></em></dd>
+</dl>
+<div class="clear"></div>
+</div>
+<div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::isFgci()"></a><h4 class="method public">isFgci<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">isFgci</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        \boolean</code><p class="short-description">Is this response handled via fcgi?</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h5 class="output">Output</h5>
+<dl class="return-info">
+<dt>\boolean</dt>
+<dd><em></em></dd>
+</dl>
+<div class="clear"></div>
+</div>
+<div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+<dt>see</dt>
+<dd>\RestPHP\Response::isHttp()</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::isHttp()"></a><h4 class="method public">isHttp<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">isHttp</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        \boolean</code><p class="short-description">Is this response handled via HTTP?</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h5 class="output">Output</h5>
+<dl class="return-info">
+<dt>\boolean</dt>
+<dd><em></em></dd>
+</dl>
+<div class="clear"></div>
+</div>
+<div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+<dt>see</dt>
+<dd>\RestPHP\Response::isFcgi()</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::makeHeader()"></a><h4 class="method public">makeHeader<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">makeHeader</span><span class="nb-faded-text">(
+          \array $header
+          )
+        </span>
+        :
+        \string</code><p class="short-description">Formats a header based off an array item</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h5 class="arguments">Arguments</h5>
+<dl class="argument-info">
+<dt>$header</dt>
+<dd>\array<br><em></em>
+</dd>
+</dl>
+<div class="clear"></div>
+</div>
+<div class="api-section">
+<h5 class="output">Output</h5>
+<dl class="return-info">
+<dt>\string</dt>
+<dd><em></em></dd>
+</dl>
+<div class="clear"></div>
+</div>
+<div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::makeStatus()"></a><h4 class="method public">makeStatus<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">makeStatus</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        \string</code><p class="short-description">Formats the Status header for FGCI or HTTP</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h5 class="output">Output</h5>
+<dl class="return-info">
+<dt>\string</dt>
+<dd><em></em></dd>
+</dl>
+<div class="clear"></div>
+</div>
+<div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::sendHeaders()"></a><h4 class="method public">sendHeaders<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">sendHeaders</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        </code><p class="short-description">Creates and sends any needed headers</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::setIsFgci()"></a><h4 class="method public">setIsFgci<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">setIsFgci</span><span class="nb-faded-text">(
+          \boolean $isFgci
+          )
+        </span>
+        :
+        </code><p class="short-description">Sets if the response should be handled like fcgi</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h5 class="arguments">Arguments</h5>
+<dl class="argument-info">
+<dt>$isFgci</dt>
+<dd>\boolean<br><em></em>
+</dd>
+</dl>
+<div class="clear"></div>
+</div>
+<div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::setIsHttp()"></a><h4 class="method public">setIsHttp<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">setIsHttp</span><span class="nb-faded-text">(
+          \boolean $isHttp
+          )
+        </span>
+        :
+        </code><p class="short-description">Sets if the response should be handled like HTTP</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h5 class="arguments">Arguments</h5>
+<dl class="argument-info">
+<dt>$isHttp</dt>
+<dd>\boolean<br><em></em>
+</dd>
+</dl>
+<div class="clear"></div>
+</div>
+<div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\RestPHP\Response\Response::setStatus()"></a><h4 class="method public">setStatus<div class="to-top"><a href="#Response">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">setStatus</span><span class="nb-faded-text">(
+          \int $status
+          )
+        </span>
+        :
+        </code><p class="short-description">Sets the HTTP status code</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h5 class="arguments">Arguments</h5>
+<dl class="argument-info">
+<dt>$status</dt>
+<dd>\int<br><em></em>
+</dd>
+</dl>
+<div class="clear"></div>
+</div>
+<div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.11.2</a>.
+    </small></body></html>

@@ -1,0 +1,345 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>DocBlox Documentation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/black-tie/jquery-ui-1.8.2.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><div xmlns="" id="content">
+<script>
+      $(document).ready(function() {
+        $('dl.function-info, dl.constant-info, dl.property-info').prev().css('cursor', 'pointer');
+        $('dl.function-info, dl.constant-info, dl.property-info').prev().click(function() {
+          if ($(this).next().is(':hidden'))
+          {
+            $(this).children('img')[0].src = 'images/arrow_down.gif';
+          } else
+          {
+            $(this).children('img')[0].src = 'images/arrow_right.gif';
+          }
+          $(this).next().slideToggle();
+        });
+      $('dl.function-info, dl.constant-info, dl.property-info').hide();
+      $('dl.function-info img, dl.constant-info img, dl.property-info img').show();
+      });
+    </script><a name="top"></a><h1 class="file">Resource/Resource.php</h1>
+<div class="file_menu">
+<a href="#classes">Classes</a> </div>
+<dl class="file-info">
+<dt>author</dt>
+<dd>Joshua Johnston &lt;johnston.joshua@gmail.com&gt;</dd>
+<dt>category</dt>
+<dd>RestPHP</dd>
+<dt>copyright</dt>
+<dd>Copyright (c) 2011, RestPHP Framework</dd>
+<dt>license</dt>
+<dd>http://opensource.org/licenses/bsd-license.php New BSD License</dd>
+<dt>package</dt>
+<dd>RestPHP</dd>
+<dt>subpackage</dt>
+<dd>Resource</dd>
+<dt>Classes</dt>
+<dd><a class="class" href="#%5CResource">Resource</a></dd>
+</dl>
+<h2>Description</h2>
+<p class="short-description">RestPHP Framework</p>
+<div class="long-description"><p>PHP Version 5.3</p>
+
+<p>Copyright (c) 2011, RestPHP Framework
+All rights reserved.</p>
+
+<p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:</p>
+
+<p>Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.</p>
+
+<p>Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p>
+
+<p>Neither the name of the RestPHP Framework nor the names of its contributors
+may be used to endorse or promote products derived from this software
+without specific prior written permission.</p>
+
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.</p>
+</div>
+<a name="classes"></a><a id="\Resource"></a><h2 class="class">\Resource<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div class="class">
+<dl class="class-info">
+<dt>author</dt>
+<dd>Joshua Johnston &lt;johnston.joshua@gmail.com&gt;</dd>
+<dt>category</dt>
+<dd>RestPHP</dd>
+<dt>copyright</dt>
+<dd>Copyright (c) 2011, RestPHP Framework</dd>
+<dt>license</dt>
+<dd>http://opensource.org/licenses/bsd-license.php New BSD License</dd>
+<dt>package</dt>
+<dd>RestPHP</dd>
+<dt>subpackage</dt>
+<dd>Resource</dd>
+<dt>Properties</dt>
+<dd><a class="property protected" href="#%5CResource::%24request">$request</a></dd>
+<dd><a class="property protected" href="#%5CResource::%24response">$response</a></dd>
+<dt>Methods</dt>
+<dd><a class="method public" href="#%5CResource::__construct()">__construct</a></dd>
+<dd><a class="method public" href="#%5CResource::options()">options</a></dd>
+<dd><a class="method public" href="#%5CResource::get()">get</a></dd>
+<dd><a class="method public" href="#%5CResource::head()">head</a></dd>
+<dd><a class="method public" href="#%5CResource::post()">post</a></dd>
+<dd><a class="method public" href="#%5CResource::put()">put</a></dd>
+<dd><a class="method public" href="#%5CResource::trace()">trace</a></dd>
+</dl>
+<h3>Description</h3>
+<p class="short-description">RestPHP Base Resource class</p>
+<div class="long-description">
+</div>
+<h3>Properties</h3>
+<div>
+<a id="\Resource::$request"></a><h4 class="property protected">$request<div class="to-top"><a href="#%5CResource">jump to class</a></div>
+</h4>
+<div class="property">
+<code>\RestPHP\Request <span class="highlight">$request</span> = ''</code><p class="short-description">Request Instance</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="property-info">
+<dt></dt>
+<dd>\RestPHP\Request<br><em></em>
+</dd>
+<dt>visibility</dt>
+<dd>protected</dd>
+<dt>default</dt>
+<dd></dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\Resource::$response"></a><h4 class="property protected">$response<div class="to-top"><a href="#%5CResource">jump to class</a></div>
+</h4>
+<div class="property">
+<code>\RestPHP\Response <span class="highlight">$response</span> = ''</code><p class="short-description">Response Instance</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h4 class="info">
+<img src="images/arrow_right.gif"> Details</h4>
+<dl class="property-info">
+<dt></dt>
+<dd>\RestPHP\Response<br><em></em>
+</dd>
+<dt>visibility</dt>
+<dd>protected</dd>
+<dt>default</dt>
+<dd></dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\Resource::__construct()"></a><h4 class="method public">__construct<div class="to-top"><a href="#Resource">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">__construct</span><span class="nb-faded-text">(
+          \RestPHP\Resource\Request $request, \RestPHP\Resource\Response $response
+          )
+        </span>
+        :
+        </code><p class="short-description">Creates a new instance</p>
+<div class="long-description">
+</div>
+<div class="api-section">
+<h5 class="arguments">Arguments</h5>
+<dl class="argument-info">
+<dt>$request</dt>
+<dd>\RestPHP\Resource\Request<br><em></em>
+</dd>
+<dt>$response</dt>
+<dd>\RestPHP\Resource\Response<br><em></em>
+</dd>
+</dl>
+<div class="clear"></div>
+</div>
+<div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\Resource::get()"></a><h4 class="method public">get<div class="to-top"><a href="#Resource">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">get</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        </code><div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\Resource::head()"></a><h4 class="method public">head<div class="to-top"><a href="#Resource">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">head</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        </code><div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\Resource::options()"></a><h4 class="method public">options<div class="to-top"><a href="#Resource">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">options</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        </code><div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\Resource::post()"></a><h4 class="method public">post<div class="to-top"><a href="#Resource">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">post</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        </code><div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\Resource::put()"></a><h4 class="method public">put<div class="to-top"><a href="#Resource">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">put</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        </code><div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+<a id="\Resource::trace()"></a><h4 class="method public">trace<div class="to-top"><a href="#Resource">jump to class</a></div>
+</h4>
+<div class="method">
+<code><span class="highlight">trace</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+        </code><div class="api-section">
+<h5 class="info">
+<img src="images/arrow_right.gif"> Details</h5>
+<dl class="function-info">
+<dt>visibility</dt>
+<dd>public</dd>
+<dt>final</dt>
+<dd>false</dd>
+<dt>static</dt>
+<dd>false</dd>
+</dl>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.11.2</a>.
+    </small></body></html>

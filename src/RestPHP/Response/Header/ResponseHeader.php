@@ -35,7 +35,7 @@
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Resource
+ * @subpackage Response
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
@@ -44,93 +44,25 @@
 /**
  * @namespace
  */
-namespace RestPHP\Resource;
+namespace RestPHP\Response\Header;
 
 /**
- * RestPHP Base Resource class
+ * ResponseHeader - Interface for all Response headers listed in rfc 2616 sec 14
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Resource
+ * @subpackage Response
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
+ * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-abstract class Resource
+interface ResponseHeader
 {
     /**
-     * Request Instance
+     * Sets the valid pieces for the HTTP Header
      *
-     * @var \RestPHP\Request\Request
+     * @param string $header the HTTP header data
      */
-    protected $request;
-
-    /**
-     * Response Instance
-     *
-     * @var \RestPHP\Response\Response
-     */
-    protected $response;
-
-    /**
-     * Creates the resource
-     *
-     * @param \RestPHP\Request\Request $request
-     * @param \RestPHP\Response\Response $response
-     */
-    public function __construct(\RestPHP\Request\Request $request,
-                                \RestPHP\Response\Response $response)
-    {
-        $this->request = $request;
-        $this->response = $response;
-    }
-
-    /**
-     * Called for OPTIONS requests
-     */
-    public function options()
-    {
-    
-    }
-
-    /**
-     * Called for GET requests
-     */
-    public function get()
-    {
-
-    }
-
-    /**
-     * Called for HEAD requests
-     */
-    public function head()
-    {
-
-    }
-
-    /**
-     * Called for POST requests
-     */
-    public function post()
-    {
-
-    }
-
-    /**
-     * Called for PUT requests
-     */
-    public function put()
-    {
-
-    }
-
-    /**
-     * Called for TRACE requests
-     */
-    public function trace()
-    {
-
-    }
-
+    public function set($header);
 }
