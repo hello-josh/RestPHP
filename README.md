@@ -39,7 +39,7 @@ TODO
 
 3. Handle Resource method call based on the HTTP REQUEST_METHOD
 
-4. Implement the following \RestPHP\Request\Header\RequestHeader
+4. Implement the following \RestPHP\Request\Header\Header
    subclasses and tests
 
     * Accept -class- -test-
@@ -73,7 +73,7 @@ TODO
     * Via class test
     * Warning class test
 
-5. Implement the following \RestPHP\Response\Header\ResponseHeader
+5. Implement the following \RestPHP\Response\Header\Header
    subclasses and tests
 
     * Accept-Ranges class test

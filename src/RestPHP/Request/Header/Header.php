@@ -35,7 +35,7 @@
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Response
+ * @subpackage Request
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
@@ -44,25 +44,27 @@
 /**
  * @namespace
  */
-namespace RestPHP\Response\Header;
+namespace RestPHP\Request\Header;
 
 /**
- * ResponseHeader - Interface for all Response headers listed in rfc 2616 sec 14
+ * Header - Interface for all request headers listed in rfc 2616 sec 14
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Response
+ * @subpackage Request
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  Copyright (c) 2011, RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-interface ResponseHeader
+interface Header
 {
     /**
-     * Sets the valid pieces for the HTTP Header
+     * Parses the supplied header string into valid pieces for the HTTP Header
      *
      * @param string $header the HTTP header data
+     * For the header <code>Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</code>
+     * Pass <code>Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</code>
      */
-    public function set($header);
+    public function parse($header);
 }
