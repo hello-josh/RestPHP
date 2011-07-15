@@ -37,7 +37,7 @@
  * @package    RestPHP
  * @subpackage Test
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
- * @copyright  Copyright (c) 2011, RestPHP Framework
+ * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
@@ -53,7 +53,7 @@ namespace RestPHP\Response;
  * @package    RestPHP
  * @subpackage Test
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
- * @copyright  Copyright (c) 2011, RestPHP Framework
+ * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 class ResponseTest extends \PHPUnit_Framework_TestCase
