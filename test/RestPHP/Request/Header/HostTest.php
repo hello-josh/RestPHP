@@ -2,7 +2,7 @@
 /**
  * RestPHP Framework
  *
- * PHP Version 5.3, PHPUnit 3.4
+ * PHP Version 5.3
  *
  * Copyright (c) 2011, RestPHP Framework
  * All rights reserved.
@@ -41,17 +41,38 @@
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
-// barebones file for now and an inline autoloader
-set_include_path(realpath(__DIR__ . '/../src/')
-        . PATH_SEPARATOR . get_include_path());
+/**
+ * @namespace
+ */
+namespace RestPHP\Request\Header;
 
 /**
- * @link http://groups.google.com/group/php-standards/web/psr-0-final-proposal?pli=1
+ * HostTest - Tests the Host header behaves as documented in RFC 2616
+ * Section 14
+ *
+ * @category   RestPHP
+ * @package    RestPHP
+ * @subpackage Test
+ * @author     Joshua Johnston <johnston.joshua@gmail.com>
+ * @copyright  Copyright (c) 2011, RestPHP Framework
+ * @license    http://opensource.org/licenses/bsd-license.php New BSD License
+ * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Sec 14
  */
-spl_autoload_register(function($className) {
-    
-    $className = ltrim($className, '\\');
-    $fileName = str_replace(array('_', '\\'), DIRECTORY_SEPARATOR, $className) . '.php';
+class HostTest extends \PHPUnit_Framework_TestCase
+{
+    /**
+     *
+     * @var \RestPHP\Request\Header\Host
+     */
+    protected $header;
 
-    require $fileName;
-});
+    public function setUp()
+    {
+        $this->header = new \RestPHP\Request\Header\Host();
+    }
+
+    public function testParse()
+    {
+        $this->markTestIncomplete('No tests implemented');
+    }
+}
