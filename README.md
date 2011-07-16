@@ -42,10 +42,10 @@ TODO
 4. Implement the following \RestPHP\Request\Header\Header
    subclasses and tests
 
-    * Accept -class- -test-
-    * Accept-Charset -class- -test-
-    * Accept-Encoding -class- -test-
-    * Accept-Language -class- test
+    * Accept class test
+    * Accept-Charset class test
+    * Accept-Encoding class test
+    * Accept-Language class test
     * Authorization class test
     * Cache-Control class test
     * Connection class test
