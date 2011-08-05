@@ -2,6 +2,7 @@
 <project name="RestPHP" default="build" basedir=".">
 
     <property name="source" value="src" />
+    <property name="test" value="test" />
 
     <target name="clean"
 		description="Cleans up compiled templates and other cache files">

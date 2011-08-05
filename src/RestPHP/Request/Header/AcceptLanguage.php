@@ -115,7 +115,7 @@ class AcceptLanguage implements Header
         }
 
         // weighted sort
-        usort($this->accept, function ($a, $b) {
+        uasort($this->accept, function ($a, $b) {
 
             // first tier: highest q factor wins
             $diff = $b->q - $a->q;

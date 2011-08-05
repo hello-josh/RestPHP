@@ -77,25 +77,16 @@ class AcceptEncoding implements Header
     protected $encoding = array();
 
     /**
-     * Parsed encodings along with their quality values
-     *
-     * @var array<stdClass>
-     */
-    protected $accept = array();
-
-    /**
      * Parses the HTTP Accept-Encoding header
      *
      * @see \RestPHP\Request\Header\Accept::parse
      * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
      *
-     * @param string $header the value of the Accept-Encoding header after the colon
+     * @param string $header the value of the Accept-Encoding header after the colon. An empty header implies identity only
      */
-    public function parse($header)
+    public function parse($header = 'identity')
     {
-        $this->encoding = array();
-
-        $this->accept = array();
+        $this->resetEncodingQualityValues();
 
         foreach (preg_split('/\s*,\s*/', $header) as $i => $term) {
 
@@ -105,45 +96,57 @@ class AcceptEncoding implements Header
 
             if (preg_match(",^(\S+)\s*;\s*q=([0-9\.]+),i", $term, $M)) {
 
-                $o->type = $M[1];
+                $o->type = strtolower($M[1]);
                 $o->q = (double) $M[2];
             }
             else {
 
-                $o->type = $term;
+                $o->type = strtolower($term);
                 $o->q = 1;
             }
 
-            $this->accept[strtolower($o->type)] = $o;
+            switch ($o->type) {
+
+                case 'x-gzip':
+                    $this->encoding['gzip'] = $o->q;
+                    break;
+
+                case 'x-compress':
+                    $this->encoding['compress'] = $o->q;
+                    break;
+
+                case '*':
+                    foreach ($this->encoding as $enc => $q) {
+                        if (null === $this->encoding[$enc]) {
+                            $this->encoding[$enc] = $o->q;
+                        }
+                    }
+                    break;
+
+                default:
+                    $this->encoding[$o->type] = $o->q;
+                    break;
+            }
         }
 
-        // weighted sort
-        usort($this->accept, function ($a, $b) {
-
-            // first tier: highest q factor wins
-            $diff = $b->q - $a->q;
-
-            if ($diff > 0) {
-
-                $diff = 1;
+        // anything left as null means it is not accepted
+        // so we set it to 0.0 for sort / isAccepted
+        foreach ($this->encoding as $enc => $q) {
+            if (null === $this->encoding[$enc]) {
+                // The "identity" content-coding is always acceptable, unless
+                // specifically refused because the Accept-Encoding field includes
+                // "identity;q=0", or because the field includes "*;q=0" and does
+                // not explicitly include the "identity" content-coding.
+                if ($enc === 'identity') {
+                    $this->encoding[$enc] = 1.0;
+                }
+                else {
+                    $this->encoding[$enc] = 0.0;
+                }
             }
-            else if ($diff < 0) {
-
-                $diff = -1;
-            }
-            else {
-
-                // tie-breaker: first listed item wins
-                $diff = $a->pos - $b->pos;
-            }
-
-            return $diff;
-        });
-
-        foreach ($this->accept as $a) {
-
-            $this->encoding[strtolower($a->type)] = $a->type;
         }
+
+        arsort($this->encoding);
     }
 
     /**
@@ -164,14 +167,11 @@ class AcceptEncoding implements Header
      */
     public function getPreferredEncoding()
     {
-        if (count($this->encoding) == 0) {
-            return 'identity';
-        }
+        reset($this->encoding);
+        $k = key($this->encoding);
 
-        foreach ($this->encoding as $k => $enc) {
-            if ($this->accept[$k]->q) {
-                return $enc;
-            }
+        if ($this->encoding[$k] > 0) {
+            return $k;
         }
 
         return null;
@@ -193,22 +193,27 @@ class AcceptEncoding implements Header
      */
     public function isAccepted($encoding)
     {
-        if (count($this->encoding) == 0 && $encoding == 'identity') {
-            return true;
-        }
-
         $k = strtolower($encoding);
 
-        // set and a non-zero quality
+        // set and a non-zero quality means yes
         if (isset($this->encoding[$k])) {
-            return (bool) $this->accept[$k]->q;
+            return (bool) $this->encoding[$k];
         }
 
-        // or wildcard and a non-zero quality
-        if (isset($this->encoding['*'])) {
-            return (bool) $this->accept['*']->q;
-        }
+        // any unknown encoding is treated as an identity
+        return (bool) $this->encoding['identity'];
+    }
 
-        return false;
+    /**
+     * Resets the qvalue for each accepted encoding
+     */
+    protected function resetEncodingQualityValues()
+    {
+        $this->encoding = array(
+            'gzip'     => null,
+            'compress' => null,
+            'deflate'  => null,
+            'identity' => null
+        );
     }
 }
