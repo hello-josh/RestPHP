@@ -61,36 +61,44 @@ abstract class Resource
     /**
      * Request Instance
      *
-     * @var \RestPHP\Request\Request
+     * @var Request\Request
      */
     protected $request;
 
     /**
      * Response Instance
      *
-     * @var \RestPHP\Response\Response
+     * @var Response\Response
      */
     protected $response;
 
-    /**
-     * Creates the resource
-     *
-     * @param \RestPHP\Request\Request $request
-     * @param \RestPHP\Response\Response $response
-     */
-    public function __construct(\RestPHP\Request\Request $request,
-                                \RestPHP\Response\Response $response)
+    public function getRequest()
+    {
+        return $this->request;
+    }
+
+    public function setRequest(Request\Request $request)
     {
         $this->request = $request;
+    }
+
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    public function setResponse(Response\Response $response)
+    {
         $this->response = $response;
     }
+
 
     /**
      * Called for OPTIONS requests
      */
     public function options()
     {
-    
+
     }
 
     /**

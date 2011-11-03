@@ -47,7 +47,7 @@ namespace RestPHP;
 
 /**
  * Environment
- * 
+ *
  * Constants to let the app know which environment we are in
  *
  * @category   RestPHP
@@ -62,40 +62,40 @@ class Environment
      * Represents the development environment
      */
     const DEVELOPMENT = 'development';
-    
+
     /**
      * Represents the testing environment
      */
     const TESTING = 'testing';
-    
+
     /**
      * Represents the stage environment
      */
     const STAGING = 'stage';
-    
+
     /**
      * Represents the production environment
      */
     const PRODUCTION = 'production';
-    
+
     /**
      * The current environment
      *
      * @var string
      */
     protected $env;
-    
+
     /**
      * Creates the object
-     * 
-     * @param string $env 
-     * @return \RestPHP\Environment
+     *
+     * @param string $env
+     * @return Environment
      */
     public function __construct($env=self::DEVELOPMENT)
     {
         $this->setEnv($env);
     }
-    
+
     /**
      * Gets the current environment
      *
@@ -109,7 +109,7 @@ class Environment
     /**
      * Sets the current environment
      *
-     * @param string $env 
+     * @param string $env
      */
     public function setEnv($env)
     {

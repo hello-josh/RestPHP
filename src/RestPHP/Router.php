@@ -62,14 +62,14 @@ class Router
 {
     /**
      *
-     * @var \RestPHP\Config
+     * @var Config
      */
     protected $config;
 
     /**
      * The requested resource
      *
-     * @var string
+     * @var Resource\Resource
      */
     protected $requestedResource;
 
@@ -83,9 +83,9 @@ class Router
     /**
      * Creates the instance
      *
-     * @param \RestPHP\Config $config
+     * @param Config $config
      */
-    public function __construct(\RestPHP\Config $config = null)
+    public function __construct(Config $config = null)
     {
         if ($config) {
             $this->setConfig($config);
@@ -95,7 +95,7 @@ class Router
     /**
      * Gets the current config
      *
-     * @return \RestPHP\Config
+     * @return Config
      */
     public function getConfig()
     {
@@ -105,20 +105,22 @@ class Router
     /**
      * Sets the current config
      *
-     * @param \RestPHP\Config $config
+     * @param Config $config
      */
-    public function setConfig(\RestPHP\Config $config)
+    public function setConfig(Config $config)
     {
         $this->config = $config;
     }
 
     /**
-     * Creates a valid
+     * Gets the resource requested by the Request
      *
-     * @param string $requestUri The requested URI
+     * @param Request\Request $request
+     * @return Resource\Resource
      */
-    public function route($requestUri = null)
+    public function getRequestedResource(Request\Request $request)
     {
+        $requestUri = $request->getRequestUri();
         $requestUri = parse_url($requestUri, PHP_URL_PATH);
 
         $baseUrl = $this->getConfig()->get('baseUrl', '');
@@ -127,37 +129,11 @@ class Router
             $requestUri = substr($requestUri, 0, strlen($baseUrl));
         }
 
-        $this->parsePath($requestUri);
+        $resource = new Resource\Resource();
+        $this->setRequestedResource($resource);
     }
 
-    /**
-     * Parses a given URI into it's requested resource and arguments
-     *
-     * @param string $path
-     * @return array Contains the keys 'resource' for the resource requested
-     *               and 'arguments' for the URL args
-     */
-    protected function parsePath($path)
-    {
-        $parts = explode('/', ltrim($path, '/'));
-
-        if (!isset($parts[0])) {
-            throw new \InvalidArgumentException('No parts found in ' . $path);
-        }
-
-        $this->setRequestedResource(array_shift($parts));
-
-        if (count($parts)) {
-            $this->setRouteArguments($parts);
-        }
-    }
-
-    public function getRequestedResource()
-    {
-        return $this->requestedResource;
-    }
-
-    public function setRequestedResource($requestedResource)
+    public function setRequestedResource(Resource\Resource $requestedResource)
     {
         $this->requestedResource = $requestedResource;
     }
@@ -172,5 +148,8 @@ class Router
         $this->routeArguments = $routeArguments;
     }
 
-
+    public function route()
+    {
+        
+    }
 }

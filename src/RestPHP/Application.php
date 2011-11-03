@@ -61,14 +61,14 @@ class Application
     /**
      * The current environment
      *
-     * @var \RestPHP\Environment
+     * @var Environment
      */
     protected $environment;
 
     /**
      * The application config
      *
-     * @var \RestPHP\Config
+     * @var Config
      */
     protected $config;
 
@@ -76,9 +76,9 @@ class Application
      * Creates the application
      *
      * @param string $environment
-     * @param \RestPHP\Config $config
+     * @param Config $config
      */
-    public function __construct($environment = \RestPHP\Environment::DEVELOPMENT, \RestPHP\Config $config = null)
+    public function __construct($environment = Environment::DEVELOPMENT, Config $config = null)
     {
         $this->setEnvironment(new Environment($environment));
 
@@ -90,7 +90,7 @@ class Application
     /**
      * Gets the Environment
      *
-     * @return \RestPHP\Environment
+     * @return Environment
      */
     public function getEnvironment()
     {
@@ -100,9 +100,9 @@ class Application
     /**
      * Sets the environment
      *
-     * @param \RestPHP\Environment $environment
+     * @param Environment $environment
      */
-    public function setEnvironment(\RestPHP\Environment $environment)
+    public function setEnvironment(Environment $environment)
     {
         $this->environment = $environment;
     }
@@ -110,7 +110,7 @@ class Application
     /**
      * Gets the current config
      *
-     * @return \RestPHP\Config
+     * @return Config
      */
     public function getConfig()
     {
@@ -120,18 +120,29 @@ class Application
     /**
      * Sets the current config
      *
-     * @param \RestPHP\Config $config
+     * @param Config $config
      */
-    public function setConfig(\RestPHP\Config $config)
+    public function setConfig(Config $config)
     {
         $this->config = $config;
     }
 
-
-    public function run()
+    /**
+     * Gets the resource specified by the request using the given route
+     *
+     * @param Request\Request $request
+     * @param Router $router
+     * @return Resource\Resource
+     */
+    public function getResource(Request\Request $request, Router $router)
     {
+        return $router->getRequestedResource($request);
+    }
 
-        $router = new Router();
-
+    public function routeRequest(Request\Request $request, Router $router)
+    {
+        $resource = $this->getResource($request, $router);
+        $resource->setRequest($request);
+        $resource->setResponse(new Response\Response());
     }
 }

@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP\Request;
 
 /**
@@ -64,6 +64,13 @@ class Request
      * @var string
      */
     protected $body;
+
+    /**
+     * The URI requested
+     *
+     * @var string
+     */
+    protected $requestUri;
 
     /**
      * HTTP Headers of the request
@@ -105,6 +112,27 @@ class Request
     );
 
     /**
+     * Gets the requested URI
+     *
+     * @return string
+     */
+    public function getRequestUri()
+    {
+        return $this->requestUri;
+    }
+
+    /**
+     * Sets the requested URI
+     *
+     * @param string $requestUri
+     */
+    public function setRequestUri($requestUri)
+    {
+        $this->requestUri = $requestUri;
+        return $this;
+    }
+
+    /**
      * Gets the specified HTTP header
      *
      * @param string $header HTTP Header requested
@@ -120,6 +148,18 @@ class Request
         }
 
         return null;
+    }
+
+    public function setHeader($header, $value)
+    {
+        if (!array_key_exists($header, $this->headers)
+            && strpos($header, 'X-') !== 0) {
+
+            throw new \InvalidArgumentException(
+                    'Non-standard headers must be prefixed with an X- per HTTP spec');
+        }
+        $this->headers[$header] = $value;
+        return $this;
     }
 
     /**
@@ -141,6 +181,12 @@ class Request
         }
 
         return $this->body;
+    }
+
+    public function setBody($body)
+    {
+        $this->body = $body;
+        return $this;
     }
 
 }
