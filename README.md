@@ -42,70 +42,67 @@ TODO
 4. Implement the following \RestPHP\Request\Header\Header
    subclasses and tests
 
-    * Accept class test
-    * Accept-Charset class test
-    * Accept-Encoding class test
-    * Accept-Language class test
-    * Authorization class test
-    * Cache-Control class test
-    * Connection class test
-    * Cookie class test
-    * Content-Length class test
-    * Content-MD5 class test
-    * Content-Type class test
-    * Date class test
-    * Expect class test
-    * From class test
-    * Host class test
-    * If-Match class test
-    * If-Modified-Since class test
-    * If-None-Match class test
-    * If-Range class test
-    * If-Unmodified-Since class test
-    * Max-Forwards class test
-    * Pragma class test
-    * Proxy-Authorization class test
-    * Range class test
-    * Referer class test
-    * TE class test
-    * Upgrade class test
-    * User-Agent class test
-    * Via class test
-    * Warning class test
+    * Accept-Language
+    * Authorization
+    * Cache-Control
+    * Connection
+    * Cookie
+    * Content-Length
+    * Content-MD5
+    * Content-Type
+    * Date
+    * Expect
+    * From
+    * Host
+    * If-Match
+    * If-Modified-Since
+    * If-None-Match
+    * If-Range
+    * If-Unmodified-Since
+    * Max-Forwards
+    * Pragma
+    * Proxy-Authorization
+    * Range
+    * Referer
+    * TE
+    * Upgrade
+    * User-Agent
+    * Via
+    * Warning
 
 5. Implement the following \RestPHP\Response\Header\Header
    subclasses and tests
 
-    * Accept-Ranges class test
-    * Age class test
-    * Allow class test
-    * Cache-Control class test
-    * Connection class test
-    * Content-Encoding class test
-    * Content-Language class test
-    * Content-Length class test
-    * Content-Location class test
-    * Content-MD5 class test
-    * Content-Disposition class test
-    * Content-Range class test
-    * Content-Type class test
-    * Date class test
-    * ETag class test
-    * Expires class test
-    * Last-Modified class test
-    * Link class test
-    * Location class test
-    * P3P class test
-    * Pragma class test
-    * Proxy-Authenticate class test
-    * Refresh class test
-    * Retry-After class test
-    * Server class test
-    * Set-Cookie class test
-    * Strict-Transport-Security class test
-    * Trailer class test
-    * Transfer-Encoding class test
-    * Vary class test
-    * Via class test
-    * Warning class test
-    * WWW-Authenticate class test
+    * Accept-Ranges
+    * Age
+    * Allow
+    * Cache-Control
+    * Connection
+    * Content-Encoding
+    * Content-Language
+    * Content-Length
+    * Content-Location
+    * Content-MD5
+    * Content-Disposition
+    * Content-Range
+    * Content-Type
+    * Date
+    * ETag
+    * Expires
+    * Last-Modified
+    * Link
+    * Location
+    * P3P
+    * Pragma
+    * Proxy-Authenticate
+    * Refresh
+    * Retry-After
+    * Server
+    * Set-Cookie
+    * Strict-Transport-Security
+    * Trailer
+    * Transfer-Encoding
+    * Vary
+    * Via
+    * Warning
+    * WWW-Authenticate
