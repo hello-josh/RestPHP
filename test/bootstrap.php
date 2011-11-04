@@ -42,16 +42,11 @@
  */
 
 // barebones file for now and an inline autoloader
-set_include_path(realpath(__DIR__ . '/../src/')
-        . PATH_SEPARATOR . get_include_path());
+set_include_path(
+    realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src')
+    . PATH_SEPARATOR . get_include_path());
 
-/**
- * @link http://groups.google.com/group/php-standards/web/psr-0-final-proposal?pli=1
- */
-spl_autoload_register(function($className) {
-    
-    $className = ltrim($className, '\\');
-    $fileName = str_replace(array('_', '\\'), DIRECTORY_SEPARATOR, $className) . '.php';
+include 'RestPHP/Autoloader.php';
 
-    require $fileName;
-});
+$autoloader = new \RestPHP\Autoloader();
+$autoloader->register();

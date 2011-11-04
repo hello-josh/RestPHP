@@ -56,19 +56,19 @@ namespace RestPHP\Resource;
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-abstract class Resource
+/*abstract */class Resource
 {
     /**
      * Request Instance
      *
-     * @var Request\Request
+     * @var \RestPHP\Request\Request
      */
     protected $request;
 
     /**
      * Response Instance
      *
-     * @var Response\Response
+     * @var \RestPHP\Response\Response
      */
     protected $response;
 
@@ -77,7 +77,7 @@ abstract class Resource
         return $this->request;
     }
 
-    public function setRequest(Request\Request $request)
+    public function setRequest(\RestPHP\Request\Request $request)
     {
         $this->request = $request;
     }
@@ -87,7 +87,7 @@ abstract class Resource
         return $this->response;
     }
 
-    public function setResponse(Response\Response $response)
+    public function setResponse(\RestPHP\Response\Response $response)
     {
         $this->response = $response;
     }
@@ -104,7 +104,7 @@ abstract class Resource
      */
     public function options()
     {
-
+        echo __METHOD__;
     }
 
     /**
@@ -112,7 +112,7 @@ abstract class Resource
      */
     public function get()
     {
-
+        echo __METHOD__;
     }
 
     /**
@@ -120,7 +120,7 @@ abstract class Resource
      */
     public function head()
     {
-
+        echo __METHOD__;
     }
 
     /**
@@ -128,7 +128,7 @@ abstract class Resource
      */
     public function post()
     {
-
+        echo __METHOD__;
     }
 
     /**
@@ -136,7 +136,7 @@ abstract class Resource
      */
     public function put()
     {
-
+        echo __METHOD__;
     }
 
     /**
@@ -144,7 +144,6 @@ abstract class Resource
      */
     public function trace()
     {
-
+        echo __METHOD__;
     }
-
 }

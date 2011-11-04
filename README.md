@@ -1,7 +1,7 @@
 README
 ======
 
-RestPHP Framework (http://restphp.com coming soon)
+RestPHP Framework (http://restphp.com)
 
 What is RestPHP?
 ----------------
@@ -16,6 +16,9 @@ and APIs that rely on what HTTP already provides us:
 
 3. A full list of response codes to inform the client of the
    status of their request
+
+4. Content negotiation via the Accept header as well as Character Set, Encoding
+   and Language
 
 
 Features

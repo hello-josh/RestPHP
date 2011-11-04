@@ -1,0 +1,3 @@
+RewriteEngine On
+# everything falls through to RestPHP
+RewriteRule .* index.php [L]

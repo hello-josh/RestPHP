@@ -7,7 +7,6 @@
     <target name="clean"
 		description="Cleans up compiled templates and other cache files">
 
-        <delete dir="${basedir}/docs/api"/>
         <delete dir="${basedir}/build/code-browser"/>
         <delete dir="${basedir}/build/coverage"/>
         <delete dir="${basedir}/build/logs"/>

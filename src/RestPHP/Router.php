@@ -123,9 +123,9 @@ class Router
         $requestUri = $request->getRequestUri();
         $requestUri = parse_url($requestUri, PHP_URL_PATH);
 
-        $baseUrl = $this->getConfig()->get('baseUrl', '');
+        $baseUrl = $this->getConfig()->get('baseUrl', false);
 
-        if (strpos($requestUri, $baseUrl) === 0) {
+        if (strlen($baseUrl) && strpos($requestUri, $baseUrl) === 0) {
             $requestUri = substr($requestUri, 0, strlen($baseUrl));
         }
 
@@ -135,7 +135,7 @@ class Router
         $resource->setRequest($request);
 
         $this->setRequestedResource($resource);
-        
+
         return $resource;
     }
 
