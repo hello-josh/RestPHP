@@ -247,4 +247,15 @@ class Response
         header($this->makeStatus(), true, $this->status);
     }
 
+    /**
+     * Echos the response
+     */
+    public function output()
+    {
+        echo $this->__toString();
+    }
+
+    public function __toString()
+    {
+    }
 }

@@ -92,6 +92,12 @@ abstract class Resource
         $this->response = $response;
     }
 
+    public function execute()
+    {
+        $method = strtolower($this->getRequest()->getHttpMethod());
+        $this->$method();
+        return $this;
+    }
 
     /**
      * Called for OPTIONS requests

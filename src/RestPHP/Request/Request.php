@@ -111,6 +111,38 @@ class Request
         'Warning' => null
     );
 
+    protected $httpMethod;
+
+    public function getHttpMethod()
+    {
+        return $this->httpMethod;
+    }
+
+    public function setHttpMethod($httpMethod)
+    {
+        $this->httpMethod = strtoupper($httpMethod);
+    }
+
+    public static function fromHttp()
+    {
+        $request = new static();
+
+        foreach ($_SERVER as $header => $value) {
+            if (strpos($header, 'HTTP_') === 0) {
+                $header = strtolower(substr($header, 5));
+                $header = explode('_', $header);
+                $header = array_map('ucfirst', $header);
+                $header = implode('-', $header);
+                $request->setHeader($header, $value);
+            }
+        }
+
+        $request->setHttpMethod($_SERVER['REQUEST_METHOD']);
+        $request->setRequestUri($_SERVER['REQUEST_URI']);
+
+        return $request;
+    }
+
     /**
      * Gets the requested URI
      *
@@ -170,14 +202,7 @@ class Request
     public function getBody()
     {
         if ($this->body === null) {
-
-            $this->body = false;
-
-            $body = file_get_contents('php://input');
-
-            if (strlen($body)) {
-                $this->body = $body;
-            }
+            $this->body = file_get_contents('php://input');
         }
 
         return $this->body;

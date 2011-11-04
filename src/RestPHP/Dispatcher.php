@@ -35,7 +35,6 @@
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
@@ -47,24 +46,16 @@
 namespace RestPHP;
 
 /**
- * Application
+ * Dispatcher
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-class Application
+class Dispatcher
 {
-    /**
-     * The current environment
-     *
-     * @var Environment
-     */
-    protected $environment;
-
     /**
      * The application config
      *
@@ -72,39 +63,11 @@ class Application
      */
     protected $config;
 
-    /**
-     * Creates the application
-     *
-     * @param Environment $environment
-     * @param Config $config
-     */
-    public function __construct(Environment $environment, Config $config = null)
+    public function __construct(Config $config = null)
     {
-        $this->setEnvironment($environment);
-
         if ($config) {
             $this->setConfig($config);
         }
-    }
-
-    /**
-     * Gets the Environment
-     *
-     * @return Environment
-     */
-    public function getEnvironment()
-    {
-        return $this->environment;
-    }
-
-    /**
-     * Sets the environment
-     *
-     * @param Environment $environment
-     */
-    public function setEnvironment(Environment $environment)
-    {
-        $this->environment = $environment;
     }
 
     /**
@@ -128,19 +91,15 @@ class Application
     }
 
     /**
-     * Dispatches the request and returns the response
      *
+     * @param Request\Request $request
+     * @param Router $router
      * @return Response\Response
      */
-    public function run()
+    public function dispatchRequest(Request\Request $request, Router $router)
     {
-        $dispatcher = new Dispatcher($this->getConfig());
-
-        $response = $dispatcher->dispatchRequest(
-            Request\Request::fromHttp(),
-            new Router($this->getConfig())
-        );
-
-        return $response;
+        $resource = $router->getRequestedResource($request);
+        $resource->setResponse(new Response\Response());
+        return $resource->execute()->getResponse();
     }
 }

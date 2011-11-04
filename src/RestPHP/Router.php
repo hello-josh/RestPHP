@@ -129,8 +129,14 @@ class Router
             $requestUri = substr($requestUri, 0, strlen($baseUrl));
         }
 
+        $request->setRequestUri($requestUri);
+
         $resource = new Resource\Resource();
+        $resource->setRequest($request);
+
         $this->setRequestedResource($resource);
+        
+        return $resource;
     }
 
     public function setRequestedResource(Resource\Resource $requestedResource)
@@ -150,6 +156,6 @@ class Router
 
     public function route()
     {
-        
+
     }
 }

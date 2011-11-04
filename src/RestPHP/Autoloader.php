@@ -35,7 +35,6 @@
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
@@ -47,100 +46,40 @@
 namespace RestPHP;
 
 /**
- * Application
+ * Autoloader
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-class Application
+class Autoloader
 {
-    /**
-     * The current environment
-     *
-     * @var Environment
-     */
-    protected $environment;
-
-    /**
-     * The application config
-     *
-     * @var Config
-     */
-    protected $config;
-
-    /**
-     * Creates the application
-     *
-     * @param Environment $environment
-     * @param Config $config
-     */
-    public function __construct(Environment $environment, Config $config = null)
+    public function register()
     {
-        $this->setEnvironment($environment);
+        spl_autoload_register($this);
+    }
 
-        if ($config) {
-            $this->setConfig($config);
+    public function __invoke($className)
+    {
+        return $this->loadClass($className);
+    }
+
+    public function loadClass($className)
+    {
+        $className = ltrim($className, '\\');
+        $fileName = '';
+        $namespace = '';
+        if ($lastNsPos = strripos($className, '\\')) {
+            $namespace = substr($className, 0, $lastNsPos);
+            $className = substr($className, $lastNsPos + 1);
+            $fileName = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
         }
-    }
 
-    /**
-     * Gets the Environment
-     *
-     * @return Environment
-     */
-    public function getEnvironment()
-    {
-        return $this->environment;
-    }
+        $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
 
-    /**
-     * Sets the environment
-     *
-     * @param Environment $environment
-     */
-    public function setEnvironment(Environment $environment)
-    {
-        $this->environment = $environment;
-    }
-
-    /**
-     * Gets the current config
-     *
-     * @return Config
-     */
-    public function getConfig()
-    {
-        return $this->config;
-    }
-
-    /**
-     * Sets the current config
-     *
-     * @param Config $config
-     */
-    public function setConfig(Config $config)
-    {
-        $this->config = $config;
-    }
-
-    /**
-     * Dispatches the request and returns the response
-     *
-     * @return Response\Response
-     */
-    public function run()
-    {
-        $dispatcher = new Dispatcher($this->getConfig());
-
-        $response = $dispatcher->dispatchRequest(
-            Request\Request::fromHttp(),
-            new Router($this->getConfig())
-        );
-
-        return $response;
+        require $fileName;
+        return true;
     }
 }
