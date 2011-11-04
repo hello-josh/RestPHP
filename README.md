@@ -1,7 +1,7 @@
 README
 ======
 
-RestPHP Framework
+RestPHP Framework (http://restphp.com coming soon)
 
 What is RestPHP?
 ----------------
