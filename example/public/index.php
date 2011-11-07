@@ -10,7 +10,9 @@ $autoloader = new \RestPHP\Autoloader();
 $autoloader->register();
 
 $environment = getenv('RESTPHP_ENV') ?: \RestPHP\Environment::DEVELOPMENT;
+
 $config = new \RestPHP\Config('../config/settings.ini', $environment);
+
 $environment = new \RestPHP\Environment($environment);
 
 $application = new \RestPHP\Application($environment, $config);
