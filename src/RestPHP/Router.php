@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP;
 
 /**
@@ -71,14 +71,7 @@ class Router
      *
      * @var Resource\Resource
      */
-    protected $requestedResource;
-
-    /**
-     * Additional arguments for the resource
-     *
-     * @var array
-     */
-    protected $routeArguments = array();
+    protected $resource;
 
     /**
      * Creates the instance
@@ -115,47 +108,71 @@ class Router
     /**
      * Gets the resource requested by the Request
      *
+     * @return Resource\Resource
+     */
+    public function getResource()
+    {
+        return $this->resource;
+    }
+
+    /**
+     * Sets the requested resource into the router
+     *
+     * @param Resource\Resource $requestedResource
+     */
+    public function setResource(Resource\Resource $requestedResource)
+    {
+        $this->resource = $requestedResource;
+    }
+
+    /**
+     * Instances the Resource requested by the Request
+     *
      * @param Request\Request $request
      * @return Resource\Resource
      */
-    public function getRequestedResource(Request\Request $request)
+    protected function initResource(Request\Request $request)
     {
-        $requestUri = $request->getRequestUri();
-        $requestUri = parse_url($requestUri, PHP_URL_PATH);
+        $className = $this->requestUriToResourseName($request->getRequestUri());
+        $resource = new $className();
+        $resource->setRequest($request);
+        $resource->setResponse(new Response\Response());
 
-        $baseUrl = $this->getConfig()->get('baseUrl', false);
+        $this->setResource($resource);
+    }
 
-        if (strlen($baseUrl) && strpos($requestUri, $baseUrl) === 0) {
-            $requestUri = substr($requestUri, 0, strlen($baseUrl));
+    protected function requestUriToResourseName($requestUri)
+    {
+        $classname = ltrim($requestUri, '/');
+
+        if (strlen($classname) == 0) {
+            $classname = 'index';
         }
 
-        $request->setRequestUri($requestUri);
+        $classname = implode('\\', array_map('ucfirst', explode('/', $classname)));
 
-        $resource = new Resource\Resource();
-        $resource->setRequest($request);
+        if ($this->getConfig()) {
 
-        $this->setRequestedResource($resource);
+            $namespace = $this->getConfig()->application->resources->namespace;
 
-        return $resource;
+            if ($namespace) {
+                $classname = $namespace . '\\' . $classname;
+            }
+        }
+
+        return $classname . 'Resource';
     }
 
-    public function setRequestedResource(Resource\Resource $requestedResource)
+    /**
+     * Routes a request to the proper Resource
+     *
+     * @param Request\Request $request
+     * @return Resource\Resource
+     */
+    public function route(Request\Request $request)
     {
-        $this->requestedResource = $requestedResource;
-    }
+        $this->initResource($request);
 
-    public function getRouteArguments()
-    {
-        return $this->routeArguments;
-    }
-
-    public function setRouteArguments(array $routeArguments)
-    {
-        $this->routeArguments = $routeArguments;
-    }
-
-    public function route()
-    {
-
+        return $this->getResource();
     }
 }

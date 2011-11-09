@@ -78,13 +78,11 @@ class Application
      * @param Environment $environment
      * @param Config $config
      */
-    public function __construct(Environment $environment, Config $config = null)
+    public function __construct(Environment $environment, Config $config)
     {
         $this->setEnvironment($environment);
 
-        if ($config) {
-            $this->setConfig($config);
-        }
+        $this->setConfig($config);
     }
 
     /**
@@ -125,6 +123,12 @@ class Application
     public function setConfig(Config $config)
     {
         $this->config = $config;
+
+        if ($config->application->resources->path) {
+            
+            Autoloader::getInstance()->addIncludePath(
+                    $config->application->resources->path);
+        }
     }
 
     /**
@@ -134,12 +138,12 @@ class Application
      */
     public function run()
     {
+
         $dispatcher = new Dispatcher($this->getConfig());
 
-        $response = $dispatcher->dispatchRequest(
-            Request\Request::fromHttp(),
-            new Router($this->getConfig())
-        );
+        $request = Request\Request::fromHttp($this->getConfig());
+
+        $response = $dispatcher->dispatch($request);
 
         return $response;
     }

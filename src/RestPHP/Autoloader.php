@@ -56,6 +56,41 @@ namespace RestPHP;
  */
 class Autoloader
 {
+    /**
+     * @var Autoloader
+     */
+    protected static $instance;
+
+    /**
+     * @var array
+     */
+    protected $includePaths;
+
+    /**
+     *
+     * @return Autoloader
+     */
+    public static function getInstance()
+    {
+        if (!isset(static::$instance)) {
+            static::$instance = new static();
+        }
+
+        return static::$instance;
+    }
+
+    protected function __construct()
+    {
+        foreach (explode(PATH_SEPARATOR, get_include_path()) as $path) {
+            $this->includePaths[$path] = $path;
+        }
+    }
+
+    public function addIncludePath($path)
+    {
+        $this->includePaths[$path] = $path;
+    }
+
     public function register()
     {
         spl_autoload_register($this);
@@ -71,7 +106,15 @@ class Autoloader
         $className = ltrim($className, '\\');
         $fileName = str_replace(array('_', '\\'), DIRECTORY_SEPARATOR, $className) . '.php';
 
-        require $fileName;
-        return true;
+        foreach ($this->includePaths as $path) {
+
+            if (file_exists($path . DIRECTORY_SEPARATOR . $fileName)) {
+
+                require $path . DIRECTORY_SEPARATOR . $fileName;
+                return true;
+            }
+        }
+
+        return false;
     }
 }

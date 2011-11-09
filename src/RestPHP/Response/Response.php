@@ -79,6 +79,13 @@ class Response
      */
     protected $headers = array();
 
+    /**
+     * Data that will be outputted via the API
+     *
+     * @var array
+     */
+    protected $outputData = array();
+
     const FCGI_STATUS = 'Status: ';
     const HTTP_STATUS = 'HTTP/1.1 ';
 
@@ -125,6 +132,50 @@ class Response
     const HTTP_505 = "505 HTTP Version Not Supported";
 
     /**
+     * Sets data to be output via the API
+     *
+     * @param string $name
+     * @param mixed $value
+     */
+    public function setData($name, $value)
+    {
+        $this->outputData[$name] = $value;
+    }
+
+    /**
+     * Sets data to be output via the API
+     *
+     * @param string $name
+     * @param mixed $value
+     */
+    public function __set($name, $value)
+    {
+        return $this->setData($name, $value);
+    }
+
+    /**
+     * Gets the data point that will be outputted via the API
+     *
+     * @param string $name
+     * @return mixed
+     */
+    public function &getData($name)
+    {
+        return $this->outputData[$name];
+    }
+
+    /**
+     * Gets the data point that will be outputted via the API
+     *
+     * @param string $name
+     * @return mixed
+     */
+    public function &__get($name)
+    {
+        return $this->getData($key);
+    }
+
+        /**
      * Is this response handled via fcgi?
      *
      * @see \RestPHP\Response::isHttp()
@@ -257,5 +308,6 @@ class Response
 
     public function __toString()
     {
+        return var_export($this->outputData, 1);
     }
 }

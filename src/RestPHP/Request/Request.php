@@ -113,6 +113,44 @@ class Request
 
     protected $httpMethod;
 
+    /**
+     *
+     * @var \RestPHP\Config
+     */
+    protected $config;
+
+    /**
+     * Creates the instance
+     *
+     * @param \RestPHP\Config $config
+     */
+    public function __construct(\RestPHP\Config $config = null)
+    {
+        if ($config) {
+            $this->setConfig($config);
+        }
+    }
+
+    /**
+     * Gets the current config
+     *
+     * @return \RestPHP\Config
+     */
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    /**
+     * Sets the current config
+     *
+     * @param \RestPHP\Config $config
+     */
+    public function setConfig(\RestPHP\Config $config)
+    {
+        $this->config = $config;
+    }
+
     public function getHttpMethod()
     {
         return $this->httpMethod;
@@ -123,9 +161,9 @@ class Request
         $this->httpMethod = strtoupper($httpMethod);
     }
 
-    public static function fromHttp()
+    public static function fromHttp(\RestPHP\Config $config = null)
     {
-        $request = new static();
+        $request = new static($config);
 
         foreach ($_SERVER as $header => $value) {
             if (strpos($header, 'HTTP_') === 0) {
@@ -138,7 +176,19 @@ class Request
         }
 
         $request->setHttpMethod($_SERVER['REQUEST_METHOD']);
-        $request->setRequestUri($_SERVER['REQUEST_URI']);
+
+        $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+        if ($config) {
+
+            $baseUri = $request->getConfig()->application->baseUri;
+
+            if (strlen($baseUri) && strpos($requestUri, $baseUri) === 0) {
+                $requestUri = substr($requestUri, strlen($baseUri));
+            }
+        }
+
+        $request->setRequestUri($requestUri);
 
         return $request;
     }

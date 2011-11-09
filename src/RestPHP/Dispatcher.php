@@ -39,10 +39,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP;
 
 /**
@@ -63,6 +63,19 @@ class Dispatcher
      */
     protected $config;
 
+    /**
+     * Application router
+     *
+     * @var Router
+     */
+    protected $router;
+
+    /**
+     * Creates the Dispatcher
+     *
+     * @param Config $config
+     * @return Dispatcher
+     */
     public function __construct(Config $config = null)
     {
         if ($config) {
@@ -90,16 +103,29 @@ class Dispatcher
         $this->config = $config;
     }
 
+    public function getRouter()
+    {
+        if (!$this->router) {
+            $this->router = new Router($this->getConfig());
+        }
+
+        return $this->router;
+    }
+
+    public function setRouter($router)
+    {
+        $this->router = $router;
+    }
+
     /**
      *
      * @param Request\Request $request
-     * @param Router $router
      * @return Response\Response
      */
-    public function dispatchRequest(Request\Request $request, Router $router)
+    public function dispatch(Request\Request $request)
     {
-        $resource = $router->getRequestedResource($request);
-        $resource->setResponse(new Response\Response());
-        return $resource->execute()->getResponse();
+        $router = $this->getRouter();
+        $resource = $router->route($request);
+        return $resource->execute();
     }
 }

@@ -82,6 +82,10 @@ namespace RestPHP\Resource;
         $this->request = $request;
     }
 
+    /**
+     *
+     * @return \RestPHP\Response\Response
+     */
     public function getResponse()
     {
         return $this->response;
@@ -92,11 +96,15 @@ namespace RestPHP\Resource;
         $this->response = $response;
     }
 
+    /**
+     *
+     * @return \RestPHP\Response\Response
+     */
     public function execute()
     {
         $method = strtolower($this->getRequest()->getHttpMethod());
         $this->$method();
-        return $this;
+        return $this->getResponse();
     }
 
     /**
