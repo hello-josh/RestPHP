@@ -48,5 +48,5 @@ set_include_path(
 
 include 'RestPHP/Autoloader.php';
 
-$autoloader = new \RestPHP\Autoloader();
+$autoloader = \RestPHP\Autoloader::getInstance();
 $autoloader->register();
