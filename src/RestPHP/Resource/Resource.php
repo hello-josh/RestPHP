@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP\Resource;
 
 /**
@@ -56,7 +56,7 @@ namespace RestPHP\Resource;
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-/*abstract */class Resource
+/* abstract */class Resource
 {
     /**
      * Request Instance
@@ -72,11 +72,19 @@ namespace RestPHP\Resource;
      */
     protected $response;
 
+    /**
+     *
+     * @return \RestPHP\Request\Request
+     */
     public function getRequest()
     {
         return $this->request;
     }
 
+    /**
+     *
+     * @param \RestPHP\Request\Request $request
+     */
     public function setRequest(\RestPHP\Request\Request $request)
     {
         $this->request = $request;
@@ -91,6 +99,10 @@ namespace RestPHP\Resource;
         return $this->response;
     }
 
+    /**
+     *
+     * @param \RestPHP\Response\Response $response
+     */
     public function setResponse(\RestPHP\Response\Response $response)
     {
         $this->response = $response;
@@ -112,7 +124,7 @@ namespace RestPHP\Resource;
      */
     public function options()
     {
-        echo __METHOD__;
+        $this->defaultNotImplemented();
     }
 
     /**
@@ -120,7 +132,7 @@ namespace RestPHP\Resource;
      */
     public function get()
     {
-        echo __METHOD__;
+        $this->defaultNotImplemented();
     }
 
     /**
@@ -128,7 +140,7 @@ namespace RestPHP\Resource;
      */
     public function head()
     {
-        echo __METHOD__;
+        $this->defaultNotImplemented();
     }
 
     /**
@@ -136,7 +148,7 @@ namespace RestPHP\Resource;
      */
     public function post()
     {
-        echo __METHOD__;
+        $this->defaultNotImplemented();
     }
 
     /**
@@ -144,7 +156,7 @@ namespace RestPHP\Resource;
      */
     public function put()
     {
-        echo __METHOD__;
+        $this->defaultNotImplemented();
     }
 
     /**
@@ -152,6 +164,16 @@ namespace RestPHP\Resource;
      */
     public function trace()
     {
-        echo __METHOD__;
+        $this->defaultNotImplemented();
+    }
+
+    private function defaultNotImplemented()
+    {
+        $method = strtoupper($this->getRequest()->getHttpMethod());
+        $response = $this->getResponse();
+        $response->setStatus(501);
+        $response->message = sprintf(
+                'The HTTP Method %s is not implemented for this resource',
+                $method);
     }
 }

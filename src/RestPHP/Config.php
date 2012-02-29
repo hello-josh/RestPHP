@@ -35,15 +35,14 @@
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
+
 /**
  * @namespace
  */
-
 namespace RestPHP;
 
 /**
@@ -51,11 +50,26 @@ namespace RestPHP;
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 class Config extends \Zend_Config_Ini
 {
+    /**
+     * Creates a new config object
+     * 
+     * @param string $filename Path to the config ini file
+     * @param \RestPHP\Environment|string $section Optional section to load
+     * @param array|bool $options Optional extra options to pass
+     */
+    public function __construct($filename, $section = null, $options = false)
+    {
+        if ($section instanceof \RestPHP\Environment) {
+            $section = $section->getEnv();
+        }
+
+        parent::__construct($filename, $section, $options);
+    }
+
 }

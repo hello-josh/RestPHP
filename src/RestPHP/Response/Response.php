@@ -67,11 +67,11 @@ class Response
     /**
      * HTTP Status
      *
-     * Default status is 501 Not Implemented
+     * Default status is 200 OK
      *
      * @var integer
      */
-    protected $status = 501;
+    protected $status = 200;
     /**
      * Headers that need to be sent
      *
@@ -172,7 +172,7 @@ class Response
      */
     public function &__get($name)
     {
-        return $this->getData($key);
+        return $this->getData($name);
     }
 
         /**
@@ -303,6 +303,7 @@ class Response
      */
     public function output()
     {
+        $this->sendHeaders();
         echo $this->__toString();
     }
 

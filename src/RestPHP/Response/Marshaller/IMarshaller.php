@@ -35,6 +35,7 @@
  *
  * @category   RestPHP
  * @package    RestPHP
+ * @subpackage Response
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
@@ -43,86 +44,17 @@
 /**
  * @namespace
  */
-namespace RestPHP;
+namespace RestPHP\Response\Marshaller;
 
 /**
- * Environment
  *
- * Constants to let the app know which environment we are in
- *
- * @category   RestPHP
  * @package    RestPHP
+ * @subpackage Response
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-class Environment
+interface IMarshaller
 {
-    /**
-     * Represents the development environment
-     */
-    const DEVELOPMENT = 'development';
-
-    /**
-     * Represents the testing environment
-     */
-    const TESTING = 'testing';
-
-    /**
-     * Represents the stage environment
-     */
-    const STAGING = 'stage';
-
-    /**
-     * Represents the production environment
-     */
-    const PRODUCTION = 'production';
-
-    /**
-     * The current environment
-     *
-     * @var string
-     */
-    protected $env;
-
-    /**
-     * Creates the object
-     *
-     * @param string $env
-     * @return Environment
-     */
-    public function __construct($env = self::DEVELOPMENT)
-    {
-        $this->setEnv($env);
-    }
-
-    /**
-     * Gets the current environment
-     *
-     * @return string
-     */
-    public function getEnv()
-    {
-        return $this->env;
-    }
-
-    /**
-     * Sets the current environment
-     *
-     * @param string $env
-     */
-    public function setEnv($env)
-    {
-        $this->env = $env;
-    }
-
-    /**
-     * toString implementation
-     * 
-     * @return type
-     */
-    public function __toString()
-    {
-        return $this->getEnv();
-    }
+    public function serialize(\RestPHP\Response\Response $response);
 }

@@ -6,15 +6,13 @@ set_include_path(
 
 include 'RestPHP/Autoloader.php';
 
-$autoloader = \RestPHP\Autoloader::getInstance();
-$autoloader->register();
+\RestPHP\Autoloader::getInstance()->register();
 
-$environment = getenv('RESTPHP_ENV') ?: \RestPHP\Environment::DEVELOPMENT;
+$environment = new \RestPHP\Environment(
+        getenv('RESTPHP_ENV') ?: \RestPHP\Environment::DEVELOPMENT);
 
 $config = new \RestPHP\Config('../config/settings.ini', $environment);
 
-$environment = new \RestPHP\Environment($environment);
-
 $application = new \RestPHP\Application($environment, $config);
 
-$application->run()->output();
+$application->handle(\RestPHP\Application::getDefaultRequest($config))->output();

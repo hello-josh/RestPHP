@@ -46,6 +46,8 @@
  */
 namespace RestPHP;
 
+use \RestPHP\Request\Request;
+
 /**
  * Application
  *
@@ -124,27 +126,65 @@ class Application
     {
         $this->config = $config;
 
-        if ($config->application->resources->path) {
-            
+        if ($config->application->resources->basePath) {
+
             Autoloader::getInstance()->addIncludePath(
-                    $config->application->resources->path);
+                    $config->application->resources->basePath);
         }
     }
 
     /**
      * Dispatches the request and returns the response
      *
-     * @return Response\Response
+     * @param \RestPHP\Request\Request $request
+     * @return \RestPHP\Response\Response
      */
-    public function run()
+    public function handle(\RestPHP\Request\Request $request)
     {
 
         $dispatcher = new Dispatcher($this->getConfig());
 
-        $request = Request\Request::fromHttp($this->getConfig());
-
         $response = $dispatcher->dispatch($request);
 
         return $response;
+    }
+
+    /**
+     * Convenience method for instantiating a \RestPHP\Request\Request based
+     * off of PHP's $_SERVER array when run via
+     *
+     * @param \RestPHP\Config $config
+     * @return \RestPHP\Request\Request
+     */
+    public static function getDefaultRequest(\RestPHP\Config $config = null)
+    {
+        $request = new \RestPHP\Request\Request($config);
+
+        foreach ($_SERVER as $header => $value) {
+            if (strpos($header, 'HTTP_') === 0) {
+                $header = strtolower(substr($header, 5));
+                $header = explode('_', $header);
+                $header = array_map('ucfirst', $header);
+                $header = implode('-', $header);
+                $request->setHeader($header, $value);
+            }
+        }
+
+        $request->setHttpMethod($_SERVER['REQUEST_METHOD']);
+
+        $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+        if ($config) {
+
+            $baseUri = $request->getConfig()->application->baseUri;
+
+            if (strlen($baseUri) && strpos($requestUri, $baseUri) === 0) {
+                $requestUri = substr($requestUri, strlen($baseUri));
+            }
+        }
+
+        $request->setRequestUri($requestUri);
+
+        return $request;
     }
 }

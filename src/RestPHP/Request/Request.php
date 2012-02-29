@@ -161,38 +161,6 @@ class Request
         $this->httpMethod = strtoupper($httpMethod);
     }
 
-    public static function fromHttp(\RestPHP\Config $config = null)
-    {
-        $request = new static($config);
-
-        foreach ($_SERVER as $header => $value) {
-            if (strpos($header, 'HTTP_') === 0) {
-                $header = strtolower(substr($header, 5));
-                $header = explode('_', $header);
-                $header = array_map('ucfirst', $header);
-                $header = implode('-', $header);
-                $request->setHeader($header, $value);
-            }
-        }
-
-        $request->setHttpMethod($_SERVER['REQUEST_METHOD']);
-
-        $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-        if ($config) {
-
-            $baseUri = $request->getConfig()->application->baseUri;
-
-            if (strlen($baseUri) && strpos($requestUri, $baseUri) === 0) {
-                $requestUri = substr($requestUri, strlen($baseUri));
-            }
-        }
-
-        $request->setRequestUri($requestUri);
-
-        return $request;
-    }
-
     /**
      * Gets the requested URI
      *

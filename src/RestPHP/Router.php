@@ -69,7 +69,7 @@ class Router
     /**
      * The requested resource
      *
-     * @var Resource\Resource
+     * @var \RestPHP\Resource\Resource
      */
     protected $resource;
 
@@ -108,7 +108,7 @@ class Router
     /**
      * Gets the resource requested by the Request
      *
-     * @return Resource\Resource
+     * @return \RestPHP\Resource\Resource
      */
     public function getResource()
     {
@@ -118,9 +118,9 @@ class Router
     /**
      * Sets the requested resource into the router
      *
-     * @param Resource\Resource $requestedResource
+     * @param \RestPHP\Resource\Resource $requestedResource
      */
-    public function setResource(Resource\Resource $requestedResource)
+    public function setResource(\RestPHP\Resource\Resource $requestedResource)
     {
         $this->resource = $requestedResource;
     }
@@ -128,20 +128,20 @@ class Router
     /**
      * Instances the Resource requested by the Request
      *
-     * @param Request\Request $request
-     * @return Resource\Resource
+     * @param \RestPHP\Request\Request $request
+     * @return \RestPHP\Resource\Resource
      */
-    protected function initResource(Request\Request $request)
+    protected function initResource(\RestPHP\Request\Request $request)
     {
-        $className = $this->requestUriToResourseName($request->getRequestUri());
+        $className = $this->requestUriToResourceName($request->getRequestUri());
         $resource = new $className();
         $resource->setRequest($request);
-        $resource->setResponse(new Response\Response());
+        $resource->setResponse(new \RestPHP\Response\Response());
 
         $this->setResource($resource);
     }
 
-    protected function requestUriToResourseName($requestUri)
+    protected function requestUriToResourceName($requestUri)
     {
         $classname = ltrim($requestUri, '/');
 
@@ -166,10 +166,10 @@ class Router
     /**
      * Routes a request to the proper Resource
      *
-     * @param Request\Request $request
-     * @return Resource\Resource
+     * @param \RestPHP\Request\Request $request
+     * @return \RestPHP\Resource\Resource
      */
-    public function route(Request\Request $request)
+    public function route(\RestPHP\Request\Request $request)
     {
         $this->initResource($request);
 

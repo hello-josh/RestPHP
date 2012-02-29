@@ -5,7 +5,7 @@
     <property name="test" value="test" />
 
     <target name="clean"
-		description="Cleans up compiled templates and other cache files">
+            description="Cleans up compiled templates and other cache files">
 
         <delete dir="${basedir}/build/code-browser"/>
         <delete dir="${basedir}/build/coverage"/>
@@ -20,13 +20,19 @@
 
     </target>
 
+    <target name="clean-all"
+            description="Cleans everything as well as removing docblox cache files">
+        <delete dir="${basedir}/docs/api"/>
+        <antcall target="clean" />
+    </target>
+
     <target name="phpunit"
-         description="Run unit tests using PHPUnit and generates junit.xml and clover.xml">
+            description="Run unit tests using PHPUnit and generates junit.xml and clover.xml">
         <exec dir="test" executable="phpunit" failonerror="true"/>
     </target>
 
     <target name="parallelTasks"
-         description="Run the pdepend, phpmd, phpcpd, phpcs, docblox and phploc tasks in parallel using a maximum of 2 threads.">
+            description="Run the pdepend, phpmd, phpcpd, phpcs, docblox and phploc tasks in parallel using a maximum of 2 threads.">
         <parallel threadCount="2">
             <sequential>
                 <antcall target="pdepend"/>
@@ -40,7 +46,7 @@
     </target>
 
     <target name="pdepend"
-         description="Generate jdepend.xml and software metrics charts using PHP_Depend">
+            description="Generate jdepend.xml and software metrics charts using PHP_Depend">
         <exec executable="pdepend" failonerror="true">
             <arg line="--jdepend-xml=${basedir}/build/logs/jdepend.xml
               --jdepend-chart=${basedir}/build/pdepend/dependencies.svg
@@ -50,7 +56,7 @@
     </target>
 
     <target name="phpmd"
-         description="Generate pmd.xml using PHPMD">
+            description="Generate pmd.xml using PHPMD">
         <exec executable="phpmd">
             <arg line="${source}
               xml
@@ -60,7 +66,7 @@
     </target>
 
     <target name="phpcpd"
-         description="Generate pmd-cpd.xml using PHPCPD">
+            description="Generate pmd-cpd.xml using PHPCPD">
         <exec executable="phpcpd">
             <arg line="--log-pmd ${basedir}/build/logs/pmd-cpd.xml
               ${source}" />
@@ -68,7 +74,7 @@
     </target>
 
     <target name="phploc"
-         description="Generate phploc.csv">
+            description="Generate phploc.csv">
         <exec executable="phploc" failonerror="true">
             <arg line="--log-csv ${basedir}/build/logs/phploc.csv
               ${source}" />
@@ -76,7 +82,7 @@
     </target>
 
     <target name="phpcs"
-         description="Generate checkstyle.xml using PHP_CodeSniffer">
+            description="Generate checkstyle.xml using PHP_CodeSniffer">
         <exec executable="phpcs" output="/dev/null">
             <arg line="--report=checkstyle
               --report-file=${basedir}/build/logs/checkstyle.xml
@@ -96,7 +102,7 @@
     </target>
 
     <target name="phpcb"
-         description="Aggregate tool output with PHP_CodeBrowser">
+            description="Aggregate tool output with PHP_CodeBrowser">
         <exec executable="phpcb" failonerror="true">
             <arg line="--log ${basedir}/build/logs
               --source ${source}
