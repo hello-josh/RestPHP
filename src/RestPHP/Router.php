@@ -67,13 +67,6 @@ class Router
     protected $config;
 
     /**
-     * The requested resource
-     *
-     * @var \RestPHP\Resource\Resource
-     */
-    protected $resource;
-
-    /**
      * Creates the instance
      *
      * @param Config $config
@@ -106,41 +99,11 @@ class Router
     }
 
     /**
-     * Gets the resource requested by the Request
+     * Maps the URI to the requested resource class name
      *
-     * @return \RestPHP\Resource\Resource
+     * @param string $requestUri
+     * @return string
      */
-    public function getResource()
-    {
-        return $this->resource;
-    }
-
-    /**
-     * Sets the requested resource into the router
-     *
-     * @param \RestPHP\Resource\Resource $requestedResource
-     */
-    public function setResource(\RestPHP\Resource\Resource $requestedResource)
-    {
-        $this->resource = $requestedResource;
-    }
-
-    /**
-     * Instances the Resource requested by the Request
-     *
-     * @param \RestPHP\Request\Request $request
-     * @return \RestPHP\Resource\Resource
-     */
-    protected function initResource(\RestPHP\Request\Request $request)
-    {
-        $className = $this->requestUriToResourceName($request->getRequestUri());
-        $resource = new $className();
-        $resource->setRequest($request);
-        $resource->setResponse(new \RestPHP\Response\Response());
-
-        $this->setResource($resource);
-    }
-
     protected function requestUriToResourceName($requestUri)
     {
         $classname = ltrim($requestUri, '/');
@@ -151,9 +114,9 @@ class Router
 
         $classname = implode('\\', array_map('ucfirst', explode('/', $classname)));
 
-        if ($this->getConfig()) {
+        if ($this->config) {
 
-            $namespace = $this->getConfig()->application->resources->namespace;
+            $namespace = $this->config->application->resources->namespace;
 
             if ($namespace) {
                 $classname = $namespace . '\\' . $classname;
@@ -167,12 +130,10 @@ class Router
      * Routes a request to the proper Resource
      *
      * @param \RestPHP\Request\Request $request
-     * @return \RestPHP\Resource\Resource
+     * @return string Resource classname
      */
     public function route(\RestPHP\Request\Request $request)
     {
-        $this->initResource($request);
-
-        return $this->getResource();
+        return $this->requestUriToResourceName($request->getRequestUri());
     }
 }

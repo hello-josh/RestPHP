@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP\Response;
 
 /**
@@ -64,6 +64,7 @@ class Response
      * @var boolean
      */
     protected $isFgci = false;
+
     /**
      * HTTP Status
      *
@@ -72,6 +73,7 @@ class Response
      * @var integer
      */
     protected $status = 200;
+
     /**
      * Headers that need to be sent
      *
@@ -86,9 +88,15 @@ class Response
      */
     protected $outputData = array();
 
+    /**
+     * The HTTP Response body
+     *
+     * @var string
+     */
+    protected $body;
+
     const FCGI_STATUS = 'Status: ';
     const HTTP_STATUS = 'HTTP/1.1 ';
-
     const HTTP_100 = "100 Continue";
     const HTTP_101 = "101 Switching Protocols";
     const HTTP_200 = "200 OK";
@@ -134,12 +142,19 @@ class Response
     /**
      * Sets data to be output via the API
      *
-     * @param string $name
-     * @param mixed $value
+     * @param string $name Name can be the key for $value or it can be data to overwrite
+     *                     the whole response's return data
+     * @param mixed $value Optional
      */
-    public function setData($name, $value)
+    public function setData($name, $value = null)
     {
-        $this->outputData[$name] = $value;
+        // setting a value directly instead of a key'd value
+        if (func_num_args() == 1) {
+            $this->outputData = $name;
+        }
+        else {
+            $this->outputData[$name] = $value;
+        }
     }
 
     /**
@@ -159,8 +174,12 @@ class Response
      * @param string $name
      * @return mixed
      */
-    public function &getData($name)
+    public function &getData($name = null)
     {
+        if (null == $name) {
+            return $this->outputData;
+        }
+
         return $this->outputData[$name];
     }
 
@@ -175,7 +194,7 @@ class Response
         return $this->getData($name);
     }
 
-        /**
+    /**
      * Is this response handled via fcgi?
      *
      * @see \RestPHP\Response::isHttp()
@@ -204,7 +223,7 @@ class Response
      */
     public function isHttp()
     {
-        return!$this->isFgci();
+        return !$this->isFgci();
     }
 
     /**
@@ -238,6 +257,16 @@ class Response
     }
 
     /**
+     * Sets the Content-Type of the response
+     *
+     * @param string $contentType
+     */
+    public function setContentType($contentType)
+    {
+        $this->addHeader('Content-Type', $contentType);
+    }
+
+    /**
      * Adds a response header to be sent
      *
      * Arguments 2-N are imploded with '; ' to allow easier
@@ -257,7 +286,7 @@ class Response
      * @param string $value
      * @param string $values variadic arguments
      */
-    public function addHeader($header, $value, $values=null)
+    public function addHeader($header, $value, $values = null)
     {
         $this->headers[] = func_get_args();
     }
@@ -298,17 +327,28 @@ class Response
         header($this->makeStatus(), true, $this->status);
     }
 
+    public function setBody($body)
+    {
+        $this->body = $body;
+    }
+
+    public function getBody()
+    {
+        return $this->body;
+    }
+
     /**
-     * Echos the response
+     * Echos the response headers and body
      */
     public function output()
     {
         $this->sendHeaders();
-        echo $this->__toString();
+        echo $this->__toString() . "\r\n";
     }
 
     public function __toString()
     {
-        return var_export($this->outputData, 1);
+        return $this->getBody();
     }
+
 }

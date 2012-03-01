@@ -40,43 +40,26 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
-namespace RestPHP\Request\Header;
+
+namespace RestPHP\Request\Unmarshaller;
 
 /**
- * HTTP Expect Request header
  *
- *
- * @category   RestPHP
  * @package    RestPHP
  * @subpackage Request
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
- * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-class Expect implements IHeader
+class Json implements IUnmarshaller
 {
-    protected $rawValue;
-
-    public function getRawValue()
+    public function unmarshall(\RestPHP\Request\Request $request)
     {
-        return $this->rawValue;
-    }
-
-    /**
-     * Parses the HTTP Expect header
-     *
-     * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-     *
-     * @param string $header the value of the Expect header after the colon
-     */
-    public function parse($header)
-    {
-        $this->rawValue = $header;
-        
+        $body = $request->getBody();
+        $request->setBody(json_decode($body));
+        return $request;
     }
 }

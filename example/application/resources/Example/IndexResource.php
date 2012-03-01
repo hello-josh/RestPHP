@@ -29,4 +29,9 @@ class IndexResource extends \RestPHP\Resource\Resource
     {
         $this->getResponse()->greeting = "hello";
     }
+
+    public function post()
+    {
+        $this->getResponse()->setData($this->getRequest()->getBody());
+    }
 }

@@ -57,18 +57,10 @@ namespace RestPHP;
 class Dispatcher
 {
     /**
-     * The application config
      *
      * @var Config
      */
-    protected $config;
-
-    /**
-     * Application router
-     *
-     * @var Router
-     */
-    protected $router;
+    private $config;
 
     /**
      * Creates the Dispatcher
@@ -76,11 +68,9 @@ class Dispatcher
      * @param Config $config
      * @return Dispatcher
      */
-    public function __construct(Config $config = null)
+    public function __construct(Config $config)
     {
-        if ($config) {
-            $this->setConfig($config);
-        }
+        $this->setConfig($config);
     }
 
     /**
@@ -101,39 +91,39 @@ class Dispatcher
     public function setConfig(Config $config)
     {
         $this->config = $config;
-    }
 
-    /**
-     *
-     * @return Router
-     */
-    public function getRouter()
-    {
-        if (!$this->router) {
-            $this->router = new Router($this->getConfig());
+        if ($config->application->resources->basePath) {
+
+            Autoloader::getInstance()->addIncludePath(
+                    $config->application->resources->basePath);
         }
-
-        return $this->router;
     }
 
     /**
-     *
-     * @param Router $router
-     */
-    public function setRouter(Router $router)
-    {
-        $this->router = $router;
-    }
-
-    /**
+     * Instances the Resource requested by the Request and executes it
      *
      * @param \RestPHP\Request\Request $request
      * @return \RestPHP\Response\Response
      */
-    public function dispatch(Request\Request $request)
+    public function dispatch(\RestPHP\Request\Request $request)
     {
-        $router = $this->getRouter();
-        $resource = $router->route($request);
-        return $resource->execute();
+        try {
+
+            $router = new Router($this->getConfig());
+
+            $resourceName = $router->route($request);
+
+            /* @var $resource \RestPHP\Resource\Resource */
+            $resource = new $resourceName();
+
+            $resource->setRequest($request);
+            $resource->setResponse(new \RestPHP\Response\Response());
+
+            return $resource->execute();
+
+        } catch (Exception $e) {
+            // handle non-existant route
+            throw $e;
+        }
     }
 }

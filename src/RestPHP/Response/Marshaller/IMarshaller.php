@@ -56,5 +56,5 @@ namespace RestPHP\Response\Marshaller;
  */
 interface IMarshaller
 {
-    public function serialize(\RestPHP\Response\Response $response);
+    public function marshall(\RestPHP\Response\Response $response);
 }

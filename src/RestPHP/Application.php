@@ -40,13 +40,16 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP;
 
-use \RestPHP\Request\Request;
+use \RestPHP\Request\Request,
+    \RestPHP\Response\Response,
+    \RestPHP\Request\Unmarshaller\UnmarshallerFactory,
+    \RestPHP\Response\Marshaller\MarshallerFactory;
 
 /**
  * Application
@@ -73,6 +76,20 @@ class Application
      * @var Config
      */
     protected $config;
+
+    /**
+     * Request Instance
+     *
+     * @var \RestPHP\Request\Request
+     */
+    protected $request;
+
+    /**
+     * Response Instance
+     *
+     * @var \RestPHP\Response\Response
+     */
+    protected $response;
 
     /**
      * Creates the application
@@ -133,6 +150,86 @@ class Application
         }
     }
 
+    public function getRequest()
+    {
+        return $this->request;
+    }
+
+    public function setRequest($request)
+    {
+        $this->request = $request;
+    }
+
+    public function getResponse()
+    {
+        if (!isset($this->response)) {
+            $this->response = new Response();
+            $this->response->setStatus(Response::HTTP_404);
+            $this->response->setBody('The requested resource could not be found');
+        }
+        return $this->response;
+    }
+
+    public function setResponse($response)
+    {
+        $this->response = $response;
+    }
+
+    /**
+     * Marshalls the response to the proper Accept type from the client
+     *
+     * @param \RestPHP\Response\Response $response
+     * @return \RestPHP\Response\Response
+     */
+    public function getMarshalledResponse(\RestPHP\Response\Response $response)
+    {
+        try {
+
+            $marshaller = MarshallerFactory::factory($this->getRequest()->getHeader('Accept'));
+            $response = $marshaller->marshall($response);
+
+        } catch (\RestPHP\Response\Marshaller\NoValidMarshallerException $e) {
+            $response->setStatus(Response::HTTP_406);
+            $response->setBody("The application does not know how to respond to any of your Accept types: " . $this->getRequest()->getHeader('Accept')->getRawValue());
+        }
+
+        $this->response = $response;
+        return $response;
+    }
+
+    /**
+     * Unmarshalls the request into an associative array
+     * @param \RestPHP\Request\Request $request
+     * @return \RestPHP\Request\Request $request
+     */
+    public function getUnmarshalledRequest(\RestPHP\Request\Request $request)
+    {
+        $this->request = $request;
+
+        switch ($request->getHttpMethod()) {
+
+            case 'POST':
+            case 'PUT':
+            case 'DELETE':
+            case 'OPTIONS':
+            case 'HEAD':
+
+                try {
+
+                    $unmarshaller = UnmarshallerFactory::factory($request->getHeader('Content-Type'));
+                    $request = $unmarshaller->unmarshall($request);
+
+                } catch (\RestPHP\Request\Unmarshaller\NoValidUnmarshallerException $e) {
+
+                    // not sure how to handle this?
+                }
+
+                break;
+        }
+
+        return $request;
+    }
+
     /**
      * Dispatches the request and returns the response
      *
@@ -141,17 +238,28 @@ class Application
      */
     public function handle(\RestPHP\Request\Request $request)
     {
+        try {
 
-        $dispatcher = new Dispatcher($this->getConfig());
+            $request = $this->getUnmarshalledRequest($request);
 
-        $response = $dispatcher->dispatch($request);
+            $dispatcher = new Dispatcher($this->getConfig());
 
-        return $response;
+            $response = $dispatcher->dispatch($request);
+
+            return $this->getMarshalledResponse($response);
+        }
+        catch (Exception $e) {
+            
+            var_dump($e);
+
+            // return ErrorResponse?
+            return $this->getResponse();
+        }
     }
 
     /**
      * Convenience method for instantiating a \RestPHP\Request\Request based
-     * off of PHP's $_SERVER array when run via
+     * off of PHP's $_SERVER array when run via mod_php or fcgi
      *
      * @param \RestPHP\Config $config
      * @return \RestPHP\Request\Request
@@ -187,4 +295,5 @@ class Application
 
         return $request;
     }
+
 }

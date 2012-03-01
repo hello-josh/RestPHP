@@ -186,29 +186,46 @@ class Request
      * Gets the specified HTTP header
      *
      * @param string $header HTTP Header requested
-     *
-     * @return string|null
+     * @return RestPHP\Request\Header\IHeader or NULL if not set
      */
     public function getHeader($header)
     {
-        $header = 'HTTP_' . strtoupper(str_replace('-', '_', $header));
-
-        if (array_key_exists($header, $_SERVER)) {
-            return $_SERVER[$header];
+        if (array_key_exists($header, $this->headers)) {
+            return $this->headers[$header];
         }
 
         return null;
     }
 
-    public function setHeader($header, $value)
+    public function setHeader($header, $value, $allowMultiple = false)
     {
-        if (!array_key_exists($header, $this->headers)
+        if (!Header\HeaderFactory::isStandardHeader($header)
             && strpos($header, 'X-') !== 0) {
 
             throw new \InvalidArgumentException(
                     'Non-standard headers must be prefixed with an X- per HTTP spec');
         }
-        $this->headers[$header] = $value;
+
+        /* @var $headerObj \RestPHP\Request\Header\IHeader */
+        $headerObj = Header\HeaderFactory::factory($header);
+
+        $headerObj->parse($value);
+
+        if ($allowMultiple) {
+            if (!isset($this->headers[$header])) {
+                $this->headers[$header] = array();
+            }
+
+            if (!is_array($this->headers[$header])) {
+                $this->headers[$header] = array($this->headers[$header]);
+            }
+
+            $this->headers[$header][] = $headerObj;
+        }
+        else {
+            $this->headers[$header] = $headerObj;
+        }
+        
         return $this;
     }
 

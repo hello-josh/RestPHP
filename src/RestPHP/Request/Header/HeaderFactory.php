@@ -47,8 +47,7 @@
 namespace RestPHP\Request\Header;
 
 /**
- * HTTP Expect Request header
- *
+ * HeaderFactory - Request header factory
  *
  * @category   RestPHP
  * @package    RestPHP
@@ -58,25 +57,56 @@ namespace RestPHP\Request\Header;
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-class Expect implements IHeader
+class HeaderFactory
 {
-    protected $rawValue;
+    protected static $headers = array(
+        'Accept'              => 'Accept',
+        'Accept-Charset'      => 'Accept-Charset',
+        'Accept-Encoding'     => 'Accept-Encoding',
+        'Accept-Language'     => 'Accept-Language',
+        'Authorization'       => 'Authorization',
+        'Cache-Control'       => 'Cache-Control',
+        'Connection'          => 'Connection',
+        'Cookie'              => 'Cookie',
+        'Content-Length'      => 'Content-Length',
+        'Content-MD5'         => 'Content-MD5',
+        'Content-Type'        => 'Content-Type',
+        'Date'                => 'Date',
+        'Expect'              => 'Expect',
+        'From'                => 'From',
+        'Host'                => 'Host',
+        'If-Match'            => 'If-Match',
+        'If-Modified-Since'   => 'If-Modified-Since',
+        'If-None-Match'       => 'If-None-Match',
+        'If-Range'            => 'If-Range',
+        'If-Unmodified-Since' => 'If-Unmodified-Since',
+        'Max-Forwards'        => 'Max-Forwards',
+        'Pragma'              => 'Pragma',
+        'Proxy-Authorization' => 'Proxy-Authorization',
+        'Range'               => 'Range',
+        'Referer'             => 'Referer',
+        'TE'                  => 'TE',
+        'Upgrade'             => 'Upgrade',
+        'User-Agent'          => 'User-Agent',
+        'Via'                 => 'Via',
+        'Warning'             => 'Warning'
+    );
 
-    public function getRawValue()
+    public static function factory($header)
     {
-        return $this->rawValue;
+        $headerClass = 'XHeader';
+        if (static::isStandardHeader($header)) {
+            $header = str_replace('-', ' ', $header);
+            $header = ucwords(strtolower($header));
+            $headerClass = str_replace(' ', '', $header);
+        }
+
+        $headerClass = __NAMESPACE__ . '\\' . $headerClass;
+        return new $headerClass();
     }
 
-    /**
-     * Parses the HTTP Expect header
-     *
-     * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-     *
-     * @param string $header the value of the Expect header after the colon
-     */
-    public function parse($header)
+    public static function isStandardHeader($header)
     {
-        $this->rawValue = $header;
-        
+        return isset(static::$headers[$header]);
     }
 }

@@ -47,8 +47,7 @@
 namespace RestPHP\Request\Header;
 
 /**
- * HTTP Expect Request header
- *
+ * Header - Interface for all request headers listed in rfc 2616 sec 14
  *
  * @category   RestPHP
  * @package    RestPHP
@@ -58,25 +57,16 @@ namespace RestPHP\Request\Header;
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-class Expect implements IHeader
+interface IHeader
 {
-    protected $rawValue;
-
-    public function getRawValue()
-    {
-        return $this->rawValue;
-    }
-
     /**
-     * Parses the HTTP Expect header
+     * Parses the supplied header string into valid pieces for the HTTP Header
      *
-     * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-     *
-     * @param string $header the value of the Expect header after the colon
+     * @param string $header the HTTP header data
+     * For the header <code>Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</code>
+     * Pass <code>Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==</code>
      */
-    public function parse($header)
-    {
-        $this->rawValue = $header;
-        
-    }
+    public function parse($header);
+
+    public function getRawValue();
 }

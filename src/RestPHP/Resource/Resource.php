@@ -56,7 +56,7 @@ namespace RestPHP\Resource;
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-/* abstract */class Resource
+class Resource
 {
     /**
      * Request Instance
