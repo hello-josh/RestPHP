@@ -1,10 +1,23 @@
 TODO
 ======
 
+1. Remove dependency on Zend_Config
+
+1. Implement Unmarshallers for the following content types
+
+    * text/plain
+    * application/x-www-form-urlencoded
+    * multipart/form-data
+
+1. Tighten up the content types available for marshalling/unmarshalling
+   by adding any odd variants for xml/json/etc that you might see
+
+1. Some way to make bootstrapping the application easier. There are too many
+   lines of code in index.php right now
+
 1. Implement the following \RestPHP\Request\Header\Header
    subclasses and tests
 
-    * Accept-Language
     * Authorization
     * Cache-Control
     * Connection
