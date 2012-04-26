@@ -35,95 +35,67 @@
  *
  * @category   RestPHP
  * @package    RestPHP
+ * @subpackage Response
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
-namespace RestPHP;
+
+namespace RestPHP\Response\Marshaller;
 
 /**
- * Dispatcher
  *
- * @category   RestPHP
  * @package    RestPHP
+ * @subpackage Response
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-class Dispatcher
+class MarshallerFactory
 {
-    /**
-     *
-     * @var Config
-     */
-    private $config;
 
     /**
-     * Creates the Dispatcher
      *
-     * @param Config $config
-     * @return Dispatcher
+     * @param \RestPHP\Request\Header\Accept $accept
+     * @return \RestPHP\Response\Marshaller\IMarshaller
+     * @throws \RestPHP\Response\Marshaller\NoValidMarshallerException
      */
-    public function __construct(Config $config)
+    public static function factory(\RestPHP\Request\Header\Accept $accept)
     {
-        $this->setConfig($config);
-    }
+        foreach ($accept->getTypes() as $type) {
 
-    /**
-     * Gets the current config
-     *
-     * @return Config
-     */
-    public function getConfig()
-    {
-        return $this->config;
-    }
+            $marshaller = static::matchType($type);
 
-    /**
-     * Sets the current config
-     *
-     * @param Config $config
-     */
-    public function setConfig(Config $config)
-    {
-        $this->config = $config;
-
-        if ($config->application->resources->basePath) {
-
-            Autoloader::getInstance()->addIncludePath(
-                    $config->application->resources->basePath);
+            if ($marshaller) {
+                return $marshaller;
+            }
         }
+
+
+        throw new NoValidMarshallerException();
     }
 
-    /**
-     * Instances the Resource requested by the Request and executes it
-     *
-     * @param \RestPHP\Request\Request $request
-     * @return \RestPHP\Response\Response
-     */
-    public function dispatch(\RestPHP\Request\Request $request)
+    protected static function matchType($type)
     {
-        try {
+        switch ($type) {
 
-            $router = new Router($this->getConfig());
+            case 'application/xml':
+            case 'text/xml':
+                return new Xml();
+                break;
 
-            $resourceName = $router->route($request);
-
-            /* @var $resource \RestPHP\Resource\Resource */
-            $resource = new $resourceName();
-
-            $resource->setRequest($request);
-            $resource->setResponse(new \RestPHP\Response\Response());
-
-            return $resource->execute();
-
-        } catch (Exception $e) {
-            // handle non-existant route
-            throw $e;
+            case 'application/json':
+            case 'text/json':
+            case 'application/x-json':
+            case 'text/x-json':
+                return new Json();
+                break;
         }
+
+        return null;
     }
+
 }

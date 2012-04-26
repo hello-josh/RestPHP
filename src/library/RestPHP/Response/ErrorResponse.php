@@ -35,7 +35,7 @@
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Request
+ * @subpackage Response
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
@@ -44,35 +44,23 @@
 /**
  * @namespace
  */
-namespace RestPHP\Request\Unmarshaller;
+namespace RestPHP\Response;
 
 /**
+ * ErrorResponse
  *
+ * @category   RestPHP
  * @package    RestPHP
- * @subpackage Request
+ * @subpackage Response
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-class UnmarshallerFactory
+class ErrorResponse extends Response
 {
-    /**
-     *
-     * @param string $contentType
-     * @return \RestPHP\Request\Unmarshaller\IUnmarshaller
-     */
-    public static function factory($contentType)
-    {
-        switch ($contentType) {
+    protected $exception;
 
-            case 'application/json':
-            case 'text/json':
-            case 'application/x-json':
-            case 'text/x-json':
-            default:
-                return new Json();
-                break;
-        }
-
+    public function __construct(\Exception $e = null) {
+        $this->exception = $e;
     }
 }

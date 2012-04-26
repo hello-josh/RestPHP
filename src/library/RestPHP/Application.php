@@ -248,12 +248,10 @@ class Application
 
             return $this->getMarshalledResponse($response);
         }
-        catch (Exception $e) {
-            
-            var_dump($e);
+        catch (\Exception $e) {
 
             // return ErrorResponse?
-            return $this->getResponse();
+            return new \RestPHP\Response\ErrorResponse();
         }
     }
 
@@ -275,6 +273,20 @@ class Application
                 $header = array_map('ucfirst', $header);
                 $header = implode('-', $header);
                 $request->setHeader($header, $value);
+
+            } else {
+
+                switch ($header) {
+
+                    case 'CONTENT_TYPE':
+                    case 'CONTENT_LENGTH':
+                        $header = strtolower($header);
+                        $header = explode('_', $header);
+                        $header = array_map('ucfirst', $header);
+                        $header = implode('-', $header);
+                        $request->setHeader($header, $value);
+                        break;
+                }
             }
         }
 

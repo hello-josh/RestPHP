@@ -35,62 +35,49 @@
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Response
+ * @subpackage Request
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
+
 /**
  * @namespace
  */
-
-namespace RestPHP\Response\Marshaller;
+namespace RestPHP\Request\Unmarshaller;
 
 /**
  *
  * @package    RestPHP
- * @subpackage Response
+ * @subpackage Request
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-class MarshallerFactory
+class UnmarshallerFactory
 {
-
     /**
      *
-     * @param \RestPHP\Request\Header\Accept $accept
-     * @return \RestPHP\Response\Marshaller\IMarshaller
-     * @throws \RestPHP\Response\Marshaller\NoValidMarshallerException
+     * @param \RestPHP\Request\Header\ContentType $contentType
+     * @return \RestPHP\Request\Unmarshaller\IUnmarshaller
      */
-    public static function factory(\RestPHP\Request\Header\Accept $accept)
+    public static function factory(\RestPHP\Request\Header\ContentType $contentType = null)
     {
-        foreach ($accept->getTypes() as $type) {
+        switch ($contentType->getRawValue()) {
 
-            $marshaller = static::matchType($type);
-
-            if ($marshaller) {
-                return $marshaller;
-            }
-        }
-
-
-        throw new NoValidMarshallerException();
-    }
-
-    protected static function matchType($type)
-    {
-        switch ($type) {
+            case 'text/xml':
+            case 'application/xml':
+                return new Xml();
+                break;
 
             case 'application/json':
             case 'text/json':
             case 'application/x-json':
             case 'text/x-json':
+            default:
                 return new Json();
                 break;
         }
 
-        return null;
     }
-
 }
