@@ -102,27 +102,12 @@ class Dispatcher
     /**
      * Instances the Resource requested by the Request and executes it
      *
-     * @param \RestPHP\Request\Request $request
+     * @param \RestPHP\Resource\Resource $resource
      * @return \RestPHP\Response\Response
      */
-    public function dispatch(\RestPHP\Request\Request $request)
+    public function dispatch(\RestPHP\Resource\Resource $resource)
     {
         try {
-
-            $router = new Router($this->getConfig());
-
-            $resourceName = $router->route($request);
-
-            if (!class_exists($resourceName)) {
-                $response = new \RestPHP\Response\ErrorResponse();
-                $response->setStatus(404);
-                return $response;
-            }
-            /* @var $resource \RestPHP\Resource\Resource */
-            $resource = new $resourceName();
-
-            $resource->setRequest($request);
-            $resource->setResponse(new \RestPHP\Response\Response());
 
             return $resource->execute();
 

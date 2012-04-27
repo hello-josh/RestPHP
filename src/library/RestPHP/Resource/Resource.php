@@ -74,6 +74,12 @@ class Resource
 
     /**
      *
+     * @var \RestPHP\Application
+     */
+    protected $application;
+
+    /**
+     *
      * @return \RestPHP\Request\Request
      */
     public function getRequest()
@@ -106,6 +112,22 @@ class Resource
     public function setResponse(\RestPHP\Response\Response $response)
     {
         $this->response = $response;
+    }
+
+    /**
+     *
+     * @return \RestPHP\Application
+     */
+    public function getApplication() {
+        return $this->application;
+    }
+
+    /**
+     *
+     * @param \RestPHP\Application $application
+     */
+    public function setApplication(\RestPHP\Application $application) {
+        $this->application = $application;
     }
 
     /**

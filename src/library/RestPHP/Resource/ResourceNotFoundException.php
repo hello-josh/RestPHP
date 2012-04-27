@@ -35,34 +35,23 @@
  *
  * @category   RestPHP
  * @package    RestPHP
- * @subpackage Response
+ * @subpackage Resource
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
-namespace RestPHP\Response;
+
+namespace RestPHP\Resource;
 
 /**
- * ErrorResponse
  *
- * @category   RestPHP
  * @package    RestPHP
- * @subpackage Response
+ * @subpackage Resource
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-class ErrorResponse extends Response
-{
-    protected $exception;
-
-    public function __construct(\Exception $e = null) {
-        $this->exception = $e;
-        $this->setStatus(Response::HTTP_500);
-        $this->setBody("This is our clever error message for when we dun goofed");
-    }
-}
+class ResourceNotFoundException extends \Exception {}

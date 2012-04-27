@@ -89,11 +89,13 @@ class Autoloader
     public function addIncludePath($path)
     {
         $this->includePaths[$path] = $path;
+        return $this;
     }
 
     public function register()
     {
         spl_autoload_register($this);
+        return $this;
     }
 
     public function __invoke($className)

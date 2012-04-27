@@ -130,10 +130,17 @@ class Router
      * Routes a request to the proper Resource
      *
      * @param \RestPHP\Request\Request $request
-     * @return string Resource classname
+     * @return \RestPHP\Resource\Resource
      */
-    public function route(\RestPHP\Request\Request $request)
+    public function route(Request\Request $request)
     {
-        return $this->requestUriToResourceName($request->getRequestUri());
+        $resourceName = $this->requestUriToResourceName($request->getRequestUri());
+
+        if (!class_exists($resourceName)) {
+            throw new Resource\ResourceNotFoundException();
+        }
+
+        /* @var $resource \RestPHP\Resource\Resource */
+        return new $resourceName();
     }
 }

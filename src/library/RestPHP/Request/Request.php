@@ -59,6 +59,62 @@ namespace RestPHP\Request;
 class Request
 {
     /**
+     * Convenience method for instantiating a \RestPHP\Request\Request based
+     * off of PHP's $_SERVER array when run via mod_php or fcgi
+     *
+     * @param \RestPHP\Config $config
+     * @return \RestPHP\Request\Request
+     */
+    public static function getDefaultRequest(\RestPHP\Config $config = null)
+    {
+        $request = new static($config);
+
+        foreach ($_SERVER as $header => $value) {
+            if (strpos($header, 'HTTP_') === 0) {
+                $header = substr($header, 5);
+                $header = static::formatHeader($header);
+                $request->setHeader($header, $value);
+
+            } else {
+
+                switch ($header) {
+
+                    case 'CONTENT_TYPE':
+                    case 'CONTENT_LENGTH':
+                        $header = static::formatHeader($header);
+                        $request->setHeader($header, $value);
+                        break;
+                }
+            }
+        }
+
+        $request->setHttpMethod($_SERVER['REQUEST_METHOD']);
+
+        $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+        if ($config) {
+
+            $baseUri = $config->application->baseUri;
+
+            if (strlen($baseUri) && strpos($requestUri, $baseUri) === 0) {
+                $requestUri = substr($requestUri, strlen($baseUri));
+            }
+        }
+
+        $request->setRequestUri($requestUri);
+
+        return $request;
+    }
+
+    protected static function formatHeader($header) {
+        $header = strtolower($header);
+        $header = explode('_', $header);
+        $header = array_map('ucfirst', $header);
+        $header = implode('-', $header);
+        return $header;
+    }
+
+    /**
      * Raw body of the HTTP request
      *
      * @var string
@@ -225,7 +281,7 @@ class Request
         else {
             $this->headers[$header] = $headerObj;
         }
-        
+
         return $this;
     }
 
