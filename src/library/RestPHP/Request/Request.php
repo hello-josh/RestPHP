@@ -365,7 +365,7 @@ class Request
                     break;
 
                 default:
-                    $body = '';
+                    $body = array();
                     break;
             }
 
@@ -385,5 +385,28 @@ class Request
     {
         $this->body = $body;
         return $this;
+    }
+
+    /**
+     * Gets the named param from the query string or from the unmarshalled body
+     *
+     * @param string $name
+     * @param mixed $default
+     * @return mixed
+     */
+    public function getParam($name, $default = null) {
+
+        if (array_key_exists($name, $_GET)) {
+            return $_GET[$name];
+        } elseif (array_key_exists($name, $this->getBody())) {
+            $body = $this->getBody();
+            return $body[$name];
+        } else {
+            return $default;
+        }
+    }
+
+    public function getParams() {
+        return array_merge($_GET, $this->getBody());
     }
 }
