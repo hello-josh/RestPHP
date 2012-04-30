@@ -56,13 +56,22 @@ namespace RestPHP\Response\Marshaller;
  */
 class Json implements IMarshaller
 {
-
+    /**
+     * Converts an associative array to a json encoded string
+     * 
+     * @param \RestPHP\Response\Response $response
+     * @return string json encoded string
+     */
     public function marshall(\RestPHP\Response\Response $response)
     {
-        $response->setContentType('application/json');
         $body = $response->getData();
-        $response->setBody(json_encode($body));
-        return $response;
+        return json_encode($body);
     }
 
+    /**
+     * @return string
+     */
+    public function getContentType() {
+        return 'application/json';
+    }
 }

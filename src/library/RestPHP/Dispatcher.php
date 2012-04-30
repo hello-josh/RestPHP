@@ -107,13 +107,6 @@ class Dispatcher
      */
     public function dispatch(\RestPHP\Resource\Resource $resource)
     {
-        try {
-
-            return $resource->execute();
-
-        } catch (\Exception $e) {
-            // handle non-existant route
-            return new \RestPHP\Response\ErrorResponse($e);
-        }
+        return $resource->execute();
     }
 }

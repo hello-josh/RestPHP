@@ -46,6 +46,10 @@
 
 namespace RestPHP\Response;
 
+use \RestPHP\Request\Request,
+    \RestPHP\Response\Marshaller\MarshallerFactory,
+    \RestPHP\Response\Marshaller\IMarshaller;
+
 /**
  * Response
  *
@@ -95,6 +99,17 @@ class Response
      */
     protected $body;
 
+    /**
+     *
+     * @var \RestPHP\Response\Marshaller\IMarshaller
+     */
+    protected $marshaller;
+
+    /**
+     * @var \RestPHP\Request\Request
+     */
+    protected $request;
+
     const FCGI_STATUS = 'Status: ';
     const HTTP_STATUS = 'HTTP/1.1 ';
     const HTTP_100 = "100 Continue";
@@ -138,6 +153,13 @@ class Response
     const HTTP_503 = "503 Service Unavailable";
     const HTTP_504 = "504 Gateway Timeout";
     const HTTP_505 = "505 HTTP Version Not Supported";
+
+    /**
+     * @param \RestPHP\Request\Request $request
+     */
+    public function __construct(Request $request) {
+        $this->setRequest($request);
+    }
 
     /**
      * Sets data to be output via the API
@@ -327,14 +349,68 @@ class Response
         header($this->makeStatus(), true, $this->status);
     }
 
-    public function setBody($body)
-    {
-        $this->body = $body;
+    /**
+     * Gets the marshaller
+     *
+     * @return \RestPHP\Response\Marshaller\IMarshaller
+     */
+    public function getMarshaller() {
+
+        if (null === $this->marshaller) {
+            $this->marshaller = MarshallerFactory::factory($this->getRequest()->getHeader('Accept'));
+        }
+
+        return $this->marshaller;
     }
 
+    /**
+     * Sets the marshaller to use
+     * @param \RestPHP\Response\Marshaller\IMarshaller $marshaller
+     */
+    public function setMarshaller(IMarshaller $marshaller) {
+        $this->marshaller = $marshaller;
+    }
+
+    /**
+     * Sets the body of the response
+     *
+     * @param string $body
+     */
+    public function setBody($body)
+    {
+        $this->body = (string) $body;
+    }
+
+    /**
+     * Gets the body of the response
+     *
+     * @return string
+     */
     public function getBody()
     {
+        if (null === $this->body) {
+            $this->body = $this->getMarshaller()->marshall($this);
+            $this->setContentType($this->getMarshaller()->getContentType());
+        }
         return $this->body;
+    }
+
+    /**
+     * Gets the request
+     *
+     * @return \RestPHP\Request\Request
+     */
+    public function getRequest() {
+        return $this->request;
+    }
+
+    /**
+     * Sets the request to use
+     *
+     * @param \RestPHP\Request\Request $request
+     */
+    public function setRequest(Request $request) {
+        $this->request = $request;
     }
 
     /**
@@ -342,13 +418,21 @@ class Response
      */
     public function output()
     {
+        // marshaller might set headers so we need
+        // to process the body first
+        $body = $this->getBody();
         $this->sendHeaders();
-        echo $this->__toString() . "\r\n";
+        echo $body;
+        ob_end_flush();
     }
 
+    /**
+     * Magic toString implementation
+     *
+     * @return string
+     */
     public function __toString()
     {
         return $this->getBody();
     }
-
 }

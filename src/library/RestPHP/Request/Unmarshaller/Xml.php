@@ -56,33 +56,13 @@ namespace RestPHP\Request\Unmarshaller;
  */
 class Xml implements IUnmarshaller
 {
-    public function unmarshall(\RestPHP\Request\Request $request)
-    {
-        $body = $request->getBody();
-        $it = new \SimpleXMLIterator($body);
-        $request->setBody($this->itToArray($it));
-        return $request;
-    }
-
     /**
-     * Recursive method to convert a Traversable item into a multi-dimensional array
-     *
-     * @param \Traversable $it
+     * @param string $requestBody
      * @return array
      */
-    protected function itToArray(\Traversable $it, $method = '__toString') {
-
-        $array = iterator_to_array($it);
-
-        /* @var $a \Traversable */
-        foreach ($array as &$a) {
-            if ($a instanceof \Traversable && count($a)) {
-                $a = $this->itToArray($a, $method);
-            } else {
-                $a = $a->$method();
-            }
-        }
-
-        return $array;
+    public function unmarshall($requestBody)
+    {
+        $it = new \SimpleXMLIterator($requestBody);
+        return iterator_to_array($it);
     }
 }

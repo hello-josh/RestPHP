@@ -60,6 +60,14 @@ class IndexResource extends \RestPHP\Resource\Resource
     public function get()
     {
         $this->getResponse()->greeting = "hello";
+
+        // this component uses mymap
+        $mymapwrapper = $this->getApplication()->getComponent('mymapwrapper');
+        $this->getResponse()->mymapwrapper = serialize($mymapwrapper);
+
+        // so mymap is already initialized at this point
+        $mymap = $this->getApplication()->getComponent('mymap');
+        $this->getResponse()->mymap = serialize($mymap);
     }
 
     public function post()

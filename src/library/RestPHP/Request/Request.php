@@ -40,11 +40,16 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
+
 /**
  * @namespace
  */
-
 namespace RestPHP\Request;
+
+use \RestPHP\Config,
+    \RestPHP\Request\Header\HeaderFactory,
+    \RestPHP\Request\Unmarshaller\UnmarshallerFactory,
+    \RestPHP\Request\Unmarshaller\IUnmarshaller;
 
 /**
  * Request
@@ -65,7 +70,7 @@ class Request
      * @param \RestPHP\Config $config
      * @return \RestPHP\Request\Request
      */
-    public static function getDefaultRequest(\RestPHP\Config $config = null)
+    public static function getDefaultRequest(Config $config = null)
     {
         $request = new static($config);
 
@@ -167,6 +172,10 @@ class Request
         'Warning' => null
     );
 
+    /**
+     *
+     * @var string
+     */
     protected $httpMethod;
 
     /**
@@ -176,11 +185,17 @@ class Request
     protected $config;
 
     /**
+     *
+     * @var \RestPHP\Request\Unmarshaller\IUnmarshaller
+     */
+    protected $unmarshaller;
+
+    /**
      * Creates the instance
      *
      * @param \RestPHP\Config $config
      */
-    public function __construct(\RestPHP\Config $config = null)
+    public function __construct(Config $config = null)
     {
         if ($config) {
             $this->setConfig($config);
@@ -202,16 +217,26 @@ class Request
      *
      * @param \RestPHP\Config $config
      */
-    public function setConfig(\RestPHP\Config $config)
+    public function setConfig(Config $config)
     {
         $this->config = $config;
     }
 
+    /**
+     * Gets the HTTP request method
+     *
+     * @return string
+     */
     public function getHttpMethod()
     {
         return $this->httpMethod;
     }
 
+    /**
+     * Sets the HTTP request method
+     *
+     * @param string $httpMethod
+     */
     public function setHttpMethod($httpMethod)
     {
         $this->httpMethod = strtoupper($httpMethod);
@@ -239,6 +264,29 @@ class Request
     }
 
     /**
+     * Gets the unmarshaller
+     *
+     * @return \RestPHP\Request\Unmarshaller\IUnmarshaller
+     */
+    public function getUnmarshaller() {
+
+        if (null === $this->unmarshaller) {
+            $this->unmarshaller = UnmarshallerFactory::factory($this->getHeader('Content-Type'));
+        }
+
+        return $this->unmarshaller;
+    }
+
+    /**
+     * Sets the unmarshaller
+     *
+     * @param \RestPHP\Request\Unmarshaller\IUnmarshaller $unmarshaller
+     */
+    public function setUnmarshaller(IUnmarshaller $unmarshaller) {
+        $this->unmarshaller = $unmarshaller;
+    }
+
+    /**
      * Gets the specified HTTP header
      *
      * @param string $header HTTP Header requested
@@ -253,9 +301,18 @@ class Request
         return null;
     }
 
+    /**
+     * Sets the HTTP header
+     *
+     * @param string $header
+     * @param string $value
+     * @param boolean $allowMultiple
+     * @return \RestPHP\Request\Request
+     * @throws \InvalidArgumentException
+     */
     public function setHeader($header, $value, $allowMultiple = false)
     {
-        if (!Header\HeaderFactory::isStandardHeader($header)
+        if (!HeaderFactory::isStandardHeader($header)
             && strpos($header, 'X-') !== 0) {
 
             throw new \InvalidArgumentException(
@@ -263,7 +320,7 @@ class Request
         }
 
         /* @var $headerObj \RestPHP\Request\Header\IHeader */
-        $headerObj = Header\HeaderFactory::factory($header);
+        $headerObj = HeaderFactory::factory($header);
 
         $headerObj->parse($value);
 
@@ -293,16 +350,40 @@ class Request
     public function getBody()
     {
         if ($this->body === null) {
-            $this->body = file_get_contents('php://input');
+
+
+            switch ($this->getHttpMethod()) {
+
+                // request body is only allowed for
+                // the following http methods
+                case 'POST':
+                case 'PUT':
+                case 'DELETE':
+
+                    $body = file_get_contents('php://input');
+                    $body = $this->getUnmarshaller()->unmarshall($body);
+                    break;
+
+                default:
+                    $body = '';
+                    break;
+            }
+
+            $this->body = $body;
         }
 
         return $this->body;
     }
 
+    /**
+     * Sets the request body
+     *
+     * @param string $body
+     * @return \RestPHP\Request\Request
+     */
     public function setBody($body)
     {
         $this->body = $body;
         return $this;
     }
-
 }

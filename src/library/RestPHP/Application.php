@@ -43,13 +43,10 @@
 /**
  * @namespace
  */
-
 namespace RestPHP;
 
 use \RestPHP\Request\Request,
-    \RestPHP\Response\Response,
-    \RestPHP\Request\Unmarshaller\UnmarshallerFactory,
-    \RestPHP\Response\Marshaller\MarshallerFactory;
+    \RestPHP\Response\Response;
 
 /**
  * Application
@@ -63,6 +60,7 @@ use \RestPHP\Request\Request,
  */
 class Application
 {
+
     /**
      * The current environment
      *
@@ -92,13 +90,29 @@ class Application
     protected $response;
 
     /**
+     * @var \RestPHP\Router
+     */
+    protected $router;
+
+    /**
+     * @var \RestPHP\Dispatcher
+     */
+    protected $dispatcher;
+
+    /**
+     * Loaded and configured components
+     * @var array
+     */
+    protected $components = array();
+
+    /**
      * Creates the application
      *
      * @param string|\RestPHP\Environment $environment
      * @param string|\RestPHP\Config $config
      */
-    public function __construct($environment, $config)
-    {
+    public function __construct($environment, $config) {
+        ob_start();
         if (is_string($environment)) {
             $environment = new \RestPHP\Environment($environment);
         }
@@ -117,8 +131,7 @@ class Application
      *
      * @return Environment
      */
-    public function getEnvironment()
-    {
+    public function getEnvironment() {
         return $this->environment;
     }
 
@@ -127,8 +140,7 @@ class Application
      *
      * @param Environment $environment
      */
-    public function setEnvironment(Environment $environment)
-    {
+    public function setEnvironment(Environment $environment) {
         $this->environment = $environment;
     }
 
@@ -137,8 +149,7 @@ class Application
      *
      * @return Config
      */
-    public function getConfig()
-    {
+    public function getConfig() {
         return $this->config;
     }
 
@@ -147,22 +158,24 @@ class Application
      *
      * @param Config $config
      */
-    public function setConfig(Config $config)
-    {
+    public function setConfig(Config $config) {
         $this->config = $config;
 
         if ($config->application->resources->basePath) {
 
             Autoloader::getInstance()->addIncludePath(
-                    $config->application->resources->basePath);
+                $config->application->resources->basePath);
         }
     }
 
     /**
      * @return Request
      */
-    public function getRequest()
-    {
+    public function getRequest() {
+        if (null === $this->request) {
+            $this->request = Request::getDefaultRequest($this->getConfig());
+        }
+
         return $this->request;
     }
 
@@ -170,112 +183,144 @@ class Application
      *
      * @param \RestPHP\Request\Request $request
      */
-    public function setRequest(Request $request)
-    {
+    public function setRequest(Request $request) {
         $this->request = $request;
     }
 
     /**
      * @return \RestPHP\Response\Response
      */
-    public function getResponse()
-    {
+    public function getResponse() {
         if (!isset($this->response)) {
-            $this->response = new Response();
-            $this->response->setStatus(Response::HTTP_404);
-            $this->response->setBody('The requested resource could not be found');
+            $this->response = new \RestPHP\Response\Response($this->getRequest());
         }
+
         return $this->response;
     }
 
     /**
      * @param \RestPHP\Response\Response $response
      */
-    public function setResponse(Response $response)
-    {
+    public function setResponse(Response $response) {
         $this->response = $response;
     }
 
     /**
-     * Marshalls the response to the proper Accept type from the client
-     *
-     * @param \RestPHP\Response\Response $response
-     * @return \RestPHP\Response\Response
+     * @return \RestPHP\Router
      */
-    public function getMarshalledResponse(Response $response)
-    {
-        try {
-
-            $marshaller = MarshallerFactory::factory($this->getRequest()->getHeader('Accept'));
-            $response = $marshaller->marshall($response);
-
-        } catch (NoValidMarshallerException $e) {
-            $response->setStatus(Response::HTTP_406);
-            $response->setBody("The application does not know how to respond to any of your Accept types: " . $this->getRequest()->getHeader('Accept')->getRawValue());
+    public function getRouter() {
+        if (null === $this->router) {
+            $this->router = new Router($this->getConfig());
         }
-
-        $this->response = $response;
-        return $response;
+        return $this->router;
     }
 
     /**
-     * Unmarshalls the request into an associative array
-     *
-     * @param \RestPHP\Request\Request $request
-     * @return \RestPHP\Request\Request $request
+     * @param \RestPHP\Router $router
      */
-    public function getUnmarshalledRequest(Request $request)
-    {
-        $this->request = $request;
+    public function setRouter(Router $router) {
+        $this->router = $router;
+    }
 
-        switch ($request->getHttpMethod()) {
+    /**
+     * @return \RestPHP\Dispatcher
+     */
+    public function getDispatcher() {
+        if (null === $this->dispatcher) {
+            $this->dispatcher = new Dispatcher($this->getConfig());
+        }
+        return $this->dispatcher;
+    }
 
-            case 'POST':
-            case 'PUT':
-            case 'DELETE':
+    /**
+     * @param \RestPHP\Dispatcher $dispatcher
+     */
+    public function setDispatcher(Dispatcher $dispatcher) {
+        $this->dispatcher = $dispatcher;
+    }
 
-                $unmarshaller = UnmarshallerFactory::factory($request->getHeader('Content-Type'));
-                $request = $unmarshaller->unmarshall($request);
+    /**
+     * Gets an initialized component from application.components.basePath/$name.php
+     *
+     * @param string $name
+     * @return mixed
+     * @throws \RestPHP\Error\Exception
+     */
+    public function getComponent($name) {
 
-                break;
+        $this->componentNameSecurityCheck($name);
+
+        if (!isset($this->components[$name])) {
+
+            $path = $this->getConfig()->application->components->basePath;
+            $path .= DIRECTORY_SEPARATOR . strtolower($name).'.php';
+
+            if (!file_exists($path)) {
+                throw new \RestPHP\Error\Exception("Component $name does not exist in $path");
+            }
+
+            include $path;
         }
 
-        return $request;
+        return $this->components[$name];
+    }
+
+    /**
+     *
+     * @param string $name
+     * @param mixed $component
+     */
+    public function setComponent($name, $component) {
+        $this->componentNameSecurityCheck($name);
+        $this->components[$name] = $component;
     }
 
     /**
      * Dispatches the request and returns the response
      *
-     * @param \RestPHP\Request\Request $request
      * @return \RestPHP\Response\Response
      */
-    public function handle(Request $request = null)
-    {
-        if (null === $request) {
-            $request = Request::getDefaultRequest($this->getConfig());
-        }
-
+    public function handle() {
         try {
 
-            $request = $this->getUnmarshalledRequest($request);
-
-            $router = new Router($this->getConfig());
+            $request = $this->getRequest();
+            $router = $this->getRouter();
 
             $resource = $router->route($request);
 
             $resource->setRequest($request);
-            $resource->setResponse(new \RestPHP\Response\Response());
+            $resource->setResponse($this->getResponse());
+            $resource->setApplication($this);
 
-            $dispatcher = new Dispatcher($this->getConfig());
+            $dispatcher = $this->getDispatcher();
 
-            $response = $dispatcher->dispatch($resource);
+            return $dispatcher->dispatch($resource);
 
-            return $this->getMarshalledResponse($response);
-        }
-        catch (\Exception $e) {
+        } catch (\RestPHP\Resource\ResourceNotFoundException $e) {
+
+            $response = new Response($this->getRequest());
+            $response->setStatus(Response::HTTP_404);
+            $response->message = 'The requested resource could not be found';
+            $this->setResponse($response);
+            return $response;
+
+        } catch (\Exception $e) {
 
             // return ErrorResponse?
-            return new \RestPHP\Response\ErrorResponse($e);
+            return new \RestPHP\Response\ErrorResponse($this->getRequest(), $e);
+        }
+    }
+
+    /**
+     * Security check for component name since it will be used in include
+     *
+     * @param string $name
+     * @throws \RestPHP\Error\Exception
+     */
+    protected function componentNameSecurityCheck($name) {
+        // security check
+        if (!ctype_alnum($name)) {
+            throw new \RestPHP\Error\Exception("Component $name contains invalid characters");
         }
     }
 }

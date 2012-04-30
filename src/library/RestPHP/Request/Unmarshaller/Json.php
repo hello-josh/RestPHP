@@ -56,10 +56,8 @@ namespace RestPHP\Request\Unmarshaller;
  */
 class Json implements IUnmarshaller
 {
-    public function unmarshall(\RestPHP\Request\Request $request)
+    public function unmarshall(\RestPHP\Request\Request $requestBody)
     {
-        $body = $request->getBody();
-        $request->setBody(json_decode($body));
-        return $request;
+        return json_decode($requestBody);
     }
 }

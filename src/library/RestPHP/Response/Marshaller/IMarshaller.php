@@ -56,5 +56,17 @@ namespace RestPHP\Response\Marshaller;
  */
 interface IMarshaller
 {
+    /**
+     * Marshalls the content array into the proper format and sets
+     * the Content-Type header for the response
+     *
+     * @param \RestPHP\Response\Response $response
+     * @return string The marshalled body
+     */
     public function marshall(\RestPHP\Response\Response $response);
+
+    /**
+     * @return string the value for the Content-Type header
+     */
+    public function getContentType();
 }

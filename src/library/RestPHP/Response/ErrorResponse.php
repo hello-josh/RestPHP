@@ -46,6 +46,8 @@
  */
 namespace RestPHP\Response;
 
+use RestPHP\Request\Request;
+
 /**
  * ErrorResponse
  *
@@ -60,9 +62,20 @@ class ErrorResponse extends Response
 {
     protected $exception;
 
-    public function __construct(\Exception $e = null) {
-        $this->exception = $e;
+    public function __construct(Request $request, \Exception $e = null) {
+        parent::__construct($request);
         $this->setStatus(Response::HTTP_500);
-        $this->setBody("This is our clever error message for when we dun goofed");
+        $this->message = "This is our clever error message for when we dun goofed";
+        if ($e) {
+            $this->setException($e);
+        }
+    }
+
+    public function getException() {
+        return $this->exception;
+    }
+
+    public function setException(\Exception $e) {
+        $this->exception = $e;
     }
 }

@@ -56,11 +56,21 @@ namespace RestPHP\Response\Marshaller;
  */
 class Xml implements IMarshaller
 {
+    /**
+     * Converts an associative array to XML wrapped in the root node &gt;response&gt;
+     *
+     * @param \RestPHP\Response\Response $response
+     * @return string
+     */
     public function marshall(\RestPHP\Response\Response $response)
     {
-        $response->setContentType('application/xml');
-        $body = $response->getData();
-        $response->setBody(\Array2XML::createXML('response', $body)->saveXML());
-        return $response;
+        return \Array2XML::createXML('response', $response->getData())->saveXML();
+    }
+
+    /**
+     * @return string
+     */
+    public function getContentType() {
+        return 'application/xml';
     }
 }

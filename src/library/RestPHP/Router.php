@@ -131,6 +131,7 @@ class Router
      *
      * @param \RestPHP\Request\Request $request
      * @return \RestPHP\Resource\Resource
+     * @throws \RestPHP\Resource\ResourceNotFoundException
      */
     public function route(Request\Request $request)
     {

@@ -58,9 +58,9 @@ interface IUnmarshaller
 {
     /**
      * Unmarshalls the request body into the proper type
-     * 
-     * @param \RestPHP\Request\Request $request
-     * @return \RestPHP\Request\Request $request
+     *
+     * @param string $requestBody
+     * @return array
      */
-    public function unmarshall(\RestPHP\Request\Request $request);
+    public function unmarshall($requestBody);
 }
