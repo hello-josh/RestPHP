@@ -137,9 +137,27 @@ class Resource
     public function execute()
     {
         $method = strtolower($this->getRequest()->getHttpMethod());
-        $this->$method();
+
+        if ($this->before()) {
+            $this->$method();
+            $this->after();
+        }
         return $this->getResponse();
     }
+
+    /**
+     * Called before executing the proper resource method.
+     * Return false to cancel the action
+     */
+    public function before() {
+        return true;
+    }
+
+    /**
+     * Called after executing the proper resource method. This is not
+     * Called if before() returns false
+     */
+    public function after() {}
 
     /**
      * Called for OPTIONS requests

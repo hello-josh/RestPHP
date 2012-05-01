@@ -259,7 +259,7 @@ class Application
                 throw new \RestPHP\Error\Exception("Component $name does not exist in $path");
             }
 
-            include $path;
+            include_once $path;
         }
 
         return $this->components[$name];
