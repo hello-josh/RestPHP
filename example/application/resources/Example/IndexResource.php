@@ -72,6 +72,6 @@ class IndexResource extends \RestPHP\Resource\Resource
 
     public function post()
     {
-        $this->getResponse()->setData($this->getRequest()->getBody());
+        $this->getResponse()->setData($this->getRequest()->getParams());
     }
 }

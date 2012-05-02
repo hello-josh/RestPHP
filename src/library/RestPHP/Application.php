@@ -281,6 +281,7 @@ class Application
      * @return \RestPHP\Response\Response
      */
     public function handle() {
+
         try {
 
             $request = $this->getRequest();
@@ -294,7 +295,7 @@ class Application
 
             $dispatcher = $this->getDispatcher();
 
-            return $dispatcher->dispatch($resource);
+            $response = $dispatcher->dispatch($resource);
 
         } catch (\RestPHP\Resource\ResourceNotFoundException $e) {
 
@@ -302,13 +303,20 @@ class Application
             $response->setStatus(Response::HTTP_404);
             $response->message = 'The requested resource could not be found';
             $this->setResponse($response);
-            return $response;
 
         } catch (\Exception $e) {
 
             // return ErrorResponse?
-            return new \RestPHP\Response\ErrorResponse($this->getRequest(), $e);
+            $response =  new \RestPHP\Response\ErrorResponse($this->getRequest(), $e);
         }
+
+        if ($this->getEnvironment()->getEnv() == Environment::DEVELOPMENT) {
+            if ($response instanceof \RestPHP\Response\ErrorResponse) {
+                $response->exception = $response->getException()->getMessage();
+            }
+        }
+
+        return $response;
     }
 
     /**
