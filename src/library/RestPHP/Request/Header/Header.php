@@ -4,7 +4,7 @@
  *
  * PHP Version 5.3
  *
- * Copyright (c) 2011, RestPHP Framework
+ * Copyright (c) 2012, RestPHP Framework
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -37,7 +37,7 @@
  * @package    RestPHP
  * @subpackage Request
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
- * @copyright  2011 RestPHP Framework
+ * @copyright  2012 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
@@ -47,36 +47,21 @@
 namespace RestPHP\Request\Header;
 
 /**
- * HTTP From Request header
- *
+ * Abstract Header implementation for default toString() implementation
  *
  * @category   RestPHP
  * @package    RestPHP
  * @subpackage Request
  * @author     Joshua Johnston <johnston.joshua@gmail.com>
- * @copyright  2011 RestPHP Framework
+ * @copyright  2012 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
- * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-class From extends Header
+abstract class Header implements IHeader
 {
-    protected $rawValue;
-
-    public function getRawValue()
-    {
-        return $this->rawValue;
-    }
-
     /**
-     * Parses the HTTP From header
-     *
-     * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
-     *
-     * @param string $header the value of the From header after the colon
+     * Returns the raw, pre-parsed header value
      */
-    public function parse($header)
-    {
-        $this->rawValue = $header;
-        
+    public function __toString() {
+        return $this->getRawValue();
     }
 }

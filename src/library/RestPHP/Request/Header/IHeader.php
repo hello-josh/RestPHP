@@ -69,4 +69,9 @@ interface IHeader
     public function parse($header);
 
     public function getRawValue();
+
+    /**
+     * Classes must implement
+     */
+    public function __toString();
 }

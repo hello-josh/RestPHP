@@ -62,7 +62,13 @@ interface IHeader
     /**
      * Sets the valid pieces for the HTTP Header
      *
-     * @param string $header the HTTP header data
+     * @param string $header the HTTP header name
+     * @param mixed $value the header value(s)
      */
-    public function set($header);
+    public function set($header, $value);
+
+    /**
+     * Classes must implement
+     */
+    public function __toString();
 }

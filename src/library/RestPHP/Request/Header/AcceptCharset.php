@@ -74,7 +74,7 @@ namespace RestPHP\Request\Header;
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-class AcceptCharset implements IHeader
+class AcceptCharset extends Header
 {
     protected $rawValue;
 
