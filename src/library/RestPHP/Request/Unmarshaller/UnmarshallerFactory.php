@@ -60,6 +60,7 @@ class UnmarshallerFactory
      *
      * @param \RestPHP\Request\Header\ContentType $contentType
      * @return \RestPHP\Request\Unmarshaller\IUnmarshaller
+     * @throws \RestPHP\Request\Unmarshaller\NoValidUnmarshallerException
      */
     public static function factory(\RestPHP\Request\Header\ContentType $contentType = null)
     {
@@ -74,10 +75,11 @@ class UnmarshallerFactory
             case 'text/json':
             case 'application/x-json':
             case 'text/x-json':
-            default:
                 return new Json();
                 break;
-        }
 
+            default:
+                throw new NoValidUnmarshallerException();
+        }
     }
 }

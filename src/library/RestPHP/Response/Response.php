@@ -389,8 +389,14 @@ class Response
     public function getBody()
     {
         if (null === $this->body) {
-            $this->body = $this->getMarshaller()->marshall($this);
-            $this->setContentType($this->getMarshaller()->getContentType());
+
+            try {
+                $this->body = $this->getMarshaller()->marshall($this);
+                $this->setContentType($this->getMarshaller()->getContentType());
+            } catch (NoValidMarshallerException $e) {
+                $this->setStatus(self::HTTP_406);
+                $this->message = 'The server does not know how to respond to your Accept type of ' . $this->getRequest()->getHeader('Accept');
+            }
         }
         return $this->body;
     }
