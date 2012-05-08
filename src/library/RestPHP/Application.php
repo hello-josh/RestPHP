@@ -302,12 +302,11 @@ class Application
             $response = new Response($this->getRequest());
             $response->setStatus(Response::HTTP_404);
             $response->message = 'The requested resource could not be found';
-            $this->setResponse($response);
 
         } catch (\Exception $e) {
 
             // return ErrorResponse?
-            $response =  new \RestPHP\Response\ErrorResponse($this->getRequest(), $e);
+            $response = new \RestPHP\Response\ErrorResponse($this->getRequest(), $e);
         }
 
         if ($this->getEnvironment()->getEnv() == Environment::DEVELOPMENT) {
@@ -315,6 +314,8 @@ class Application
                 $response->exception = $response->getException()->getMessage();
             }
         }
+
+        $this->setResponse($response);
 
         return $response;
     }
