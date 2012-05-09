@@ -1,0 +1,428 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \RestPHP\Application</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/RestPHP.html"><i class="icon-th"></i> RestPHP</a></li>
+<li><a href="../namespaces/default.html"><i class="icon-th"></i> default</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/RestPHP.html"><i class="icon-folder-open"></i> RestPHP</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">154</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#__construct" title="__construct :: Creates the application"><span class="description">Creates the application</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#getComponent" title="getComponent :: Gets an initialized component from application.components.basePath/$name.php"><span class="description">Gets an initialized component from application.components.basePath/$name.php</span><pre>getComponent()</pre></a></li>
+<li class="method public "><a href="#getConfig" title="getConfig :: Gets the current config"><span class="description">Gets the current config</span><pre>getConfig()</pre></a></li>
+<li class="method public "><a href="#getDispatcher" title="getDispatcher :: "><span class="description">getDispatcher()
+        </span><pre>getDispatcher()</pre></a></li>
+<li class="method public "><a href="#getEnvironment" title="getEnvironment :: Gets the Environment"><span class="description">Gets the Environment</span><pre>getEnvironment()</pre></a></li>
+<li class="method public "><a href="#getRequest" title="getRequest :: "><span class="description">getRequest()
+        </span><pre>getRequest()</pre></a></li>
+<li class="method public "><a href="#getResponse" title="getResponse :: "><span class="description">getResponse()
+        </span><pre>getResponse()</pre></a></li>
+<li class="method public "><a href="#getRouter" title="getRouter :: "><span class="description">getRouter()
+        </span><pre>getRouter()</pre></a></li>
+<li class="method public "><a href="#handle" title="handle :: Dispatches the request and returns the response"><span class="description">Dispatches the request and returns the response</span><pre>handle()</pre></a></li>
+<li class="method public "><a href="#setComponent" title="setComponent :: "><span class="description">setComponent()
+        </span><pre>setComponent()</pre></a></li>
+<li class="method public "><a href="#setConfig" title="setConfig :: Sets the current config"><span class="description">Sets the current config</span><pre>setConfig()</pre></a></li>
+<li class="method public "><a href="#setDispatcher" title="setDispatcher :: "><span class="description">setDispatcher()
+        </span><pre>setDispatcher()</pre></a></li>
+<li class="method public "><a href="#setEnvironment" title="setEnvironment :: Sets the environment"><span class="description">Sets the environment</span><pre>setEnvironment()</pre></a></li>
+<li class="method public "><a href="#setRequest" title="setRequest :: "><span class="description">setRequest()
+        </span><pre>setRequest()</pre></a></li>
+<li class="method public "><a href="#setResponse" title="setResponse :: "><span class="description">setResponse()
+        </span><pre>setResponse()</pre></a></li>
+<li class="method public "><a href="#setRouter" title="setRouter :: "><span class="description">setRouter()
+        </span><pre>setRouter()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#componentNameSecurityCheck" title="componentNameSecurityCheck :: Security check for component name since it will be used in include"><span class="description">Security check for component name since it will be used in include</span><pre>componentNameSecurityCheck()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24components" title="$components :: Loaded and configured components"><span class="description">Loaded and configured components</span><pre>$components</pre></a></li>
+<li class="property protected "><a href="#%24config" title="$config :: The application config"><span class="description">The application config</span><pre>$config</pre></a></li>
+<li class="property protected "><a href="#%24dispatcher" title="$dispatcher :: "><span class="description">$dispatcher</span><pre>$dispatcher</pre></a></li>
+<li class="property protected "><a href="#%24environment" title="$environment :: The current environment"><span class="description">The current environment</span><pre>$environment</pre></a></li>
+<li class="property protected "><a href="#%24request" title="$request :: Request Instance"><span class="description">Request Instance</span><pre>$request</pre></a></li>
+<li class="property protected "><a href="#%24response" title="$response :: Response Instance"><span class="description">Response Instance</span><pre>$response</pre></a></li>
+<li class="property protected "><a href="#%24router" title="$router :: "><span class="description">$router</span><pre>$router</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CRestPHP%5CApplication" id="\RestPHP\Application"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/RestPHP.html">RestPHP</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/RestPHP.Application.html">Application</a>
+</li>
+</ul>
+<div href="../classes/RestPHP.Application.html" class="element class">
+<p class="short_description">Application</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>category</th>
+<td>RestPHP</td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="..//packages/RestPHP..html">RestPHP</a></td>
+</tr>
+<tr>
+<th>subpackage</th>
+<td></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:johnston.joshua@gmail.com">Joshua Johnston</a></td>
+</tr>
+<tr>
+<th>copyright</th>
+<td>2011 RestPHP Framework</td>
+</tr>
+<tr>
+<th>license</th>
+<td><a href="http://opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>Creates the application</h2>
+<pre>__construct(string | <a href="../classes/RestPHP.Environment.html">\RestPHP\Environment</a> $environment, string | <a href="../classes/RestPHP.Config.html">\RestPHP\Config</a> $config) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$environment</h4>
+<code>string<a href="../classes/RestPHP.Environment.html">\RestPHP\Environment</a></code>
+</div>
+<div class="subelement argument">
+<h4>$config</h4>
+<code>string<a href="../classes/RestPHP.Config.html">\RestPHP\Config</a></code>
+</div>
+</div></div>
+</div>
+<a name="getComponent" id="getComponent"></a><div class="element clickable method public getComponent" data-toggle="collapse" data-target=".getComponent .collapse">
+<h2>Gets an initialized component from application.components.basePath/$name.php</h2>
+<pre>getComponent(string $name) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/RestPHP.Error.Exception.html">\RestPHP\Error\Exception</a></code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a name="getConfig" id="getConfig"></a><div class="element clickable method public getConfig" data-toggle="collapse" data-target=".getConfig .collapse">
+<h2>Gets the current config</h2>
+<pre>getConfig() : <a href="../classes/RestPHP.Config.html">\RestPHP\Config</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Config.html">\RestPHP\Config</a></code></div>
+</div></div>
+</div>
+<a name="getDispatcher" id="getDispatcher"></a><div class="element clickable method public getDispatcher" data-toggle="collapse" data-target=".getDispatcher .collapse">
+<h2>getDispatcher()
+        </h2>
+<pre>getDispatcher() : <a href="../classes/RestPHP.Dispatcher.html">\RestPHP\Dispatcher</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Dispatcher.html">\RestPHP\Dispatcher</a></code></div>
+</div></div>
+</div>
+<a name="getEnvironment" id="getEnvironment"></a><div class="element clickable method public getEnvironment" data-toggle="collapse" data-target=".getEnvironment .collapse">
+<h2>Gets the Environment</h2>
+<pre>getEnvironment() : <a href="../classes/RestPHP.Environment.html">\RestPHP\Environment</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Environment.html">\RestPHP\Environment</a></code></div>
+</div></div>
+</div>
+<a name="getRequest" id="getRequest"></a><div class="element clickable method public getRequest" data-toggle="collapse" data-target=".getRequest .collapse">
+<h2>getRequest()
+        </h2>
+<pre>getRequest() : <a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></code></div>
+</div></div>
+</div>
+<a name="getResponse" id="getResponse"></a><div class="element clickable method public getResponse" data-toggle="collapse" data-target=".getResponse .collapse">
+<h2>getResponse()
+        </h2>
+<pre>getResponse() : <a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></code></div>
+</div></div>
+</div>
+<a name="getRouter" id="getRouter"></a><div class="element clickable method public getRouter" data-toggle="collapse" data-target=".getRouter .collapse">
+<h2>getRouter()
+        </h2>
+<pre>getRouter() : <a href="../classes/RestPHP.Router.html">\RestPHP\Router</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Router.html">\RestPHP\Router</a></code></div>
+</div></div>
+</div>
+<a name="handle" id="handle"></a><div class="element clickable method public handle" data-toggle="collapse" data-target=".handle .collapse">
+<h2>Dispatches the request and returns the response</h2>
+<pre>handle() : <a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></code></div>
+</div></div>
+</div>
+<a name="setComponent" id="setComponent"></a><div class="element clickable method public setComponent" data-toggle="collapse" data-target=".setComponent .collapse">
+<h2>setComponent()
+        </h2>
+<pre>setComponent(string $name, mixed $component) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$component</h4>
+<code>mixed</code>
+</div>
+</div></div>
+</div>
+<a name="setConfig" id="setConfig"></a><div class="element clickable method public setConfig" data-toggle="collapse" data-target=".setConfig .collapse">
+<h2>Sets the current config</h2>
+<pre>setConfig(Config $config) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$config</h4>
+<code><a href="../classes/RestPHP.Config.html">\RestPHP\Config</a></code>
+</div>
+</div></div>
+</div>
+<a name="setDispatcher" id="setDispatcher"></a><div class="element clickable method public setDispatcher" data-toggle="collapse" data-target=".setDispatcher .collapse">
+<h2>setDispatcher()
+        </h2>
+<pre>setDispatcher(Dispatcher $dispatcher) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dispatcher</h4>
+<code><a href="../classes/RestPHP.Dispatcher.html">\RestPHP\Dispatcher</a></code>
+</div>
+</div></div>
+</div>
+<a name="setEnvironment" id="setEnvironment"></a><div class="element clickable method public setEnvironment" data-toggle="collapse" data-target=".setEnvironment .collapse">
+<h2>Sets the environment</h2>
+<pre>setEnvironment(Environment $environment) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$environment</h4>
+<code><a href="../classes/RestPHP.Environment.html">\RestPHP\Environment</a></code>
+</div>
+</div></div>
+</div>
+<a name="setRequest" id="setRequest"></a><div class="element clickable method public setRequest" data-toggle="collapse" data-target=".setRequest .collapse">
+<h2>setRequest()
+        </h2>
+<pre>setRequest(Request $request) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$request</h4>
+<code><a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></code>
+</div>
+</div></div>
+</div>
+<a name="setResponse" id="setResponse"></a><div class="element clickable method public setResponse" data-toggle="collapse" data-target=".setResponse .collapse">
+<h2>setResponse()
+        </h2>
+<pre>setResponse(Response $response) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$response</h4>
+<code><a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></code>
+</div>
+</div></div>
+</div>
+<a name="setRouter" id="setRouter"></a><div class="element clickable method public setRouter" data-toggle="collapse" data-target=".setRouter .collapse">
+<h2>setRouter()
+        </h2>
+<pre>setRouter(Router $router) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$router</h4>
+<code><a href="../classes/RestPHP.Router.html">\RestPHP\Router</a></code>
+</div>
+</div></div>
+</div>
+<a name="componentNameSecurityCheck" id="componentNameSecurityCheck"></a><div class="element clickable method protected componentNameSecurityCheck" data-toggle="collapse" data-target=".componentNameSecurityCheck .collapse">
+<h2>Security check for component name since it will be used in include</h2>
+<pre>componentNameSecurityCheck(string $name) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="../classes/RestPHP.Error.Exception.html">\RestPHP\Error\Exception</a></code></th>
+<td></td>
+</tr></table>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24components" id="$components"> </a><div class="element clickable property protected $components" data-toggle="collapse" data-target=".$components .collapse">
+<h2>Loaded and configured components</h2>
+<pre>$components : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24config" id="$config"> </a><div class="element clickable property protected $config" data-toggle="collapse" data-target=".$config .collapse">
+<h2>The application config</h2>
+<pre>$config : <a href="../classes/RestPHP.Config.html">\RestPHP\Config</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24dispatcher" id="$dispatcher"> </a><div class="element clickable property protected $dispatcher" data-toggle="collapse" data-target=".$dispatcher .collapse">
+<h2>$dispatcher</h2>
+<pre>$dispatcher : <a href="../classes/RestPHP.Dispatcher.html">\RestPHP\Dispatcher</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24environment" id="$environment"> </a><div class="element clickable property protected $environment" data-toggle="collapse" data-target=".$environment .collapse">
+<h2>The current environment</h2>
+<pre>$environment : <a href="../classes/RestPHP.Environment.html">\RestPHP\Environment</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24request" id="$request"> </a><div class="element clickable property protected $request" data-toggle="collapse" data-target=".$request .collapse">
+<h2>Request Instance</h2>
+<pre>$request : <a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24response" id="$response"> </a><div class="element clickable property protected $response" data-toggle="collapse" data-target=".$response .collapse">
+<h2>Response Instance</h2>
+<pre>$response : <a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24router" id="$router"> </a><div class="element clickable property protected $router" data-toggle="collapse" data-target=".$router .collapse">
+<h2>$router</h2>
+<pre>$router : <a href="../classes/RestPHP.Router.html">\RestPHP\Router</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-05-09T11:09:48-04:00.<br></footer></div>
+</div>
+</body>
+</html>

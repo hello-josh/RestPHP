@@ -1,0 +1,411 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » RestPHP\Request</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/RestPHP.html"><i class="icon-th"></i> RestPHP</a></li>
+<li><a href="../namespaces/default.html"><i class="icon-th"></i> default</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/RestPHP.html"><i class="icon-folder-open"></i> RestPHP</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">154</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Packages</li>
+<li>
+<a href="../packages/RestPHP.Request.html" title="Request"><i class="icon-folder-open"></i>Request</a><ul class="nav nav-list nav-packages"></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-interface"></i> Interfaces</li>
+<li><a href="#IHeader" title="Header - Interface for all request headers listed in rfc 2616 sec 14">IHeader</a></li>
+<li><a href="#IUnmarshaller" title="">IUnmarshaller</a></li>
+<li class="nav-header">
+<i class="icon-custom icon-class"></i> Classes</li>
+<li><a href="#Accept" title="HTTP Request header containing a list of all Content-Types that are
+acceptable">Accept</a></li>
+<li><a href="#AcceptCharset" title="HTTP Request header containing a list of all Character Sets that are
+acceptable similar to Accept header">AcceptCharset</a></li>
+<li><a href="#AcceptEncoding" title="HTTP Request header containing a list of all content-codings that are
+acceptable similar to Accept header">AcceptEncoding</a></li>
+<li><a href="#AcceptLanguage" title="HTTP Request header containing a list of all languages the user-agent accepts">AcceptLanguage</a></li>
+<li><a href="#Authorization" title="HTTP Request header containing authorization details">Authorization</a></li>
+<li><a href="#CacheControl" title="HTTP Request header containing authorization details">CacheControl</a></li>
+<li><a href="#Connection" title="HTTP Connection Request header">Connection</a></li>
+<li><a href="#ContentLength" title="HTTP Content-Length Request header">ContentLength</a></li>
+<li><a href="#ContentMd5" title="HTTP Content-MD5 Request header">ContentMd5</a></li>
+<li><a href="#ContentType" title="HTTP Content-Type Request header">ContentType</a></li>
+<li><a href="#Cookie" title="HTTP Cookie Request header">Cookie</a></li>
+<li><a href="#Date" title="HTTP Date Request header">Date</a></li>
+<li><a href="#Expect" title="HTTP Expect Request header">Expect</a></li>
+<li><a href="#From" title="HTTP From Request header">From</a></li>
+<li><a href="#Header" title="Abstract Header implementation for default toString() implementation">Header</a></li>
+<li><a href="#HeaderFactory" title="HeaderFactory - Request header factory">HeaderFactory</a></li>
+<li><a href="#Host" title="HTTP Host Request header">Host</a></li>
+<li><a href="#IfMatch" title="HTTP If-Match Request header">IfMatch</a></li>
+<li><a href="#IfModifiedSince" title="HTTP If-Modified-Since Request header">IfModifiedSince</a></li>
+<li><a href="#IfNoneMatch" title="HTTP If-None-Match Request header">IfNoneMatch</a></li>
+<li><a href="#IfRange" title="HTTP If-Range Request header">IfRange</a></li>
+<li><a href="#IfUnmodifiedSince" title="HTTP If-Unmodified-Since Request header">IfUnmodifiedSince</a></li>
+<li><a href="#MaxForwards" title="HTTP Max-Forwards Request header">MaxForwards</a></li>
+<li><a href="#Pragma" title="HTTP Pragma Request header">Pragma</a></li>
+<li><a href="#ProxyAuthorization" title="HTTP Proxy-Authorization Request header">ProxyAuthorization</a></li>
+<li><a href="#Range" title="HTTP Range Request header">Range</a></li>
+<li><a href="#Referer" title="HTTP Referer Request header">Referer</a></li>
+<li><a href="#Te" title="HTTP TE Request header">Te</a></li>
+<li><a href="#Upgrade" title="HTTP Upgrade Request header">Upgrade</a></li>
+<li><a href="#UserAgent" title="HTTP User-Agent Request header">UserAgent</a></li>
+<li><a href="#Via" title="HTTP Via Request header">Via</a></li>
+<li><a href="#Warning" title="HTTP Warning Request header">Warning</a></li>
+<li><a href="#XHeader" title="HTTP non-standard X-Headers">XHeader</a></li>
+<li><a href="#Request" title="Request">Request</a></li>
+<li><a href="#Json" title="">Json</a></li>
+<li><a href="#UnmarshallerFactory" title="">UnmarshallerFactory</a></li>
+<li><a href="#Xml" title="">Xml</a></li>
+</ul>
+</div>
+<div class="span8 package-contents">
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../packages/RestPHP.html">RestPHP</a></li>
+<span class="divider">\</span><li class="active"><a href="../packages/RestPHP.Request.html">Request</a></li>
+</ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="IHeader" id="IHeader"></a><div class="element ajax clickable interface" href="../classes/RestPHP.Request.Header.IHeader.html">
+<h1>IHeader<a href="../classes/RestPHP.Request.Header.IHeader.html">¶</a>
+</h1>
+<p class="short_description">Header - Interface for all request headers listed in rfc 2616 sec 14</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.IHeader.html" class="more">« More »</a>
+</div>
+<a name="IUnmarshaller" id="IUnmarshaller"></a><div class="element ajax clickable interface" href="../classes/RestPHP.Request.Unmarshaller.IUnmarshaller.html">
+<h1>IUnmarshaller<a href="../classes/RestPHP.Request.Unmarshaller.IUnmarshaller.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Unmarshaller.IUnmarshaller.html" class="more">« More »</a>
+</div>
+<a name="Accept" id="Accept"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Accept.html">
+<h1>Accept<a href="../classes/RestPHP.Request.Header.Accept.html">¶</a>
+</h1>
+<p class="short_description">HTTP Request header containing a list of all Content-Types that are
+acceptable</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Accept.html" class="more">« More »</a>
+</div>
+<a name="AcceptCharset" id="AcceptCharset"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.AcceptCharset.html">
+<h1>AcceptCharset<a href="../classes/RestPHP.Request.Header.AcceptCharset.html">¶</a>
+</h1>
+<p class="short_description">HTTP Request header containing a list of all Character Sets that are
+acceptable similar to Accept header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.AcceptCharset.html" class="more">« More »</a>
+</div>
+<a name="AcceptEncoding" id="AcceptEncoding"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.AcceptEncoding.html">
+<h1>AcceptEncoding<a href="../classes/RestPHP.Request.Header.AcceptEncoding.html">¶</a>
+</h1>
+<p class="short_description">HTTP Request header containing a list of all content-codings that are
+acceptable similar to Accept header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.AcceptEncoding.html" class="more">« More »</a>
+</div>
+<a name="AcceptLanguage" id="AcceptLanguage"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.AcceptLanguage.html">
+<h1>AcceptLanguage<a href="../classes/RestPHP.Request.Header.AcceptLanguage.html">¶</a>
+</h1>
+<p class="short_description">HTTP Request header containing a list of all languages the user-agent accepts</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.AcceptLanguage.html" class="more">« More »</a>
+</div>
+<a name="Authorization" id="Authorization"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Authorization.html">
+<h1>Authorization<a href="../classes/RestPHP.Request.Header.Authorization.html">¶</a>
+</h1>
+<p class="short_description">HTTP Request header containing authorization details</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Authorization.html" class="more">« More »</a>
+</div>
+<a name="CacheControl" id="CacheControl"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.CacheControl.html">
+<h1>CacheControl<a href="../classes/RestPHP.Request.Header.CacheControl.html">¶</a>
+</h1>
+<p class="short_description">HTTP Request header containing authorization details</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.CacheControl.html" class="more">« More »</a>
+</div>
+<a name="Connection" id="Connection"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Connection.html">
+<h1>Connection<a href="../classes/RestPHP.Request.Header.Connection.html">¶</a>
+</h1>
+<p class="short_description">HTTP Connection Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Connection.html" class="more">« More »</a>
+</div>
+<a name="ContentLength" id="ContentLength"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.ContentLength.html">
+<h1>ContentLength<a href="../classes/RestPHP.Request.Header.ContentLength.html">¶</a>
+</h1>
+<p class="short_description">HTTP Content-Length Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.ContentLength.html" class="more">« More »</a>
+</div>
+<a name="ContentMd5" id="ContentMd5"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.ContentMd5.html">
+<h1>ContentMd5<a href="../classes/RestPHP.Request.Header.ContentMd5.html">¶</a>
+</h1>
+<p class="short_description">HTTP Content-MD5 Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.ContentMd5.html" class="more">« More »</a>
+</div>
+<a name="ContentType" id="ContentType"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.ContentType.html">
+<h1>ContentType<a href="../classes/RestPHP.Request.Header.ContentType.html">¶</a>
+</h1>
+<p class="short_description">HTTP Content-Type Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.ContentType.html" class="more">« More »</a>
+</div>
+<a name="Cookie" id="Cookie"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Cookie.html">
+<h1>Cookie<a href="../classes/RestPHP.Request.Header.Cookie.html">¶</a>
+</h1>
+<p class="short_description">HTTP Cookie Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Cookie.html" class="more">« More »</a>
+</div>
+<a name="Date" id="Date"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Date.html">
+<h1>Date<a href="../classes/RestPHP.Request.Header.Date.html">¶</a>
+</h1>
+<p class="short_description">HTTP Date Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Date.html" class="more">« More »</a>
+</div>
+<a name="Expect" id="Expect"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Expect.html">
+<h1>Expect<a href="../classes/RestPHP.Request.Header.Expect.html">¶</a>
+</h1>
+<p class="short_description">HTTP Expect Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Expect.html" class="more">« More »</a>
+</div>
+<a name="From" id="From"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.From.html">
+<h1>From<a href="../classes/RestPHP.Request.Header.From.html">¶</a>
+</h1>
+<p class="short_description">HTTP From Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.From.html" class="more">« More »</a>
+</div>
+<a name="Header" id="Header"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Header.html">
+<h1>Header<a href="../classes/RestPHP.Request.Header.Header.html">¶</a>
+</h1>
+<p class="short_description">Abstract Header implementation for default toString() implementation</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Header.html" class="more">« More »</a>
+</div>
+<a name="HeaderFactory" id="HeaderFactory"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.HeaderFactory.html">
+<h1>HeaderFactory<a href="../classes/RestPHP.Request.Header.HeaderFactory.html">¶</a>
+</h1>
+<p class="short_description">HeaderFactory - Request header factory</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.HeaderFactory.html" class="more">« More »</a>
+</div>
+<a name="Host" id="Host"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Host.html">
+<h1>Host<a href="../classes/RestPHP.Request.Header.Host.html">¶</a>
+</h1>
+<p class="short_description">HTTP Host Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Host.html" class="more">« More »</a>
+</div>
+<a name="IfMatch" id="IfMatch"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.IfMatch.html">
+<h1>IfMatch<a href="../classes/RestPHP.Request.Header.IfMatch.html">¶</a>
+</h1>
+<p class="short_description">HTTP If-Match Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.IfMatch.html" class="more">« More »</a>
+</div>
+<a name="IfModifiedSince" id="IfModifiedSince"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.IfModifiedSince.html">
+<h1>IfModifiedSince<a href="../classes/RestPHP.Request.Header.IfModifiedSince.html">¶</a>
+</h1>
+<p class="short_description">HTTP If-Modified-Since Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.IfModifiedSince.html" class="more">« More »</a>
+</div>
+<a name="IfNoneMatch" id="IfNoneMatch"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.IfNoneMatch.html">
+<h1>IfNoneMatch<a href="../classes/RestPHP.Request.Header.IfNoneMatch.html">¶</a>
+</h1>
+<p class="short_description">HTTP If-None-Match Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.IfNoneMatch.html" class="more">« More »</a>
+</div>
+<a name="IfRange" id="IfRange"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.IfRange.html">
+<h1>IfRange<a href="../classes/RestPHP.Request.Header.IfRange.html">¶</a>
+</h1>
+<p class="short_description">HTTP If-Range Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.IfRange.html" class="more">« More »</a>
+</div>
+<a name="IfUnmodifiedSince" id="IfUnmodifiedSince"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.IfUnmodifiedSince.html">
+<h1>IfUnmodifiedSince<a href="../classes/RestPHP.Request.Header.IfUnmodifiedSince.html">¶</a>
+</h1>
+<p class="short_description">HTTP If-Unmodified-Since Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.IfUnmodifiedSince.html" class="more">« More »</a>
+</div>
+<a name="MaxForwards" id="MaxForwards"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.MaxForwards.html">
+<h1>MaxForwards<a href="../classes/RestPHP.Request.Header.MaxForwards.html">¶</a>
+</h1>
+<p class="short_description">HTTP Max-Forwards Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.MaxForwards.html" class="more">« More »</a>
+</div>
+<a name="Pragma" id="Pragma"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Pragma.html">
+<h1>Pragma<a href="../classes/RestPHP.Request.Header.Pragma.html">¶</a>
+</h1>
+<p class="short_description">HTTP Pragma Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Pragma.html" class="more">« More »</a>
+</div>
+<a name="ProxyAuthorization" id="ProxyAuthorization"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.ProxyAuthorization.html">
+<h1>ProxyAuthorization<a href="../classes/RestPHP.Request.Header.ProxyAuthorization.html">¶</a>
+</h1>
+<p class="short_description">HTTP Proxy-Authorization Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.ProxyAuthorization.html" class="more">« More »</a>
+</div>
+<a name="Range" id="Range"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Range.html">
+<h1>Range<a href="../classes/RestPHP.Request.Header.Range.html">¶</a>
+</h1>
+<p class="short_description">HTTP Range Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Range.html" class="more">« More »</a>
+</div>
+<a name="Referer" id="Referer"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Referer.html">
+<h1>Referer<a href="../classes/RestPHP.Request.Header.Referer.html">¶</a>
+</h1>
+<p class="short_description">HTTP Referer Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Referer.html" class="more">« More »</a>
+</div>
+<a name="Te" id="Te"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Te.html">
+<h1>Te<a href="../classes/RestPHP.Request.Header.Te.html">¶</a>
+</h1>
+<p class="short_description">HTTP TE Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Te.html" class="more">« More »</a>
+</div>
+<a name="Upgrade" id="Upgrade"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Upgrade.html">
+<h1>Upgrade<a href="../classes/RestPHP.Request.Header.Upgrade.html">¶</a>
+</h1>
+<p class="short_description">HTTP Upgrade Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Upgrade.html" class="more">« More »</a>
+</div>
+<a name="UserAgent" id="UserAgent"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.UserAgent.html">
+<h1>UserAgent<a href="../classes/RestPHP.Request.Header.UserAgent.html">¶</a>
+</h1>
+<p class="short_description">HTTP User-Agent Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.UserAgent.html" class="more">« More »</a>
+</div>
+<a name="Via" id="Via"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Via.html">
+<h1>Via<a href="../classes/RestPHP.Request.Header.Via.html">¶</a>
+</h1>
+<p class="short_description">HTTP Via Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Via.html" class="more">« More »</a>
+</div>
+<a name="Warning" id="Warning"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.Warning.html">
+<h1>Warning<a href="../classes/RestPHP.Request.Header.Warning.html">¶</a>
+</h1>
+<p class="short_description">HTTP Warning Request header</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.Warning.html" class="more">« More »</a>
+</div>
+<a name="XHeader" id="XHeader"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Header.XHeader.html">
+<h1>XHeader<a href="../classes/RestPHP.Request.Header.XHeader.html">¶</a>
+</h1>
+<p class="short_description">HTTP non-standard X-Headers</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Header.XHeader.html" class="more">« More »</a>
+</div>
+<a name="Request" id="Request"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Request.html">
+<h1>Request<a href="../classes/RestPHP.Request.Request.html">¶</a>
+</h1>
+<p class="short_description">Request</p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Request.html" class="more">« More »</a>
+</div>
+<a name="Json" id="Json"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Unmarshaller.Json.html">
+<h1>Json<a href="../classes/RestPHP.Request.Unmarshaller.Json.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Unmarshaller.Json.html" class="more">« More »</a>
+</div>
+<a name="UnmarshallerFactory" id="UnmarshallerFactory"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Unmarshaller.UnmarshallerFactory.html">
+<h1>UnmarshallerFactory<a href="../classes/RestPHP.Request.Unmarshaller.UnmarshallerFactory.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Unmarshaller.UnmarshallerFactory.html" class="more">« More »</a>
+</div>
+<a name="Xml" id="Xml"></a><div class="element ajax clickable class" href="../classes/RestPHP.Request.Unmarshaller.Xml.html">
+<h1>Xml<a href="../classes/RestPHP.Request.Unmarshaller.Xml.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/RestPHP.Request.Unmarshaller.Xml.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-05-09T11:09:48-04:00.<br></footer></div>
+</div>
+</body>
+</html>

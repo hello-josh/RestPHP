@@ -1,0 +1,816 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \RestPHP\Response\Response</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/RestPHP.html"><i class="icon-th"></i> RestPHP</a></li>
+<li><a href="../namespaces/default.html"><i class="icon-th"></i> default</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/RestPHP.html"><i class="icon-folder-open"></i> RestPHP</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">154</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#__construct" title="__construct :: "><span class="description">__construct()
+        </span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#__get" title="__get :: Gets the data point that will be outputted via the API"><span class="description">Gets the data point that will be outputted via the API</span><pre>__get()</pre></a></li>
+<li class="method public "><a href="#__set" title="__set :: Sets data to be output via the API"><span class="description">Sets data to be output via the API</span><pre>__set()</pre></a></li>
+<li class="method public "><a href="#__toString" title="__toString :: Magic toString implementation"><span class="description">Magic toString implementation</span><pre>__toString()</pre></a></li>
+<li class="method public "><a href="#addHeader" title="addHeader :: Adds a response header to be sent"><span class="description">Adds a response header to be sent</span><pre>addHeader()</pre></a></li>
+<li class="method public "><a href="#getBody" title="getBody :: Gets the body of the response"><span class="description">Gets the body of the response</span><pre>getBody()</pre></a></li>
+<li class="method public "><a href="#getData" title="getData :: Gets the data point that will be outputted via the API"><span class="description">Gets the data point that will be outputted via the API</span><pre>getData()</pre></a></li>
+<li class="method public "><a href="#getMarshaller" title="getMarshaller :: Gets the marshaller"><span class="description">Gets the marshaller</span><pre>getMarshaller()</pre></a></li>
+<li class="method public "><a href="#getRequest" title="getRequest :: Gets the request"><span class="description">Gets the request</span><pre>getRequest()</pre></a></li>
+<li class="method public "><a href="#getStatus" title="getStatus :: Gets the HTTP status code"><span class="description">Gets the HTTP status code</span><pre>getStatus()</pre></a></li>
+<li class="method public "><a href="#isFgci" title="isFgci :: Is this response handled via fcgi?"><span class="description">Is this response handled via fcgi?</span><pre>isFgci()</pre></a></li>
+<li class="method public "><a href="#isHttp" title="isHttp :: Is this response handled via HTTP?"><span class="description">Is this response handled via HTTP?</span><pre>isHttp()</pre></a></li>
+<li class="method public "><a href="#makeHeader" title="makeHeader :: Formats a header based off an array item"><span class="description">Formats a header based off an array item</span><pre>makeHeader()</pre></a></li>
+<li class="method public "><a href="#makeStatus" title="makeStatus :: Formats the Status header for FGCI or HTTP"><span class="description">Formats the Status header for FGCI or HTTP</span><pre>makeStatus()</pre></a></li>
+<li class="method public "><a href="#output" title="output :: Echos the response headers and body"><span class="description">Echos the response headers and body</span><pre>output()</pre></a></li>
+<li class="method public "><a href="#sendHeaders" title="sendHeaders :: Creates and sends any needed headers"><span class="description">Creates and sends any needed headers</span><pre>sendHeaders()</pre></a></li>
+<li class="method public "><a href="#setBody" title="setBody :: Sets the body of the response"><span class="description">Sets the body of the response</span><pre>setBody()</pre></a></li>
+<li class="method public "><a href="#setContentType" title="setContentType :: Sets the Content-Type of the response"><span class="description">Sets the Content-Type of the response</span><pre>setContentType()</pre></a></li>
+<li class="method public "><a href="#setData" title="setData :: Sets data to be output via the API"><span class="description">Sets data to be output via the API</span><pre>setData()</pre></a></li>
+<li class="method public "><a href="#setIsFgci" title="setIsFgci :: Sets if the response should be handled like fcgi"><span class="description">Sets if the response should be handled like fcgi</span><pre>setIsFgci()</pre></a></li>
+<li class="method public "><a href="#setIsHttp" title="setIsHttp :: Sets if the response should be handled like HTTP"><span class="description">Sets if the response should be handled like HTTP</span><pre>setIsHttp()</pre></a></li>
+<li class="method public "><a href="#setMarshaller" title="setMarshaller :: Sets the marshaller to use"><span class="description">Sets the marshaller to use</span><pre>setMarshaller()</pre></a></li>
+<li class="method public "><a href="#setRequest" title="setRequest :: Sets the request to use"><span class="description">Sets the request to use</span><pre>setRequest()</pre></a></li>
+<li class="method public "><a href="#setStatus" title="setStatus :: Sets the HTTP status code"><span class="description">Sets the HTTP status code</span><pre>setStatus()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24body" title="$body :: The HTTP Response body"><span class="description">The HTTP Response body</span><pre>$body</pre></a></li>
+<li class="property protected "><a href="#%24headers" title="$headers :: Headers that need to be sent"><span class="description">Headers that need to be sent</span><pre>$headers</pre></a></li>
+<li class="property protected "><a href="#%24isFgci" title="$isFgci :: Is this FCGI?"><span class="description">Is this FCGI?</span><pre>$isFgci</pre></a></li>
+<li class="property protected "><a href="#%24marshaller" title="$marshaller :: "><span class="description">$marshaller</span><pre>$marshaller</pre></a></li>
+<li class="property protected "><a href="#%24outputData" title="$outputData :: Data that will be outputted via the API"><span class="description">Data that will be outputted via the API</span><pre>$outputData</pre></a></li>
+<li class="property protected "><a href="#%24request" title="$request :: "><span class="description">$request</span><pre>$request</pre></a></li>
+<li class="property protected "><a href="#%24status" title="$status :: HTTP Status"><span class="description">HTTP Status</span><pre>$status</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants</li>
+<li class="constant  "><a href="#FCGI_STATUS" title="FCGI_STATUS :: "><span class="description">FCGI_STATUS</span><pre>FCGI_STATUS</pre></a></li>
+<li class="constant  "><a href="#HTTP_100" title="HTTP_100 :: "><span class="description">HTTP_100</span><pre>HTTP_100</pre></a></li>
+<li class="constant  "><a href="#HTTP_101" title="HTTP_101 :: "><span class="description">HTTP_101</span><pre>HTTP_101</pre></a></li>
+<li class="constant  "><a href="#HTTP_200" title="HTTP_200 :: "><span class="description">HTTP_200</span><pre>HTTP_200</pre></a></li>
+<li class="constant  "><a href="#HTTP_201" title="HTTP_201 :: "><span class="description">HTTP_201</span><pre>HTTP_201</pre></a></li>
+<li class="constant  "><a href="#HTTP_202" title="HTTP_202 :: "><span class="description">HTTP_202</span><pre>HTTP_202</pre></a></li>
+<li class="constant  "><a href="#HTTP_203" title="HTTP_203 :: "><span class="description">HTTP_203</span><pre>HTTP_203</pre></a></li>
+<li class="constant  "><a href="#HTTP_204" title="HTTP_204 :: "><span class="description">HTTP_204</span><pre>HTTP_204</pre></a></li>
+<li class="constant  "><a href="#HTTP_205" title="HTTP_205 :: "><span class="description">HTTP_205</span><pre>HTTP_205</pre></a></li>
+<li class="constant  "><a href="#HTTP_206" title="HTTP_206 :: "><span class="description">HTTP_206</span><pre>HTTP_206</pre></a></li>
+<li class="constant  "><a href="#HTTP_300" title="HTTP_300 :: "><span class="description">HTTP_300</span><pre>HTTP_300</pre></a></li>
+<li class="constant  "><a href="#HTTP_301" title="HTTP_301 :: "><span class="description">HTTP_301</span><pre>HTTP_301</pre></a></li>
+<li class="constant  "><a href="#HTTP_302" title="HTTP_302 :: "><span class="description">HTTP_302</span><pre>HTTP_302</pre></a></li>
+<li class="constant  "><a href="#HTTP_303" title="HTTP_303 :: "><span class="description">HTTP_303</span><pre>HTTP_303</pre></a></li>
+<li class="constant  "><a href="#HTTP_304" title="HTTP_304 :: "><span class="description">HTTP_304</span><pre>HTTP_304</pre></a></li>
+<li class="constant  "><a href="#HTTP_305" title="HTTP_305 :: "><span class="description">HTTP_305</span><pre>HTTP_305</pre></a></li>
+<li class="constant  "><a href="#HTTP_306" title="HTTP_306 :: "><span class="description">HTTP_306</span><pre>HTTP_306</pre></a></li>
+<li class="constant  "><a href="#HTTP_307" title="HTTP_307 :: "><span class="description">HTTP_307</span><pre>HTTP_307</pre></a></li>
+<li class="constant  "><a href="#HTTP_400" title="HTTP_400 :: "><span class="description">HTTP_400</span><pre>HTTP_400</pre></a></li>
+<li class="constant  "><a href="#HTTP_401" title="HTTP_401 :: "><span class="description">HTTP_401</span><pre>HTTP_401</pre></a></li>
+<li class="constant  "><a href="#HTTP_402" title="HTTP_402 :: "><span class="description">HTTP_402</span><pre>HTTP_402</pre></a></li>
+<li class="constant  "><a href="#HTTP_403" title="HTTP_403 :: "><span class="description">HTTP_403</span><pre>HTTP_403</pre></a></li>
+<li class="constant  "><a href="#HTTP_404" title="HTTP_404 :: "><span class="description">HTTP_404</span><pre>HTTP_404</pre></a></li>
+<li class="constant  "><a href="#HTTP_405" title="HTTP_405 :: "><span class="description">HTTP_405</span><pre>HTTP_405</pre></a></li>
+<li class="constant  "><a href="#HTTP_406" title="HTTP_406 :: "><span class="description">HTTP_406</span><pre>HTTP_406</pre></a></li>
+<li class="constant  "><a href="#HTTP_407" title="HTTP_407 :: "><span class="description">HTTP_407</span><pre>HTTP_407</pre></a></li>
+<li class="constant  "><a href="#HTTP_408" title="HTTP_408 :: "><span class="description">HTTP_408</span><pre>HTTP_408</pre></a></li>
+<li class="constant  "><a href="#HTTP_409" title="HTTP_409 :: "><span class="description">HTTP_409</span><pre>HTTP_409</pre></a></li>
+<li class="constant  "><a href="#HTTP_410" title="HTTP_410 :: "><span class="description">HTTP_410</span><pre>HTTP_410</pre></a></li>
+<li class="constant  "><a href="#HTTP_411" title="HTTP_411 :: "><span class="description">HTTP_411</span><pre>HTTP_411</pre></a></li>
+<li class="constant  "><a href="#HTTP_412" title="HTTP_412 :: "><span class="description">HTTP_412</span><pre>HTTP_412</pre></a></li>
+<li class="constant  "><a href="#HTTP_413" title="HTTP_413 :: "><span class="description">HTTP_413</span><pre>HTTP_413</pre></a></li>
+<li class="constant  "><a href="#HTTP_414" title="HTTP_414 :: "><span class="description">HTTP_414</span><pre>HTTP_414</pre></a></li>
+<li class="constant  "><a href="#HTTP_415" title="HTTP_415 :: "><span class="description">HTTP_415</span><pre>HTTP_415</pre></a></li>
+<li class="constant  "><a href="#HTTP_416" title="HTTP_416 :: "><span class="description">HTTP_416</span><pre>HTTP_416</pre></a></li>
+<li class="constant  "><a href="#HTTP_417" title="HTTP_417 :: "><span class="description">HTTP_417</span><pre>HTTP_417</pre></a></li>
+<li class="constant  "><a href="#HTTP_500" title="HTTP_500 :: "><span class="description">HTTP_500</span><pre>HTTP_500</pre></a></li>
+<li class="constant  "><a href="#HTTP_501" title="HTTP_501 :: "><span class="description">HTTP_501</span><pre>HTTP_501</pre></a></li>
+<li class="constant  "><a href="#HTTP_502" title="HTTP_502 :: "><span class="description">HTTP_502</span><pre>HTTP_502</pre></a></li>
+<li class="constant  "><a href="#HTTP_503" title="HTTP_503 :: "><span class="description">HTTP_503</span><pre>HTTP_503</pre></a></li>
+<li class="constant  "><a href="#HTTP_504" title="HTTP_504 :: "><span class="description">HTTP_504</span><pre>HTTP_504</pre></a></li>
+<li class="constant  "><a href="#HTTP_505" title="HTTP_505 :: "><span class="description">HTTP_505</span><pre>HTTP_505</pre></a></li>
+<li class="constant  "><a href="#HTTP_STATUS" title="HTTP_STATUS :: "><span class="description">HTTP_STATUS</span><pre>HTTP_STATUS</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CRestPHP%5CResponse%5CResponse" id="\RestPHP\Response\Response"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/RestPHP.html">RestPHP</a></li>
+<span class="divider">\</span><li><a href="../namespaces/RestPHP.Response.html">Response</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/RestPHP.Response.Response.html">Response</a>
+</li>
+</ul>
+<div href="../classes/RestPHP.Response.Response.html" class="element class">
+<p class="short_description">Response</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>category</th>
+<td>RestPHP</td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="..//packages/RestPHP.Response.html">RestPHP</a></td>
+</tr>
+<tr>
+<th>subpackage</th>
+<td>Response</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:johnston.joshua@gmail.com">Joshua Johnston</a></td>
+</tr>
+<tr>
+<th>copyright</th>
+<td>2011 RestPHP Framework</td>
+</tr>
+<tr>
+<th>license</th>
+<td><a href="http://opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>__construct()
+        </h2>
+<pre>__construct(Request $request) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$request</h4>
+<code><a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></code>
+</div>
+</div></div>
+</div>
+<a name="__get" id="__get"></a><div class="element clickable method public __get" data-toggle="collapse" data-target=".__get .collapse">
+<h2>Gets the data point that will be outputted via the API</h2>
+<pre>__get(string $name) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a name="__set" id="__set"></a><div class="element clickable method public __set" data-toggle="collapse" data-target=".__set .collapse">
+<h2>Sets data to be output via the API</h2>
+<pre>__set(string $name, mixed $value) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code>
+</div>
+</div></div>
+</div>
+<a name="__toString" id="__toString"></a><div class="element clickable method public __toString" data-toggle="collapse" data-target=".__toString .collapse">
+<h2>Magic toString implementation</h2>
+<pre>__toString() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="addHeader" id="addHeader"></a><div class="element clickable method public addHeader" data-toggle="collapse" data-target=".addHeader .collapse">
+<h2>Adds a response header to be sent</h2>
+<pre>addHeader(string $header, string $value, string $values) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"><p>Arguments 2-N are imploded with '; ' to allow easier
+setting of headers like:</p>
+
+<pre><code>$response->addHeader('Content-Disposition',
+                          'attachment', 'filename=fname.ext');
+</code></pre>
+
+<p>Which is output as:</p>
+
+<pre><code>Content-Disposition: attachment; filename=fname.ext
+</code></pre></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$header</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$values</h4>
+<code>string</code><p>variadic arguments</p></div>
+</div></div>
+</div>
+<a name="getBody" id="getBody"></a><div class="element clickable method public getBody" data-toggle="collapse" data-target=".getBody .collapse">
+<h2>Gets the body of the response</h2>
+<pre>getBody() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="getData" id="getData"></a><div class="element clickable method public getData" data-toggle="collapse" data-target=".getData .collapse">
+<h2>Gets the data point that will be outputted via the API</h2>
+<pre>getData(string $name) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a name="getMarshaller" id="getMarshaller"></a><div class="element clickable method public getMarshaller" data-toggle="collapse" data-target=".getMarshaller .collapse">
+<h2>Gets the marshaller</h2>
+<pre>getMarshaller() : <a href="../classes/RestPHP.Response.Marshaller.IMarshaller.html">\RestPHP\Response\Marshaller\IMarshaller</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Response.Marshaller.IMarshaller.html">\RestPHP\Response\Marshaller\IMarshaller</a></code></div>
+</div></div>
+</div>
+<a name="getRequest" id="getRequest"></a><div class="element clickable method public getRequest" data-toggle="collapse" data-target=".getRequest .collapse">
+<h2>Gets the request</h2>
+<pre>getRequest() : <a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></code></div>
+</div></div>
+</div>
+<a name="getStatus" id="getStatus"></a><div class="element clickable method public getStatus" data-toggle="collapse" data-target=".getStatus .collapse">
+<h2>Gets the HTTP status code</h2>
+<pre>getStatus() : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code>int</code></div>
+</div></div>
+</div>
+<a name="isFgci" id="isFgci"></a><div class="element clickable method public isFgci" data-toggle="collapse" data-target=".isFgci .collapse">
+<h2>Is this response handled via fcgi?</h2>
+<pre>isFgci() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td>\RestPHP\Response::isHttp()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="isHttp" id="isHttp"></a><div class="element clickable method public isHttp" data-toggle="collapse" data-target=".isHttp .collapse">
+<h2>Is this response handled via HTTP?</h2>
+<pre>isHttp() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td>\RestPHP\Response::isFcgi()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a name="makeHeader" id="makeHeader"></a><div class="element clickable method public makeHeader" data-toggle="collapse" data-target=".makeHeader .collapse">
+<h2>Formats a header based off an array item</h2>
+<pre>makeHeader(array $header) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$header</h4>
+<code>array</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="makeStatus" id="makeStatus"></a><div class="element clickable method public makeStatus" data-toggle="collapse" data-target=".makeStatus .collapse">
+<h2>Formats the Status header for FGCI or HTTP</h2>
+<pre>makeStatus() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="output" id="output"></a><div class="element clickable method public output" data-toggle="collapse" data-target=".output .collapse">
+<h2>Echos the response headers and body</h2>
+<pre>output() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="sendHeaders" id="sendHeaders"></a><div class="element clickable method public sendHeaders" data-toggle="collapse" data-target=".sendHeaders .collapse">
+<h2>Creates and sends any needed headers</h2>
+<pre>sendHeaders() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="setBody" id="setBody"></a><div class="element clickable method public setBody" data-toggle="collapse" data-target=".setBody .collapse">
+<h2>Sets the body of the response</h2>
+<pre>setBody(string $body) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$body</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a name="setContentType" id="setContentType"></a><div class="element clickable method public setContentType" data-toggle="collapse" data-target=".setContentType .collapse">
+<h2>Sets the Content-Type of the response</h2>
+<pre>setContentType(string $contentType) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$contentType</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a name="setData" id="setData"></a><div class="element clickable method public setData" data-toggle="collapse" data-target=".setData .collapse">
+<h2>Sets data to be output via the API</h2>
+<pre>setData(string $name, mixed $value) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>Name can be the key for $value or it can be data to overwrite the whole response's return data</p>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>Optional</p></div>
+</div></div>
+</div>
+<a name="setIsFgci" id="setIsFgci"></a><div class="element clickable method public setIsFgci" data-toggle="collapse" data-target=".setIsFgci .collapse">
+<h2>Sets if the response should be handled like fcgi</h2>
+<pre>setIsFgci(boolean $isFgci) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$isFgci</h4>
+<code>boolean</code>
+</div>
+</div></div>
+</div>
+<a name="setIsHttp" id="setIsHttp"></a><div class="element clickable method public setIsHttp" data-toggle="collapse" data-target=".setIsHttp .collapse">
+<h2>Sets if the response should be handled like HTTP</h2>
+<pre>setIsHttp(boolean $isHttp) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$isHttp</h4>
+<code>boolean</code>
+</div>
+</div></div>
+</div>
+<a name="setMarshaller" id="setMarshaller"></a><div class="element clickable method public setMarshaller" data-toggle="collapse" data-target=".setMarshaller .collapse">
+<h2>Sets the marshaller to use</h2>
+<pre>setMarshaller(IMarshaller $marshaller) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$marshaller</h4>
+<code><a href="../classes/RestPHP.Response.Marshaller.IMarshaller.html">\RestPHP\Response\Marshaller\IMarshaller</a></code>
+</div>
+</div></div>
+</div>
+<a name="setRequest" id="setRequest"></a><div class="element clickable method public setRequest" data-toggle="collapse" data-target=".setRequest .collapse">
+<h2>Sets the request to use</h2>
+<pre>setRequest(Request $request) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$request</h4>
+<code><a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></code>
+</div>
+</div></div>
+</div>
+<a name="setStatus" id="setStatus"></a><div class="element clickable method public setStatus" data-toggle="collapse" data-target=".setStatus .collapse">
+<h2>Sets the HTTP status code</h2>
+<pre>setStatus(int $status) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$status</h4>
+<code>int</code>
+</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24body" id="$body"> </a><div class="element clickable property protected $body" data-toggle="collapse" data-target=".$body .collapse">
+<h2>The HTTP Response body</h2>
+<pre>$body : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24headers" id="$headers"> </a><div class="element clickable property protected $headers" data-toggle="collapse" data-target=".$headers .collapse">
+<h2>Headers that need to be sent</h2>
+<pre>$headers : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24isFgci" id="$isFgci"> </a><div class="element clickable property protected $isFgci" data-toggle="collapse" data-target=".$isFgci .collapse">
+<h2>Is this FCGI?</h2>
+<pre>$isFgci : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24marshaller" id="$marshaller"> </a><div class="element clickable property protected $marshaller" data-toggle="collapse" data-target=".$marshaller .collapse">
+<h2>$marshaller</h2>
+<pre>$marshaller : <a href="../classes/RestPHP.Response.Marshaller.IMarshaller.html">\RestPHP\Response\Marshaller\IMarshaller</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24outputData" id="$outputData"> </a><div class="element clickable property protected $outputData" data-toggle="collapse" data-target=".$outputData .collapse">
+<h2>Data that will be outputted via the API</h2>
+<pre>$outputData : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24request" id="$request"> </a><div class="element clickable property protected $request" data-toggle="collapse" data-target=".$request .collapse">
+<h2>$request</h2>
+<pre>$request : <a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24status" id="$status"> </a><div class="element clickable property protected $status" data-toggle="collapse" data-target=".$status .collapse">
+<h2>HTTP Status</h2>
+<pre>$status : integer</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"><p>Default status is 200 OK</p></p></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a name="FCGI_STATUS" id="FCGI_STATUS"> </a><div class="element clickable constant  FCGI_STATUS" data-toggle="collapse" data-target=".FCGI_STATUS .collapse">
+<h2>FCGI_STATUS</h2>
+<pre>FCGI_STATUS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_100" id="HTTP_100"> </a><div class="element clickable constant  HTTP_100" data-toggle="collapse" data-target=".HTTP_100 .collapse">
+<h2>HTTP_100</h2>
+<pre>HTTP_100 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_101" id="HTTP_101"> </a><div class="element clickable constant  HTTP_101" data-toggle="collapse" data-target=".HTTP_101 .collapse">
+<h2>HTTP_101</h2>
+<pre>HTTP_101 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_200" id="HTTP_200"> </a><div class="element clickable constant  HTTP_200" data-toggle="collapse" data-target=".HTTP_200 .collapse">
+<h2>HTTP_200</h2>
+<pre>HTTP_200 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_201" id="HTTP_201"> </a><div class="element clickable constant  HTTP_201" data-toggle="collapse" data-target=".HTTP_201 .collapse">
+<h2>HTTP_201</h2>
+<pre>HTTP_201 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_202" id="HTTP_202"> </a><div class="element clickable constant  HTTP_202" data-toggle="collapse" data-target=".HTTP_202 .collapse">
+<h2>HTTP_202</h2>
+<pre>HTTP_202 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_203" id="HTTP_203"> </a><div class="element clickable constant  HTTP_203" data-toggle="collapse" data-target=".HTTP_203 .collapse">
+<h2>HTTP_203</h2>
+<pre>HTTP_203 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_204" id="HTTP_204"> </a><div class="element clickable constant  HTTP_204" data-toggle="collapse" data-target=".HTTP_204 .collapse">
+<h2>HTTP_204</h2>
+<pre>HTTP_204 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_205" id="HTTP_205"> </a><div class="element clickable constant  HTTP_205" data-toggle="collapse" data-target=".HTTP_205 .collapse">
+<h2>HTTP_205</h2>
+<pre>HTTP_205 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_206" id="HTTP_206"> </a><div class="element clickable constant  HTTP_206" data-toggle="collapse" data-target=".HTTP_206 .collapse">
+<h2>HTTP_206</h2>
+<pre>HTTP_206 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_300" id="HTTP_300"> </a><div class="element clickable constant  HTTP_300" data-toggle="collapse" data-target=".HTTP_300 .collapse">
+<h2>HTTP_300</h2>
+<pre>HTTP_300 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_301" id="HTTP_301"> </a><div class="element clickable constant  HTTP_301" data-toggle="collapse" data-target=".HTTP_301 .collapse">
+<h2>HTTP_301</h2>
+<pre>HTTP_301 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_302" id="HTTP_302"> </a><div class="element clickable constant  HTTP_302" data-toggle="collapse" data-target=".HTTP_302 .collapse">
+<h2>HTTP_302</h2>
+<pre>HTTP_302 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_303" id="HTTP_303"> </a><div class="element clickable constant  HTTP_303" data-toggle="collapse" data-target=".HTTP_303 .collapse">
+<h2>HTTP_303</h2>
+<pre>HTTP_303 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_304" id="HTTP_304"> </a><div class="element clickable constant  HTTP_304" data-toggle="collapse" data-target=".HTTP_304 .collapse">
+<h2>HTTP_304</h2>
+<pre>HTTP_304 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_305" id="HTTP_305"> </a><div class="element clickable constant  HTTP_305" data-toggle="collapse" data-target=".HTTP_305 .collapse">
+<h2>HTTP_305</h2>
+<pre>HTTP_305 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_306" id="HTTP_306"> </a><div class="element clickable constant  HTTP_306" data-toggle="collapse" data-target=".HTTP_306 .collapse">
+<h2>HTTP_306</h2>
+<pre>HTTP_306 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_307" id="HTTP_307"> </a><div class="element clickable constant  HTTP_307" data-toggle="collapse" data-target=".HTTP_307 .collapse">
+<h2>HTTP_307</h2>
+<pre>HTTP_307 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_400" id="HTTP_400"> </a><div class="element clickable constant  HTTP_400" data-toggle="collapse" data-target=".HTTP_400 .collapse">
+<h2>HTTP_400</h2>
+<pre>HTTP_400 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_401" id="HTTP_401"> </a><div class="element clickable constant  HTTP_401" data-toggle="collapse" data-target=".HTTP_401 .collapse">
+<h2>HTTP_401</h2>
+<pre>HTTP_401 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_402" id="HTTP_402"> </a><div class="element clickable constant  HTTP_402" data-toggle="collapse" data-target=".HTTP_402 .collapse">
+<h2>HTTP_402</h2>
+<pre>HTTP_402 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_403" id="HTTP_403"> </a><div class="element clickable constant  HTTP_403" data-toggle="collapse" data-target=".HTTP_403 .collapse">
+<h2>HTTP_403</h2>
+<pre>HTTP_403 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_404" id="HTTP_404"> </a><div class="element clickable constant  HTTP_404" data-toggle="collapse" data-target=".HTTP_404 .collapse">
+<h2>HTTP_404</h2>
+<pre>HTTP_404 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_405" id="HTTP_405"> </a><div class="element clickable constant  HTTP_405" data-toggle="collapse" data-target=".HTTP_405 .collapse">
+<h2>HTTP_405</h2>
+<pre>HTTP_405 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_406" id="HTTP_406"> </a><div class="element clickable constant  HTTP_406" data-toggle="collapse" data-target=".HTTP_406 .collapse">
+<h2>HTTP_406</h2>
+<pre>HTTP_406 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_407" id="HTTP_407"> </a><div class="element clickable constant  HTTP_407" data-toggle="collapse" data-target=".HTTP_407 .collapse">
+<h2>HTTP_407</h2>
+<pre>HTTP_407 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_408" id="HTTP_408"> </a><div class="element clickable constant  HTTP_408" data-toggle="collapse" data-target=".HTTP_408 .collapse">
+<h2>HTTP_408</h2>
+<pre>HTTP_408 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_409" id="HTTP_409"> </a><div class="element clickable constant  HTTP_409" data-toggle="collapse" data-target=".HTTP_409 .collapse">
+<h2>HTTP_409</h2>
+<pre>HTTP_409 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_410" id="HTTP_410"> </a><div class="element clickable constant  HTTP_410" data-toggle="collapse" data-target=".HTTP_410 .collapse">
+<h2>HTTP_410</h2>
+<pre>HTTP_410 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_411" id="HTTP_411"> </a><div class="element clickable constant  HTTP_411" data-toggle="collapse" data-target=".HTTP_411 .collapse">
+<h2>HTTP_411</h2>
+<pre>HTTP_411 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_412" id="HTTP_412"> </a><div class="element clickable constant  HTTP_412" data-toggle="collapse" data-target=".HTTP_412 .collapse">
+<h2>HTTP_412</h2>
+<pre>HTTP_412 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_413" id="HTTP_413"> </a><div class="element clickable constant  HTTP_413" data-toggle="collapse" data-target=".HTTP_413 .collapse">
+<h2>HTTP_413</h2>
+<pre>HTTP_413 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_414" id="HTTP_414"> </a><div class="element clickable constant  HTTP_414" data-toggle="collapse" data-target=".HTTP_414 .collapse">
+<h2>HTTP_414</h2>
+<pre>HTTP_414 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_415" id="HTTP_415"> </a><div class="element clickable constant  HTTP_415" data-toggle="collapse" data-target=".HTTP_415 .collapse">
+<h2>HTTP_415</h2>
+<pre>HTTP_415 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_416" id="HTTP_416"> </a><div class="element clickable constant  HTTP_416" data-toggle="collapse" data-target=".HTTP_416 .collapse">
+<h2>HTTP_416</h2>
+<pre>HTTP_416 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_417" id="HTTP_417"> </a><div class="element clickable constant  HTTP_417" data-toggle="collapse" data-target=".HTTP_417 .collapse">
+<h2>HTTP_417</h2>
+<pre>HTTP_417 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_500" id="HTTP_500"> </a><div class="element clickable constant  HTTP_500" data-toggle="collapse" data-target=".HTTP_500 .collapse">
+<h2>HTTP_500</h2>
+<pre>HTTP_500 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_501" id="HTTP_501"> </a><div class="element clickable constant  HTTP_501" data-toggle="collapse" data-target=".HTTP_501 .collapse">
+<h2>HTTP_501</h2>
+<pre>HTTP_501 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_502" id="HTTP_502"> </a><div class="element clickable constant  HTTP_502" data-toggle="collapse" data-target=".HTTP_502 .collapse">
+<h2>HTTP_502</h2>
+<pre>HTTP_502 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_503" id="HTTP_503"> </a><div class="element clickable constant  HTTP_503" data-toggle="collapse" data-target=".HTTP_503 .collapse">
+<h2>HTTP_503</h2>
+<pre>HTTP_503 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_504" id="HTTP_504"> </a><div class="element clickable constant  HTTP_504" data-toggle="collapse" data-target=".HTTP_504 .collapse">
+<h2>HTTP_504</h2>
+<pre>HTTP_504 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_505" id="HTTP_505"> </a><div class="element clickable constant  HTTP_505" data-toggle="collapse" data-target=".HTTP_505 .collapse">
+<h2>HTTP_505</h2>
+<pre>HTTP_505 </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="HTTP_STATUS" id="HTTP_STATUS"> </a><div class="element clickable constant  HTTP_STATUS" data-toggle="collapse" data-target=".HTTP_STATUS .collapse">
+<h2>HTTP_STATUS</h2>
+<pre>HTTP_STATUS </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-05-09T11:09:48-04:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project version="0.18.1" title="">
-  <file path="library/Array2XML.php" hash="f6825cc982cea87539ad13ade79ee4c0">
+<project version="2.0.0a2" title="">
+  <file path="library/Array2XML.php" hash="f6825cc982cea87539ad13ade79ee4c0" package="Default">
     <parse_markers>
       <error line="35" code="50018">No DocBlock was found for property $xml</error>
       <error line="36" code="50018">No DocBlock was found for property $encoding</error>
@@ -42,15 +42,15 @@ Version: 0.7 (24 March 2012)
       $xml = Array2XML::createXML('root_node_name', $php_array);
       echo $xml->saveXML();</p>]]></long-description>
       </docblock>
-      <property final="false" static="true" visibility="private" line="35">
+      <property final="false" static="true" visibility="private" line="35" package="Default">
         <name>$xml</name>
         <default><![CDATA[null]]></default>
       </property>
-      <property final="false" static="true" visibility="private" line="36">
+      <property final="false" static="true" visibility="private" line="36" package="Default">
         <name>$encoding</name>
         <default><![CDATA['UTF-8']]></default>
       </property>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="default" line="44" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="default" line="44" package="">
         <name>init</name>
         <type>function</type>
         <docblock line="38">
@@ -76,7 +76,7 @@ Version: 0.7 (24 March 2012)
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="default" line="57" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="default" line="57" package="">
         <name>createXML</name>
         <type>function</type>
         <docblock line="51">
@@ -103,7 +103,7 @@ Version: 0.7 (24 March 2012)
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="default" line="71" package="Default">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="default" line="71" package="">
         <name>convert</name>
         <type>function</type>
         <docblock line="65">
@@ -131,11 +131,11 @@ Version: 0.7 (24 March 2012)
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="default" line="141">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="default" line="141" package="">
         <name>getXMLRoot</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="default" line="151">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="default" line="151" package="">
         <name>bool2str</name>
         <type>function</type>
         <argument line="151">
@@ -144,7 +144,7 @@ Version: 0.7 (24 March 2012)
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" namespace="default" line="162">
+      <method final="false" abstract="false" static="true" visibility="private" namespace="default" line="162" package="">
         <name>isValidTagName</name>
         <type>function</type>
         <argument line="162">
@@ -305,7 +305,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="114" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="114" package="">
         <name>__construct</name>
         <type>function</type>
         <docblock line="108">
@@ -331,7 +331,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="134" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="134" package="">
         <name>getEnvironment</name>
         <type>function</type>
         <docblock line="129">
@@ -342,7 +342,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="143" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="143" package="">
         <name>setEnvironment</name>
         <type>function</type>
         <docblock line="138">
@@ -358,7 +358,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Environment</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="152" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="152" package="">
         <name>getConfig</name>
         <type>function</type>
         <docblock line="147">
@@ -369,7 +369,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="161" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="161" package="">
         <name>setConfig</name>
         <type>function</type>
         <docblock line="156">
@@ -385,7 +385,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Config</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="174" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="174" package="">
         <name>getRequest</name>
         <type>function</type>
         <docblock line="171">
@@ -396,7 +396,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="186" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="186" package="">
         <name>setRequest</name>
         <type>function</type>
         <docblock line="182">
@@ -412,7 +412,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Request</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="193" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="193" package="">
         <name>getResponse</name>
         <type>function</type>
         <docblock line="190">
@@ -423,7 +423,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="204" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="204" package="">
         <name>setResponse</name>
         <type>function</type>
         <docblock line="201">
@@ -439,7 +439,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Response</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="211" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="211" package="">
         <name>getRouter</name>
         <type>function</type>
         <docblock line="208">
@@ -450,7 +450,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="221" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="221" package="">
         <name>setRouter</name>
         <type>function</type>
         <docblock line="218">
@@ -466,7 +466,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Router</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="228" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="228" package="">
         <name>getDispatcher</name>
         <type>function</type>
         <docblock line="225">
@@ -477,7 +477,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="238" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="238" package="">
         <name>setDispatcher</name>
         <type>function</type>
         <docblock line="235">
@@ -493,7 +493,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Dispatcher</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="249" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="249" package="">
         <name>getComponent</name>
         <type>function</type>
         <docblock line="242">
@@ -515,7 +515,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="273" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="273" package="">
         <name>setComponent</name>
         <type>function</type>
         <docblock line="268">
@@ -539,7 +539,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="283" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="283" package="">
         <name>handle</name>
         <type>function</type>
         <docblock line="278">
@@ -550,7 +550,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="RestPHP" line="329" package="Default">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="RestPHP" line="329" package="">
         <name>componentNameSecurityCheck</name>
         <type>function</type>
         <docblock line="323">
@@ -655,7 +655,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP" line="73" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP" line="73" package="">
         <name>getInstance</name>
         <type>function</type>
         <docblock line="69">
@@ -666,11 +666,11 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="RestPHP" line="82">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="RestPHP" line="82" package="">
         <name>__construct</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="89">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="89" package="">
         <name>addIncludePath</name>
         <type>function</type>
         <argument line="89">
@@ -679,11 +679,11 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="95">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="95" package="">
         <name>register</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="101">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="101" package="">
         <name>__invoke</name>
         <type>function</type>
         <argument line="101">
@@ -692,7 +692,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="106">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="106" package="">
         <name>loadClass</name>
         <type>function</type>
         <argument line="106">
@@ -755,7 +755,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="48" name="copyright" description="2011 RestPHP Framework"/>
         <tag line="48" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="66" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="66" package="">
         <name>__construct</name>
         <type>function</type>
         <docblock line="59">
@@ -858,7 +858,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="71" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="71" package="">
         <name>__construct</name>
         <type>function</type>
         <docblock line="65">
@@ -877,7 +877,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Config</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="81" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="81" package="">
         <name>getConfig</name>
         <type>function</type>
         <docblock line="76">
@@ -888,7 +888,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="91" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="91" package="">
         <name>setConfig</name>
         <type>function</type>
         <docblock line="86">
@@ -904,7 +904,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Config</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="108" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="108" package="">
         <name>dispatch</name>
         <type>function</type>
         <docblock line="102">
@@ -1023,7 +1023,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="94" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="94" package="">
         <name>__construct</name>
         <type>function</type>
         <docblock line="88">
@@ -1042,7 +1042,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="104" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="104" package="">
         <name>getEnv</name>
         <type>function</type>
         <docblock line="99">
@@ -1053,7 +1053,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="114" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="114" package="">
         <name>setEnv</name>
         <type>function</type>
         <docblock line="109">
@@ -1069,7 +1069,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="124" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="124" package="">
         <name>__toString</name>
         <type>function</type>
         <docblock line="119">
@@ -1202,7 +1202,7 @@ acceptable]]></description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="66">
+      <property final="false" static="false" visibility="protected" line="66" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
@@ -1217,11 +1217,11 @@ acceptable]]></description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="68">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="68" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="89" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="89" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="80">
@@ -1239,7 +1239,7 @@ acceptable]]></description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="198" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="198" package="">
         <name>getTypes</name>
         <type>function</type>
         <docblock line="193">
@@ -1250,7 +1250,7 @@ acceptable]]></description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="209" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="209" package="">
         <name>getPreferredType</name>
         <type>function</type>
         <docblock line="203">
@@ -1262,7 +1262,7 @@ listed in the header unless all mimes are weighted]]></description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="226" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="226" package="">
         <name>isAccepted</name>
         <type>function</type>
         <docblock line="215">
@@ -1359,7 +1359,7 @@ is also allowed.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="79">
+      <property final="false" static="false" visibility="protected" line="79" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
@@ -1374,11 +1374,11 @@ is also allowed.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="81">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="81" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="101" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="101" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="93">
@@ -1396,7 +1396,7 @@ is also allowed.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="184" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="184" package="">
         <name>getCharsets</name>
         <type>function</type>
         <docblock line="179">
@@ -1407,7 +1407,7 @@ is also allowed.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="195" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="195" package="">
         <name>getPreferredCharset</name>
         <type>function</type>
         <docblock line="189">
@@ -1419,7 +1419,7 @@ listed in the header unless all charsets are weighted]]></description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="210" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="210" package="">
         <name>isAccepted</name>
         <type>function</type>
         <docblock line="200">
@@ -1508,7 +1508,7 @@ Accept-Encoding: gzip;q=1.0, identity; q=0.5, *;q=0
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="72">
+      <property final="false" static="false" visibility="protected" line="72" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
@@ -1523,11 +1523,11 @@ Accept-Encoding: gzip;q=1.0, identity; q=0.5, *;q=0
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="74">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="74" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="94" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="94" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="86">
@@ -1545,7 +1545,7 @@ Accept-Encoding: gzip;q=1.0, identity; q=0.5, *;q=0
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="164" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="164" package="">
         <name>getEncodings</name>
         <type>function</type>
         <docblock line="159">
@@ -1556,7 +1556,7 @@ Accept-Encoding: gzip;q=1.0, identity; q=0.5, *;q=0
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="175" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="175" package="">
         <name>getPreferredEncoding</name>
         <type>function</type>
         <docblock line="169">
@@ -1568,7 +1568,7 @@ listed in the header unless all content-codings are weighted]]></description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="201" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="201" package="">
         <name>isAccepted</name>
         <type>function</type>
         <docblock line="187">
@@ -1592,7 +1592,7 @@ encoding is acceptable.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="RestPHP\Request\Header" line="217" package="Default">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="RestPHP\Request\Header" line="217" package="">
         <name>resetEncodingQualityValues</name>
         <type>function</type>
         <docblock line="214">
@@ -1674,7 +1674,7 @@ other range present in the Accept-Language field.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="76">
+      <property final="false" static="false" visibility="protected" line="76" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
@@ -1689,11 +1689,11 @@ other range present in the Accept-Language field.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="78">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="78" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="98" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="98" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="90">
@@ -1711,7 +1711,7 @@ other range present in the Accept-Language field.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="160" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="160" package="">
         <name>getLanguages</name>
         <type>function</type>
         <docblock line="155">
@@ -1722,7 +1722,7 @@ other range present in the Accept-Language field.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="171" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="171" package="">
         <name>getPreferredLanguage</name>
         <type>function</type>
         <docblock line="165">
@@ -1734,7 +1734,7 @@ listed in the header unless all languages are weighted]]></description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="193" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="193" package="">
         <name>isAccepted</name>
         <type>function</type>
         <docblock line="186">
@@ -1814,15 +1814,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="78" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="78" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -1901,15 +1901,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -1987,15 +1987,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -2073,15 +2073,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -2159,15 +2159,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -2245,15 +2245,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -2331,15 +2331,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -2417,15 +2417,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -2503,15 +2503,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -2589,15 +2589,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -2660,7 +2660,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
       <name>Header</name>
       <full_name>\RestPHP\Request\Header\Header</full_name>
       <extends/>
-      <extends>\RestPHP\Request\Header\IHeader</extends>
+      <implements>\RestPHP\Request\Header\IHeader</implements>
       <docblock line="49">
         <description><![CDATA[Abstract Header implementation for default toString() implementation]]></description>
         <long-description><![CDATA[]]></long-description>
@@ -2671,7 +2671,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="copyright" description="2012 RestPHP Framework"/>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="64" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="64" package="">
         <name>__toString</name>
         <type>function</type>
         <docblock line="61">
@@ -2741,7 +2741,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="true" visibility="protected" line="62">
+      <property final="false" static="true" visibility="protected" line="62" package="Default">
         <name>$headers</name>
         <default><![CDATA[array(
         'Accept'              => 'Accept',
@@ -2776,7 +2776,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         'Warning'             => 'Warning'
     )]]></default>
       </property>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP\Request\Header" line="95">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP\Request\Header" line="95" package="">
         <name>factory</name>
         <type>function</type>
         <argument line="95">
@@ -2785,7 +2785,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP\Request\Header" line="108">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP\Request\Header" line="108" package="">
         <name>isStandardHeader</name>
         <type>function</type>
         <argument line="108">
@@ -2855,15 +2855,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -2941,15 +2941,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -3027,15 +3027,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -3113,15 +3113,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -3199,15 +3199,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -3285,15 +3285,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -3370,7 +3370,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="69" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="69" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="62">
@@ -3386,11 +3386,11 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="71">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="71" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="76" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="76" package="">
         <name>__toString</name>
         <type>function</type>
         <docblock line="73">
@@ -3459,15 +3459,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -3545,15 +3545,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -3631,15 +3631,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -3717,15 +3717,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -3803,15 +3803,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -3889,15 +3889,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -3975,15 +3975,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -4061,15 +4061,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -4147,15 +4147,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -4233,15 +4233,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -4319,15 +4319,15 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$rawValue</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="65" package="">
         <name>getRawValue</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Header" line="77" package="">
         <name>parse</name>
         <type>function</type>
         <docblock line="70">
@@ -4513,7 +4513,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP\Request" line="73" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP\Request" line="73" package="">
         <name>getDefaultRequest</name>
         <type>function</type>
         <docblock line="66">
@@ -4533,7 +4533,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           <type>Config</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="RestPHP\Request" line="114">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="RestPHP\Request" line="114" package="">
         <name>formatHeader</name>
         <type>function</type>
         <argument line="114">
@@ -4542,7 +4542,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="198" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="198" package="">
         <name>__construct</name>
         <type>function</type>
         <docblock line="193">
@@ -4558,7 +4558,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           <type>Config</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="210" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="210" package="">
         <name>getConfig</name>
         <type>function</type>
         <docblock line="205">
@@ -4569,7 +4569,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="220" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="220" package="">
         <name>setConfig</name>
         <type>function</type>
         <docblock line="215">
@@ -4585,7 +4585,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           <type>Config</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="230" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="230" package="">
         <name>getHttpMethod</name>
         <type>function</type>
         <docblock line="225">
@@ -4596,7 +4596,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="240" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="240" package="">
         <name>setHttpMethod</name>
         <type>function</type>
         <docblock line="235">
@@ -4612,7 +4612,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="250" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="250" package="">
         <name>getRequestUri</name>
         <type>function</type>
         <docblock line="245">
@@ -4623,7 +4623,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="260" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="260" package="">
         <name>setRequestUri</name>
         <type>function</type>
         <docblock line="255">
@@ -4639,7 +4639,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="271" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="271" package="">
         <name>getUnmarshaller</name>
         <type>function</type>
         <docblock line="266">
@@ -4650,7 +4650,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="285" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="285" package="">
         <name>setUnmarshaller</name>
         <type>function</type>
         <docblock line="280">
@@ -4666,7 +4666,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           <type>IUnmarshaller</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="295" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="295" package="">
         <name>getHeader</name>
         <type>function</type>
         <docblock line="289">
@@ -4685,7 +4685,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="313" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="313" package="">
         <name>setHeader</name>
         <type>function</type>
         <docblock line="304">
@@ -4723,7 +4723,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="350" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="350" package="">
         <name>getBody</name>
         <type>function</type>
         <docblock line="345">
@@ -4735,7 +4735,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="384" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="384" package="">
         <name>setBody</name>
         <type>function</type>
         <docblock line="378">
@@ -4754,7 +4754,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="397" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="397" package="">
         <name>getParam</name>
         <type>function</type>
         <docblock line="390">
@@ -4781,7 +4781,7 @@ off of PHP's $_SERVER array when run via mod_php or fcgi]]></description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="409">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request" line="409" package="">
         <name>getParams</name>
         <type>function</type>
       </method>
@@ -4840,7 +4840,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="copyright" description="2011 RestPHP Framework"/>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Unmarshaller" line="65" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Unmarshaller" line="65" package="">
         <name>unmarshall</name>
         <type>function</type>
         <docblock line="59">
@@ -4909,7 +4909,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
       <name>Json</name>
       <full_name>\RestPHP\Request\Unmarshaller\Json</full_name>
       <extends/>
-      <extends>\RestPHP\Request\Unmarshaller\IUnmarshaller</extends>
+      <implements>\RestPHP\Request\Unmarshaller\IUnmarshaller</implements>
       <docblock line="49">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
@@ -4919,7 +4919,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="copyright" description="2011 RestPHP Framework"/>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Unmarshaller" line="59">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Unmarshaller" line="59" package="">
         <name>unmarshall</name>
         <type>function</type>
         <argument line="59">
@@ -5046,7 +5046,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="copyright" description="2011 RestPHP Framework"/>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP\Request\Unmarshaller" line="65" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP\Request\Unmarshaller" line="65" package="">
         <name>factory</name>
         <type>function</type>
         <docblock line="59">
@@ -5118,7 +5118,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
       <name>Xml</name>
       <full_name>\RestPHP\Request\Unmarshaller\Xml</full_name>
       <extends/>
-      <extends>\RestPHP\Request\Unmarshaller\IUnmarshaller</extends>
+      <implements>\RestPHP\Request\Unmarshaller\IUnmarshaller</implements>
       <docblock line="49">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
@@ -5128,7 +5128,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="copyright" description="2011 RestPHP Framework"/>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Unmarshaller" line="63" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Request\Unmarshaller" line="63" package="">
         <name>unmarshall</name>
         <type>function</type>
         <docblock line="59">
@@ -5250,7 +5250,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="85" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="85" package="">
         <name>getRequest</name>
         <type>function</type>
         <docblock line="81">
@@ -5261,7 +5261,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="94" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="94" package="">
         <name>setRequest</name>
         <type>function</type>
         <docblock line="90">
@@ -5277,7 +5277,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Request</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="103" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="103" package="">
         <name>getResponse</name>
         <type>function</type>
         <docblock line="99">
@@ -5288,7 +5288,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="112" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="112" package="">
         <name>setResponse</name>
         <type>function</type>
         <docblock line="108">
@@ -5304,7 +5304,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Response</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="121" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="121" package="">
         <name>getApplication</name>
         <type>function</type>
         <docblock line="117">
@@ -5315,7 +5315,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="129" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="129" package="">
         <name>setApplication</name>
         <type>function</type>
         <docblock line="125">
@@ -5331,7 +5331,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Application</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="141" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="141" package="">
         <name>getParam</name>
         <type>function</type>
         <docblock line="133">
@@ -5359,7 +5359,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="152" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="152" package="">
         <name>setData</name>
         <type>function</type>
         <docblock line="145">
@@ -5384,7 +5384,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="165" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="165" package="">
         <name>execute</name>
         <type>function</type>
         <docblock line="161">
@@ -5395,7 +5395,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="180" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="180" package="">
         <name>before</name>
         <type>function</type>
         <docblock line="176">
@@ -5403,7 +5403,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <long-description><![CDATA[<p>Return false to cancel the action</p>]]></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="188" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="188" package="">
         <name>after</name>
         <type>function</type>
         <docblock line="184">
@@ -5412,7 +5412,7 @@ Called if before() returns false]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="193" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="193" package="">
         <name>options</name>
         <type>function</type>
         <docblock line="190">
@@ -5420,7 +5420,7 @@ Called if before() returns false]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="201" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="201" package="">
         <name>get</name>
         <type>function</type>
         <docblock line="198">
@@ -5428,7 +5428,7 @@ Called if before() returns false]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="209" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="209" package="">
         <name>head</name>
         <type>function</type>
         <docblock line="206">
@@ -5436,7 +5436,7 @@ Called if before() returns false]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="217" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="217" package="">
         <name>post</name>
         <type>function</type>
         <docblock line="214">
@@ -5444,7 +5444,7 @@ Called if before() returns false]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="225" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="225" package="">
         <name>put</name>
         <type>function</type>
         <docblock line="222">
@@ -5452,7 +5452,7 @@ Called if before() returns false]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="233" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Resource" line="233" package="">
         <name>trace</name>
         <type>function</type>
         <docblock line="230">
@@ -5460,7 +5460,7 @@ Called if before() returns false]]></description>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="RestPHP\Resource" line="238">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="RestPHP\Resource" line="238" package="">
         <name>defaultNotImplemented</name>
         <type>function</type>
       </method>
@@ -5585,11 +5585,11 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="51" name="copyright" description="2011 RestPHP Framework"/>
         <tag line="51" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <property final="false" static="false" visibility="protected" line="63">
+      <property final="false" static="false" visibility="protected" line="63" package="Default">
         <name>$exception</name>
         <default><![CDATA[]]></default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="65">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="65" package="">
         <name>__construct</name>
         <type>function</type>
         <argument line="65">
@@ -5603,11 +5603,11 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Exception</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="74">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="74" package="">
         <name>getException</name>
         <type>function</type>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="78">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="78" package="">
         <name>setException</name>
         <type>function</type>
         <argument line="78">
@@ -5673,7 +5673,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
         <tag line="49" name="link" description="RFC 2616 Section 14" link="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Header" line="68" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Header" line="68" package="">
         <name>set</name>
         <type>function</type>
         <docblock line="62">
@@ -5697,7 +5697,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Header" line="73" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Header" line="73" package="">
         <name>__toString</name>
         <type>function</type>
         <docblock line="70">
@@ -5764,7 +5764,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="copyright" description="2011 RestPHP Framework"/>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="66" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="66" package="">
         <name>marshall</name>
         <type>function</type>
         <docblock line="59">
@@ -5784,7 +5784,7 @@ the Content-Type header for the response]]></description>
           <type>Response</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="71" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="71" package="">
         <name>getContentType</name>
         <type>function</type>
         <docblock line="68">
@@ -5846,7 +5846,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
       <name>Json</name>
       <full_name>\RestPHP\Response\Marshaller\Json</full_name>
       <extends/>
-      <extends>\RestPHP\Response\Marshaller\IMarshaller</extends>
+      <implements>\RestPHP\Response\Marshaller\IMarshaller</implements>
       <docblock line="49">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
@@ -5856,7 +5856,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="copyright" description="2011 RestPHP Framework"/>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="65" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="65" package="">
         <name>marshall</name>
         <type>function</type>
         <docblock line="59">
@@ -5875,7 +5875,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Response</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="74" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="74" package="">
         <name>getContentType</name>
         <type>function</type>
         <docblock line="71">
@@ -5947,7 +5947,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="copyright" description="2011 RestPHP Framework"/>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP\Response\Marshaller" line="66" package="Default">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="RestPHP\Response\Marshaller" line="66" package="">
         <name>factory</name>
         <type>function</type>
         <docblock line="60">
@@ -5969,7 +5969,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Accept</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="protected" namespace="RestPHP\Response\Marshaller" line="81">
+      <method final="false" abstract="false" static="true" visibility="protected" namespace="RestPHP\Response\Marshaller" line="81" package="">
         <name>matchType</name>
         <type>function</type>
         <argument line="81">
@@ -6087,7 +6087,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
       <name>Xml</name>
       <full_name>\RestPHP\Response\Marshaller\Xml</full_name>
       <extends/>
-      <extends>\RestPHP\Response\Marshaller\IMarshaller</extends>
+      <implements>\RestPHP\Response\Marshaller\IMarshaller</implements>
       <docblock line="49">
         <description><![CDATA[]]></description>
         <long-description><![CDATA[]]></long-description>
@@ -6097,7 +6097,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="49" name="copyright" description="2011 RestPHP Framework"/>
         <tag line="49" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="65" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="65" package="">
         <name>marshall</name>
         <type>function</type>
         <docblock line="59">
@@ -6116,7 +6116,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Response</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="73" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response\Marshaller" line="73" package="">
         <name>getContentType</name>
         <type>function</type>
         <docblock line="70">
@@ -6194,175 +6194,175 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
         <tag line="53" name="copyright" description="2011 RestPHP Framework"/>
         <tag line="53" name="license" description="http://opensource.org/licenses/bsd-license.php New BSD License"/>
       </docblock>
-      <constant namespace="RestPHP\Response" line="113">
+      <constant namespace="RestPHP\Response" line="113" package="Default">
         <name>FCGI_STATUS</name>
         <value><![CDATA['Status: ']]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="114">
+      <constant namespace="RestPHP\Response" line="114" package="Default">
         <name>HTTP_STATUS</name>
         <value><![CDATA['HTTP/1.1 ']]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="115">
+      <constant namespace="RestPHP\Response" line="115" package="Default">
         <name>HTTP_100</name>
         <value><![CDATA["100 Continue"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="116">
+      <constant namespace="RestPHP\Response" line="116" package="Default">
         <name>HTTP_101</name>
         <value><![CDATA["101 Switching Protocols"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="117">
+      <constant namespace="RestPHP\Response" line="117" package="Default">
         <name>HTTP_200</name>
         <value><![CDATA["200 OK"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="118">
+      <constant namespace="RestPHP\Response" line="118" package="Default">
         <name>HTTP_201</name>
         <value><![CDATA["201 Created"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="119">
+      <constant namespace="RestPHP\Response" line="119" package="Default">
         <name>HTTP_202</name>
         <value><![CDATA["202 Accepted"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="120">
+      <constant namespace="RestPHP\Response" line="120" package="Default">
         <name>HTTP_203</name>
         <value><![CDATA["203 Non-Authoritative Information"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="121">
+      <constant namespace="RestPHP\Response" line="121" package="Default">
         <name>HTTP_204</name>
         <value><![CDATA["204 No Content"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="122">
+      <constant namespace="RestPHP\Response" line="122" package="Default">
         <name>HTTP_205</name>
         <value><![CDATA["205 Reset Content"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="123">
+      <constant namespace="RestPHP\Response" line="123" package="Default">
         <name>HTTP_206</name>
         <value><![CDATA["206 Partial Content"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="124">
+      <constant namespace="RestPHP\Response" line="124" package="Default">
         <name>HTTP_300</name>
         <value><![CDATA["300 Multiple Choices"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="125">
+      <constant namespace="RestPHP\Response" line="125" package="Default">
         <name>HTTP_301</name>
         <value><![CDATA["301 Moved Permanently"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="126">
+      <constant namespace="RestPHP\Response" line="126" package="Default">
         <name>HTTP_302</name>
         <value><![CDATA["302 Found"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="127">
+      <constant namespace="RestPHP\Response" line="127" package="Default">
         <name>HTTP_303</name>
         <value><![CDATA["303 See Other"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="128">
+      <constant namespace="RestPHP\Response" line="128" package="Default">
         <name>HTTP_304</name>
         <value><![CDATA["304 Not Modified"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="129">
+      <constant namespace="RestPHP\Response" line="129" package="Default">
         <name>HTTP_305</name>
         <value><![CDATA["305 Use Proxy"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="130">
+      <constant namespace="RestPHP\Response" line="130" package="Default">
         <name>HTTP_306</name>
         <value><![CDATA["306 (Unused)"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="131">
+      <constant namespace="RestPHP\Response" line="131" package="Default">
         <name>HTTP_307</name>
         <value><![CDATA["307 Temporary Redirect"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="132">
+      <constant namespace="RestPHP\Response" line="132" package="Default">
         <name>HTTP_400</name>
         <value><![CDATA["400 Bad Request"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="133">
+      <constant namespace="RestPHP\Response" line="133" package="Default">
         <name>HTTP_401</name>
         <value><![CDATA["401 Unauthorized"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="134">
+      <constant namespace="RestPHP\Response" line="134" package="Default">
         <name>HTTP_402</name>
         <value><![CDATA["402 Payment Required"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="135">
+      <constant namespace="RestPHP\Response" line="135" package="Default">
         <name>HTTP_403</name>
         <value><![CDATA["403 Forbidden"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="136">
+      <constant namespace="RestPHP\Response" line="136" package="Default">
         <name>HTTP_404</name>
         <value><![CDATA["404 Not Found"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="137">
+      <constant namespace="RestPHP\Response" line="137" package="Default">
         <name>HTTP_405</name>
         <value><![CDATA["405 Method Not Allowed"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="138">
+      <constant namespace="RestPHP\Response" line="138" package="Default">
         <name>HTTP_406</name>
         <value><![CDATA["406 Not Acceptable"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="139">
+      <constant namespace="RestPHP\Response" line="139" package="Default">
         <name>HTTP_407</name>
         <value><![CDATA["407 Proxy Authentication Required"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="140">
+      <constant namespace="RestPHP\Response" line="140" package="Default">
         <name>HTTP_408</name>
         <value><![CDATA["408 Request Timeout"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="141">
+      <constant namespace="RestPHP\Response" line="141" package="Default">
         <name>HTTP_409</name>
         <value><![CDATA["409 Conflict"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="142">
+      <constant namespace="RestPHP\Response" line="142" package="Default">
         <name>HTTP_410</name>
         <value><![CDATA["410 Gone"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="143">
+      <constant namespace="RestPHP\Response" line="143" package="Default">
         <name>HTTP_411</name>
         <value><![CDATA["411 Length Required"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="144">
+      <constant namespace="RestPHP\Response" line="144" package="Default">
         <name>HTTP_412</name>
         <value><![CDATA["412 Precondition Failed"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="145">
+      <constant namespace="RestPHP\Response" line="145" package="Default">
         <name>HTTP_413</name>
         <value><![CDATA["413 Request Entity Too Large"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="146">
+      <constant namespace="RestPHP\Response" line="146" package="Default">
         <name>HTTP_414</name>
         <value><![CDATA["414 Request-URI Too Long"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="147">
+      <constant namespace="RestPHP\Response" line="147" package="Default">
         <name>HTTP_415</name>
         <value><![CDATA["415 Unsupported Media Type"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="148">
+      <constant namespace="RestPHP\Response" line="148" package="Default">
         <name>HTTP_416</name>
         <value><![CDATA["416 Requested Range Not Satisfiable"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="149">
+      <constant namespace="RestPHP\Response" line="149" package="Default">
         <name>HTTP_417</name>
         <value><![CDATA["417 Expectation Failed"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="150">
+      <constant namespace="RestPHP\Response" line="150" package="Default">
         <name>HTTP_500</name>
         <value><![CDATA["500 Internal Server Error"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="151">
+      <constant namespace="RestPHP\Response" line="151" package="Default">
         <name>HTTP_501</name>
         <value><![CDATA["501 Not Implemented"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="152">
+      <constant namespace="RestPHP\Response" line="152" package="Default">
         <name>HTTP_502</name>
         <value><![CDATA["502 Bad Gateway"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="153">
+      <constant namespace="RestPHP\Response" line="153" package="Default">
         <name>HTTP_503</name>
         <value><![CDATA["503 Service Unavailable"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="154">
+      <constant namespace="RestPHP\Response" line="154" package="Default">
         <name>HTTP_504</name>
         <value><![CDATA["504 Gateway Timeout"]]></value>
       </constant>
-      <constant namespace="RestPHP\Response" line="155">
+      <constant namespace="RestPHP\Response" line="155" package="Default">
         <name>HTTP_505</name>
         <value><![CDATA["505 HTTP Version Not Supported"]]></value>
       </constant>
@@ -6443,7 +6443,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="160" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="160" package="">
         <name>__construct</name>
         <type>function</type>
         <docblock line="157">
@@ -6459,7 +6459,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Request</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="171" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="171" package="">
         <name>setData</name>
         <type>function</type>
         <docblock line="164">
@@ -6483,7 +6483,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="188" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="188" package="">
         <name>__set</name>
         <type>function</type>
         <docblock line="182">
@@ -6507,7 +6507,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="199" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="199" package="">
         <name>getData</name>
         <type>function</type>
         <docblock line="193">
@@ -6526,7 +6526,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="214" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="214" package="">
         <name>__get</name>
         <type>function</type>
         <docblock line="208">
@@ -6545,7 +6545,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="225" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="225" package="">
         <name>isFgci</name>
         <type>function</type>
         <docblock line="219">
@@ -6557,7 +6557,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="235" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="235" package="">
         <name>setIsFgci</name>
         <type>function</type>
         <docblock line="230">
@@ -6573,7 +6573,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="246" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="246" package="">
         <name>isHttp</name>
         <type>function</type>
         <docblock line="240">
@@ -6585,7 +6585,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="256" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="256" package="">
         <name>setIsHttp</name>
         <type>function</type>
         <docblock line="251">
@@ -6601,7 +6601,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="266" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="266" package="">
         <name>getStatus</name>
         <type>function</type>
         <docblock line="261">
@@ -6612,7 +6612,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="276" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="276" package="">
         <name>setStatus</name>
         <type>function</type>
         <docblock line="271">
@@ -6628,7 +6628,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="286" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="286" package="">
         <name>setContentType</name>
         <type>function</type>
         <docblock line="281">
@@ -6644,7 +6644,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="311" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="311" package="">
         <name>addHeader</name>
         <type>function</type>
         <docblock line="291">
@@ -6686,7 +6686,7 @@ setting of headers like:</p>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="321" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="321" package="">
         <name>makeStatus</name>
         <type>function</type>
         <docblock line="316">
@@ -6697,7 +6697,7 @@ setting of headers like:</p>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="335" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="335" package="">
         <name>makeHeader</name>
         <type>function</type>
         <docblock line="329">
@@ -6716,7 +6716,7 @@ setting of headers like:</p>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="343" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="343" package="">
         <name>sendHeaders</name>
         <type>function</type>
         <docblock line="340">
@@ -6724,7 +6724,7 @@ setting of headers like:</p>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="357" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="357" package="">
         <name>getMarshaller</name>
         <type>function</type>
         <docblock line="352">
@@ -6735,7 +6735,7 @@ setting of headers like:</p>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="370" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="370" package="">
         <name>setMarshaller</name>
         <type>function</type>
         <docblock line="366">
@@ -6751,7 +6751,7 @@ setting of headers like:</p>
           <type>IMarshaller</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="379" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="379" package="">
         <name>setBody</name>
         <type>function</type>
         <docblock line="374">
@@ -6767,7 +6767,7 @@ setting of headers like:</p>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="389" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="389" package="">
         <name>getBody</name>
         <type>function</type>
         <docblock line="384">
@@ -6778,7 +6778,7 @@ setting of headers like:</p>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="409" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="409" package="">
         <name>getRequest</name>
         <type>function</type>
         <docblock line="404">
@@ -6789,7 +6789,7 @@ setting of headers like:</p>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="418" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="418" package="">
         <name>setRequest</name>
         <type>function</type>
         <docblock line="413">
@@ -6805,7 +6805,7 @@ setting of headers like:</p>
           <type>Request</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="425" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="425" package="">
         <name>output</name>
         <type>function</type>
         <docblock line="422">
@@ -6813,7 +6813,7 @@ setting of headers like:</p>
           <long-description><![CDATA[]]></long-description>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="440" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP\Response" line="440" package="">
         <name>__toString</name>
         <type>function</type>
         <docblock line="435">
@@ -6895,7 +6895,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="74" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="74" package="">
         <name>__construct</name>
         <type>function</type>
         <docblock line="69">
@@ -6911,7 +6911,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Config</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="86" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="86" package="">
         <name>getConfig</name>
         <type>function</type>
         <docblock line="81">
@@ -6922,7 +6922,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="96" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="96" package="">
         <name>setConfig</name>
         <type>function</type>
         <docblock line="91">
@@ -6938,7 +6938,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type>Config</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="RestPHP" line="107" package="Default">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="RestPHP" line="107" package="">
         <name>requestUriToResourceName</name>
         <type>function</type>
         <docblock line="101">
@@ -6957,7 +6957,7 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="136" package="Default">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="RestPHP" line="136" package="">
         <name>route</name>
         <type>function</type>
         <docblock line="129">
@@ -6981,26 +6981,28 @@ POSSIBILITY OF SUCH DAMAGE.</p>]]></long-description>
       </method>
     </class>
   </file>
-  <package name="Default"/>
-  <package name="RestPHP">
-    <package name=""/>
-    <package name="Request"/>
-    <package name="Resource"/>
-    <package name="Response"/>
+  <package name="" full_name=""/>
+  <package name="Default" full_name="Default"/>
+  <package name="RestPHP" full_name="RestPHP">
+    <package name="" full_name="RestPHP\"/>
+    <package name="Request" full_name="RestPHP\Request"/>
+    <package name="Resource" full_name="RestPHP\Resource"/>
+    <package name="Response" full_name="RestPHP\Response"/>
   </package>
-  <namespace name="RestPHP">
-    <namespace name="Error"/>
-    <namespace name="Request">
-      <namespace name="Header"/>
-      <namespace name="Unmarshaller"/>
+  <namespace name="RestPHP" full_name="RestPHP">
+    <namespace name="Error" full_name="RestPHP\Error"/>
+    <namespace name="Request" full_name="RestPHP\Request">
+      <namespace name="Header" full_name="RestPHP\Request\Header"/>
+      <namespace name="Unmarshaller" full_name="RestPHP\Request\Unmarshaller"/>
     </namespace>
-    <namespace name="Resource"/>
-    <namespace name="Response">
-      <namespace name="Header"/>
-      <namespace name="Marshaller"/>
+    <namespace name="Resource" full_name="RestPHP\Resource"/>
+    <namespace name="Response" full_name="RestPHP\Response">
+      <namespace name="Header" full_name="RestPHP\Response\Header"/>
+      <namespace name="Marshaller" full_name="RestPHP\Response\Marshaller"/>
     </namespace>
   </namespace>
-  <namespace name="default"/>
-  <marker>todo</marker>
-  <marker>fixme</marker>
+  <namespace name="default" full_name="default"/>
+  <marker count="2">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
 </project>

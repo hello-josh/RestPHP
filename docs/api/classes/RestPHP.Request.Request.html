@@ -1,0 +1,424 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \RestPHP\Request\Request</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/RestPHP.html"><i class="icon-th"></i> RestPHP</a></li>
+<li><a href="../namespaces/default.html"><i class="icon-th"></i> default</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/RestPHP.html"><i class="icon-folder-open"></i> RestPHP</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">154</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#__construct" title="__construct :: Creates the instance"><span class="description">Creates the instance</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#getBody" title="getBody :: Gets the raw body of the HTTP request"><span class="description">Gets the raw body of the HTTP request</span><pre>getBody()</pre></a></li>
+<li class="method public "><a href="#getConfig" title="getConfig :: Gets the current config"><span class="description">Gets the current config</span><pre>getConfig()</pre></a></li>
+<li class="method public "><a href="#getDefaultRequest" title="getDefaultRequest :: Convenience method for instantiating a \RestPHP\Request\Request based
+off of PHP's $_SERVER array when run via mod_php or fcgi"><span class="description">Convenience method for instantiating a \RestPHP\Request\Request based
+off of PHP's $_SERVER array when run via mod_php or fcgi</span><pre>getDefaultRequest()</pre></a></li>
+<li class="method public "><a href="#getHeader" title="getHeader :: Gets the specified HTTP header"><span class="description">Gets the specified HTTP header</span><pre>getHeader()</pre></a></li>
+<li class="method public "><a href="#getHttpMethod" title="getHttpMethod :: Gets the HTTP request method"><span class="description">Gets the HTTP request method</span><pre>getHttpMethod()</pre></a></li>
+<li class="method public "><a href="#getParam" title="getParam :: Gets the named param from the query string or from the unmarshalled body"><span class="description">Gets the named param from the query string or from the unmarshalled body</span><pre>getParam()</pre></a></li>
+<li class="method public "><a href="#getParams" title="getParams :: "><span class="description">getParams()
+        </span><pre>getParams()</pre></a></li>
+<li class="method public "><a href="#getRequestUri" title="getRequestUri :: Gets the requested URI"><span class="description">Gets the requested URI</span><pre>getRequestUri()</pre></a></li>
+<li class="method public "><a href="#getUnmarshaller" title="getUnmarshaller :: Gets the unmarshaller"><span class="description">Gets the unmarshaller</span><pre>getUnmarshaller()</pre></a></li>
+<li class="method public "><a href="#setBody" title="setBody :: Sets the request body"><span class="description">Sets the request body</span><pre>setBody()</pre></a></li>
+<li class="method public "><a href="#setConfig" title="setConfig :: Sets the current config"><span class="description">Sets the current config</span><pre>setConfig()</pre></a></li>
+<li class="method public "><a href="#setHeader" title="setHeader :: Sets the HTTP header"><span class="description">Sets the HTTP header</span><pre>setHeader()</pre></a></li>
+<li class="method public "><a href="#setHttpMethod" title="setHttpMethod :: Sets the HTTP request method"><span class="description">Sets the HTTP request method</span><pre>setHttpMethod()</pre></a></li>
+<li class="method public "><a href="#setRequestUri" title="setRequestUri :: Sets the requested URI"><span class="description">Sets the requested URI</span><pre>setRequestUri()</pre></a></li>
+<li class="method public "><a href="#setUnmarshaller" title="setUnmarshaller :: Sets the unmarshaller"><span class="description">Sets the unmarshaller</span><pre>setUnmarshaller()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#formatHeader" title="formatHeader :: "><span class="description">formatHeader()
+        </span><pre>formatHeader()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24body" title="$body :: Raw body of the HTTP request"><span class="description">Raw body of the HTTP request</span><pre>$body</pre></a></li>
+<li class="property protected "><a href="#%24config" title="$config :: "><span class="description">$config</span><pre>$config</pre></a></li>
+<li class="property protected "><a href="#%24headers" title="$headers :: HTTP Headers of the request"><span class="description">HTTP Headers of the request</span><pre>$headers</pre></a></li>
+<li class="property protected "><a href="#%24httpMethod" title="$httpMethod :: "><span class="description">$httpMethod</span><pre>$httpMethod</pre></a></li>
+<li class="property protected "><a href="#%24requestUri" title="$requestUri :: The URI requested"><span class="description">The URI requested</span><pre>$requestUri</pre></a></li>
+<li class="property protected "><a href="#%24unmarshaller" title="$unmarshaller :: "><span class="description">$unmarshaller</span><pre>$unmarshaller</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CRestPHP%5CRequest%5CRequest" id="\RestPHP\Request\Request"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/RestPHP.html">RestPHP</a></li>
+<span class="divider">\</span><li><a href="../namespaces/RestPHP.Request.html">Request</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/RestPHP.Request.Request.html">Request</a>
+</li>
+</ul>
+<div href="../classes/RestPHP.Request.Request.html" class="element class">
+<p class="short_description">Request</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>category</th>
+<td>RestPHP</td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="..//packages/RestPHP.Request.html">RestPHP</a></td>
+</tr>
+<tr>
+<th>subpackage</th>
+<td>Request</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:johnston.joshua@gmail.com">Joshua Johnston</a></td>
+</tr>
+<tr>
+<th>copyright</th>
+<td>2011 RestPHP Framework</td>
+</tr>
+<tr>
+<th>license</th>
+<td><a href="http://opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>Creates the instance</h2>
+<pre>__construct(Config $config) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$config</h4>
+<code><a href="../classes/RestPHP.Config.html">\RestPHP\Config</a></code>
+</div>
+</div></div>
+</div>
+<a name="getBody" id="getBody"></a><div class="element clickable method public getBody" data-toggle="collapse" data-target=".getBody .collapse">
+<h2>Gets the raw body of the HTTP request</h2>
+<pre>getBody() : string | false</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code><code>false</code>Raw body, or false if not present</div>
+</div></div>
+</div>
+<a name="getConfig" id="getConfig"></a><div class="element clickable method public getConfig" data-toggle="collapse" data-target=".getConfig .collapse">
+<h2>Gets the current config</h2>
+<pre>getConfig() : <a href="../classes/RestPHP.Config.html">\RestPHP\Config</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Config.html">\RestPHP\Config</a></code></div>
+</div></div>
+</div>
+<a name="getDefaultRequest" id="getDefaultRequest"></a><div class="element clickable method public getDefaultRequest" data-toggle="collapse" data-target=".getDefaultRequest .collapse">
+<h2>Convenience method for instantiating a \RestPHP\Request\Request based
+off of PHP's $_SERVER array when run via mod_php or fcgi</h2>
+<pre>getDefaultRequest(Config $config) : <a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$config</h4>
+<code><a href="../classes/RestPHP.Config.html">\RestPHP\Config</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></code></div>
+</div></div>
+</div>
+<a name="getHeader" id="getHeader"></a><div class="element clickable method public getHeader" data-toggle="collapse" data-target=".getHeader .collapse">
+<h2>Gets the specified HTTP header</h2>
+<pre>getHeader(string $header) : <a href="../classes/RestPHP.Request.Header.IHeader.html">\RestPHP\Request\Header\IHeader</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$header</h4>
+<code>string</code><p>HTTP Header requested</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/RestPHP.Request.Header.IHeader.html">\RestPHP\Request\Header\IHeader</a></code>or NULL if not set</div>
+</div></div>
+</div>
+<a name="getHttpMethod" id="getHttpMethod"></a><div class="element clickable method public getHttpMethod" data-toggle="collapse" data-target=".getHttpMethod .collapse">
+<h2>Gets the HTTP request method</h2>
+<pre>getHttpMethod() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="getParam" id="getParam"></a><div class="element clickable method public getParam" data-toggle="collapse" data-target=".getParam .collapse">
+<h2>Gets the named param from the query string or from the unmarshalled body</h2>
+<pre>getParam(string $name, mixed $default) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$default</h4>
+<code>mixed</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a name="getParams" id="getParams"></a><div class="element clickable method public getParams" data-toggle="collapse" data-target=".getParams .collapse">
+<h2>getParams()
+        </h2>
+<pre>getParams() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="getRequestUri" id="getRequestUri"></a><div class="element clickable method public getRequestUri" data-toggle="collapse" data-target=".getRequestUri .collapse">
+<h2>Gets the requested URI</h2>
+<pre>getRequestUri() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a name="getUnmarshaller" id="getUnmarshaller"></a><div class="element clickable method public getUnmarshaller" data-toggle="collapse" data-target=".getUnmarshaller .collapse">
+<h2>Gets the unmarshaller</h2>
+<pre>getUnmarshaller() : <a href="../classes/RestPHP.Request.Unmarshaller.IUnmarshaller.html">\RestPHP\Request\Unmarshaller\IUnmarshaller</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Request.Unmarshaller.IUnmarshaller.html">\RestPHP\Request\Unmarshaller\IUnmarshaller</a></code></div>
+</div></div>
+</div>
+<a name="setBody" id="setBody"></a><div class="element clickable method public setBody" data-toggle="collapse" data-target=".setBody .collapse">
+<h2>Sets the request body</h2>
+<pre>setBody(string $body) : <a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$body</h4>
+<code>string</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></code></div>
+</div></div>
+</div>
+<a name="setConfig" id="setConfig"></a><div class="element clickable method public setConfig" data-toggle="collapse" data-target=".setConfig .collapse">
+<h2>Sets the current config</h2>
+<pre>setConfig(Config $config) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$config</h4>
+<code><a href="../classes/RestPHP.Config.html">\RestPHP\Config</a></code>
+</div>
+</div></div>
+</div>
+<a name="setHeader" id="setHeader"></a><div class="element clickable method public setHeader" data-toggle="collapse" data-target=".setHeader .collapse">
+<h2>Sets the HTTP header</h2>
+<pre>setHeader(string $header, string $value, boolean $allowMultiple) : <a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$header</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$allowMultiple</h4>
+<code>boolean</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.invalidargumentexception.php">\InvalidArgumentException</a></code></th>
+<td></td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></code></div>
+</div></div>
+</div>
+<a name="setHttpMethod" id="setHttpMethod"></a><div class="element clickable method public setHttpMethod" data-toggle="collapse" data-target=".setHttpMethod .collapse">
+<h2>Sets the HTTP request method</h2>
+<pre>setHttpMethod(string $httpMethod) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$httpMethod</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a name="setRequestUri" id="setRequestUri"></a><div class="element clickable method public setRequestUri" data-toggle="collapse" data-target=".setRequestUri .collapse">
+<h2>Sets the requested URI</h2>
+<pre>setRequestUri(string $requestUri) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$requestUri</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a name="setUnmarshaller" id="setUnmarshaller"></a><div class="element clickable method public setUnmarshaller" data-toggle="collapse" data-target=".setUnmarshaller .collapse">
+<h2>Sets the unmarshaller</h2>
+<pre>setUnmarshaller(IUnmarshaller $unmarshaller) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$unmarshaller</h4>
+<code><a href="../classes/RestPHP.Request.Unmarshaller.IUnmarshaller.html">\RestPHP\Request\Unmarshaller\IUnmarshaller</a></code>
+</div>
+</div></div>
+</div>
+<a name="formatHeader" id="formatHeader"></a><div class="element clickable method protected formatHeader" data-toggle="collapse" data-target=".formatHeader .collapse">
+<h2>formatHeader()
+        </h2>
+<pre>formatHeader($header) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$header</h4>
+<code></code>
+</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24body" id="$body"> </a><div class="element clickable property protected $body" data-toggle="collapse" data-target=".$body .collapse">
+<h2>Raw body of the HTTP request</h2>
+<pre>$body : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24config" id="$config"> </a><div class="element clickable property protected $config" data-toggle="collapse" data-target=".$config .collapse">
+<h2>$config</h2>
+<pre>$config : <a href="../classes/RestPHP.Config.html">\RestPHP\Config</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24headers" id="$headers"> </a><div class="element clickable property protected $headers" data-toggle="collapse" data-target=".$headers .collapse">
+<h2>HTTP Headers of the request</h2>
+<pre>$headers : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>todo</th>
+<td>Figure out if I need to store an array of standard headers or not</td>
+</tr></table>
+</div></div>
+</div>
+<a name="%24httpMethod" id="$httpMethod"> </a><div class="element clickable property protected $httpMethod" data-toggle="collapse" data-target=".$httpMethod .collapse">
+<h2>$httpMethod</h2>
+<pre>$httpMethod : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24requestUri" id="$requestUri"> </a><div class="element clickable property protected $requestUri" data-toggle="collapse" data-target=".$requestUri .collapse">
+<h2>The URI requested</h2>
+<pre>$requestUri : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24unmarshaller" id="$unmarshaller"> </a><div class="element clickable property protected $unmarshaller" data-toggle="collapse" data-target=".$unmarshaller .collapse">
+<h2>$unmarshaller</h2>
+<pre>$unmarshaller : <a href="../classes/RestPHP.Request.Unmarshaller.IUnmarshaller.html">\RestPHP\Request\Unmarshaller\IUnmarshaller</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-05-09T11:09:48-04:00.<br></footer></div>
+</div>
+</body>
+</html>

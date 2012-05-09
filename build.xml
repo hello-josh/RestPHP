@@ -92,11 +92,10 @@
         </exec>
     </target>
 
-    <target name="docblox">
+    <target name="phpdoc">
         <mkdir dir="${basedir}/docs/api"/>
-        <exec executable="docblox" failonerror="true">
-            <arg line="project:run
-               -d ${source}
+        <exec executable="phpdoc" failonerror="true">
+            <arg line="-d ${source}
                -t ${basedir}/docs/api" />
         </exec>
     </target>

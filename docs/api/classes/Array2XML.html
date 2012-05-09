@@ -1,0 +1,239 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Array2XML</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/RestPHP.html"><i class="icon-th"></i> RestPHP</a></li>
+<li><a href="../namespaces/default.html"><i class="icon-th"></i> default</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/RestPHP.html"><i class="icon-folder-open"></i> RestPHP</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">154</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#createXML" title="createXML :: Convert an Array to XML"><span class="description">Convert an Array to XML</span><pre>createXML()</pre></a></li>
+<li class="method public "><a href="#init" title="init :: Initialize the root XML node [optional]"><span class="description">Initialize the root XML node [optional]</span><pre>init()</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="method private "><a href="#bool2str" title="bool2str :: "><span class="description">bool2str()
+        </span><pre>bool2str()</pre></a></li>
+<li class="method private "><a href="#convert" title="convert :: Convert an Array to XML"><span class="description">Convert an Array to XML</span><pre>convert()</pre></a></li>
+<li class="method private "><a href="#getXMLRoot" title="getXMLRoot :: "><span class="description">getXMLRoot()
+        </span><pre>getXMLRoot()</pre></a></li>
+<li class="method private "><a href="#isValidTagName" title="isValidTagName :: "><span class="description">isValidTagName()
+        </span><pre>isValidTagName()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header private">» Private</li>
+<li class="property private "><a href="#%24encoding" title="$encoding :: "><span class="description">$encoding</span><pre>$encoding</pre></a></li>
+<li class="property private "><a href="#%24xml" title="$xml :: "><span class="description">$xml</span><pre>$xml</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CArray2XML" id="\Array2XML"></a><div href="../classes/Array2XML.html" class="element class">
+<p class="short_description">Array2XML: A class to convert array in PHP to XML
+It also takes into account attributes names unlike SimpleXML in PHP
+It returns the XML in form of DOMDocument class for further manipulation.</p>
+<div class="details">
+<p class="long_description"><p>It throws exception if the tag name or attribute name has illegal chars.</p>
+
+<p>Author : Lalit Patel
+Website: http://www.lalit.org/lab/convert-php-array-to-xml-with-attributes
+License: Apache License 2.0
+         http://www.apache.org/licenses/LICENSE-2.0
+Version: 0.1 (10 July 2011)
+Version: 0.2 (16 August 2011)
+         - replaced htmlentities() with htmlspecialchars() (Thanks to Liel Dulev)
+         - fixed a edge case where root node has a false/null/0 value. (Thanks to Liel Dulev)
+Version: 0.3 (22 August 2011)
+         - fixed tag sanitize regex which didn't allow tagnames with single character.
+Version: 0.4 (18 September 2011)
+         - Added support for CDATA section using @cdata instead of @value.
+Version: 0.5 (07 December 2011)
+         - Changed logic to check numeric array indices not starting from 0.
+Version: 0.6 (04 March 2012)
+         - Code now doesn't @cdata to be placed in an empty array
+Version: 0.7 (24 March 2012)
+         - Reverted to version 0.5</p>
+
+<p>Usage:
+      $xml = Array2XML::createXML('root_node_name', $php_array);
+      echo $xml->saveXML();</p></p>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="createXML" id="createXML"></a><div class="element clickable method public createXML" data-toggle="collapse" data-target=".createXML .collapse">
+<h2>Convert an Array to XML</h2>
+<pre>createXML(string $node_name, array $arr) : <a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node_name</h4>
+<code>string</code><ul>
+<li>name of the root node to be converted</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$arr</h4>
+<code>array</code><ul>
+<li>aray to be converterd</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="http://php.net/manual/en/class.domdocument.php">\DOMDocument</a></code></div>
+</div></div>
+</div>
+<a name="init" id="init"></a><div class="element clickable method public init" data-toggle="collapse" data-target=".init .collapse">
+<h2>Initialize the root XML node [optional]</h2>
+<pre>init($version, $encoding, $format_output) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$version</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$encoding</h4>
+<code></code>
+</div>
+<div class="subelement argument">
+<h4>$format_output</h4>
+<code></code>
+</div>
+</div></div>
+</div>
+<a name="bool2str" id="bool2str"></a><div class="element clickable method private bool2str" data-toggle="collapse" data-target=".bool2str .collapse">
+<h2>bool2str()
+        </h2>
+<pre>bool2str($v) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$v</h4>
+<code></code>
+</div>
+</div></div>
+</div>
+<a name="convert" id="convert"></a><div class="element clickable method private convert" data-toggle="collapse" data-target=".convert .collapse">
+<h2>Convert an Array to XML</h2>
+<pre>convert(string $node_name, array | \Traversable $arr) : <a href="http://php.net/manual/en/class.domnode.php">\DOMNode</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$node_name</h4>
+<code>string</code><ul>
+<li>name of the root node to be converted</li>
+</ul>
+</div>
+<div class="subelement argument">
+<h4>$arr</h4>
+<code>array\Traversable</code><ul>
+<li>aray to be converterd</li>
+</ul>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="http://php.net/manual/en/class.domnode.php">\DOMNode</a></code></div>
+</div></div>
+</div>
+<a name="getXMLRoot" id="getXMLRoot"></a><div class="element clickable method private getXMLRoot" data-toggle="collapse" data-target=".getXMLRoot .collapse">
+<h2>getXMLRoot()
+        </h2>
+<pre>getXMLRoot() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="isValidTagName" id="isValidTagName"></a><div class="element clickable method private isValidTagName" data-toggle="collapse" data-target=".isValidTagName .collapse">
+<h2>isValidTagName()
+        </h2>
+<pre>isValidTagName($tag) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tag</h4>
+<code></code>
+</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24encoding" id="$encoding"> </a><div class="element clickable property private $encoding" data-toggle="collapse" data-target=".$encoding .collapse">
+<h2>$encoding</h2>
+<pre>$encoding </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24xml" id="$xml"> </a><div class="element clickable property private $xml" data-toggle="collapse" data-target=".$xml .collapse">
+<h2>$xml</h2>
+<pre>$xml </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-05-09T11:09:48-04:00.<br></footer></div>
+</div>
+</body>
+</html>

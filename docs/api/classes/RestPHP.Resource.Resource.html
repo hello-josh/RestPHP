@@ -1,0 +1,359 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \RestPHP\Resource\Resource</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/RestPHP.html"><i class="icon-th"></i> RestPHP</a></li>
+<li><a href="../namespaces/default.html"><i class="icon-th"></i> default</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/RestPHP.html"><i class="icon-folder-open"></i> RestPHP</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">154</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">2</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#after" title="after :: Called after executing the proper resource method. This is not
+Called if before() returns false"><span class="description">Called after executing the proper resource method. This is not
+Called if before() returns false</span><pre>after()</pre></a></li>
+<li class="method public "><a href="#before" title="before :: Called before executing the proper resource method."><span class="description">Called before executing the proper resource method.</span><pre>before()</pre></a></li>
+<li class="method public "><a href="#execute" title="execute :: "><span class="description">execute()
+        </span><pre>execute()</pre></a></li>
+<li class="method public "><a href="#get" title="get :: Called for GET requests"><span class="description">Called for GET requests</span><pre>get()</pre></a></li>
+<li class="method public "><a href="#getApplication" title="getApplication :: "><span class="description">getApplication()
+        </span><pre>getApplication()</pre></a></li>
+<li class="method public "><a href="#getParam" title="getParam :: Proxy method to get a parameter from the request"><span class="description">Proxy method to get a parameter from the request</span><pre>getParam()</pre></a></li>
+<li class="method public "><a href="#getRequest" title="getRequest :: "><span class="description">getRequest()
+        </span><pre>getRequest()</pre></a></li>
+<li class="method public "><a href="#getResponse" title="getResponse :: "><span class="description">getResponse()
+        </span><pre>getResponse()</pre></a></li>
+<li class="method public "><a href="#head" title="head :: Called for HEAD requests"><span class="description">Called for HEAD requests</span><pre>head()</pre></a></li>
+<li class="method public "><a href="#options" title="options :: Called for OPTIONS requests"><span class="description">Called for OPTIONS requests</span><pre>options()</pre></a></li>
+<li class="method public "><a href="#post" title="post :: Called for POST requests"><span class="description">Called for POST requests</span><pre>post()</pre></a></li>
+<li class="method public "><a href="#put" title="put :: Called for PUT requests"><span class="description">Called for PUT requests</span><pre>put()</pre></a></li>
+<li class="method public "><a href="#setApplication" title="setApplication :: "><span class="description">setApplication()
+        </span><pre>setApplication()</pre></a></li>
+<li class="method public "><a href="#setData" title="setData :: Proxy method to set output data"><span class="description">Proxy method to set output data</span><pre>setData()</pre></a></li>
+<li class="method public "><a href="#setRequest" title="setRequest :: "><span class="description">setRequest()
+        </span><pre>setRequest()</pre></a></li>
+<li class="method public "><a href="#setResponse" title="setResponse :: "><span class="description">setResponse()
+        </span><pre>setResponse()</pre></a></li>
+<li class="method public "><a href="#trace" title="trace :: Called for TRACE requests"><span class="description">Called for TRACE requests</span><pre>trace()</pre></a></li>
+<li class="nav-header private">» Private</li>
+<li class="method private "><a href="#defaultNotImplemented" title="defaultNotImplemented :: "><span class="description">defaultNotImplemented()
+        </span><pre>defaultNotImplemented()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24application" title="$application :: "><span class="description">$application</span><pre>$application</pre></a></li>
+<li class="property protected "><a href="#%24request" title="$request :: Request Instance"><span class="description">Request Instance</span><pre>$request</pre></a></li>
+<li class="property protected "><a href="#%24response" title="$response :: Response Instance"><span class="description">Response Instance</span><pre>$response</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CRestPHP%5CResource%5CResource" id="\RestPHP\Resource\Resource"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/RestPHP.html">RestPHP</a></li>
+<span class="divider">\</span><li><a href="../namespaces/RestPHP.Resource.html">Resource</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/RestPHP.Resource.Resource.html">Resource</a>
+</li>
+</ul>
+<div href="../classes/RestPHP.Resource.Resource.html" class="element class">
+<p class="short_description">RestPHP Base Resource class</p>
+<div class="details">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>category</th>
+<td>RestPHP</td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="..//packages/RestPHP.Resource.html">RestPHP</a></td>
+</tr>
+<tr>
+<th>subpackage</th>
+<td>Resource</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:johnston.joshua@gmail.com">Joshua Johnston</a></td>
+</tr>
+<tr>
+<th>copyright</th>
+<td>2011 RestPHP Framework</td>
+</tr>
+<tr>
+<th>license</th>
+<td><a href="http://opensource.org/licenses/bsd-license.php">New BSD License</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="after" id="after"></a><div class="element clickable method public after" data-toggle="collapse" data-target=".after .collapse">
+<h2>Called after executing the proper resource method. This is not
+Called if before() returns false</h2>
+<pre>after() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="before" id="before"></a><div class="element clickable method public before" data-toggle="collapse" data-target=".before .collapse">
+<h2>Called before executing the proper resource method.</h2>
+<pre>before() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"><p>Return false to cancel the action</p></p></div></div>
+</div>
+<a name="execute" id="execute"></a><div class="element clickable method public execute" data-toggle="collapse" data-target=".execute .collapse">
+<h2>execute()
+        </h2>
+<pre>execute() : <a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></code></div>
+</div></div>
+</div>
+<a name="get" id="get"></a><div class="element clickable method public get" data-toggle="collapse" data-target=".get .collapse">
+<h2>Called for GET requests</h2>
+<pre>get() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="getApplication" id="getApplication"></a><div class="element clickable method public getApplication" data-toggle="collapse" data-target=".getApplication .collapse">
+<h2>getApplication()
+        </h2>
+<pre>getApplication() : <a href="../classes/RestPHP.Application.html">\RestPHP\Application</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Application.html">\RestPHP\Application</a></code></div>
+</div></div>
+</div>
+<a name="getParam" id="getParam"></a><div class="element clickable method public getParam" data-toggle="collapse" data-target=".getParam .collapse">
+<h2>Proxy method to get a parameter from the request</h2>
+<pre>getParam(string $param, mixed $default) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td>\MYDROBE\Request\Request::getParam</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$param</h4>
+<code>string</code><p>Named parameter to fetch</p></div>
+<div class="subelement argument">
+<h4>$default</h4>
+<code>mixed</code><p>Default when $param does not exist</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a name="getRequest" id="getRequest"></a><div class="element clickable method public getRequest" data-toggle="collapse" data-target=".getRequest .collapse">
+<h2>getRequest()
+        </h2>
+<pre>getRequest() : <a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></code></div>
+</div></div>
+</div>
+<a name="getResponse" id="getResponse"></a><div class="element clickable method public getResponse" data-toggle="collapse" data-target=".getResponse .collapse">
+<h2>getResponse()
+        </h2>
+<pre>getResponse() : <a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></code></div>
+</div></div>
+</div>
+<a name="head" id="head"></a><div class="element clickable method public head" data-toggle="collapse" data-target=".head .collapse">
+<h2>Called for HEAD requests</h2>
+<pre>head() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="options" id="options"></a><div class="element clickable method public options" data-toggle="collapse" data-target=".options .collapse">
+<h2>Called for OPTIONS requests</h2>
+<pre>options() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="post" id="post"></a><div class="element clickable method public post" data-toggle="collapse" data-target=".post .collapse">
+<h2>Called for POST requests</h2>
+<pre>post() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="put" id="put"></a><div class="element clickable method public put" data-toggle="collapse" data-target=".put .collapse">
+<h2>Called for PUT requests</h2>
+<pre>put() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="setApplication" id="setApplication"></a><div class="element clickable method public setApplication" data-toggle="collapse" data-target=".setApplication .collapse">
+<h2>setApplication()
+        </h2>
+<pre>setApplication(Application $application) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$application</h4>
+<code><a href="../classes/RestPHP.Application.html">\RestPHP\Application</a></code>
+</div>
+</div></div>
+</div>
+<a name="setData" id="setData"></a><div class="element clickable method public setData" data-toggle="collapse" data-target=".setData .collapse">
+<h2>Proxy method to set output data</h2>
+<pre>setData(mixed $data, mixed $value) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>see</th>
+<td>\MyDROBE\Response\Response::setData</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$data</h4>
+<code>mixed</code>
+</div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code>
+</div>
+</div></div>
+</div>
+<a name="setRequest" id="setRequest"></a><div class="element clickable method public setRequest" data-toggle="collapse" data-target=".setRequest .collapse">
+<h2>setRequest()
+        </h2>
+<pre>setRequest(Request $request) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$request</h4>
+<code><a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></code>
+</div>
+</div></div>
+</div>
+<a name="setResponse" id="setResponse"></a><div class="element clickable method public setResponse" data-toggle="collapse" data-target=".setResponse .collapse">
+<h2>setResponse()
+        </h2>
+<pre>setResponse(Response $response) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$response</h4>
+<code><a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></code>
+</div>
+</div></div>
+</div>
+<a name="trace" id="trace"></a><div class="element clickable method public trace" data-toggle="collapse" data-target=".trace .collapse">
+<h2>Called for TRACE requests</h2>
+<pre>trace() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="defaultNotImplemented" id="defaultNotImplemented"></a><div class="element clickable method private defaultNotImplemented" data-toggle="collapse" data-target=".defaultNotImplemented .collapse">
+<h2>defaultNotImplemented()
+        </h2>
+<pre>defaultNotImplemented() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24application" id="$application"> </a><div class="element clickable property protected $application" data-toggle="collapse" data-target=".$application .collapse">
+<h2>$application</h2>
+<pre>$application : <a href="../classes/RestPHP.Application.html">\RestPHP\Application</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24request" id="$request"> </a><div class="element clickable property protected $request" data-toggle="collapse" data-target=".$request .collapse">
+<h2>Request Instance</h2>
+<pre>$request : <a href="../classes/RestPHP.Request.Request.html">\RestPHP\Request\Request</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+<a name="%24response" id="$response"> </a><div class="element clickable property protected $response" data-toggle="collapse" data-target=".$response .collapse">
+<h2>Response Instance</h2>
+<pre>$response : <a href="../classes/RestPHP.Response.Response.html">\RestPHP\Response\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="span8"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a2</a> and<br>
+            generated on 2012-05-09T11:09:48-04:00.<br></footer></div>
+</div>
+</body>
+</html>
