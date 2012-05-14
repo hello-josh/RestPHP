@@ -65,7 +65,7 @@ class Json implements IMarshaller
     public function marshall(\RestPHP\Response\Response $response)
     {
         $body = $response->getData();
-        return \Zend_Json_Encoder::encode($body);
+        $body = $this->convert($body);
         return json_encode($body);
     }
 
@@ -74,5 +74,26 @@ class Json implements IMarshaller
      */
     public function getContentType() {
         return 'application/json';
+    }
+
+    /**
+     * Converts anything to an array for encoding!
+     * @param mixed $data
+     * @return
+     */
+    protected function convert($data) {
+
+        if (is_array($data) || $data instanceof \Traversable) {
+            $out = array();
+            foreach ($data as $k => $datum) {
+                $out[$k] = $this->convert($datum);
+            }
+
+            return $out;
+        } elseif (is_object($data) && method_exists($data, 'toArray')) {
+            return $this->convert($data->toArray());
+        } else {
+            return $data;
+        }
     }
 }
