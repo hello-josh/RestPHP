@@ -58,13 +58,14 @@ class Json implements IMarshaller
 {
     /**
      * Converts an associative array to a json encoded string
-     * 
+     *
      * @param \RestPHP\Response\Response $response
      * @return string json encoded string
      */
     public function marshall(\RestPHP\Response\Response $response)
     {
         $body = $response->getData();
+        return \Zend_Json_Encoder::encode($body);
         return json_encode($body);
     }
 
