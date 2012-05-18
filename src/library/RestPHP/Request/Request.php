@@ -169,8 +169,9 @@ class Request
         'Upgrade' => null,
         'User-Agent' => null,
         'Via' => null,
-        'Warning' => null
-    );
+        'Warning' => null,
+        'Origin' => null
+     );
 
     /**
      *

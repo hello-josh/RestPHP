@@ -36,7 +36,7 @@
  * @category   RestPHP
  * @package    RestPHP
  * @subpackage Request
- * @author     Joshua Johnston <johnston.joshua@gmail.com>
+ * @author     Mike Lind <lind.mike@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
@@ -47,67 +47,36 @@
 namespace RestPHP\Request\Header;
 
 /**
- * HeaderFactory - Request header factory
+ * HTTP Request header containing authorization details
+ *
  *
  * @category   RestPHP
  * @package    RestPHP
  * @subpackage Request
- * @author     Joshua Johnston <johnston.joshua@gmail.com>
+ * @author     Mike Lind <lind.mike@gmail.com>
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  * @link       http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC 2616 Section 14
  */
-class HeaderFactory
+class Origin extends Header
 {
-    protected static $headers = array(
-        'Accept'              => 'Accept',
-        'Accept-Charset'      => 'Accept-Charset',
-        'Accept-Encoding'     => 'Accept-Encoding',
-        'Accept-Language'     => 'Accept-Language',
-        'Authorization'       => 'Authorization',
-        'Cache-Control'       => 'Cache-Control',
-        'Connection'          => 'Connection',
-        'Cookie'              => 'Cookie',
-        'Content-Length'      => 'Content-Length',
-        'Content-MD5'         => 'Content-MD5',
-        'Content-Type'        => 'Content-Type',
-        'Date'                => 'Date',
-        'Expect'              => 'Expect',
-        'From'                => 'From',
-        'Host'                => 'Host',
-        'If-Match'            => 'If-Match',
-        'If-Modified-Since'   => 'If-Modified-Since',
-        'If-None-Match'       => 'If-None-Match',
-        'If-Range'            => 'If-Range',
-        'If-Unmodified-Since' => 'If-Unmodified-Since',
-        'Max-Forwards'        => 'Max-Forwards',
-        'Pragma'              => 'Pragma',
-        'Proxy-Authorization' => 'Proxy-Authorization',
-        'Range'               => 'Range',
-        'Referer'             => 'Referer',
-        'TE'                  => 'TE',
-        'Upgrade'             => 'Upgrade',
-        'User-Agent'          => 'User-Agent',
-        'Via'                 => 'Via',
-        'Warning'             => 'Warning',
-        'Origin'              => 'Origin'
-    );
+    protected $rawValue;
 
-    public static function factory($header)
+    public function getRawValue()
     {
-        $headerClass = 'XHeader';
-        if (static::isStandardHeader($header)) {
-            $header = str_replace('-', ' ', $header);
-            $header = ucwords(strtolower($header));
-            $headerClass = str_replace(' ', '', $header);
-        }
-
-        $headerClass = __NAMESPACE__ . '\\' . $headerClass;
-        return new $headerClass();
+        return $this->rawValue;
     }
 
-    public static function isStandardHeader($header)
+    /**
+     * Parses the HTTP Origin header
+     *
+     * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+     *
+     * @param string $header the value of the Origin header after the colon
+     */
+    public function parse($header)
     {
-        return isset(static::$headers[$header]);
+        $this->rawValue = $header;
+        
     }
 }
