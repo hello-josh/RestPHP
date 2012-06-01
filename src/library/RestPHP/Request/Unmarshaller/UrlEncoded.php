@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP\Request\Unmarshaller;
 
 /**
@@ -54,36 +54,10 @@ namespace RestPHP\Request\Unmarshaller;
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-class UnmarshallerFactory
+class UrlEncoded implements IUnmarshaller
 {
-    /**
-     *
-     * @param \RestPHP\Request\Header\ContentType $contentType
-     * @return \RestPHP\Request\Unmarshaller\IUnmarshaller
-     * @throws \RestPHP\Request\Unmarshaller\NoValidUnmarshallerException
-     */
-    public static function factory(\RestPHP\Request\Header\ContentType $contentType = null)
+    public function unmarshall($requestBody)
     {
-        switch ($contentType->getRawValue()) {
-
-            case 'text/xml':
-            case 'application/xml':
-                return new Xml();
-                break;
-
-            case 'application/json':
-            case 'text/json':
-            case 'application/x-json':
-            case 'text/x-json':
-                return new Json();
-                break;
-
-            case 'application/x-www-form-urlencoded':
-                return new UrlEncoded();
-                break;
-
-            default:
-                throw new NoValidUnmarshallerException();
-        }
+        return parse_str($requestBody);
     }
 }
