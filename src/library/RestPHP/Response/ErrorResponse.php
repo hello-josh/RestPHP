@@ -68,6 +68,7 @@ class ErrorResponse extends Response
         $this->message = "This is our clever error message for when we dun goofed";
         if ($e) {
             $this->setException($e);
+            $this->message = $e->getMessage();
         }
     }
 
