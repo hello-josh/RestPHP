@@ -106,7 +106,7 @@ class Router
      */
     protected function requestUriToResourceName($requestUri)
     {
-        $classname = ltrim($requestUri, '/');
+        $classname = trim($requestUri, '/');
 
         if (strlen($classname) == 0) {
             $classname = 'index';
