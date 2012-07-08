@@ -166,11 +166,22 @@ class Resource
     {
         $method = strtolower($this->getRequest()->getHttpMethod());
 
+        $response = $this->getResponse();
+
         if ($this->before()) {
-            $this->$method();
+
+            $output = $this->$method();
+
+            // if the method returns data then we will assume it should
+            // be used as the API output. This should have been the behavior
+            // all along to simplify usage
+            if (null !== $output) {
+                $response->setData($output);
+            }
+
             $this->after();
         }
-        return $this->getResponse();
+        return $response;
     }
 
     /**
