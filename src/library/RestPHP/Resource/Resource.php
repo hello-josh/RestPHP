@@ -133,7 +133,7 @@ class Resource
     /**
      * Proxy method to get a parameter from the request
      *
-     * @see \MYDROBE\Request\Request::getParam
+     * @see \RestPHP\Request\Request::getParam
      * @param string $param Named parameter to fetch
      * @param mixed $default Default when $param does not exist
      * @return mixed
@@ -145,7 +145,7 @@ class Resource
     /**
      * Proxy method to set output data
      *
-     * @see \MyDROBE\Response\Response::setData
+     * @see \RestPHP\Response\Response::setData
      * @param mixed $data
      * @param mixed $value
      */

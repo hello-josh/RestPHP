@@ -397,13 +397,33 @@ class Request
      */
     public function getParam($name, $default = null) {
 
-        if (array_key_exists($name, $_GET)) {
-            return $_GET[$name];
-        } elseif (array_key_exists($name, $this->getBody())) {
-            $body = $this->getBody();
-            return $body[$name];
-        } else {
-            return $default;
+        switch ($this->getHttpMethod()) {
+
+            case 'GET':
+            case 'DELETE':
+
+                if (array_key_exists($name, $_GET)) {
+                    return $_GET[$name];
+                }
+                return $default;
+
+                break;
+
+            case 'POST':
+            case 'PUT':
+
+                // priority is request body, then query string
+                if (array_key_exists($name, $this->getBody())) {
+                    $body = $this->getBody();
+                    return $body[$name];
+                } elseif (array_key_exists($name, $_GET)) {
+                    return $_GET[$name];
+                } else {
+                    return $default;
+                }
+
+                break;
+
         }
     }
 
