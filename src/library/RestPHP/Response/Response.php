@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
+
 /**
  * @namespace
  */
-
 namespace RestPHP\Response;
 
 use \RestPHP\Request\Request,
@@ -440,5 +440,16 @@ class Response
     public function __toString()
     {
         return $this->getBody();
+    }
+
+    /**
+     * Convenience method to set a standard error code and message when a
+     * required parameter is not present for a resource
+     *
+     * @param string $parameterName
+     */
+    protected function errorRequiredParameter($parameterName) {
+        $this->setStatus(self::HTTP_400);
+        $this->message = "Missing required parameter '{$parameterName}'";
     }
 }

@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
+
 /**
  * @namespace
  */
-
 namespace RestPHP\Resource;
 
 /**
@@ -58,6 +58,7 @@ namespace RestPHP\Resource;
  */
 class Resource
 {
+
     /**
      * Request Instance
      *
@@ -82,8 +83,7 @@ class Resource
      *
      * @return \RestPHP\Request\Request
      */
-    public function getRequest()
-    {
+    public function getRequest() {
         return $this->request;
     }
 
@@ -91,8 +91,7 @@ class Resource
      *
      * @param \RestPHP\Request\Request $request
      */
-    public function setRequest(\RestPHP\Request\Request $request)
-    {
+    public function setRequest(\RestPHP\Request\Request $request) {
         $this->request = $request;
     }
 
@@ -100,8 +99,7 @@ class Resource
      *
      * @return \RestPHP\Response\Response
      */
-    public function getResponse()
-    {
+    public function getResponse() {
         return $this->response;
     }
 
@@ -109,8 +107,7 @@ class Resource
      *
      * @param \RestPHP\Response\Response $response
      */
-    public function setResponse(\RestPHP\Response\Response $response)
-    {
+    public function setResponse(\RestPHP\Response\Response $response) {
         $this->response = $response;
     }
 
@@ -162,8 +159,7 @@ class Resource
      *
      * @return \RestPHP\Response\Response
      */
-    public function execute()
-    {
+    public function execute() {
         $method = strtolower($this->getRequest()->getHttpMethod());
 
         $response = $this->getResponse();
@@ -181,6 +177,7 @@ class Resource
 
             $this->after();
         }
+
         return $response;
     }
 
@@ -196,63 +193,60 @@ class Resource
      * Called after executing the proper resource method. This is not
      * Called if before() returns false
      */
-    public function after() {}
+    public function after() {
+
+    }
 
     /**
      * Called for OPTIONS requests
      */
-    public function options()
-    {
+    public function options() {
         $this->defaultNotImplemented();
     }
 
     /**
      * Called for GET requests
      */
-    public function get()
-    {
+    public function get() {
         $this->defaultNotImplemented();
     }
 
     /**
      * Called for HEAD requests
      */
-    public function head()
-    {
+    public function head() {
         $this->defaultNotImplemented();
     }
 
     /**
      * Called for POST requests
      */
-    public function post()
-    {
+    public function post() {
         $this->defaultNotImplemented();
     }
 
     /**
      * Called for PUT requests
      */
-    public function put()
-    {
+    public function put() {
         $this->defaultNotImplemented();
     }
 
     /**
      * Called for TRACE requests
      */
-    public function trace()
-    {
+    public function trace() {
         $this->defaultNotImplemented();
     }
 
-    private function defaultNotImplemented()
-    {
-        $method = strtoupper($this->getRequest()->getHttpMethod());
+    /**
+     * Default handler for when an HTTP method is not implemented for the given resource
+     */
+    private function defaultNotImplemented() {
+        $method = $this->getRequest()->getHttpMethod();
         $response = $this->getResponse();
-        $response->setStatus(501);
+        $response->setStatus(\RestPHP\Response\Response::HTTP_501);
         $response->message = sprintf(
-                'The HTTP Method %s is not implemented for this resource',
-                $method);
+            'The HTTP Method %s is not implemented for this resource', $method);
     }
 }
