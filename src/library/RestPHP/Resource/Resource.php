@@ -162,8 +162,6 @@ class Resource
     public function execute() {
         $method = strtolower($this->getRequest()->getHttpMethod());
 
-        $response = $this->getResponse();
-
         if ($this->before()) {
 
             $output = $this->$method();
@@ -172,13 +170,13 @@ class Resource
             // be used as the API output. This should have been the behavior
             // all along to simplify usage
             if (null !== $output) {
-                $response->setData($output);
+                $this->getResponse()->setData($output);
             }
 
             $this->after();
         }
 
-        return $response;
+        return $this->getResponse();
     }
 
     /**
