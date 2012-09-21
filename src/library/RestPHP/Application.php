@@ -310,7 +310,8 @@ class Application
         }
 
         if ($this->getEnvironment()->getEnv() == Environment::DEVELOPMENT) {
-            if ($response instanceof \RestPHP\Response\ErrorResponse) {
+            if ($response instanceof \RestPHP\Response\ErrorResponse
+                && $response->getException()) {
                 $response->exception = $response->getException()->getMessage();
             }
         }
