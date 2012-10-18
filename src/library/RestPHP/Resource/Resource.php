@@ -140,6 +140,16 @@ class Resource
     }
 
     /**
+     * Proxy method to get all parameters from the request
+     *
+     * @see \RestPHP\Request\Request::getParams
+     * @return mixed
+     */
+    public function getParams() {
+        return $this->getRequest()->getParams();
+    }
+
+    /**
      * Proxy method to set output data
      *
      * @see \RestPHP\Response\Response::setData
