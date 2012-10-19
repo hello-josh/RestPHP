@@ -90,8 +90,15 @@ class Json implements IMarshaller
             }
 
             return $out;
+
+        } elseif ($data instanceof \DateTime) {
+
+            return $data->format(\DateTime::ISO8601);
+
         } elseif (is_object($data) && method_exists($data, 'toArray')) {
+            
             return $this->convert($data->toArray());
+
         } else {
             return $data;
         }
