@@ -60,8 +60,15 @@ use RestPHP\Request\Request;
  */
 class ErrorResponse extends Response
 {
+    /**
+     * @var \Exception
+     */
     protected $exception;
 
+    /**
+     * @param \RestPHP\Request\Request $request
+     * @param \Exception $e
+     */
     public function __construct(Request $request, \Exception $e = null) {
         parent::__construct($request);
         $this->setStatus(Response::HTTP_500);
@@ -72,10 +79,16 @@ class ErrorResponse extends Response
         }
     }
 
+    /**
+     * @return \Exception
+     */
     public function getException() {
         return $this->exception;
     }
 
+    /**
+     * @param \Exception $e
+     */
     public function setException(\Exception $e) {
         $this->exception = $e;
     }

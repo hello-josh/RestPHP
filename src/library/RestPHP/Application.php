@@ -312,7 +312,11 @@ class Application
         if ($this->getEnvironment()->getEnv() == Environment::DEVELOPMENT) {
             if ($response instanceof \RestPHP\Response\ErrorResponse
                 && $response->getException()) {
-                $response->exception = $response->getException()->getMessage();
+                $response->exception =  array(
+                    'type' => get_class($response->getException()),
+                    'message' => $response->getException()->getMessage(),
+                    'trace' => $response->getException()->getTraceAsString()
+                );
             }
         }
 
