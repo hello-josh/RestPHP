@@ -1,3 +1,4 @@
 RewriteEngine On
 # everything falls through to RestPHP
+RewriteCond %{REQUEST_URI} !=/favicon.ico
 RewriteRule .* index.php [L]

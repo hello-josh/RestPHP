@@ -394,6 +394,9 @@ class Response
                 $this->body = $this->getMarshaller()->marshall($this);
                 $this->setContentType($this->getMarshaller()->getContentType());
             } catch (NoValidMarshallerException $e) {
+
+                // TODO move this check before routing so we don't waste effort
+                // on an operation when the client cannot process the response
                 $this->setStatus(self::HTTP_406);
                 $this->message = 'The server does not know how to respond to your Accept type of ' . $this->getRequest()->getHeader('Accept');
             }

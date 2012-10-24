@@ -70,15 +70,15 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->response = new \RestPHP\Response\Response();
+        $this->response = new \RestPHP\Response\Response(new \RestPHP\Request\Request());
     }
 
     /**
-     * Default all HTTP verbs to 501 Not Implemented
+     * Default all HTTP verbs to 200 OK
      */
-    public function testDefaultStatusIs501NotImplemented()
+    public function testDefaultStatusIs200Ok()
     {
-        $this->assertEquals(501, $this->response->getStatus());
+        $this->assertEquals(200, $this->response->getStatus());
     }
 
     /**
@@ -88,10 +88,10 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
     {
         $response = $this->response;
         $response->setIsFgci(true);
-        $this->assertEquals('Status: 501 Not Implemented', $response->makeStatus());
-
-        $response->setStatus(200);
         $this->assertEquals('Status: 200 OK', $response->makeStatus());
+
+        $response->setStatus(501);
+        $this->assertEquals('Status: 501 Not Implemented', $response->makeStatus());
     }
 
     /**
@@ -101,10 +101,10 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
     {
         $response = $this->response;
         $response->setIsHttp(true);
-        $this->assertEquals('HTTP/1.1 501 Not Implemented', $response->makeStatus());
-
-        $response->setStatus(200);
         $this->assertEquals('HTTP/1.1 200 OK', $response->makeStatus());
+
+        $response->setStatus(501);
+        $this->assertEquals('HTTP/1.1 501 Not Implemented', $response->makeStatus());
     }
 
     /**

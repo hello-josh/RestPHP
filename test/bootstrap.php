@@ -43,8 +43,9 @@
 
 // barebones file for now and an inline autoloader
 set_include_path(
-    realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src')
-    . PATH_SEPARATOR . get_include_path());
+    realpath(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src'
+        . DIRECTORY_SEPARATOR . 'library')
+        . PATH_SEPARATOR . get_include_path());
 
 include 'RestPHP/Autoloader.php';
 

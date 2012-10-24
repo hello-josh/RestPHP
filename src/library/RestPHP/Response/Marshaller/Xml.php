@@ -40,10 +40,6 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-/**
- * @namespace
- */
-
 namespace RestPHP\Response\Marshaller;
 
 /**
@@ -56,15 +52,26 @@ namespace RestPHP\Response\Marshaller;
  */
 class Xml implements IMarshaller
 {
+
+    /**
+     * @var \DomDocument
+     */
+    private $xml;
+
+    private $rootNode;
+
     /**
      * Converts an associative array to XML wrapped in the root node &gt;response&gt;
      *
      * @param \RestPHP\Response\Response $response
      * @return string
      */
-    public function marshall(\RestPHP\Response\Response $response)
-    {
-        return \Array2XML::createXML('response', $response->getData())->saveXML();
+    public function marshall(\RestPHP\Response\Response $response) {
+        $this->xml = new \DomDocument('1.0', 'UTF-8');
+        $this->xml->formatOutput = true;
+        $this->rootNode = $this->xml->appendChild($this->xml->createElement('response'));
+        $this->convert($response->getData(), $this->rootNode);
+        return $this->xml->saveXML();
     }
 
     /**
@@ -72,5 +79,69 @@ class Xml implements IMarshaller
      */
     public function getContentType() {
         return 'application/xml';
+    }
+
+    /**
+     * Converts the given data into a suitable xml representation
+     *
+     * @param mixed $data
+     * @param \DOMNode $attachTo
+     */
+    protected function convert($data, \DOMNode $attachTo) {
+
+        if (is_array($data) || $data instanceof \Traversable) {
+            foreach ($data as $k => $datum) {
+                if (is_int($k)) {
+                    if ($attachTo === $this->rootNode) {
+                        $name = 'item';
+                    } else {
+                        $name = $this->depluralize($attachTo->nodeName);
+                    }
+                    $k = $this->xml->createElement($name);
+                } else {
+                    $k = $this->xml->createElement($k);
+                }
+
+                $this->convert($datum, $attachTo->appendChild($k));
+            }
+        } elseif (is_object($data) && method_exists($data, 'toArray')) {
+
+            $this->convert($data->toArray(), $attachTo);
+        } else {
+            $attachTo->appendChild($this->xml->createTextNode($data));
+        }
+    }
+
+    /**
+     * Converts a plural word to it's singular form
+     *
+     * @link https://sites.google.com/site/chrelad/notes-1/pluraltosingularwithphp Unknown author - comments removed for brevity
+     * @param string $word
+     * @return string
+     */
+    protected function depluralize($word) {
+        $rules = array(
+            // plural => singular map
+            'ss'  => false,
+            'os'  => 'o',
+            'ies' => 'y',
+            'xes' => 'x',
+            'oes' => 'o',
+            'ies' => 'y',
+            'ves' => 'f',
+            's'   => '');
+        foreach (array_keys($rules) as $key) {
+
+            if (substr($word, (strlen($key) * -1)) != $key) {
+                continue;
+            }
+
+            if ($key === false) {
+                return $word;
+            }
+
+            return substr($word, 0, strlen($word) - strlen($key)) . $rules[$key];
+        }
+        return $word;
     }
 }

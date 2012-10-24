@@ -71,7 +71,10 @@ class IndexResource extends \RestPHP\Resource\Resource
         return array(
             $greeting,
             $mymapwrapper->serialize(),
-            'mymap' => $mymap
+            'mymap' => $mymap,
+            'hamburgers' => array(
+                'Well Done', 'Burnt'
+            )
         );
     }
 
