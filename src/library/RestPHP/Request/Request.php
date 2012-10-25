@@ -342,7 +342,6 @@ class Request
     {
         if ($this->body === null) {
 
-
             switch ($this->getHttpMethod()) {
 
                 // request body is only allowed for

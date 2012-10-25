@@ -59,7 +59,7 @@ namespace RestPHP\Request\Header;
  */
 class HeaderFactory
 {
-    const XHEADER = 'XHeader';
+    private static $XHEADER = 'XHeader';
 
     protected static $headers = array(
         'Accept' => 'Accept',
@@ -105,7 +105,7 @@ class HeaderFactory
         if (isset(static::$headers[$header])) {
             $headerClass = static::$headers[$header];
         } elseif (strpos($header, 'X-') !== 0) {
-            $headerClass = static::XHEADER;
+            $headerClass = static::$XHEADER;
         } else {
             throw new \InvalidArgumentException('Unknown header: ' . $header);
         }
