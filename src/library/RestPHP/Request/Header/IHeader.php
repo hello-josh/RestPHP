@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP\Request\Header;
 
 /**
@@ -59,6 +59,7 @@ namespace RestPHP\Request\Header;
  */
 interface IHeader
 {
+
     /**
      * Parses the supplied header string into valid pieces for the HTTP Header
      *
@@ -68,7 +69,7 @@ interface IHeader
      */
     public function parse($header);
 
-    public function getRawValue();
+    public function getValue();
 
     /**
      * Classes must implement

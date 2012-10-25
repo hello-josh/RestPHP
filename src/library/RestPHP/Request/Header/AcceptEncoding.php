@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP\Request\Header;
 
 /**
@@ -84,8 +84,7 @@ class AcceptEncoding extends Header
      *
      * @param string $header the value of the Accept-Encoding header after the colon. An empty header implies identity only
      */
-    public function parse($header = 'identity')
-    {
+    public function parse($header = 'identity') {
         $this->resetEncodingQualityValues();
 
         foreach (preg_split('/\s*,\s*/', $header) as $i => $term) {
@@ -98,8 +97,7 @@ class AcceptEncoding extends Header
 
                 $o->type = strtolower($M[1]);
                 $o->q = (double) $M[2];
-            }
-            else {
+            } else {
 
                 $o->type = strtolower($term);
                 $o->q = 1;
@@ -139,8 +137,7 @@ class AcceptEncoding extends Header
                 // not explicitly include the "identity" content-coding.
                 if ($enc === 'identity') {
                     $this->encoding[$enc] = 1.0;
-                }
-                else {
+                } else {
                     $this->encoding[$enc] = 0.0;
                 }
             }
@@ -154,8 +151,7 @@ class AcceptEncoding extends Header
      *
      * @return array
      */
-    public function getEncodings()
-    {
+    public function getEncodings() {
         return $this->encoding;
     }
 
@@ -165,8 +161,7 @@ class AcceptEncoding extends Header
      *
      * @return string
      */
-    public function getPreferredEncoding()
-    {
+    public function getPreferredEncoding() {
         reset($this->encoding);
         $k = key($this->encoding);
 
@@ -191,8 +186,7 @@ class AcceptEncoding extends Header
      *
      * @return boolean
      */
-    public function isAccepted($encoding)
-    {
+    public function isAccepted($encoding) {
         $k = strtolower($encoding);
 
         // set and a non-zero quality means yes
@@ -207,12 +201,11 @@ class AcceptEncoding extends Header
     /**
      * Resets the qvalue for each accepted encoding
      */
-    protected function resetEncodingQualityValues()
-    {
+    protected function resetEncodingQualityValues() {
         $this->encoding = array(
-            'gzip'     => null,
+            'gzip' => null,
             'compress' => null,
-            'deflate'  => null,
+            'deflate' => null,
             'identity' => null
         );
     }

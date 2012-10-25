@@ -41,9 +41,6 @@
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
-/**
- * @namespace
- */
 namespace RestPHP\Request\Unmarshaller;
 
 /**
@@ -56,6 +53,7 @@ namespace RestPHP\Request\Unmarshaller;
  */
 interface IUnmarshaller
 {
+
     /**
      * Unmarshalls the request body into the proper type
      *

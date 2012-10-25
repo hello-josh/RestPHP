@@ -41,9 +41,6 @@
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
-/**
- * @namespace
- */
 namespace RestPHP\Request;
 
 use \RestPHP\Config,
@@ -313,13 +310,6 @@ class Request
      */
     public function setHeader($header, $value, $allowMultiple = false)
     {
-        if (!HeaderFactory::isStandardHeader($header)
-            && strpos($header, 'X-') !== 0) {
-
-            throw new \InvalidArgumentException(
-                    'Non-standard headers must be prefixed with an X- per HTTP spec');
-        }
-
         /* @var $headerObj \RestPHP\Request\Header\IHeader */
         $headerObj = HeaderFactory::factory($header);
 

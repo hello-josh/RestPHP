@@ -40,10 +40,6 @@
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
-
-/**
- * @namespace
- */
 namespace Example;
 
 /**
@@ -57,8 +53,7 @@ namespace Example;
  */
 class IndexResource extends \RestPHP\Resource\Resource
 {
-    public function get()
-    {
+    public function get() {
         $greeting = "hello";
 
         // this component uses mymap
@@ -78,8 +73,7 @@ class IndexResource extends \RestPHP\Resource\Resource
         );
     }
 
-    public function post()
-    {
+    public function post() {
         return $this->getRequest()->getParams();
     }
 }

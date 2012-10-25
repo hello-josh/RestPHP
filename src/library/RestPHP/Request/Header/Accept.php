@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP\Request\Header;
 
 /**
@@ -79,9 +79,8 @@ class Accept extends Header
      *
      * @param string $header the value of the Accept header after the colon
      */
-    public function parse($header)
-    {
-        $this->rawValue = $header;
+    public function parse($header) {
+        $this->setValue($header);
 
         $this->mimeTypes = array();
 
@@ -108,9 +107,7 @@ class Accept extends Header
                 if (!isset($mime['q'])) {
                     $mime['q'] = 1;
                 }
-
-            }
-            else {
+            } else {
 
                 $mime['type'] = $term;
                 $mime['q'] = 1;
@@ -122,60 +119,58 @@ class Accept extends Header
         }
 
         // weighted sort
-        usort($accept, function ($a, $b) {
+        usort($accept,
+            function ($a, $b) {
 
-            // normal sort by quality
-            if ($b['q'] != $a['q']) {
-                // returning float breaks usort somehow?
-                if ($b['q'] > $a['q']) {
+                // normal sort by quality
+                if ($b['q'] != $a['q']) {
+                    // returning float breaks usort somehow?
+                    if ($b['q'] > $a['q']) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                }
+
+                // matching quality goes by most specific then finally
+                // by order
+                // Media ranges can be overridden by more specific media ranges
+                // or specific media types. If more than one media range
+                // applies to a given type, the most specific reference has
+                // precedence.
+                list($a['t'], $a['s']) = explode('/', $a['type']);
+                list($b['t'], $b['s']) = explode('/', $b['type']);
+
+                // not the same type, order by position
+                if ($a['t'] != $b['t']) {
+                    return $a['pos'] - $b['pos'];
+                }
+
+                // wildcards are lower priority
+                if ($a['s'] == '*') {
                     return 1;
                 }
-                else {
+
+                if ($b['s'] == '*') {
                     return -1;
                 }
-            }
 
-            // matching quality goes by most specific then finally
-            // by order
+                // remove extension to see if subtype is the same
+                list($a['st']) = explode(';', $a['s']);
+                list($b['st']) = explode(';', $b['s']);
 
-            // Media ranges can be overridden by more specific media ranges
-            // or specific media types. If more than one media range
-            // applies to a given type, the most specific reference has
-            // precedence.
-            list($a['t'], $a['s']) = explode('/', $a['type']);
-            list($b['t'], $b['s']) = explode('/', $b['type']);
+                // same type, different subtype
+                if ($a['t'] == $b['t'] && $a['st'] != $b['st']) {
+                    return $a['pos'] - $b['pos'];
+                }
 
-            // not the same type, order by position
-            if ($a['t'] != $b['t']) {
-                return $a['pos'] - $b['pos'];
+                // more specific extension?
+                if (count($b) == count($a)) {
+                    return $a['pos'] - $b['pos'];
+                }
 
-            }
-
-            // wildcards are lower priority
-            if ($a['s'] == '*') {
-                return 1;
-            }
-
-            if ($b['s'] == '*') {
-                return -1;
-            }
-
-            // remove extension to see if subtype is the same
-            list($a['st']) = explode(';', $a['s']);
-            list($b['st']) = explode(';', $b['s']);
-
-            // same type, different subtype
-            if ($a['t'] == $b['t'] && $a['st'] != $b['st']) {
-                return $a['pos'] - $b['pos'];
-            }
-
-            // more specific extension?
-            if (count($b) == count($a)) {
-                return $a['pos'] - $b['pos'];
-            }
-
-            return count($b) - count($a);
-        });
+                return count($b) - count($a);
+            });
 
         foreach ($accept as $a) {
 
@@ -188,8 +183,7 @@ class Accept extends Header
      *
      * @return array
      */
-    public function getTypes()
-    {
+    public function getTypes() {
         return $this->mimeTypes;
     }
 
@@ -199,8 +193,7 @@ class Accept extends Header
      *
      * @return string
      */
-    public function getPreferredType()
-    {
+    public function getPreferredType() {
         reset($this->mimeTypes);
         return $this->mimeTypes[key($this->mimeTypes)];
     }
@@ -216,8 +209,7 @@ class Accept extends Header
      *
      * @return boolean
      */
-    public function isAccepted($mimeType)
-    {
+    public function isAccepted($mimeType) {
         $mimeType = strtolower($mimeType);
 
         // straight match
@@ -239,5 +231,4 @@ class Accept extends Header
 
         return false;
     }
-
 }

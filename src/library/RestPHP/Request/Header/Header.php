@@ -43,6 +43,7 @@
 /**
  * @namespace
  */
+
 namespace RestPHP\Request\Header;
 
 /**
@@ -60,20 +61,28 @@ abstract class Header implements IHeader
     /**
      * @var string
      */
-    protected $rawValue;
+    protected $value;
 
     /**
      * Gets the header value passed
      * @return string
      */
-    public function getRawValue() {
-        return $this->rawValue;
+    public function getValue() {
+        return $this->value;
+    }
+
+    /**
+     * Gets the header value as originally set
+     * @param string $value
+     */
+    public function setValue($value) {
+        $this->value = $value;
     }
 
     /**
      * Returns the raw, pre-parsed header value
      */
     public function __toString() {
-        return $this->getRawValue();
+        return $this->getValue();
     }
 }

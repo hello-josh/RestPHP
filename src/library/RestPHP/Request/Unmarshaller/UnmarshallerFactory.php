@@ -41,9 +41,6 @@
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
-/**
- * @namespace
- */
 namespace RestPHP\Request\Unmarshaller;
 
 /**
@@ -62,9 +59,8 @@ class UnmarshallerFactory
      * @return \RestPHP\Request\Unmarshaller\IUnmarshaller
      * @throws \RestPHP\Request\Unmarshaller\NoValidUnmarshallerException
      */
-    public static function factory(\RestPHP\Request\Header\ContentType $contentType = null)
-    {
-        switch ($contentType->getRawValue()) {
+    public static function factory(\RestPHP\Request\Header\ContentType $contentType = null) {
+        switch ($contentType->getValue()) {
 
             case 'text/xml':
             case 'application/xml':

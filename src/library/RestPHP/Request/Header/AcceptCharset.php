@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP\Request\Header;
 
 /**
@@ -91,9 +91,8 @@ class AcceptCharset extends Header
      *
      * @param string $header the value of the Accept-Charset header after the colon
      */
-    public function parse($header)
-    {
-        $this->rawValue = $header;
+    public function parse($header) {
+        $this->setValue($header);
 
         $this->charsets = array();
 
@@ -111,8 +110,7 @@ class AcceptCharset extends Header
 
                 $o->type = $M[1];
                 $o->q = (double) $M[2];
-            }
-            else {
+            } else {
 
                 $o->type = $term;
                 $o->q = 1;
@@ -140,27 +138,26 @@ class AcceptCharset extends Header
         }
 
         // weighted sort
-        usort($accept, function ($a, $b) {
+        usort($accept,
+            function ($a, $b) {
 
-            // first tier: highest q factor wins
-            $diff = $b->q - $a->q;
+                // first tier: highest q factor wins
+                $diff = $b->q - $a->q;
 
-            if ($diff > 0) {
+                if ($diff > 0) {
 
-                $diff = 1;
-            }
-            else if ($diff < 0) {
+                    $diff = 1;
+                } else if ($diff < 0) {
 
-                $diff = -1;
-            }
-            else {
+                    $diff = -1;
+                } else {
 
-                // tie-breaker: first listed item wins
-                $diff = $a->pos - $b->pos;
-            }
+                    // tie-breaker: first listed item wins
+                    $diff = $a->pos - $b->pos;
+                }
 
-            return $diff;
-        });
+                return $diff;
+            });
 
         foreach ($accept as $a) {
 
@@ -174,8 +171,7 @@ class AcceptCharset extends Header
      *
      * @return array
      */
-    public function getCharsets()
-    {
+    public function getCharsets() {
         return array_keys($this->charsets);
     }
 
@@ -185,8 +181,7 @@ class AcceptCharset extends Header
      *
      * @return string
      */
-    public function getPreferredCharset()
-    {
+    public function getPreferredCharset() {
         return $this->charsets[key($this->charsets)]->type;
     }
 
@@ -200,8 +195,7 @@ class AcceptCharset extends Header
      *
      * @return boolean
      */
-    public function isAccepted($charset)
-    {
+    public function isAccepted($charset) {
         if (count($this->charsets) == 0) {
             return true;
         }

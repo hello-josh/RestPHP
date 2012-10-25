@@ -40,9 +40,6 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-/**
- * @namespace
- */
 
 namespace RestPHP\Request\Unmarshaller;
 
@@ -56,8 +53,7 @@ namespace RestPHP\Request\Unmarshaller;
  */
 class Json implements IUnmarshaller
 {
-    public function unmarshall($requestBody)
-    {
+    public function unmarshall($requestBody) {
         return json_decode($requestBody, true);
     }
 }

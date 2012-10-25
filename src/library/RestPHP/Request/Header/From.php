@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP\Request\Header;
 
 /**
@@ -60,13 +60,6 @@ namespace RestPHP\Request\Header;
  */
 class From extends Header
 {
-    protected $rawValue;
-
-    public function getRawValue()
-    {
-        return $this->rawValue;
-    }
-
     /**
      * Parses the HTTP From header
      *
@@ -74,9 +67,7 @@ class From extends Header
      *
      * @param string $header the value of the From header after the colon
      */
-    public function parse($header)
-    {
-        $this->rawValue = $header;
-        
+    public function parse($header) {
+        $this->setValue($header);
     }
 }

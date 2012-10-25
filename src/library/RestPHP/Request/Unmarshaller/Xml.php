@@ -40,9 +40,6 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-/**
- * @namespace
- */
 
 namespace RestPHP\Request\Unmarshaller;
 
@@ -60,8 +57,7 @@ class Xml implements IUnmarshaller
      * @param string $requestBody
      * @return array
      */
-    public function unmarshall($requestBody)
-    {
+    public function unmarshall($requestBody) {
         $it = new \SimpleXMLIterator($requestBody);
         return iterator_to_array($it);
     }

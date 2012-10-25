@@ -86,7 +86,7 @@ class AcceptLanguage extends Header
      * @param string $header the value of the Accept-Language header after the colon
      */
     public function parse($header) {
-        $this->rawValue = $header;
+        $this->setValue($header);
 
         $this->language = array();
 

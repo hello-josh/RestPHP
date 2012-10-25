@@ -40,10 +40,10 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
+
 namespace RestPHP\Request\Header;
 
 /**
@@ -59,55 +59,58 @@ namespace RestPHP\Request\Header;
  */
 class HeaderFactory
 {
+    const XHEADER = 'XHeader';
+
     protected static $headers = array(
-        'Accept'              => 'Accept',
-        'Accept-Charset'      => 'Accept-Charset',
-        'Accept-Encoding'     => 'Accept-Encoding',
-        'Accept-Language'     => 'Accept-Language',
-        'Authorization'       => 'Authorization',
-        'Cache-Control'       => 'Cache-Control',
-        'Connection'          => 'Connection',
-        'Cookie'              => 'Cookie',
-        'Content-Length'      => 'Content-Length',
-        'Content-MD5'         => 'Content-MD5',
-        'Content-Type'        => 'Content-Type',
-        'Date'                => 'Date',
-        'Expect'              => 'Expect',
-        'From'                => 'From',
-        'Host'                => 'Host',
-        'If-Match'            => 'If-Match',
-        'If-Modified-Since'   => 'If-Modified-Since',
-        'If-None-Match'       => 'If-None-Match',
-        'If-Range'            => 'If-Range',
-        'If-Unmodified-Since' => 'If-Unmodified-Since',
-        'Max-Forwards'        => 'Max-Forwards',
-        'Pragma'              => 'Pragma',
-        'Proxy-Authorization' => 'Proxy-Authorization',
-        'Range'               => 'Range',
-        'Referer'             => 'Referer',
-        'TE'                  => 'TE',
-        'Upgrade'             => 'Upgrade',
-        'User-Agent'          => 'User-Agent',
-        'Via'                 => 'Via',
-        'Warning'             => 'Warning',
-        'Origin'              => 'Origin'
+        'Accept' => 'Accept',
+        'Accept-Charset' => 'AcceptCharset',
+        'Accept-Encoding' => 'AcceptEncoding',
+        'Accept-Language' => 'AcceptLanguage',
+        'Authorization' => 'Authorization',
+        'Cache-Control' => 'CacheControl',
+        'Connection' => 'Connection',
+        'Cookie' => 'Cookie',
+        'Content-Length' => 'ContentLength',
+        'Content-MD5' => 'ContentMd5',
+        'Content-Type' => 'ContentType',
+        'Date' => 'Date',
+        'Expect' => 'Expect',
+        'From' => 'From',
+        'Host' => 'Host',
+        'If-Match' => 'IfMatch',
+        'If-Modified-Since' => 'IfModifiedSince',
+        'If-None-Match' => 'IfNoneMatch',
+        'If-Range' => 'IfRange',
+        'If-Unmodified-Since' => 'IfUnmodifiedSince',
+        'Max-Forwards' => 'MaxForwards',
+        'Pragma' => 'Pragma',
+        'Proxy-Authorization' => 'ProxyAuthorization',
+        'Range' => 'Range',
+        'Referer' => 'Referer',
+        'TE' => 'TE',
+        'Upgrade' => 'Upgrade',
+        'User-Agent' => 'UserAgent',
+        'Via' => 'Via',
+        'Warning' => 'Warning',
+        'Origin' => 'Origin'
     );
 
-    public static function factory($header)
-    {
-        $headerClass = 'XHeader';
-        if (static::isStandardHeader($header)) {
-            $header = str_replace('-', ' ', $header);
-            $header = ucwords(strtolower($header));
-            $headerClass = str_replace(' ', '', $header);
+    /**
+     * @param string $header
+     * @return \RestPHP\Request\Header\IHeader
+     * @throws \InvalidArgumentException
+     */
+    public static function factory($header) {
+
+        if (isset(static::$headers[$header])) {
+            $headerClass = static::$headers[$header];
+        } elseif (strpos($header, 'X-') !== 0) {
+            $headerClass = static::XHEADER;
+        } else {
+            throw new \InvalidArgumentException('Unknown header: ' . $header);
         }
 
         $headerClass = __NAMESPACE__ . '\\' . $headerClass;
         return new $headerClass();
-    }
-
-    public static function isStandardHeader($header)
-    {
-        return isset(static::$headers[$header]);
     }
 }
