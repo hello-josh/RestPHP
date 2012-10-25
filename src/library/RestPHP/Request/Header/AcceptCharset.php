@@ -76,13 +76,6 @@ namespace RestPHP\Request\Header;
  */
 class AcceptCharset extends Header
 {
-    protected $rawValue;
-
-    public function getRawValue()
-    {
-        return $this->rawValue;
-    }
-
     /**
      * Sorted list of charsets the client will accept
      *
@@ -101,7 +94,7 @@ class AcceptCharset extends Header
     public function parse($header)
     {
         $this->rawValue = $header;
-        
+
         $this->charsets = array();
 
         $accept = array();

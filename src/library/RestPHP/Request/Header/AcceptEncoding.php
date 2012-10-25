@@ -69,13 +69,6 @@ namespace RestPHP\Request\Header;
  */
 class AcceptEncoding extends Header
 {
-    protected $rawValue;
-
-    public function getRawValue()
-    {
-        return $this->rawValue;
-    }
-
     /**
      * Sorted list of content-codings the client will accept
      *

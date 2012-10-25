@@ -63,13 +63,6 @@ namespace RestPHP\Request\Header;
  */
 class Accept extends Header
 {
-    protected $rawValue;
-
-    public function getRawValue()
-    {
-        return $this->rawValue;
-    }
-
     /**
      * Sorted list of mime-types the client will accept
      *
@@ -89,7 +82,7 @@ class Accept extends Header
     public function parse($header)
     {
         $this->rawValue = $header;
-        
+
         $this->mimeTypes = array();
 
         $accept = array();

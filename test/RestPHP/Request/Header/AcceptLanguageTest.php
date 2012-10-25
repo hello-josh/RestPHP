@@ -40,7 +40,6 @@
  * @copyright  2011 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
@@ -60,19 +59,63 @@ namespace RestPHP\Request\Header;
  */
 class AcceptLanguageTest extends \PHPUnit_Framework_TestCase
 {
+
     /**
      *
      * @var \RestPHP\Request\Header\AcceptLanguage
      */
     protected $acceptLanguage;
 
-    public function setUp()
-    {
+    public function setUp() {
         $this->acceptLanguage = new \RestPHP\Request\Header\AcceptLanguage();
     }
 
-    public function testParse()
-    {
-        $this->markTestIncomplete('No tests implemented');
+    /**
+     *
+     * @return array
+     */
+    public function parseValues() {
+        return array(
+            array('en', array('en')),
+            array('da, en-gb;q=0.8, en;q=0.7', array('da', 'en-gb', 'en')),
+            array('da, en-gb;q=0.4, en;q=0.7', array('da', 'en', 'en-gb')),
+        );
+    }
+
+    /**
+     * @dataProvider parseValues
+     */
+    public function testParse($value, $expected) {
+        $header = $this->acceptLanguage;
+        $header->parse($value);
+        $this->assertEquals($expected, array_values($header->getLanguages()));
+    }
+
+    /**
+     * @return array
+     */
+    public function preferredLanguageValues() {
+        return array(
+            array('en', 'en'),
+            array('da, en-gb;q=0.8, en;q=0.7', 'da'),
+            array('en-gb;q=0.8, en;q=0.7', 'en-gb')
+        );
+    }
+
+    /**
+     * @dataProvider preferredLanguageValues
+     */
+    public function testGetPreferredLanguage($value, $preferred) {
+        $header = $this->acceptLanguage;
+        $header->parse($value);
+        $this->assertEquals($preferred, $header->getPreferredLanguage());
+    }
+
+    /**
+     *
+     */
+    public function testGetPreferredLanguageWhenNoHeaderPresent() {
+        $header = $this->acceptLanguage;
+        $this->assertEquals('*', $header->getPreferredLanguage());
     }
 }

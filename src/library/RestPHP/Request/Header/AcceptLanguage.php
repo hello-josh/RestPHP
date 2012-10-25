@@ -41,9 +41,6 @@
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
 
-/**
- * @namespace
- */
 namespace RestPHP\Request\Header;
 
 /**
@@ -73,13 +70,6 @@ namespace RestPHP\Request\Header;
  */
 class AcceptLanguage extends Header
 {
-    protected $rawValue;
-
-    public function getRawValue()
-    {
-        return $this->rawValue;
-    }
-
     /**
      * Sorted list of languages the client will accept
      *
@@ -95,8 +85,7 @@ class AcceptLanguage extends Header
      *
      * @param string $header the value of the Accept-Language header after the colon
      */
-    public function parse($header)
-    {
+    public function parse($header) {
         $this->rawValue = $header;
 
         $this->language = array();
@@ -113,8 +102,7 @@ class AcceptLanguage extends Header
 
                 $o->type = $M[1];
                 $o->q = (double) $M[2];
-            }
-            else {
+            } else {
 
                 $o->type = $term;
                 $o->q = 1;
@@ -124,27 +112,26 @@ class AcceptLanguage extends Header
         }
 
         // weighted sort
-        uasort($this->accept, function ($a, $b) {
+        uasort($this->accept,
+            function ($a, $b) {
 
-            // first tier: highest q factor wins
-            $diff = $b->q - $a->q;
+                // first tier: highest q factor wins
+                $diff = $b->q - $a->q;
 
-            if ($diff > 0) {
+                if ($diff > 0) {
 
-                $diff = 1;
-            }
-            else if ($diff < 0) {
+                    $diff = 1;
+                } else if ($diff < 0) {
 
-                $diff = -1;
-            }
-            else {
+                    $diff = -1;
+                } else {
 
-                // tie-breaker: first listed item wins
-                $diff = $a->pos - $b->pos;
-            }
+                    // tie-breaker: first listed item wins
+                    $diff = $a->pos - $b->pos;
+                }
 
-            return $diff;
-        });
+                return $diff;
+            });
 
         foreach ($this->accept as $a) {
 
@@ -157,8 +144,7 @@ class AcceptLanguage extends Header
      *
      * @return array
      */
-    public function getLanguages()
-    {
+    public function getLanguages() {
         return $this->language;
     }
 
@@ -168,8 +154,7 @@ class AcceptLanguage extends Header
      *
      * @return string
      */
-    public function getPreferredLanguage()
-    {
+    public function getPreferredLanguage() {
         if (count($this->language) == 0) {
             return '*';
         }
@@ -190,8 +175,7 @@ class AcceptLanguage extends Header
      *
      * @return boolean
      */
-    public function isAccepted($language)
-    {
+    public function isAccepted($language) {
         $k = strtolower($language);
 
         // set and a non-zero quality
@@ -199,19 +183,19 @@ class AcceptLanguage extends Header
             return (bool) $this->accept[$k]->q;
         }
 
-        // or wildcard and a non-zero quality
-        if (isset($this->language['*'])) {
-            return (bool) $this->accept['*']->q;
-        }
-
         // handle the acceptance of language without range
         if (strpos('-', $k)) {
 
-            list($type, $subType) = explode('-', $k, 2);
+            list($type) = explode('-', $k, 1);
 
             if (isset($this->language[$type])) {
                 return (bool) $this->accept[$type]->q;
             }
+        }
+
+        // or wildcard and a non-zero quality
+        if (isset($this->language['*'])) {
+            return (bool) $this->accept['*']->q;
         }
 
         return false;

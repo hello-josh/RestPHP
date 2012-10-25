@@ -40,7 +40,6 @@
  * @copyright  2012 RestPHP Framework
  * @license    http://opensource.org/licenses/bsd-license.php New BSD License
  */
-
 /**
  * @namespace
  */
@@ -58,6 +57,19 @@ namespace RestPHP\Request\Header;
  */
 abstract class Header implements IHeader
 {
+    /**
+     * @var string
+     */
+    protected $rawValue;
+
+    /**
+     * Gets the header value passed
+     * @return string
+     */
+    public function getRawValue() {
+        return $this->rawValue;
+    }
+
     /**
      * Returns the raw, pre-parsed header value
      */
