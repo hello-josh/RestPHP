@@ -104,7 +104,7 @@ class HeaderFactory
 
         if (isset(static::$headers[$header])) {
             $headerClass = static::$headers[$header];
-        } elseif (strpos($header, 'X-') !== 0) {
+        } elseif (strpos($header, 'X-') === 0) {
             $headerClass = static::$XHEADER;
         } else {
             throw new \InvalidArgumentException('Unknown header: ' . $header);
