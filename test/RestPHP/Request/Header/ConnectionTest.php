@@ -73,6 +73,8 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
 
     public function testParse()
     {
-        $this->markTestIncomplete('No tests implemented');
+        $value = "Close";
+        $this->header->parse($value);
+        $this->assertEquals($value, $this->header->getValue());
     }
 }

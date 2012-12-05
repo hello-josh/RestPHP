@@ -73,6 +73,10 @@ class ContentMd5Test extends \PHPUnit_Framework_TestCase
 
     public function testParse()
     {
-        $this->markTestIncomplete('No tests implemented');
+        $value = md5("3456");
+
+        $this->header->parse($value);
+
+        $this->assertEquals($value, $this->header->getValue());
     }
 }

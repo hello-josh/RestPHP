@@ -68,6 +68,6 @@ class ContentLength extends Header
      * @param string $header the value of the Content-Length header after the colon
      */
     public function parse($header) {
-        $this->setValue($header);
+        $this->setValue((int) $header);
     }
 }

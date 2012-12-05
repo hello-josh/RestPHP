@@ -73,6 +73,10 @@ class ContentLengthTest extends \PHPUnit_Framework_TestCase
 
     public function testParse()
     {
-        $this->markTestIncomplete('No tests implemented');
+        $value = "3456";
+
+        $this->header->parse($value);
+
+        $this->assertEquals((int) $value, $this->header->getValue());
     }
 }
